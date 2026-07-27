@@ -12,6 +12,8 @@ test("empty intake is valid only as a resumable draft", () => {
   assert.equal(
     finalIntakeSchema.safeParse({
       ...draft,
+      dataConfirmationAccepted: true,
+      dataConfirmationVersion: "data-confirmation-v1",
       generationConsentAccepted: true,
       generationConsentVersion: "consent-v1",
     }).success,
@@ -29,6 +31,8 @@ test("complete consented intake validates", () => {
   };
   const parsed = finalIntakeSchema.safeParse({
     contactStatus: "none",
+    dataConfirmationAccepted: true,
+    dataConfirmationVersion: "data-confirmation-v1",
     generationConsentAccepted: true,
     generationConsentVersion: "consent-v1",
     mainQuestion: "stay-or-let-go",
@@ -55,6 +59,8 @@ test("unknown nonempty birth cities fail closed instead of skipping a chart", ()
   };
   const parsed = finalIntakeSchema.safeParse({
     contactStatus: "none",
+    dataConfirmationAccepted: true,
+    dataConfirmationVersion: "data-confirmation-v1",
     generationConsentAccepted: true,
     generationConsentVersion: "consent-v1",
     mainQuestion: "stay-or-let-go",

@@ -278,6 +278,7 @@ def _http_error_code(error: urllib.error.HTTPError) -> str:
 def _valid_claim_response(payload: dict[str, Any], worker_id: str) -> bool:
     required_strings = (
         "analysis_datetime",
+        "data_confirmation_version",
         "fulfillment_id",
         "generation_consent_version",
         "intake_version",

@@ -61,8 +61,11 @@ export async function GET(request: NextRequest) {
         return privateJson({ error: "READING_INTAKE_UNAVAILABLE" }, { status: 503 });
       }
       return privateJson({
-        consentVersion: environment.VALLEY_GENERATION_CONSENT_VERSION,
+        dataConfirmationVersion:
+          environment.VALLEY_DATA_CONFIRMATION_VERSION,
         draft,
+        generationConsentVersion:
+          environment.VALLEY_GENERATION_CONSENT_VERSION,
         state,
       });
     }

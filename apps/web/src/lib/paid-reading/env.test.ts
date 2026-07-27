@@ -12,6 +12,7 @@ const validEnvironment = {
   NODE_ENV: "test",
   VALLEY_ACCESS_SIGNING_SECRET: "test-only-access-signing-secret-with-32-bytes",
   VALLEY_CHECKOUT_TERMS_VERSION: "checkout-v1",
+  VALLEY_DATA_CONFIRMATION_VERSION: "data-confirmation-v1",
   VALLEY_GENERATION_CONSENT_VERSION: "consent-v1",
   VALLEY_SUPABASE_SERVICE_ROLE_KEY: "test-service-role-key-with-enough-length",
   VALLEY_SUPABASE_URL: "http://127.0.0.1:54321",

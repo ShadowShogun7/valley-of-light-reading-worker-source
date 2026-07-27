@@ -55,6 +55,15 @@ def build_reading_input(job: dict[str, Any]) -> dict[str, Any]:
     final_payload = job.get("final_payload")
     if not isinstance(final_payload, dict):
         raise IntakeMappingError("INVALID_FINAL_INTAKE")
+    data_confirmation_version = job.get("data_confirmation_version")
+    if (
+        final_payload.get("dataConfirmationAccepted") is not True
+        or not isinstance(data_confirmation_version, str)
+        or not data_confirmation_version
+        or final_payload.get("dataConfirmationVersion")
+        != data_confirmation_version
+    ):
+        raise IntakeMappingError("DATA_CONFIRMATION_MISMATCH")
     consent_version = job.get("generation_consent_version")
     if (
         final_payload.get("generationConsentAccepted") is not True

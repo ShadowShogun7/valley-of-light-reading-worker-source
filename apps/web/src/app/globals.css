@@ -19739,6 +19739,11 @@ body {
   padding: 16px;
 }
 
+.intake-design-consent-list {
+  display: grid;
+  gap: 12px;
+}
+
 .intake-design-consent input {
   accent-color: #d9b56d;
   flex: 0 0 auto;

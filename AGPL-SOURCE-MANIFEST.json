@@ -29,13 +29,13 @@
     },
     {
       "path": "apps/web/.env.example",
-      "sha256": "6ea2bbdff6d72b5db9879f4897293e10e8efa2aeb30e7787eaee11c0fc796284",
-      "size": 2777
+      "sha256": "d50d3b8f2b219a0069c0807cee83afd0b3e6dbf8da18930f7a2d7c2765148e36",
+      "size": 2811
     },
     {
       "path": "apps/web/.env.staging.example",
-      "sha256": "461761fc0d73b0630ad8943840b881ec9f9abb69c385d3048f29ccc952ccdb06",
-      "size": 2396
+      "sha256": "310add9f73f4fee570e98712c652126cd43c8fb1bfb844ee63030339cde588e5",
+      "size": 2458
     },
     {
       "path": "apps/web/.gitignore",
@@ -149,13 +149,13 @@
     },
     {
       "path": "apps/web/src/app/api/reading-access/route.ts",
-      "sha256": "0ae5c0072bdbb3ee81ca9bebd749e2d2d2c8a394670c61ead95e08b0ed8e1ee8",
-      "size": 3084
+      "sha256": "b31092a1994ba4f9c9fdb105a3146caee16934cbc5c0377d5dbd65b3b5d47ded",
+      "size": 3193
     },
     {
       "path": "apps/web/src/app/api/reading-access/submit/route.ts",
-      "sha256": "4232a4f5bdb40f1885ca7f5688fc42ec6dacc60a382efdb52020938e56bb2623",
-      "size": 3639
+      "sha256": "e8cf171c332744647025c2f11e77d04c258cf4f3143abb15596e30a01ebe8fb3",
+      "size": 4159
     },
     {
       "path": "apps/web/src/app/api/readings/free-result/route.ts",
@@ -169,8 +169,8 @@
     },
     {
       "path": "apps/web/src/app/globals.css",
-      "sha256": "b16fb7600b7694b86257c9e620d589cba8c5f9345ddfe5aeb858a2ee1bb520ab",
-      "size": 395101
+      "sha256": "9cd020ccae8fd0b938a8ae3c98da8e8a951e9b96ccb150f90eebb51ffe1bfc46",
+      "size": 395164
     },
     {
       "path": "apps/web/src/app/layout.tsx",
@@ -229,13 +229,13 @@
     },
     {
       "path": "apps/web/src/components/IntakeFlow.tsx",
-      "sha256": "b4a7498be5c5f6da3b9e244f889631897534d253a35419a0635d76c412e389ea",
-      "size": 36497
+      "sha256": "3e1db34ac18b8ed324708158054531bc147f162881f2eae1f1954290c0112f62",
+      "size": 37861
     },
     {
       "path": "apps/web/src/components/PaidReadingJourney.tsx",
-      "sha256": "a723e342f7c6136fdfc08387a0359f757d3feecb33b2e5e12df91ac56e9f5a33",
-      "size": 7453
+      "sha256": "8827af245ae94d1eea1f01098472552c29f068590ae2da55f96de97ac270a13e",
+      "size": 8123
     },
     {
       "path": "apps/web/src/components/Phase5ReviewDashboard.tsx",
@@ -288,6 +288,16 @@
       "size": 795
     },
     {
+      "path": "apps/web/src/lib/paid-reading/consent.test.ts",
+      "sha256": "81b5cf41d1d521926de34a11e97c7476562fde7cd12581b8112d4cb5fae07551",
+      "size": 664
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/consent.ts",
+      "sha256": "29d5776f1385d109b52634ada062afcdf66fbdce94aab8dd54157bb711c9c8bf",
+      "size": 975
+    },
+    {
       "path": "apps/web/src/lib/paid-reading/crypto.test.ts",
       "sha256": "43dc2c8dff186b8090a955ba5b3964149e282de6c1ae1096ba838337c2d8828c",
       "size": 3407
@@ -314,13 +324,13 @@
     },
     {
       "path": "apps/web/src/lib/paid-reading/env.test.ts",
-      "sha256": "da0e715e1811ae147cb28b6c87bd302294785a3c90d572d7309ca88d69e839e9",
-      "size": 11074
+      "sha256": "77b577ce6c3f4eb8657372e5034f8b86358d5148bb07b65d87487bd2f87c73b0",
+      "size": 11134
     },
     {
       "path": "apps/web/src/lib/paid-reading/env.ts",
-      "sha256": "a3a56b9a1f2ee3dbe461cde1f35cb5c372413ec7325c2adec2216194dc9e0b9f",
-      "size": 14060
+      "sha256": "6a4bfdde0c08d49422702ddabf59851c75505cc36d641c864e870fcd56eaeb97",
+      "size": 14204
     },
     {
       "path": "apps/web/src/lib/paid-reading/http.ts",
@@ -329,13 +339,13 @@
     },
     {
       "path": "apps/web/src/lib/paid-reading/intake.test.ts",
-      "sha256": "3dc11468745b1bd5e1dc6519f4fcccebde5cadec8929eed3fdf7127daf12cce0",
-      "size": 1864
+      "sha256": "28b87f67f768930695a6b4b0c494f2fc84fa12cad2e70d03d144aa35b327e9e7",
+      "size": 2135
     },
     {
       "path": "apps/web/src/lib/paid-reading/intake.ts",
-      "sha256": "47ee72f4fceaacfa496a3a6fd6209532ce68d082aab6a7859ad5253775e0a3b2",
-      "size": 4540
+      "sha256": "e690e66bd9f1a5f099821b46f3897a3558e2b73cb528ccafaf696e5ab504cfc1",
+      "size": 4643
     },
     {
       "path": "apps/web/src/lib/paid-reading/locations.ts",
@@ -344,8 +354,8 @@
     },
     {
       "path": "apps/web/src/lib/paid-reading/repository.ts",
-      "sha256": "ac4471b1545ea2d30c6e95ebc5d9f96080794b17efe116587cd6fa3c00b7b4ac",
-      "size": 20669
+      "sha256": "8f69c3f9673e7bf3fd6704f3d80b9e66889cce290512a6ec9793676d362dadcf",
+      "size": 21174
     },
     {
       "path": "apps/web/src/lib/paid-reading/schema.test.ts",
@@ -1704,8 +1714,8 @@
     },
     {
       "path": "services/reading-worker/reading_worker/client.py",
-      "sha256": "fbb724e03809425a9ecb0c84435641c1e7ce71e60e1e77252088042a2ec7e51e",
-      "size": 10658
+      "sha256": "55799cd2731d714d9c06bc6fef41735f6b9a427ce2079ed109e94ad2d9711af5",
+      "size": 10695
     },
     {
       "path": "services/reading-worker/reading_worker/config.py",
@@ -1729,8 +1739,8 @@
     },
     {
       "path": "services/reading-worker/reading_worker/intake.py",
-      "sha256": "b89a8f8a7ccb4a3cbc0f1a9ed6e9bd4fff163b341f3725587ea7e8fa877ea527",
-      "size": 7253
+      "sha256": "29bc65e1b715eab2bf5589c01665c036f64665d6f5621e3edaf6fcb39cc9fee2",
+      "size": 7659
     },
     {
       "path": "services/reading-worker/reading_worker/main.py",
@@ -1789,8 +1799,8 @@
     },
     {
       "path": "services/reading-worker/tests/test_intake.py",
-      "sha256": "82ced861f7056512249875e93d624072023301ed794db551b0a7bab3826958cb",
-      "size": 3278
+      "sha256": "71beaf85dbb152ed5f383e6bc479f44d60818420a2c666e176c68b85ff219e14",
+      "size": 3794
     },
     {
       "path": "services/reading-worker/tests/test_runtime_location.py",
@@ -1819,8 +1829,8 @@
     },
     {
       "path": "supabase/migrations/20260726170000_add_paid_reading_delivery.sql",
-      "sha256": "999e6fbcf7818aaae4ff53359e113f7559973a503dda20d154f031353d85029f",
-      "size": 153629
+      "sha256": "88f4da7d52d8d5a3df3a20d62a973903a19e6cc32da5e4f37e8552028db11d40",
+      "size": 155802
     },
     {
       "path": "wiki/ARTICLE_TEMPLATE.md",
@@ -2464,6 +2474,6 @@
     }
   ],
   "license": "AGPL-3.0-or-later",
-  "releaseId": "v2026.07.27.2",
-  "sourceUrl": "https://github.com/ShadowShogun7/valley-of-light-reading-worker-source/releases/download/v2026.07.27.2/valley-of-light-agpl-source-v2026.07.27.2.zip"
+  "releaseId": "v2026.07.27.3",
+  "sourceUrl": "https://github.com/ShadowShogun7/valley-of-light-reading-worker-source/releases/tag/v2026.07.27.3"
 }

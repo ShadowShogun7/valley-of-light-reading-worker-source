@@ -12,9 +12,10 @@ import type { CompleteRelationshipResultViewModel } from "@/data/complete-relati
 type JourneyState = "loading" | "intake" | "processing" | "ready" | "error";
 
 type LookupPayload = {
-  consentVersion?: string;
+  dataConfirmationVersion?: string;
   draft?: IntakeAnswers;
   error?: string;
+  generationConsentVersion?: string;
   result?: Record<string, unknown>;
   state?: "intake" | "processing" | "ready";
 };
@@ -24,7 +25,8 @@ const brand = { subtitle: "Valley of Light", title: "光之谷" };
 export function PaidReadingJourney() {
   const [journeyState, setJourneyState] = useState<JourneyState>("loading");
   const [draft, setDraft] = useState<IntakeAnswers | undefined>();
-  const [consentVersion, setConsentVersion] = useState("");
+  const [dataConfirmationVersion, setDataConfirmationVersion] = useState("");
+  const [generationConsentVersion, setGenerationConsentVersion] = useState("");
   const [result, setResult] = useState<Record<string, unknown> | null>(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -50,9 +52,15 @@ export function PaidReadingJourney() {
         return;
       }
       setErrorMessage("");
-      if (payload.state === "intake" && payload.draft && payload.consentVersion) {
+      if (
+        payload.state === "intake" &&
+        payload.draft &&
+        payload.dataConfirmationVersion &&
+        payload.generationConsentVersion
+      ) {
         setDraft(payload.draft);
-        setConsentVersion(payload.consentVersion);
+        setDataConfirmationVersion(payload.dataConfirmationVersion);
+        setGenerationConsentVersion(payload.generationConsentVersion);
         lastPersistedDraft.current = JSON.stringify(payload.draft);
         setJourneyState("intake");
         return;
@@ -116,8 +124,22 @@ export function PaidReadingJourney() {
     [endpoint, loadReading]
   );
 
-  async function submitIntake(answers: IntakeAnswers) {
-    if (!consentVersion || isSubmitting) return;
+  async function submitIntake(
+    answers: IntakeAnswers,
+    consents?: {
+      dataConfirmationAccepted: boolean;
+      serviceStartConsentAccepted: boolean;
+    }
+  ) {
+    if (
+      !dataConfirmationVersion ||
+      !generationConsentVersion ||
+      !consents?.dataConfirmationAccepted ||
+      !consents.serviceStartConsentAccepted ||
+      isSubmitting
+    ) {
+      return;
+    }
     if (draftTimer.current) clearTimeout(draftTimer.current);
     setIsSubmitting(true);
     setErrorMessage("");
@@ -126,8 +148,10 @@ export function PaidReadingJourney() {
       const response = await fetch(`${endpoint}/submit`, {
         body: JSON.stringify({
           ...answers,
+          dataConfirmationAccepted: true,
+          dataConfirmationVersion,
           generationConsentAccepted: true,
-          generationConsentVersion: consentVersion,
+          generationConsentVersion,
         }),
         headers: { "Content-Type": "application/json" },
         method: "POST",
@@ -166,7 +190,7 @@ export function PaidReadingJourney() {
           onAnswersChange={saveDraft}
           onComplete={submitIntake}
           requireConsent
-          submitLabel="送出並建立我的解讀"
+          submitLabel="確認資料並開始產生報告"
         />
       </>
     );

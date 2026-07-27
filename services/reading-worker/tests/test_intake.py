@@ -10,6 +10,7 @@ def valid_job() -> dict:
         "analysis_datetime": "2026-07-26T16:30:00Z",
         "analysis_timezone": "Asia/Taipei",
         "claimed": True,
+        "data_confirmation_version": "reading-data-confirmation-2026-07-27",
         "generation_consent_version": "reading-generation-consent-2026-07-26",
         "intake_version": "relationship-intake-v1",
         "public_reading_id": "6cce7c3c-03a9-4d43-b2a7-79f46323dbba",
@@ -18,6 +19,8 @@ def valid_job() -> dict:
             "relationshipStage": "broke-up-recent",
             "mainQuestion": "any-chance",
             "contactStatus": "cold-chat",
+            "dataConfirmationAccepted": True,
+            "dataConfirmationVersion": "reading-data-confirmation-2026-07-27",
             "generationConsentAccepted": True,
             "generationConsentVersion": "reading-generation-consent-2026-07-26",
             "user": {
@@ -73,6 +76,15 @@ class IntakeTests(unittest.TestCase):
         with self.assertRaisesRegex(
             IntakeMappingError,
             "GENERATION_CONSENT_MISMATCH",
+        ):
+            build_reading_input(job)
+
+    def test_rejects_data_confirmation_mismatch(self) -> None:
+        job = valid_job()
+        job["final_payload"]["dataConfirmationAccepted"] = False
+        with self.assertRaisesRegex(
+            IntakeMappingError,
+            "DATA_CONFIRMATION_MISMATCH",
         ):
             build_reading_input(job)
 

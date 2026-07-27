@@ -179,7 +179,19 @@ create table private.reading_intakes (
   draft_payload jsonb not null default '{}'::jsonb,
   final_payload jsonb,
   precision_snapshot jsonb,
+  data_confirmation_version text,
+  data_confirmation_sha256 text
+    check (
+      data_confirmation_sha256 is null
+      or data_confirmation_sha256 ~ '^[0-9a-f]{64}$'
+    ),
+  data_confirmation_accepted_at timestamptz,
   generation_consent_version text,
+  generation_consent_sha256 text
+    check (
+      generation_consent_sha256 is null
+      or generation_consent_sha256 ~ '^[0-9a-f]{64}$'
+    ),
   generation_consent_accepted_at timestamptz,
   submitted_at timestamptz,
   erased_at timestamptz,
@@ -200,7 +212,11 @@ create table private.reading_intakes (
           submitted_at is not null
           and final_payload is not null
           and intake_version is not null
+          and data_confirmation_version is not null
+          and data_confirmation_sha256 is not null
+          and data_confirmation_accepted_at is not null
           and generation_consent_version is not null
+          and generation_consent_sha256 is not null
           and generation_consent_accepted_at is not null
         )
       )
@@ -707,7 +723,11 @@ begin
       and new.final_payload is null
       and new.precision_snapshot is null
       and new.intake_version is not distinct from old.intake_version
+      and new.data_confirmation_version is not distinct from old.data_confirmation_version
+      and new.data_confirmation_sha256 is not distinct from old.data_confirmation_sha256
+      and new.data_confirmation_accepted_at is not distinct from old.data_confirmation_accepted_at
       and new.generation_consent_version is not distinct from old.generation_consent_version
+      and new.generation_consent_sha256 is not distinct from old.generation_consent_sha256
       and new.generation_consent_accepted_at is not distinct from old.generation_consent_accepted_at
       and new.submitted_at is not distinct from old.submitted_at
       and new.created_at = old.created_at then
@@ -722,7 +742,11 @@ begin
     or new.draft_payload is distinct from old.draft_payload
     or new.final_payload is distinct from old.final_payload
     or new.precision_snapshot is distinct from old.precision_snapshot
+    or new.data_confirmation_version is distinct from old.data_confirmation_version
+    or new.data_confirmation_sha256 is distinct from old.data_confirmation_sha256
+    or new.data_confirmation_accepted_at is distinct from old.data_confirmation_accepted_at
     or new.generation_consent_version is distinct from old.generation_consent_version
+    or new.generation_consent_sha256 is distinct from old.generation_consent_sha256
     or new.generation_consent_accepted_at is distinct from old.generation_consent_accepted_at
     or new.submitted_at is distinct from old.submitted_at
     or new.erased_at is distinct from old.erased_at
@@ -739,7 +763,11 @@ begin
     or new.draft_payload is distinct from old.draft_payload
     or new.final_payload is distinct from old.final_payload
     or new.precision_snapshot is distinct from old.precision_snapshot
+    or new.data_confirmation_version is distinct from old.data_confirmation_version
+    or new.data_confirmation_sha256 is distinct from old.data_confirmation_sha256
+    or new.data_confirmation_accepted_at is distinct from old.data_confirmation_accepted_at
     or new.generation_consent_version is distinct from old.generation_consent_version
+    or new.generation_consent_sha256 is distinct from old.generation_consent_sha256
     or new.generation_consent_accepted_at is distinct from old.generation_consent_accepted_at
     or new.submitted_at is distinct from old.submitted_at
   ) then
@@ -2375,7 +2403,11 @@ create or replace function public.valley_submit_reading_intake(
   p_intake_version text,
   p_final_payload jsonb,
   p_precision_snapshot jsonb,
+  p_data_confirmation_version text,
+  p_data_confirmation_sha256 text,
+  p_data_confirmation_accepted_at timestamptz,
   p_generation_consent_version text,
+  p_generation_consent_sha256 text,
   p_generation_consent_accepted_at timestamptz
 )
 returns jsonb
@@ -2448,7 +2480,11 @@ begin
     draft_payload = p_final_payload,
     final_payload = p_final_payload,
     precision_snapshot = p_precision_snapshot,
+    data_confirmation_version = p_data_confirmation_version,
+    data_confirmation_sha256 = p_data_confirmation_sha256,
+    data_confirmation_accepted_at = p_data_confirmation_accepted_at,
     generation_consent_version = p_generation_consent_version,
+    generation_consent_sha256 = p_generation_consent_sha256,
     generation_consent_accepted_at = p_generation_consent_accepted_at,
     submitted_at = now()
   where reading_id = v_reading_id
@@ -2540,6 +2576,7 @@ begin
       'analysis_timezone', 'Asia/Taipei',
       'final_payload', intake.final_payload,
       'precision_snapshot', intake.precision_snapshot,
+      'data_confirmation_version', intake.data_confirmation_version,
       'generation_consent_version', intake.generation_consent_version
     )
     into v_job
@@ -2645,6 +2682,7 @@ begin
     'analysis_timezone', 'Asia/Taipei',
     'final_payload', intake.final_payload,
     'precision_snapshot', intake.precision_snapshot,
+    'data_confirmation_version', intake.data_confirmation_version,
     'generation_consent_version', intake.generation_consent_version
   )
   into v_job

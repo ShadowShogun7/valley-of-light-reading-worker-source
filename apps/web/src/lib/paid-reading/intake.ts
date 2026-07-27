@@ -94,6 +94,8 @@ export const finalIntakeSchema = z
     contactStatus: z.enum(contactStatuses),
     user: finalBirthProfileSchema,
     partner: finalBirthProfileSchema,
+    dataConfirmationAccepted: z.literal(true),
+    dataConfirmationVersion: z.string().min(1).max(80),
     generationConsentAccepted: z.literal(true),
     generationConsentVersion: z.string().min(1).max(80),
   })

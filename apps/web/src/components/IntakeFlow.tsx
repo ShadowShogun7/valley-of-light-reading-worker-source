@@ -2,6 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
+import {
+  DATA_CONFIRMATION_COPY,
+  SERVICE_START_CONSENT_COPY,
+} from "@/lib/paid-reading/consent";
 import { supportedBirthPlaces } from "@/lib/paid-reading/locations";
 
 type IconName =
@@ -424,7 +428,13 @@ export function IntakeFlow({
   initialAnswers?: Partial<IntakeAnswers>;
   isSubmitting?: boolean;
   onAnswersChange?: (answers: IntakeAnswers) => void;
-  onComplete: (answers: IntakeAnswers) => void;
+  onComplete: (
+    answers: IntakeAnswers,
+    consents?: {
+      dataConfirmationAccepted: boolean;
+      serviceStartConsentAccepted: boolean;
+    }
+  ) => void;
   requireConsent?: boolean;
   submitLabel?: string;
 }) {
@@ -432,7 +442,10 @@ export function IntakeFlow({
   const [answers, setAnswers] = useState<IntakeAnswers>(() =>
     mergeInitialAnswers(initialAnswers)
   );
-  const [consentAccepted, setConsentAccepted] = useState(false);
+  const [dataConfirmationAccepted, setDataConfirmationAccepted] =
+    useState(false);
+  const [serviceStartConsentAccepted, setServiceStartConsentAccepted] =
+    useState(false);
   const step = steps[stepIndex];
   const activeFlowIndex = flowSteps.findIndex((item) => item.id === step.id);
   const currentFlowStep = activeFlowIndex >= 0 ? activeFlowIndex + 1 : 0;
@@ -548,14 +561,23 @@ export function IntakeFlow({
                 ) : (
                   <ConfirmStep
                     answers={answers}
-                    consentAccepted={consentAccepted}
+                    dataConfirmationAccepted={dataConfirmationAccepted}
                     eyebrow={flowStepMeta("confirm").eyebrow}
                     isSubmitting={isSubmitting}
                     onBack={previousStep}
-                    onComplete={() => onComplete(answers)}
-                    onConsentChange={setConsentAccepted}
+                    onComplete={() =>
+                      onComplete(answers, {
+                        dataConfirmationAccepted,
+                        serviceStartConsentAccepted,
+                      })
+                    }
+                    onDataConfirmationChange={setDataConfirmationAccepted}
                     onEdit={goToStep}
+                    onServiceStartConsentChange={
+                      setServiceStartConsentAccepted
+                    }
                     requireConsent={requireConsent}
+                    serviceStartConsentAccepted={serviceStartConsentAccepted}
                     submitLabel={submitLabel}
                     subtitle={flowStepMeta("confirm").subtitle}
                     title={flowStepMeta("confirm").title}
@@ -997,27 +1019,31 @@ function isLeapYear(year: number) {
 
 function ConfirmStep({
   answers,
-  consentAccepted,
+  dataConfirmationAccepted,
   eyebrow,
   isSubmitting,
   onBack,
   onComplete,
-  onConsentChange,
+  onDataConfirmationChange,
   onEdit,
+  onServiceStartConsentChange,
   requireConsent,
+  serviceStartConsentAccepted,
   submitLabel,
   subtitle,
   title,
 }: {
   answers: IntakeAnswers;
-  consentAccepted: boolean;
+  dataConfirmationAccepted: boolean;
   eyebrow: string;
   isSubmitting: boolean;
   onBack: () => void;
   onComplete: () => void;
-  onConsentChange: (accepted: boolean) => void;
+  onDataConfirmationChange: (accepted: boolean) => void;
   onEdit: (stepId: FlowStepId) => void;
+  onServiceStartConsentChange: (accepted: boolean) => void;
   requireConsent: boolean;
+  serviceStartConsentAccepted: boolean;
   submitLabel: string;
   subtitle: string;
   title: string;
@@ -1036,19 +1062,35 @@ function ConfirmStep({
         <ReviewCard label="最近互動" onEdit={() => onEdit("contact")} value={labelFor(contactOptions, answers.contactStatus)} />
       </div>
       {requireConsent ? (
-        <label className="intake-design-consent">
-          <input
-            checked={consentAccepted}
-            onChange={(event) => onConsentChange(event.target.checked)}
-            type="checkbox"
-          />
-          <span>
-            我已確認上述資料，並同意使用這些資料建立本次個人化關係解讀。送出後資料會鎖定；如需更正，請聯絡客服協助。
-          </span>
-        </label>
+        <div className="intake-design-consent-list">
+          <label className="intake-design-consent">
+            <input
+              checked={dataConfirmationAccepted}
+              onChange={(event) =>
+                onDataConfirmationChange(event.target.checked)
+              }
+              type="checkbox"
+            />
+            <span>{DATA_CONFIRMATION_COPY}</span>
+          </label>
+          <label className="intake-design-consent">
+            <input
+              checked={serviceStartConsentAccepted}
+              onChange={(event) =>
+                onServiceStartConsentChange(event.target.checked)
+              }
+              type="checkbox"
+            />
+            <span>{SERVICE_START_CONSENT_COPY}</span>
+          </label>
+        </div>
       ) : null}
       <NavigationRow
-        disabled={isSubmitting || (requireConsent && !consentAccepted)}
+        disabled={
+          isSubmitting ||
+          (requireConsent &&
+            (!dataConfirmationAccepted || !serviceStartConsentAccepted))
+        }
         microCopy={requireConsent ? "送出後會進入處理頁，同一連結之後會顯示完成結果。" : "你的資料僅用於本次合盤解析，不會外洩。"}
         nextLabel={isSubmitting ? "送出中…" : submitLabel}
         onBack={onBack}

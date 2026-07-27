@@ -15,6 +15,10 @@ import {
   finalIntakeSchema,
 } from "@/lib/paid-reading/intake";
 import {
+  DATA_CONFIRMATION_COPY_SHA256,
+  SERVICE_START_CONSENT_COPY_SHA256,
+} from "@/lib/paid-reading/consent";
+import {
   PaidReadingDatabaseError,
   RateLimitExceededError,
   submitIntake,
@@ -55,20 +59,27 @@ export async function POST(request: NextRequest) {
     const parsed = finalIntakeSchema.safeParse(body);
     if (
       !parsed.success ||
+      parsed.data.dataConfirmationVersion !==
+        environment.VALLEY_DATA_CONFIRMATION_VERSION ||
       parsed.data.generationConsentVersion !==
         environment.VALLEY_GENERATION_CONSENT_VERSION
     ) {
       return privateJson({ error: "INVALID_FINAL_INTAKE" }, { status: 400 });
     }
 
+    const acceptedAt = new Date().toISOString();
     const submitted = await submitIntake({
-      consentAcceptedAt: new Date().toISOString(),
-      consentVersion: parsed.data.generationConsentVersion,
+      dataConfirmationAcceptedAt: acceptedAt,
+      dataConfirmationSha256: DATA_CONFIRMATION_COPY_SHA256,
+      dataConfirmationVersion: parsed.data.dataConfirmationVersion,
       expiresAt: verifiedToken.expiresAt,
       finalPayload: parsed.data,
       grantId: verifiedToken.grantId,
       intakeVersion: environment.VALLEY_INTAKE_VERSION,
       precisionSnapshot: buildPrecisionSnapshot(parsed.data),
+      serviceStartConsentAcceptedAt: acceptedAt,
+      serviceStartConsentSha256: SERVICE_START_CONSENT_COPY_SHA256,
+      serviceStartConsentVersion: parsed.data.generationConsentVersion,
       tokenHash: verifiedToken.tokenHash,
     });
     const dispatch = await dispatchReadingFulfillment({

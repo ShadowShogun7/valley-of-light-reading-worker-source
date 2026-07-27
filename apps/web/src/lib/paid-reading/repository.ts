@@ -134,6 +134,7 @@ const fulfillmentClaimSchema = z.discriminatedUnion("claimed", [
     analysis_timezone: z.literal("Asia/Taipei"),
     attempt_count: z.number().int().positive(),
     claimed: z.literal(true),
+    data_confirmation_version: z.string().min(1),
     final_payload: z.unknown(),
     fulfillment_id: z.string().uuid(),
     generation_consent_version: z.string().min(1),
@@ -442,20 +443,28 @@ export async function saveIntakeDraft(input: {
 }
 
 export async function submitIntake(input: {
-  consentAcceptedAt: string;
-  consentVersion: string;
+  dataConfirmationAcceptedAt: string;
+  dataConfirmationSha256: string;
+  dataConfirmationVersion: string;
   expiresAt: string;
   finalPayload: unknown;
   grantId: string;
   intakeVersion: string;
   precisionSnapshot: unknown;
+  serviceStartConsentAcceptedAt: string;
+  serviceStartConsentSha256: string;
+  serviceStartConsentVersion: string;
   tokenHash: string;
 }) {
   const data = await rpc("valley_submit_reading_intake", {
+    p_data_confirmation_accepted_at: input.dataConfirmationAcceptedAt,
+    p_data_confirmation_sha256: input.dataConfirmationSha256,
+    p_data_confirmation_version: input.dataConfirmationVersion,
     p_expires_at: input.expiresAt,
     p_final_payload: input.finalPayload,
-    p_generation_consent_accepted_at: input.consentAcceptedAt,
-    p_generation_consent_version: input.consentVersion,
+    p_generation_consent_accepted_at: input.serviceStartConsentAcceptedAt,
+    p_generation_consent_sha256: input.serviceStartConsentSha256,
+    p_generation_consent_version: input.serviceStartConsentVersion,
     p_grant_id: input.grantId,
     p_intake_version: input.intakeVersion,
     p_precision_snapshot: input.precisionSnapshot,
