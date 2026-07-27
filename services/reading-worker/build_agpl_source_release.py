@@ -36,6 +36,7 @@ EXCLUDED_DIRECTORY_NAMES = {
     ".next",
     ".vercel",
     ".venv",
+    ".wrangler",
     "__pycache__",
     "build",
     "node_modules",
