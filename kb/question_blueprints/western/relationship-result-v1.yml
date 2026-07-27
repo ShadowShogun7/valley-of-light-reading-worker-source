@@ -1,0 +1,305 @@
+version: kb-question-blueprints-v1
+blueprint_id: western-relationship-result-v1
+applies_to:
+  products: [relationship_compatibility]
+  stages: [in_relationship, in_breakup, all]
+  questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+
+title_direction: "主標要根據 Western case file 重寫成一句命盤結論；不可複製固定答案或用戶問題。"
+story_arc_template: "用戶問題是「{question}」，目前階段是「{stage}」。這份解讀依 Suskin 方法順序、George/Bloch 本命讀盤方法、Hand 符號基礎與 Burk 安全感/被重視語言：先看本命關係潛力、行星功能、Sun/Moon/Asc 精度限制、Moon/Mercury/Venus/Mars/Saturn 的行星落星座語氣、function element matrix、function modality matrix，再看 Moon/Venus safety-validation language reducer、source-backed pair-family 合盤相位、conjunction/soft/hard modifier、pair-contact template、pair-contact 句型方法、George/Bloch 相位合成交叉檢查、aspect-function combination reducer、Skymates 非命運判決護欄、壓力、修復、當下行運、未來三個月短期行動氣候、contact timing action reducer 與 contact situation action scale，最後才回答問題。"
+chapter_order: [thoughts, reasons, chance]
+
+global_forbidden_claims:
+  - "不可新增星盤沒有提供的事實"
+  - "不可做絕對預言"
+  - "不可說百分之百或一定會"
+  - "不可給精準日期承諾"
+  - "不可把單一章節寫成完整關係結論"
+  - "不可用太陽星座或元素配對直接判斷合不合"
+
+style_rules:
+  - "每章只保留一個核心 summary"
+  - "technicalReading 用占星師口吻，保留行星、相位、conjunction/soft/hard modifier、pair-contact template、orb 與精度限制"
+  - "psychologicalSummary 用心理師與關係教練口吻，翻譯成情緒方向"
+  - "supporting evidence 必須短，避免重複同一句壓力主題"
+
+paid_unlock:
+  - "完整 synastry map"
+  - "composite / Davison relationship story"
+  - "未來三個月精準 contact timing window"
+  - "訊息策略與 trigger words to avoid"
+
+questions:
+  - question: still-love-me
+    label: "他現在心裡還有我嗎？"
+    source_article_id: context-question-still-love-me
+    claim_ids:
+      - context-question-still-love-me-001
+      - context-question-still-love-me-002
+    answer_contract: "回答對方目前的回應模式與牽動是否仍可被看見；把合盤結論限定在可觀察互動與現實回應。"
+    because_clusters: [methodOrder, natalSymbolFoundation, signClassificationFoundation, planetaryFunctions, planetSignStyle, moonSignEmotionalSafety, mercurySignCommunicationRepair, venusSignAffectionStyle, functionElementMatrix, functionModalityMatrix, safetyValidationLanguage, nonfatalSynastrySafety, contactSituationPolicy, aspectContactModifier, aspectPairContactTemplate, aspectPairPhraseTemplateMethod, aspectSynthesisCrossCheck, aspectFunctionCombination, relationshipPotential, luminaryComparison, ascendantImpression, attraction, emotionalSafety, pressure]
+    forbidden_claims:
+      - "不可斷言對方一定還愛"
+      - "不可替對方編造當下內心台詞"
+
+  - question: any-chance
+    label: "我們還有機會嗎？"
+    source_article_id: context-question-any-chance
+    claim_ids:
+      - context-question-any-chance-001
+      - context-question-any-chance-002
+    answer_contract: "回答條件式機會：哪些證據支持修復入口，哪些壓力阻止它變成復合保證。"
+    because_clusters: [natalSymbolFoundation, elementStyleFoundation, functionElementMatrix, functionModalityMatrix, safetyValidationLanguage, nonfatalSynastrySafety, contactSituationPolicy, aspectContactModifier, aspectPairContactTemplate, aspectPairPhraseTemplateMethod, aspectSynthesisCrossCheck, aspectFunctionCombination, mercurySignCommunicationRepair, venusSignAffectionStyle, marsSignPursuitConflict, saturnSignDefenseDelay, relationshipPotential, elementComparison, repair, pressure, currentTransits, timingWindowBand, timingMercuryCommunication, timingVenusSoftening, timingMoonWeather, timingContactReducer, attraction]
+    forbidden_claims:
+      - "不可承諾復合"
+      - "不可把吸引或牽掛升級成對方會回來"
+
+  - question: when-to-contact
+    label: "什麼時候適合聯絡？"
+    source_article_id: context-question-when-to-contact
+    claim_ids:
+      - context-question-when-to-contact-001
+      - context-question-when-to-contact-002
+    answer_contract: "回答 timing climate 與低壓靠近條件；不可給精準成功日期，也不可把訊息策略寫成保證。"
+    because_clusters: [consultationSafety, nonfatalSynastrySafety, contactSituationPolicy, functionElementMatrix, functionModalityMatrix, safetyValidationLanguage, aspectContactModifier, aspectPairContactTemplate, aspectPairPhraseTemplateMethod, aspectSynthesisCrossCheck, aspectFunctionCombination, mercurySignCommunicationRepair, saturnSignDefenseDelay, marsSignPursuitConflict, currentTransits, timingWindowBand, timingMercuryCommunication, timingVenusSoftening, timingMarsActivation, timingSaturnPressure, timingMoonWeather, timingContactReducer, pressure, birthDataQuality, repair]
+    forbidden_claims:
+      - "不可給精準聯絡日期"
+      - "不可承諾某天聯絡一定成功"
+
+  - question: what-did-i-do-wrong
+    label: "是不是我做錯了什麼？"
+    source_article_id: context-question-what-did-i-do-wrong
+    claim_ids:
+      - context-question-what-did-i-do-wrong-001
+      - context-question-what-did-i-do-wrong-002
+    answer_contract: "回答雙方互動循環與可調整模式；不可把分手或冷淡歸咎於用戶一個人。"
+    because_clusters: [planetaryFunctions, planetSignStyle, moonSignEmotionalSafety, mercurySignCommunicationRepair, venusSignAffectionStyle, marsSignPursuitConflict, saturnSignDefenseDelay, functionElementMatrix, functionModalityMatrix, safetyValidationLanguage, nonfatalSynastrySafety, contactSituationPolicy, aspectContactModifier, aspectPairContactTemplate, aspectPairPhraseTemplateMethod, aspectSynthesisCrossCheck, aspectFunctionCombination, relationshipPotential, elementStyleFoundation, modalityResponseFoundation, elementComparison, aspectInterpretationFoundation, pressure, communication, emotionalSafety]
+    forbidden_claims:
+      - "不可把卡住原因寫成都是用戶做錯"
+      - "不可用星盤強化用戶自責"
+
+  - question: stay-or-let-go
+    label: "我該繼續等，還是放下？"
+    source_article_id: context-question-stay-or-let-go
+    claim_ids:
+      - context-question-stay-or-let-go-001
+      - context-question-stay-or-let-go-002
+    answer_contract: "回答等待是否仍有健康條件；不可替用戶下命令，也不可鼓勵無限消耗。"
+    because_clusters: [consultationSafety, nonfatalSynastrySafety, contactSituationPolicy, planetaryFunctions, moonSignEmotionalSafety, mercurySignCommunicationRepair, saturnSignDefenseDelay, functionElementMatrix, functionModalityMatrix, safetyValidationLanguage, aspectContactModifier, aspectPairContactTemplate, aspectPairPhraseTemplateMethod, aspectSynthesisCrossCheck, aspectFunctionCombination, relationshipPotential, pressure, emotionalSafety, repair, currentTransits, timingWindowBand, timingSaturnPressure, timingMoonWeather, timingContactReducer]
+    forbidden_claims:
+      - "不可替用戶決定一定要等或一定要斷"
+      - "不可把不健康等待包裝成命運"
+
+chapters:
+  - id: thoughts
+    title: "他現在怎麼想"
+    source_dimensions: [coreAttachment, emotionalSafety]
+    core_summary_source: shortAnswer
+    chapter_angle: "只用西洋本命需求、吸引相位與情緒安全證據判斷對方目前的回應模式。"
+    must_answer:
+      - "合盤裡是否仍有牽動"
+      - "對方比較像直接表達、藏著觀望，還是壓力下先收回"
+      - "這代表有反應但未表態、情緒被壓住，還是已轉成距離感"
+    do_not_repeat:
+      - "不要把本章寫成行動建議"
+      - "不要給精準聯絡日期"
+    technical_focus: "優先使用方法順序、George/Bloch 本命方法交叉檢查、Hand 符號基礎、本命 Sun/Moon/Asc/Mercury/Venus/Mars/Saturn 需求、Moon/Mercury/Venus 的 point-specific sign 語氣、function element matrix、function modality matrix、Burk Moon/Venus safety-validation language reducer、日月比較、Sun-Venus/Moon-Moon/Moon-Mars/Venus-Venus 等 source-backed pair-family、conjunction/soft/hard modifier、pair-contact template、pair-contact 句型方法、George/Bloch 相位合成交叉檢查、aspect-function combination reducer、orb 與精度限制。"
+    psychological_focus: "把星盤證據翻成對方現在的情感處理方式與表達型態，不替對方編內心獨白。"
+    evidence:
+      - source: methodOrder
+        limit: 1
+      - source: natalSymbolFoundation
+        limit: 1
+      - source: planetaryFunctions
+        limit: 1
+      - source: signClassificationFoundation
+        limit: 1
+      - source: planetSignStyle
+        limit: 1
+      - source: moonSignEmotionalSafety
+        limit: 1
+      - source: mercurySignCommunicationRepair
+        limit: 1
+      - source: venusSignAffectionStyle
+        limit: 1
+      - source: functionElementMatrix
+        limit: 1
+      - source: functionModalityMatrix
+        limit: 1
+      - source: safetyValidationLanguage
+        limit: 1
+      - source: aspectFunctionCombination
+        limit: 1
+      - source: aspectContactModifier
+        limit: 1
+      - source: aspectPairContactTemplate
+        limit: 1
+      - source: aspectPairPhraseTemplateMethod
+        limit: 1
+      - source: aspectSynthesisCrossCheck
+        limit: 1
+      - source: relationshipStage
+        limit: 1
+      - source: relationshipPotential
+        limit: 1
+      - source: luminaryComparison
+        limit: 1
+      - source: ascendantImpression
+        limit: 1
+      - source: partnerIdentity
+        limit: 1
+      - source: attraction
+        limit: 1
+      - source: emotionalSafety
+        limit: 1
+    evidence_limit: 23
+    emotional_direction: "本章只回答對方現在如何處理牽動與安全感，不推導完整復合策略。"
+    paid_boundary: "不要在這一章拆完對方矛盾點、真實內心台詞或私訊策略。"
+    forbidden_claims:
+      - "不可斷言對方一定還愛"
+      - "不可替對方編造內心獨白"
+      - "不可把一次冷淡等同於關係結束"
+      - "不可用太陽星座配對回答對方心裡有沒有你"
+    next_bridge: "下一章轉去解釋：如果仍有牽動，為什麼你們還是卡住。"
+
+  - id: reasons
+    title: "你們卡住的原因"
+    source_dimensions: [pressure]
+    core_summary_source: therefore
+    chapter_angle: "只拆西洋合盤壓力機制，不回答他愛不愛，也不給下一步策略。"
+    must_answer:
+      - "是哪一類壓力相位讓互動變沉重或不同步"
+      - "溝通與行動節奏哪裡容易互相觸發"
+      - "這會造成哪一種具體相處循環"
+    do_not_repeat:
+      - "不要重複第一章的有感但未表態"
+      - "不要把結論只寫成慢一點"
+    technical_focus: "優先使用 George/Bloch 與 Hand 元素/三模式基礎、function element matrix、function modality matrix、元素比較、Mercury/Mars/Saturn point-specific sign 語氣、George/Bloch 與 Hand 相位解讀基礎、aspectPriority、aspect-function combination reducer、Moon-Mars/Mars-Mars/Mercury-Sun/Mercury-Jupiter 等 pair-family 壓力與 communication 相位、contact modifier、pair-contact template、pair-contact 句型方法、George/Bloch 相位合成交叉檢查、orb、applying/separating 與精度 gate。"
+    psychological_focus: "把壓力相位翻成具體互動循環：哪裡誤解、哪裡卡住、哪裡越靠近越難受。"
+    evidence:
+      - source: contactStatus
+        limit: 1
+      - source: contactSituationPolicy
+        limit: 1
+      - source: elementStyleFoundation
+        limit: 1
+      - source: modalityResponseFoundation
+        limit: 1
+      - source: functionElementMatrix
+        limit: 1
+      - source: functionModalityMatrix
+        limit: 1
+      - source: mercurySignCommunicationRepair
+        limit: 1
+      - source: marsSignPursuitConflict
+        limit: 1
+      - source: saturnSignDefenseDelay
+        limit: 1
+      - source: elementComparison
+        limit: 1
+      - source: safetyValidationLanguage
+        limit: 1
+      - source: aspectPriority
+        limit: 1
+      - source: aspectFunctionCombination
+        limit: 1
+      - source: aspectContactModifier
+        limit: 1
+      - source: aspectPairContactTemplate
+        limit: 1
+      - source: aspectPairPhraseTemplateMethod
+        limit: 1
+      - source: aspectSynthesisCrossCheck
+        limit: 1
+      - source: aspectInterpretationFoundation
+        limit: 1
+      - source: pressure
+        limit: 2
+      - source: communication
+        limit: 1
+      - source: emotionalSafety
+        limit: 1
+    evidence_limit: 22
+    emotional_direction: "本章重點是說清楚互動如何卡住，而不是把責任推給某一方。"
+    paid_boundary: "不要在這一章列出完整責任歸因、誰錯更多、或完整修復流程。"
+    forbidden_claims:
+      - "不可把卡住原因寫成都是用戶做錯"
+      - "不可把壓力高寫成沒有愛"
+      - "不可用單一相位當作全部結論"
+      - "不可把困難相位寫成命運判決"
+    next_bridge: "下一章才回答：在這種壓力下，還有沒有機會與條件。"
+
+  - id: chance
+    title: "還有沒有機會"
+    source_dimensions: [repair, timing]
+    core_summary_source: therefore
+    chapter_angle: "只回答條件式機會，不寫完整時間窗或訊息策略。"
+    must_answer:
+      - "目前是否有窗口，但它依賴什麼條件"
+      - "哪一個 repair 或 timing evidence 支持有調整空間"
+      - "什麼現象不能被誤認成真正機會"
+    do_not_repeat:
+      - "不要把本章寫成單純等待"
+      - "不要給精準聯絡日期"
+    technical_focus: "只用諮詢安全、function element matrix、function modality matrix、aspect-function combination reducer、Mercury 溝通/修復語氣、Saturn 防衛/延遲語氣、Mercury-Jupiter guarded optimism 與 pair-contact template、pair-contact 句型方法、soft contact 修復入口、hard contact 降 certainty、George/Bloch 相位合成交叉檢查、修復條件、當下行運氣候、未來三個月短期行動氣候、contact timing action reducer 與後續關係盤邊界回答，不給精準日期或保證。"
+    psychological_focus: "把星盤結論翻成條件判斷：什麼情況代表可觀察，什麼只是牽動但未轉成修復。"
+    evidence:
+      - source: desiredOutcome
+        limit: 1
+      - source: contactStatus
+        limit: 1
+      - source: contactSituationPolicy
+        limit: 1
+      - source: consultationSafety
+        limit: 1
+      - source: nonfatalSynastrySafety
+        limit: 1
+      - source: functionElementMatrix
+        limit: 1
+      - source: functionModalityMatrix
+        limit: 1
+      - source: safetyValidationLanguage
+        limit: 1
+      - source: aspectFunctionCombination
+        limit: 1
+      - source: aspectContactModifier
+        limit: 1
+      - source: aspectPairContactTemplate
+        limit: 1
+      - source: aspectPairPhraseTemplateMethod
+        limit: 1
+      - source: aspectSynthesisCrossCheck
+        limit: 1
+      - source: mercurySignCommunicationRepair
+        limit: 1
+      - source: saturnSignDefenseDelay
+        limit: 1
+      - source: relationshipChartLayer
+        limit: 1
+      - source: repair
+        limit: 2
+      - source: currentTransits
+        limit: 1
+      - source: timingWindowBand
+        limit: 1
+      - source: timingContactReducer
+        limit: 1
+      - source: timingMercuryCommunication
+        limit: 1
+      - source: timingVenusSoftening
+        limit: 1
+      - source: timingMarsActivation
+        limit: 1
+      - source: timingSaturnPressure
+        limit: 1
+      - source: timingMoonWeather
+        limit: 1
+    evidence_limit: 25
+    emotional_direction: "機會是條件式窗口，要看對方是否能回到穩定互動，而不是只看你還想不想等。"
+    paid_boundary: "這一章不能把最佳聯絡日期、訊息模板、完整行動策略或盲點一次寫完。"
+    forbidden_claims:
+      - "不可承諾一定復合"
+      - "不可給精準聯絡日期"
+      - "不可提供完整訊息模板"
+      - "不可把 timing 寫成命中註定"
+    next_bridge: "結尾導向行動方向：時間窗、訊息寫法、避雷點與盲點需要放到後續章節整理。"

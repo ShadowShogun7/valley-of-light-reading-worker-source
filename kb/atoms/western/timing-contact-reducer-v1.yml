@@ -1,0 +1,30 @@
+version: kb-atoms-v1
+atoms:
+  - id: western-atom-timing-contact-reducer
+    system: western
+    layer: timing
+    category: timingContactReducer
+    label: 聯絡 timing 行動 reducer
+    source_article_id: western-contact-timing-action-reducers
+    claim_ids:
+      - western-contact-timing-action-reducers-001
+      - western-contact-timing-action-reducers-002
+      - western-contact-timing-action-reducers-003
+      - western-contact-timing-action-reducers-004
+      - western-contact-timing-action-reducers-005
+      - western-contact-timing-action-reducers-006
+      - western-contact-timing-action-reducers-007
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [all]
+    selectors:
+      timing_categories_any: [communication_window, communication_pressure, softening, relationship_focus, activation_pressure, pressure]
+      window_bands_any: [better, neutral, avoid]
+      relationship_functions_any: [contact_timing, message_strategy, safety]
+    interpretation:
+      summary_template: "{label}建議：{action_label}；主軸是{dominant_window}，支持訊號{support_signal_count}、高壓訊號{caution_signal_count}。"
+      empty_summary: "本次沒有足夠 timing scan 可產生聯絡行動建議。"
+      interpretation: "把 Mercury/Venus/Mars/Saturn timing selector 與現實聯絡狀態一起壓成低壓聯絡、觀察、或避開推進；結果不公開精準日期，也不把一次回覆當成承諾。修復語氣要先降溫，再談內容。"
+      does_not_prove: "聯絡 timing reducer 不保證回覆、承諾、復合或某日成功；回覆、沉默、冷淡聊天都只是互動訊號，不能取代訊息內容策略、對方邊界或修復語氣。"
+      confidence_floor: low

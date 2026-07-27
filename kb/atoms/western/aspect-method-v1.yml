@@ -1,0 +1,52 @@
+version: kb-atoms-v1
+atoms:
+  - id: western-atom-aspect-pair-phrase-template-method
+    system: western
+    layer: synastry
+    category: aspectPairPhraseTemplateMethod
+    label: pair-contact 句型方法
+    source_article_id: western-aspect-pair-contact-phrase-templates
+    claim_ids:
+      - western-aspect-pair-contact-phrase-templates-001
+      - western-aspect-pair-contact-phrase-templates-002
+      - western-aspect-pair-contact-phrase-templates-004
+      - western-aspect-pair-contact-phrase-templates-006
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn]
+      contact_types_any: [conjunction, soft, hard]
+      relationship_functions_any: [pair_contact_phrase, controlled_language]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可用的 pair-contact 句型方法。"
+      interpretation: "先保留 planet pair 的關係功能，再套入 conjunction/soft/hard 語氣；模板只翻譯已計算相位，不新增星盤事實。"
+      does_not_prove: "pair-contact 句型不能單獨證明承諾、復合、聯絡或對方內心。"
+      confidence_floor: medium
+
+  - id: western-atom-aspect-synthesis-cross-check
+    system: western
+    layer: synastry
+    category: aspectSynthesisCrossCheck
+    label: 相位合成交叉檢查
+    source_article_id: western-aspect-synthesis-george-bloch
+    claim_ids:
+      - western-aspect-synthesis-george-bloch-002
+      - western-aspect-synthesis-george-bloch-003
+      - western-aspect-synthesis-george-bloch-004
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn]
+      contact_types_any: [conjunction, soft, hard]
+      relationship_functions_any: [aspect_synthesis, nonfatal_hard_aspects, component_decomposition]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可用的相位合成交叉檢查。"
+      interpretation: "把相位拆成 planet pair、contact type、orb、精度與問題脈絡後再合成，不把 hard aspect 寫成永久負面判決。"
+      does_not_prove: "相位合成交叉檢查不能補寫未被 selector 選出的 chart facts，也不能保證結果。"
+      confidence_floor: medium

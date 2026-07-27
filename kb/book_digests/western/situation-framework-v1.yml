@@ -1,0 +1,481 @@
+version: kb-book-digests-v1
+digests:
+  - id: consulting-opa-ethics-situation-digest
+    source_id: consulting-opa-ethics
+    lane: situation_handling
+    status: reviewed
+    priority: P0
+    product_role: Consultation ethics and third-party relationship boundaries.
+    method_scope:
+      - third_party_caution
+      - client_agency
+      - non_absolute_prediction
+      - harm_reduction
+    extraction_goal: Keep situation handling ethical without turning context into astrology evidence.
+    method_claims:
+      - id: opa-third-party-boundary
+        claim_type: consultation_ethics
+        summary: When the question involves an absent person, the reading should stay centered on the client and avoid overclaiming the third party's inner state.
+        use_for:
+          - Answer "does he still love me" as evidence and likely behavior pattern, not as mind-reading.
+        runtime_targets:
+          - consultationSafety
+          - contextModifier
+          - answerEvidenceContract
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - consulting-opa-ethics
+        source_locations:
+          - raw/cross/opa-ethics-source-note.txt:7-10
+          - raw/cross/opa-ethics-source-note.txt:17-20
+        review_notes:
+          - OPA third-party guidance supports keeping absent-person questions relevant to the client and avoiding unauthorized mind-reading.
+          - This backs the runtime rule that core answers must discuss evidence and likely patterns instead of stating the other person's exact feelings as fact.
+        must_not_claim:
+          - Do not state the absent person's exact feelings as fact.
+          - Do not write an absent person's private inner state as a confession or psychological diagnosis.
+          - Do not encourage stalking, bypassing boundaries, or coercive contact.
+      - id: opa-client-agency-action-boundary
+        claim_type: consultation_ethics
+        summary: Advice should preserve client agency and avoid frightening, fatalistic, or coercive certainty.
+        use_for:
+          - Keep "what should I do now" framed as options and boundaries.
+        runtime_targets:
+          - actionBoundary
+          - donts
+          - precisionWarnings
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - consulting-opa-ethics
+        source_locations:
+          - raw/cross/opa-ethics-source-note.txt:12-15
+          - raw/cross/opa-ethics-source-note.txt:22-25
+        review_notes:
+          - OPA ethics supports client welfare, autonomy, accurate data, and nonfatalistic probability language.
+          - This backs action guidance that uses bounded options instead of certainty, fear, or coercive instructions.
+        must_not_claim:
+          - Do not make absolute predictions.
+          - Do not use fear, fate, or certainty to pressure an action.
+          - Do not present waiting, chasing, or no-contact as destiny.
+
+  - id: relationship-gottman-bids-repair-situation-digest
+    source_id: relationship-gottman-bids-repair
+    lane: situation_handling
+    status: reviewed
+    priority: P1
+    product_role: Repair and contact-tone support after astrology evidence is selected.
+    method_scope:
+      - bids_for_connection
+      - repair_attempts
+      - conflict_deescalation
+      - response_quality
+    extraction_goal: Use relationship-repair research to shape message tone, not to make astrology claims.
+    method_claims:
+      - id: gottman-contact-as-bid-not-proof
+        claim_type: situation_modifier
+        summary: Contact behavior should be read as an interaction signal, not proof of love, commitment, or reconciliation.
+        use_for:
+          - Distinguish occasional replies, cold chat, and no contact in the action reducer.
+        runtime_targets:
+          - contactStatus
+          - contactSituationPolicy
+          - timingContactReducer
+          - actionBoundary
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - relationship-gottman-bids-repair
+        source_locations:
+          - raw/cross/gottman-bids-source-note.txt:8-11
+          - raw/cross/gottman-bids-source-note.txt:18-21
+        review_notes:
+          - Gottman bid language supports treating contact as an interaction pattern rather than proof of commitment or rejection.
+          - The pacing note supports keeping blocked, no-contact, limited-contact, and cold-chat action scales separate.
+          - This backs the contact-status reducer without letting ordinary replies become a love verdict.
+        must_not_claim:
+          - Do not treat a reply as commitment.
+          - Do not treat no reply as permanent rejection without chart/context support.
+      - id: gottman-repair-tone-before-content
+        claim_type: situation_modifier
+        summary: For repair attempts, pressure level and tone matter before detailed explanation.
+        use_for:
+          - Convert Mercury/Venus timing into low-pressure outreach only when context allows it.
+        runtime_targets:
+          - timingMercuryMessage
+          - timingVenusSoftening
+          - donts
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - relationship-gottman-bids-repair
+        source_locations:
+          - raw/cross/gottman-bids-source-note.txt:13-16
+          - raw/cross/gottman-bids-source-note.txt:18-21
+        review_notes:
+          - Gottman repair guidance supports de-escalating tone before detailed explanation when contact is fragile.
+          - The pacing anchor explains why low-pressure repair cannot override blocked, no-contact, limited-contact, or cold-chat boundaries.
+          - This backs low-pressure Mercury/Venus outreach language and blocks long, repeated, or pressuring messages.
+        must_not_claim:
+          - Do not recommend long explanations, repeated messages, or pressure when contact status is blocked/no-contact.
+      - id: gottman-limited-reply-existing-channel-repair
+        claim_type: situation_modifier
+        summary: Limited replies and cold chat are small interaction signals; repair should stay in the existing channel and de-escalate tone before any relationship-definition push.
+        use_for:
+          - Keep occasional-contact and cold-chat scenarios response-led instead of treating replies as commitment.
+          - Shape Mercury/Venus repair language toward small existing-channel bids rather than escalation.
+        runtime_targets:
+          - contactSituationPolicy
+          - actionBoundary
+          - donts
+          - timingMercuryMessage
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - relationship-gottman-bids-repair
+        source_locations:
+          - raw/cross/gottman-bids-source-note.txt:23-26
+        review_notes:
+          - Gottman bid and repair framing supports reading replies as small connection signals, not proof of commitment.
+          - This backs existing-channel repair tone and blocks relationship-definition pushes in limited-contact states.
+        must_not_claim:
+          - Do not treat limited replies as reconciliation, commitment, or proof of love.
+          - Do not advise escalating from cold chat into relationship-definition pressure.
+      - id: gottman-no-contact-low-stimulation-bid
+        claim_type: situation_modifier
+        summary: No-contact pacing can only support one short, low-stimulation, easy-exit bid when astrology evidence and timing support repair.
+        use_for:
+          - Add repair-bid support to no-contact low-pressure timing without permitting long explanations or repeated messages.
+          - Keep no-contact action advice bounded to one non-demanding test when evidence supports it.
+        runtime_targets:
+          - contactSituationPolicy
+          - timingContactReducer
+          - actionBoundary
+          - donts
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - relationship-gottman-bids-repair
+        source_locations:
+          - raw/cross/gottman-bids-source-note.txt:28-31
+        review_notes:
+          - Gottman bid and repair framing supports keeping no-contact outreach small, calm, and easy to decline.
+          - This backs the no-contact reducer's one-message limit and blocks repeated messages, long explanations, or reply demands.
+        must_not_claim:
+          - Do not treat no-contact outreach as a guaranteed way to restart the relationship.
+          - Do not recommend repeated messages, long explanations, or demands for a reply.
+
+  - id: valley-situation-policy-digest
+    source_id: consulting-opa-ethics
+    lane: situation_handling
+    status: seed
+    priority: P0
+    product_role: Product-specific situation policy that combines astrology evidence with ethics and contact context.
+    method_scope:
+      - blocked_contact
+      - no_contact
+      - occasional_contact
+      - cold_chat
+      - shared_space
+      - emotional_risk
+      - question_specific_selectors
+    extraction_goal: Make relationship stage/contact status modify actions without inventing astrology conclusions.
+    method_claims:
+      - id: valley-context-modifies-action-not-conclusion
+        claim_type: product_rule
+        summary: Relationship stage and contact status can change action scale, but they cannot create the astrology conclusion.
+        use_for:
+          - Require calculation evidence, current transit evidence, and context boundary in every answer.
+        runtime_targets:
+          - answerEvidenceContract
+          - contextModifier
+          - relationshipResultRules
+        implementation_status: implemented
+        evidence_level: source_guided
+        source_basis:
+          - consulting-opa-ethics
+        source_locations:
+          - raw/cross/opa-ethics-source-note.txt:12-15
+          - raw/cross/opa-ethics-source-note.txt:37-40
+          - raw/cross/opa-ethics-source-note.txt:52-55
+        review_notes:
+          - This is explicit Valley product policy guided by OPA client-agency, accuracy, and boundary principles; it is not presented as astrology doctrine.
+          - The policy separates chart evidence from context framing so runtime can trace contact status without treating it as synastry or transit proof.
+        must_not_claim:
+          - Do not comfort the user with context-only answers.
+          - Do not use relationship stage, contact status, desired outcome, or emotional risk as astrology evidence.
+          - Do not recommend outreach unless astrology evidence and real contact access both support it.
+      - id: valley-contact-status-action-scale
+        claim_type: product_rule
+        summary: Each contact state maps to an action scale; blocked, no-contact, limited, cold, and shared-space contexts cannot share the same outreach recommendation.
+        use_for:
+          - Convert contact status into allowed action, blocked actions, and a timing override policy.
+        runtime_targets:
+          - contactSituationPolicy
+          - actionBoundary
+          - timingContactReducer
+          - donts
+          - answerEvidenceContract
+        implementation_status: implemented
+        evidence_level: source_guided
+        source_basis:
+          - consulting-opa-ethics
+          - relationship-gottman-bids-repair
+        source_locations:
+          - raw/cross/opa-ethics-source-note.txt:27-30
+          - raw/cross/opa-ethics-source-note.txt:32-35
+          - raw/cross/gottman-bids-source-note.txt:18-21
+          - raw/cross/gottman-bids-source-note.txt:23-26
+        review_notes:
+          - This is explicit Valley product policy guided by OPA boundary/discretion principles and Gottman bid framing; no source claims this exact product scale.
+          - The runtime uses the scale as an action-permission layer, not as evidence of compatibility, intent, or reconciliation.
+        must_not_claim:
+          - Do not recommend outreach if the user is blocked.
+          - Do not guarantee response or reconciliation from a timing window.
+          - Do not answer with context-only comfort without calculation evidence.
+          - Do not treat one occasional reply as commitment or reconciliation.
+          - Do not use shared real-world space as a relationship-pressure tactic.
+      - id: valley-blocked-contact-hard-boundary
+        claim_type: product_rule
+        summary: Blocked contact is a hard action boundary even if synastry shows attraction or current transits look soft.
+        use_for:
+          - Force blocked-contact outputs to avoid bypassing boundaries.
+        runtime_targets:
+          - contactStatus
+          - contactSituationPolicy
+          - actionBoundary
+          - donts
+        implementation_status: implemented
+        evidence_level: source_guided
+        source_basis:
+          - consulting-opa-ethics
+          - relationship-gottman-bids-repair
+        source_locations:
+          - raw/cross/opa-ethics-source-note.txt:27-30
+          - raw/cross/opa-ethics-source-note.txt:42-45
+          - raw/cross/gottman-bids-source-note.txt:18-21
+        review_notes:
+          - This is explicit Valley product policy guided by OPA harm-reduction and boundary principles; it upgrades blocked status into a hard action limit.
+          - The policy ensures no chart or timing signal can be rendered as permission to bypass a real-world boundary.
+        must_not_claim:
+          - Do not suggest alternate accounts, indirect pressure, or repeated attempts.
+      - id: valley-no-contact-lowers-action-speed
+        claim_type: product_rule
+        summary: No-contact status lowers the action speed; timing support can only justify a low-stimulation, easy-exit test.
+        use_for:
+          - Combine Mercury/Venus softening with no-contact context without overpromising.
+        runtime_targets:
+          - contactSituationPolicy
+          - timingContactReducer
+          - actionBoundary
+          - timeline
+        implementation_status: implemented
+        evidence_level: source_guided
+        source_basis:
+          - consulting-opa-ethics
+          - relationship-gottman-bids-repair
+        source_locations:
+          - raw/cross/opa-ethics-source-note.txt:27-30
+          - raw/cross/opa-ethics-source-note.txt:47-50
+          - raw/cross/gottman-bids-source-note.txt:18-21
+          - raw/cross/gottman-bids-source-note.txt:28-31
+        review_notes:
+          - This is explicit Valley product policy guided by OPA non-coercion and Gottman low-pressure bid/repair language.
+          - The policy allows timing support to shape pacing only after contact access and emotional safety are checked.
+        must_not_claim:
+          - Do not treat a timing window as permission to push.
+          - Do not recommend long explanations, repeated messages, or demands for a reply in no-contact status.
+      - id: valley-shared-space-discretion-boundary
+        claim_type: product_rule
+        summary: Shared real-world space requires discretion and pressure restraint; necessary contact cannot become a relationship-pressure tactic.
+        use_for:
+          - Convert living, working, studying, or social-overlap contexts into shared-space boundaries in timing and action guidance.
+          - Prevent public confrontation, surveillance, or engineered contact when the user and the other person still share a real-world space.
+        runtime_targets:
+          - contactSituationPolicy
+          - actionBoundary
+          - donts
+        implementation_status: implemented
+        evidence_level: source_guided
+        source_basis:
+          - consulting-opa-ethics
+        source_locations:
+          - raw/cross/opa-ethics-source-note.txt:32-35
+        review_notes:
+          - OPA discretion, confidentiality, boundaries, and non-harm support treating shared real-world space as a restraint layer.
+          - This backs the runtime rule that shared space can allow ordinary low-pressure contact while blocking public confrontation or relationship-definition pressure.
+        must_not_claim:
+          - Do not use shared work, school, home, or social overlap as a reason to force a relationship conversation.
+          - Do not recommend public confrontation, surveillance, or engineered contact through shared spaces.
+      - id: valley-context-boundary-trace-not-evidence
+        claim_type: product_rule
+        summary: Context is a boundary trace and framing modifier, not calculation evidence for synastry, timing, compatibility, or third-party inner-state claims.
+        use_for:
+          - Keep answer evidence contracts explicit about which parts are chart evidence and which parts are action/framing limits.
+          - Prevent relationship stage, contact status, desired outcome, or emotional risk from satisfying astrology evidence requirements.
+        runtime_targets:
+          - answerEvidenceContract
+          - contextModifier
+          - consultationSafety
+          - contactSituationPolicy
+        implementation_status: implemented
+        evidence_level: source_guided
+        source_basis:
+          - consulting-opa-ethics
+        source_locations:
+          - raw/cross/opa-ethics-source-note.txt:52-55
+        review_notes:
+          - OPA ethics shape client agency, welfare, discretion, and probability language; they do not provide chart calculation facts.
+          - This claim preserves the distinction between real-world boundary modifiers and astrology evidence inside the paid V1 answer contract.
+        must_not_claim:
+          - Do not use context alone to prove attraction, compatibility, timing, reconciliation, or the other person's feelings.
+          - Do not let emotional risk, desired outcome, or contact state replace synastry or transit evidence.
+      - id: valley-question-still-love-evidence-selector
+        claim_type: question_selector
+        summary: The "does he still love me" answer must weight attraction, emotional safety, pressure, and contact context as evidence of response patterns, not as proof of the other person's private feelings.
+        use_for:
+          - Keep the core answer centered on visible chart/contact evidence and third-party boundaries.
+          - Prevent attraction or silence from becoming a mind-reading verdict.
+        runtime_targets:
+          - answerEvidenceContract
+          - relationshipResultRules
+          - contextReducer
+          - consultationSafety
+        implementation_status: implemented
+        evidence_level: source_guided
+        source_basis:
+          - context-question-still-love-me
+          - consulting-opa-ethics
+          - western-burk-relationship-handbook
+        source_locations:
+          - wiki/context/questions/still-love-me.md:54-60
+          - raw/cross/opa-ethics-source-note.txt:17-20
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:819-829
+        review_notes:
+          - The question article and OPA anchor both support answering absent-person questions as chart evidence and likely interaction pattern instead of exact inner state.
+          - Burk support keeps the answer from using chart comparison as a behavior prediction.
+        must_not_claim:
+          - Do not state that the absent person definitely still loves or does not love the user.
+          - Do not upgrade attraction, pressure, a reply, or silence into a private-feelings verdict.
+      - id: valley-question-any-chance-conditional-selector
+        claim_type: question_selector
+        summary: The "is there still a chance" answer must weight repair, pressure, contact boundaries, and timing climate as conditional opportunity, not a reconciliation promise.
+        use_for:
+          - Separate remaining connection from actual repair conditions.
+          - Prevent hopeful context or attraction from becoming a guarantee of reunion.
+        runtime_targets:
+          - answerEvidenceContract
+          - relationshipResultRules
+          - repair
+          - pressure
+          - timingContactReducer
+        implementation_status: implemented
+        evidence_level: source_guided
+        source_basis:
+          - context-question-any-chance
+          - consulting-opa-ethics
+          - western-burk-relationship-handbook
+          - western-hand-transits
+        source_locations:
+          - wiki/context/questions/any-chance.md:54-60
+          - raw/cross/opa-ethics-source-note.txt:12-15
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:8521-8525
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:26479-26481
+        review_notes:
+          - The source article explicitly frames chance as conditional, while OPA keeps prediction probabilistic.
+          - This backs rules that need both repair-supporting evidence and pressure/boundary checks.
+        must_not_claim:
+          - Do not promise reconciliation.
+          - Do not treat attraction, a soft transit, or one reply as proof that the relationship will restart.
+      - id: valley-question-when-to-contact-timing-selector
+        claim_type: question_selector
+        summary: The "when should I contact" answer must weight transit timing, contact permission, pressure, and message tone before suggesting any outreach.
+        use_for:
+          - Require timing climate plus real-world contact access before recommending a message.
+          - Keep exact dates and guaranteed replies out of the answer.
+        runtime_targets:
+          - answerEvidenceContract
+          - relationshipResultRules
+          - timingContactReducer
+          - timingWindowBand
+          - contactSituationPolicy
+          - actionBoundary
+        implementation_status: implemented
+        evidence_level: source_guided
+        source_basis:
+          - context-question-when-to-contact
+          - consulting-opa-ethics
+          - relationship-gottman-bids-repair
+          - western-hand-transits
+        source_locations:
+          - wiki/context/questions/when-to-contact.md:54-60
+          - raw/cross/opa-ethics-source-note.txt:27-30
+          - raw/cross/gottman-bids-source-note.txt:13-21
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:200-207
+        review_notes:
+          - Hand timing support is climate, not guaranteed outcome; OPA and Gottman anchors keep contact boundary and low-pressure repair tone in front of timing desire.
+        must_not_claim:
+          - Do not give a precise success date.
+          - Do not suggest contact when real-world boundaries block it.
+          - Do not turn timing support into permission for long explanations, pressure, or repeated messages.
+      - id: valley-question-self-blame-interaction-cycle-selector
+        claim_type: question_selector
+        summary: The "did I do something wrong" answer must weight communication, pressure, emotional safety, and user risk as a shared interaction cycle, not a one-person blame verdict.
+        use_for:
+          - Turn self-blame into concrete, adjustable interaction patterns.
+          - Keep chart language from intensifying guilt or assigning all responsibility to the user.
+        runtime_targets:
+          - answerEvidenceContract
+          - relationshipResultRules
+          - communication
+          - pressure
+          - emotionalRisk
+          - consultationSafety
+        implementation_status: implemented
+        evidence_level: source_guided
+        source_basis:
+          - context-question-what-did-i-do-wrong
+          - consulting-opa-ethics
+          - western-burk-relationship-handbook
+          - western-hand-transits
+        source_locations:
+          - wiki/context/questions/what-did-i-do-wrong.md:55-61
+          - raw/cross/opa-ethics-source-note.txt:22-25
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:1106-1108
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:25345-25349
+        review_notes:
+          - The source article supports self-reflection without blame; OPA keeps the answer client-safe and nonfatal.
+        must_not_claim:
+          - Do not say the breakup or coldness is all the user's fault.
+          - Do not use astrology to shame the user or excuse the other person.
+      - id: valley-question-stay-let-go-boundary-selector
+        claim_type: question_selector
+        summary: The "should I wait or let go" answer must weight pressure, repair conditions, emotional safety, and client agency before framing any waiting or release direction.
+        use_for:
+          - Convert waiting into bounded, observable conditions.
+          - Prevent the reading from commanding the user to wait, chase, or cut off.
+        runtime_targets:
+          - answerEvidenceContract
+          - relationshipResultRules
+          - actionBoundary
+          - pressure
+          - repair
+          - emotionalSafety
+          - consultationSafety
+        implementation_status: implemented
+        evidence_level: source_guided
+        source_basis:
+          - context-question-stay-or-let-go
+          - consulting-opa-ethics
+          - western-hand-transits
+        source_locations:
+          - wiki/context/questions/stay-or-let-go.md:58-64
+          - raw/cross/opa-ethics-source-note.txt:22-25
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:19239-19250
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:27126-27130
+        review_notes:
+          - The source article supports bounded waiting and non-coercive release language; OPA keeps the final direction as client agency rather than fate.
+        must_not_claim:
+          - Do not order the user to wait or let go.
+          - Do not romanticize unhealthy waiting as destiny.

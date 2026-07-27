@@ -1,0 +1,1488 @@
+version: kb-book-digests-v1
+digests:
+  - id: western-suskin-synastry-method-digest
+    source_id: western-suskin-synastry
+    lane: astrology_method
+    status: reviewed
+    priority: P0
+    product_role: Primary Western relationship reading order.
+    method_scope:
+      - natal_relationship_potential
+      - initial_comparison
+      - interchart_aspects
+      - relationship_chart_deferral
+      - timing_deferral
+      - consultation_safety
+    extraction_goal: Turn Suskin into the operational sequence for relationship readings before adding more UI copy.
+    method_claims:
+      - id: suskin-method-order-natal-before-synastry
+        claim_type: method_order
+        summary: Read each person's relationship capacity and needs before judging the relationship between them.
+        use_for:
+          - Start V1 with 我的星盤 and 他的星盤.
+          - Prevent single-aspect conclusions from driving the answer.
+        runtime_targets:
+          - identityNeeds
+          - relationshipPotential
+          - readingBlueprint
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-synastry-method-order
+          - western-natal-relationship-potential
+        source_locations:
+          - raw/western/718226037-Synastry-Understanding-the-Astrology-of-Relationships-Rod-Suskin-Z-Library.txt:276-294
+          - raw/western/718226037-Synastry-Understanding-the-Astrology-of-Relationships-Rod-Suskin-Z-Library.txt:945-987
+        review_notes:
+          - Suskin explicitly orders natal relationship needs before chart-to-chart analysis.
+          - This supports starting the paid result with separate profile layers before the question answer.
+        must_not_claim:
+          - Do not answer whether someone will return before showing each person's relationship function layer.
+      - id: suskin-method-order-comparison-is-orientation
+        claim_type: method_order
+        summary: Initial element/luminary comparison can orient the reading but cannot become a compatibility verdict.
+        use_for:
+          - Explain natural rhythm and mismatch without saying compatible or incompatible.
+        runtime_targets:
+          - elementComparison
+          - luminaryComparison
+          - fitSummary
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-initial-comparison-elements
+        source_locations:
+          - raw/western/718226037-Synastry-Understanding-the-Astrology-of-Relationships-Rod-Suskin-Z-Library.txt:465-545
+          - raw/western/718226037-Synastry-Understanding-the-Astrology-of-Relationships-Rod-Suskin-Z-Library.txt:276-294
+        review_notes:
+          - Suskin rejects Sun-sign compatibility shortcuts and frames compatibility through needs, communication, rapport, empathy, compromise, and values.
+          - This supports using fitSummary as orientation, not verdict.
+        must_not_claim:
+          - Do not treat element match as proof of love, return, or long-term success.
+      - id: suskin-method-order-aspects-after-foundation
+        claim_type: method_order
+        summary: Interchart aspects matter after natal foundations and should be prioritized, not dumped as a list.
+        use_for:
+          - Select a few relationship-critical aspect families for attraction, safety, pressure, communication, and repair.
+        runtime_targets:
+          - aspectPriority
+          - attraction
+          - emotionalSafety
+          - pressure
+          - communication
+          - repair
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-interchart-aspect-priorities
+        source_locations:
+          - raw/western/718226037-Synastry-Understanding-the-Astrology-of-Relationships-Rod-Suskin-Z-Library.txt:276-294
+          - raw/western/718226037-Synastry-Understanding-the-Astrology-of-Relationships-Rod-Suskin-Z-Library.txt:105-116
+        review_notes:
+          - Suskin puts chart interaction after natal foundations and table-of-contents structure separates basic comparison from interchart aspect work.
+          - This supports prioritizing evidence families instead of dumping every calculated contact.
+        must_not_claim:
+          - Do not show all aspects just because the calculator can produce them.
+      - id: suskin-method-order-relationship-chart-later
+        claim_type: method_order
+        summary: Relationship chart layers belong after natal comparison and synastry; do not invent composite or Davison meaning before those calculations exist.
+        use_for:
+          - Keep composite and Davison out of V1 until the calculation layer is reliable.
+        runtime_targets:
+          - relationshipChartLayer
+          - compositeLayer
+        implementation_status: blocked
+        evidence_level: source_backed
+        source_basis:
+          - western-relationship-chart-layer
+        source_locations:
+          - raw/western/718226037-Synastry-Understanding-the-Astrology-of-Relationships-Rod-Suskin-Z-Library.txt:293-299
+          - raw/western/718226037-Synastry-Understanding-the-Astrology-of-Relationships-Rod-Suskin-Z-Library.txt:550-580
+        review_notes:
+          - Suskin places relationship charts after natal and synastry method, so V1 should not invent composite or Davison evidence.
+          - This source support keeps relationshipChartLayer intentionally blocked until calculations exist.
+        must_not_claim:
+          - Do not imply composite, Davison, houses, or overlays were calculated when they were not.
+
+  - id: western-hand-horoscope-symbols-method-digest
+    source_id: western-hand-horoscope-symbols
+    lane: astrology_method
+    status: reviewed
+    priority: P0
+    product_role: Foundation for planets, signs, houses, aspects, angles, and symbol grammar.
+    method_scope:
+      - planetary_functions
+      - sign_style
+      - element_modality
+      - aspect_meaning
+      - house_angle_precision
+    extraction_goal: Use Hand as the foundation grammar so product language does not become generic sign stereotypes.
+    method_claims:
+      - id: hand-symbol-grammar-planet-function-sign-style
+        claim_type: symbol_foundation
+        summary: Planet shows the function; sign shows style; interpretation should not collapse into Sun-sign or sign-only reading.
+        use_for:
+          - Explain Moon, Mercury, Venus, Mars, and Saturn as relationship functions.
+          - Keep the first paragraph of each card definition-only before relation synthesis.
+        runtime_targets:
+          - planetaryFunctions
+          - planetSignStyle
+          - moonSignEmotionalSafety
+          - mercurySignCommunicationRepair
+          - venusSignAffectionStyle
+          - marsSignPursuitConflict
+          - saturnSignDefenseDelay
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-planetary-functions-hand
+          - western-individual-sign-meanings-hand
+          - western-relationship-function-sign-templates
+        source_locations:
+          - raw/western/horoscope-symbols-robert-hand-extracted.txt:527-555
+          - raw/western/horoscope-symbols-robert-hand-extracted.txt:758-771
+        review_notes:
+          - Hand defines planets, angles, aspects, houses, and signs as separate symbol systems.
+          - Hand frames signs and houses as modifiers/backdrops rather than the same kind of energy as planets, supporting function-plus-style rendering.
+        must_not_claim:
+          - Do not say one sign alone proves a person's feelings or action.
+      - id: hand-planet-pair-function-fields
+        claim_type: symbol_foundation
+        summary: Moon/Mercury, Venus/Mars, and Jupiter/Saturn describe different function fields; relationship profiles should keep reception, communication, attraction, action, and limits distinct.
+        use_for:
+          - Prevent profile cards from repeating one generic sign meaning across every planet.
+          - Support the five-function profile sequence before synastry judgment.
+        runtime_targets:
+          - planetaryFunctions
+          - planetSignStyle
+          - functionElementMatrix
+          - functionModalityMatrix
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-planets-planetary-functions-hand
+          - western-relationship-function-sign-templates
+        source_locations:
+          - raw/western/horoscope-symbols-robert-hand-extracted.txt:1213-1299
+        review_notes:
+          - Hand separates Mercury/Moon modulation, Venus/Mars relationship polarity, and Jupiter/Saturn support/resistance.
+          - This strengthens the product rule that sign language must be routed through the planet's function field.
+        must_not_claim:
+          - Do not use one sign description as if it means the same thing for Moon, Mercury, Venus, Mars, and Saturn.
+      - id: hand-moon-emotional-containment-belonging
+        claim_type: natal_profile
+        summary: Moon describes containment, nurture, belonging, emotional reflex, and early patterns; Moon-in-sign should explain felt safety and regulation.
+        use_for:
+          - Make Moon profile cards explain emotional safety before relationship conclusions.
+          - Keep low-confidence Moon handling when birth time is missing.
+        runtime_targets:
+          - moonSignEmotionalSafety
+          - identityNeeds
+          - emotionalSafety
+          - readableInterpretation
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-planets-planetary-functions-hand
+          - western-relationship-function-sign-templates
+        source_locations:
+          - raw/western/horoscope-symbols-robert-hand-extracted.txt:1621-1797
+        review_notes:
+          - Hand grounds Moon in containment, nurturing matrix, belonging, unconscious emotional assumptions, and reflexive emotional response.
+          - This supports writing Moon as "what makes the nervous system feel safe enough to receive," not as proof of the other person's feelings.
+        must_not_claim:
+          - Do not use Moon sign to write definite inner monologue, guaranteed love, or guaranteed return.
+      - id: hand-mercury-communication-translation-map
+        claim_type: natal_profile
+        summary: Mercury bridges separateness through communication, symbol-making, translation, mapmaking, and detail processing.
+        use_for:
+          - Make Mercury profile cards explain how words are received, translated, and repaired.
+          - Keep repair advice tied to communication mechanics instead of comfort-only advice.
+        runtime_targets:
+          - mercurySignCommunicationRepair
+          - communication
+          - repair
+          - readableInterpretation
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-planets-planetary-functions-hand
+          - western-relationship-function-sign-templates
+        source_locations:
+          - raw/western/horoscope-symbols-robert-hand-extracted.txt:1798-1989
+        review_notes:
+          - Hand frames Mercury as the process that converts experience into symbols, maps, language, and transferable understanding.
+          - This supports using Mercury for message framing, misunderstanding, and repair tone, not as proof that contact will happen.
+        must_not_claim:
+          - Do not use Mercury sign alone to predict a reply, prescribe one exact sentence, or prove feeling.
+      - id: hand-venus-voluntary-attraction-harmony
+        claim_type: natal_profile
+        summary: Venus describes voluntary attraction, harmony, affection, beauty, and self-expressive bonding; attraction cannot be upgraded into commitment.
+        use_for:
+          - Make Venus profile cards explain how affection and attraction naturally open.
+          - Separate liking, comfort, and attraction from commitment or repair capacity.
+        runtime_targets:
+          - venusSignAffectionStyle
+          - attraction
+          - safetyValidationLanguage
+          - readableInterpretation
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-planets-planetary-functions-hand
+          - western-relationship-function-sign-templates
+        source_locations:
+          - raw/western/horoscope-symbols-robert-hand-extracted.txt:1990-2132
+        review_notes:
+          - Hand distinguishes voluntary Venus bonding from coercive forces and stresses that healthy Venus allows self-expression rather than loss of individuality.
+          - This supports writing attraction as a low-pressure opening, not a promise of commitment or return.
+        must_not_claim:
+          - Do not say Venus sign proves love, commitment, loyalty, reply, or reconciliation.
+      - id: hand-mars-individuality-action-conflict
+        claim_type: natal_profile
+        summary: Mars describes individuality, survival energy, assertion, action, conflict, desire, and the need to balance selfhood with Venusian relating.
+        use_for:
+          - Make Mars profile cards explain pursuit rhythm and conflict triggers without blame.
+          - Separate active charge from commitment, safety, or repair.
+        runtime_targets:
+          - marsSignPursuitConflict
+          - pressure
+          - attraction
+          - actionDirection
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-planets-planetary-functions-hand
+          - western-relationship-function-sign-templates
+        source_locations:
+          - raw/western/horoscope-symbols-robert-hand-extracted.txt:2133-2256
+        review_notes:
+          - Hand frames Mars as the energy that maintains individuality and can become conflict when two Mars fields cannot operate in the same space.
+          - He also ties healthy relating to a Mars/Venus balance, supporting non-blaming action and conflict language.
+        must_not_claim:
+          - Do not use Mars sign to assign fault, diagnose aggression, guarantee sexual attraction, or guarantee reconciliation.
+      - id: hand-saturn-limits-reality-structure
+        claim_type: natal_profile
+        summary: Saturn describes limits, rules, reality structure, resistance, maturity, and rigidity risk; Saturn pressure must stay nonfatal.
+        use_for:
+          - Make Saturn profile cards explain defense, delay, boundary, and pressure.
+          - Keep timing/action advice from turning Saturn into permanent rejection or fated waiting.
+        runtime_targets:
+          - saturnSignDefenseDelay
+          - pressure
+          - timingSaturnPressure
+          - actionBoundary
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-planets-planetary-functions-hand
+          - western-relationship-function-sign-templates
+        source_locations:
+          - raw/western/horoscope-symbols-robert-hand-extracted.txt:2413-2598
+        review_notes:
+          - Hand rehabilitates Saturn from simple malefic status and defines it through limits, rules, structure, social reality, responsibility, and potential rigidity.
+          - This supports pressure language that names boundaries and delay without writing doom, punishment, or permanent rejection.
+        must_not_claim:
+          - Do not say Saturn means the relationship is doomed, the person does not love the user, or the user should wait indefinitely.
+      - id: hand-symbol-grammar-house-angle-gate
+        claim_type: precision_guardrail
+        summary: Houses and angles require reliable time and location; they should be blocked when precision is weak.
+        use_for:
+          - Prevent Asc, Desc, houses, and overlays from appearing under missing birth time or city.
+        runtime_targets:
+          - birthDataQuality
+          - angleHouseFramework
+          - houseOverlayLayer
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-houses-angles-foundation
+          - western-birth-data-quality
+        source_locations:
+          - raw/western/horoscope-symbols-robert-hand-extracted.txt:944-1090
+          - raw/western/horoscope-symbols-robert-hand-extracted.txt:983-1001
+          - raw/western/horoscope-symbols-robert-hand-extracted.txt:1074-1089
+        review_notes:
+          - Hand ties angles and houses to horizon/meridian and mundane position, making time/place reliability essential for this layer.
+          - This supports blocking Asc, Desc, houses, and overlays under weak birth data.
+          - Hand also distinguishes definite angles from approximate house positions, so runtime output needs a precision-gated contextual trace instead of silent narrative use.
+        must_not_claim:
+          - Do not mention house overlays or Desc patterns without time/place precision.
+          - Do not use house or angle context as a substitute for calculated synastry, transit, or relationship-chart evidence.
+      - id: hand-symbol-grammar-aspect-synthesis
+        claim_type: aspect_foundation
+        summary: Aspects describe relationship between functions; interpretation needs aspect type, participating points, and strength.
+        use_for:
+          - Require pair family plus contact type plus confidence instead of generic hard/soft wording.
+        runtime_targets:
+          - aspectInterpretationFoundation
+          - aspectContactModifier
+          - aspectFunctionCombination
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-aspect-interpretation-foundation
+          - western-aspect-contact-type-modifiers
+          - western-aspect-function-combination-reducers
+        source_locations:
+          - raw/western/horoscope-symbols-robert-hand-extracted.txt:3820-3850
+          - raw/western/horoscope-symbols-robert-hand-extracted.txt:527-555
+        review_notes:
+          - Hand defines aspects as angular relationships that link planetary energies and other chart points in aspect-specific ways.
+          - This supports aspect reducers that require participating functions, contact type, and strength.
+        must_not_claim:
+          - Do not treat any one aspect as a guaranteed event.
+
+  - id: western-george-bloch-natal-method-digest
+    source_id: western-george-bloch-astrology-for-yourself
+    lane: astrology_method
+    status: reviewed
+    priority: P0
+    product_role: Natal synthesis cross-check and relationship-needs method.
+    method_scope:
+      - natal_synthesis
+      - sun_moon_asc
+      - relationship_needs
+      - element_modality
+      - aspect_synthesis
+    extraction_goal: Cross-check Hand and Suskin with an educational chart-reading sequence.
+    method_claims:
+      - id: george-bloch-natal-synthesis-before-answer
+        claim_type: method_order
+        summary: User-facing relationship answers need natal synthesis before synastry, especially Moon, Venus, Mars, Mercury, Saturn, and Asc when allowed.
+        use_for:
+          - Give each person a clear profile before answering the question.
+        runtime_targets:
+          - relationshipProfiles
+          - identityNeeds
+          - functionElementMatrix
+          - functionModalityMatrix
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-astrology-for-yourself-method-foundation
+          - western-relationship-needs-george-bloch
+          - western-function-element-templates
+          - western-function-modality-templates
+        source_locations:
+          - raw/western/astrology-for-yourself-george-bloch-extracted.txt:1468-1492
+          - raw/western/astrology-for-yourself-george-bloch-extracted.txt:5566-5595
+          - raw/western/astrology-for-yourself-george-bloch-extracted.txt:6108-6128
+          - raw/western/astrology-for-yourself-george-bloch-extracted.txt:6954-7004
+        review_notes:
+          - George/Bloch frame planets as functions, signs as expression style, and houses as fields of experience.
+          - Their relationship section treats each birth chart as a unique needs map before partnership comparison.
+        must_not_claim:
+          - Do not reduce a person to a Sun sign or one placement.
+      - id: george-bloch-function-elements-moon-through-saturn
+        claim_type: natal_profile
+        summary: Moon, Mercury, Venus, Mars, and Saturn element tables translate emotional security, communication, attraction, assertion, and restriction into function-specific relationship language.
+        use_for:
+          - Support the function-element matrix in 星盤定位.
+          - Keep each planet's element wording tied to the planet's actual relationship function.
+        runtime_targets:
+          - moonSignEmotionalSafety
+          - mercurySignCommunicationRepair
+          - venusSignAffectionStyle
+          - marsSignPursuitConflict
+          - saturnSignDefenseDelay
+          - functionElementMatrix
+          - readableInterpretation
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-relationship-function-sign-templates
+          - western-function-element-templates
+        source_locations:
+          - raw/western/astrology-for-yourself-george-bloch-extracted.txt:1954-2220
+        review_notes:
+          - George/Bloch give separate element tables for Moon emotional security, Mercury thinking/communication, Venus interaction/attraction, Mars assertion, and Saturn restriction/restructure.
+          - This directly supports the runtime design where the same element has different meaning depending on whether it modifies Moon, Mercury, Venus, Mars, or Saturn.
+        must_not_claim:
+          - Do not let element language replace the planet function, synastry evidence, timing evidence, or real contact context.
+          - Do not use element style alone as a compatibility verdict.
+      - id: george-bloch-sun-moon-asc-profile-layer
+        claim_type: natal_profile
+        summary: Sun, Moon, and Ascendant form a primary personality profile layer, but Ascendant claims depend on reliable birth time and location.
+        use_for:
+          - Show each person's broad profile before synastry when birth data supports it.
+          - Keep Asc/Desc language out of low-precision scenarios.
+        runtime_targets:
+          - relationshipProfiles
+          - sunMoonAscProfile
+          - birthDataQuality
+          - precisionWarnings
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-sun-moon-asc-profile-george-bloch
+          - western-birth-data-quality
+        source_locations:
+          - raw/western/astrology-for-yourself-george-bloch-extracted.txt:1722-1818
+          - raw/western/astrology-for-yourself-george-bloch-extracted.txt:6954-7004
+        review_notes:
+          - George/Bloch identify Sun, Moon, and Ascendant as primary personality indicators and analyze them through element, polarity, modality, and orientation.
+          - Because the Ascendant is tied to the Eastern horizon at birth, product output must use the existing birth-data precision gate.
+        must_not_claim:
+          - Do not show Ascendant, Descendant, or angle-derived relationship claims when time or place is unreliable.
+      - id: george-bloch-aspect-synthesis-cross-check
+        claim_type: aspect_foundation
+        summary: Aspect interpretation should synthesize planet functions, sign context, and aspect type instead of reading isolated keywords.
+        use_for:
+          - Audit pair-template language for native, relationship-specific Chinese.
+        runtime_targets:
+          - aspectSynthesisCrossCheck
+          - aspectPairPhraseTemplateMethod
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-aspect-synthesis-george-bloch
+          - western-aspect-pair-contact-phrase-templates
+        source_locations:
+          - raw/western/astrology-for-yourself-george-bloch-extracted.txt:4540-4632
+          - raw/western/astrology-for-yourself-george-bloch-extracted.txt:4632-4718
+          - raw/western/astrology-for-yourself-george-bloch-extracted.txt:7114-7148
+        review_notes:
+          - George/Bloch describe aspects as relationships between chart functions that must include planet, sign, house, and aspect meaning.
+          - Their hard-aspect section emphasizes integration and resolution potential, supporting nonfatal pressure language.
+        must_not_claim:
+          - Do not let phrase templates bypass actual calculated aspect evidence.
+      - id: george-bloch-relationship-comparison-wants-needs
+        claim_type: relationship_method
+        summary: Chart comparison is useful because it clarifies how two birth charts interact and helps people understand relationship dynamics, wants, and needs.
+        use_for:
+          - Keep fit analysis oriented toward mutual needs and dynamics rather than a yes/no compatibility verdict.
+          - Support the profile-first reading blueprint before relationship conclusions.
+        runtime_targets:
+          - relationshipProfiles
+          - relationshipPotential
+          - fitSummary
+          - readingBlueprint
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-relationship-needs-george-bloch
+          - western-synastry-evidence-clusters
+        source_locations:
+          - raw/western/astrology-for-yourself-george-bloch-extracted.txt:5578-5585
+          - raw/western/astrology-for-yourself-george-bloch-extracted.txt:5586-5592
+        review_notes:
+          - George/Bloch state that the birth chart gives clues to what a person needs and can offer in relationship.
+          - Their relationship comparison purpose is understanding chart interaction and fulfilling wants and needs, not declaring fate.
+        must_not_claim:
+          - Do not turn relationship comparison into a guaranteed marriage, breakup, or reconciliation verdict.
+          - Do not use chart interaction language without showing profile and synastry evidence.
+      - id: george-bloch-synthesis-salient-themes-first
+        claim_type: evidence_selection
+        summary: "Chart synthesis should begin with what stands out: salient themes, repeated emphases, and the Sun/Moon/Ascendant profile before smaller details."
+        use_for:
+          - Support reducer selection of central themes instead of dumping every available placement or aspect.
+          - Keep profile output anchored in repeated element/modality/orientation and Sun/Moon/Ascendant patterns.
+        runtime_targets:
+          - evidenceReducer
+          - readingBlueprint
+          - relationshipProfiles
+          - aspectPriority
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-astrology-for-yourself-method-foundation
+          - western-synastry-evidence-clusters
+        source_locations:
+          - raw/western/astrology-for-yourself-george-bloch-extracted.txt:6957-6973
+          - raw/western/astrology-for-yourself-george-bloch-extracted.txt:6984-6995
+        review_notes:
+          - George/Bloch explicitly instruct the interpreter to pay attention to what stands out and to identify salient themes.
+          - Their outline then checks element, modality, orientation, and the Sun/Moon/Ascendant layer, matching the current reducer order.
+        must_not_claim:
+          - Do not present every minor factor as equally important.
+          - Do not hide a weak or absent central theme behind a long list of details.
+
+  - id: western-burk-relationship-handbook-method-digest
+    source_id: western-burk-relationship-handbook
+    lane: astrology_method
+    status: reviewed
+    priority: P1
+    product_role: Practical synastry interpretation and relationship mechanics.
+    method_scope:
+      - synastry_pair_families
+      - personal_planet_contacts
+      - relationship_questions
+    extraction_goal: Deepen pair-family reducers so common charts do not sound generic.
+    method_claims:
+      - id: burk-relationship-astrology-people-before-charts
+        claim_type: method_order
+        summary: Relationship astrology must compare two individuals, not treat the two charts as the relationship itself.
+        use_for:
+          - Keep V1 ordered as profiles first, synastry second, question answer third.
+          - Prevent compatibility verdicts from isolated synastry contacts.
+        runtime_targets:
+          - relationshipProfiles
+          - identityNeeds
+          - relationshipPotential
+          - readingBlueprint
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-synastry-relationship-framework
+          - western-synastry-evidence-clusters
+        source_locations:
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:720-785
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:815-864
+        review_notes:
+          - Burk explicitly places chart comparison near the end of the process and says relationships occur between individuals, not charts.
+          - This supports the paid flow's profile-first structure before compatibility and question-answer sections.
+        must_not_claim:
+          - Do not let one attractive or difficult synastry aspect answer the whole relationship question.
+      - id: burk-safety-validation-needs-before-compatibility
+        claim_type: relationship_needs
+        summary: Safety and validation needs are central relationship needs; Moon/Venus language should be used before judging compatibility.
+        use_for:
+          - Strengthen 星盤定位 and relationship fit sections around actual needs.
+          - Explain why a connection can feel attractive but still fail to soothe or validate.
+        runtime_targets:
+          - identityNeeds
+          - emotionalSafety
+          - safetyValidationLanguage
+          - attraction
+          - repair
+          - fitSummary
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-synastry-relationship-framework
+          - western-synastry-evidence-clusters
+          - western-planets-natal-relationship-needs
+          - western-safety-validation-language
+        source_locations:
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:920-945
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:1209-1218
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:1338-1350
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:2679
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:5306-5312
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:8764-8794
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:9150-9173
+        review_notes:
+          - Burk names safety and validation as core relationship needs and distinguishes needs from communication as a tool.
+          - This supports Moon/Venus needs language as a compatibility foundation, not a decorative profile section.
+          - Burk also compares safety and validation languages by element, including cross Moon/Venus support, which now powers the safetyValidationLanguage reducer.
+        must_not_claim:
+          - Do not reduce compatibility to whether two signs or elements match.
+          - Do not treat communication advice as sufficient if safety or validation needs are not being met.
+      - id: burk-moon-safety-survival-connection-boundaries
+        claim_type: relationship_needs
+        summary: Moon safety needs include survival continuity, emotional connection, and boundaries; when safety is threatened, people can become defensive and unable to discuss the relationship reasonably.
+        use_for:
+          - Deepen Moon profile and emotional-safety output beyond generic sensitivity.
+          - Explain why pressure, uncertainty, or boundary violations can block repair even when attraction exists.
+        runtime_targets:
+          - moonSignEmotionalSafety
+          - emotionalSafety
+          - safetyValidationLanguage
+          - identityNeeds
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-planets-natal-relationship-needs
+          - western-safety-validation-language
+        source_locations:
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:2679-2693
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:2732-2737
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:2757-2769
+        review_notes:
+          - Burk groups safety needs into survival needs, emotional connections, and boundaries.
+          - He explicitly links feeling unsafe in relationship with emotional/defensive reactions that make reasonable discussion harder.
+        must_not_claim:
+          - Do not pathologize the user or the other person for needing safety.
+          - Do not treat attraction or a soft aspect as enough if the safety layer is actively triggered.
+      - id: burk-synastry-as-persistent-trigger
+        claim_type: synastry_mechanics
+        summary: Synastry contacts behave like persistent triggers to natal patterns; houses/overlays are secondary and cannot replace aspect evidence.
+        use_for:
+          - Explain why one person's planets activate the other person's existing patterns.
+          - Keep house overlays low-priority and precision-gated.
+        runtime_targets:
+          - aspectFunctionCombination
+          - aspectPairContactTemplate
+          - aspectPriority
+          - houseOverlayLayer
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-synastry-evidence-clusters
+          - western-interchart-aspect-priorities
+          - western-aspect-function-combination-reducers
+        source_locations:
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:9048-9062
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:9062-9070
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:11170-11212
+        review_notes:
+          - Burk compares synastry aspects to transits that persist as long as the people interact.
+          - He treats planet-in-house synastry as late-stage support, matching Valley's overlay guardrails.
+          - "His worksheet order reinforces the runtime structure: personal interconnections, karmic/outer-to-personal contacts, then synthesized synastry."
+        must_not_claim:
+          - Do not present house overlays as primary relationship proof.
+          - Do not ignore the natal chart being triggered by the synastry contact.
+      - id: burk-personal-planet-connections-attraction-and-sparks
+        claim_type: synastry_pair_family
+        summary: Personal-planet synastry should distinguish easy flow, friction/sparks, and Venus/Mars attraction rather than labeling aspects good or bad.
+        use_for:
+          - Build precise relationship phrases for Sun, Moon, Mercury, Venus, Mars, and Jupiter contacts.
+          - Separate comfort, attraction, and pressure in the fit analysis.
+        runtime_targets:
+          - aspectPairContactTemplate
+          - aspectContactModifier
+          - aspectFunctionCombination
+          - attraction
+          - pressure
+          - communication
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-aspect-contact-type-modifiers
+          - western-aspect-pair-contact-phrase-templates
+          - western-aspect-function-combination-reducers
+          - western-synastry-evidence-clusters
+        source_locations:
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:9070-9145
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:10500-10572
+        review_notes:
+          - Burk separates easy aspects, stress aspects, sparks, Venus/Mars attraction, and quincunx drain.
+          - His example shows comfort/support and attraction being read separately, which fits Valley's attraction, pressure, and communication clusters.
+        must_not_claim:
+          - Do not call an aspect positive or negative without explaining how it behaves in interaction.
+          - Do not treat Venus/Mars attraction as commitment, repair capacity, or long-term fit by itself.
+      - id: burk-outer-to-personal-pressure-needs-context
+        claim_type: synastry_pressure
+        summary: Outer-planet contacts to personal planets are heavy relationship lessons and matter most when they affect Moon/Venus safety and validation needs.
+        use_for:
+          - Weight Saturn, Uranus, Neptune, Pluto, and Chiron contacts without making them fatalistic.
+          - Explain pressure as a trigger to existing natal needs and fears.
+        runtime_targets:
+          - aspectFunctionCombination
+          - pressure
+          - emotionalSafety
+          - timingSaturnPressure
+          - consultationSafety
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-synastry-evidence-clusters
+          - western-aspects-saturn-pressure
+          - western-aspect-function-combination-reducers
+        source_locations:
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:9070-9145
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:10572-10612
+        review_notes:
+          - Burk describes outer-to-personal contacts as heavier lessons and highlights Moon/Venus impact on safety and validation needs.
+          - His example repeatedly checks whether a contact reinforces familiar natal patterns before judging whether it feels supportive or disruptive.
+        must_not_claim:
+          - Do not say outer-planet pressure proves obsession, destiny, permanent rejection, or inevitable breakup.
+      - id: burk-repeated-themes-outweigh-single-contacts
+        claim_type: evidence_selection
+        summary: Repeated and reinforced relationship themes should be weighted above single isolated contacts.
+        use_for:
+          - Rank evidence clusters and avoid displaying one-off weak contacts.
+          - Explain why several modest indicators can matter more than one dramatic aspect.
+        runtime_targets:
+          - aspectPriority
+          - aspectFunctionCombination
+          - readingBlueprint
+          - evidenceReducer
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-synastry-evidence-clusters
+          - western-interchart-aspect-priorities
+        source_locations:
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:9160-9172
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:11170-11212
+        review_notes:
+          - Burk says repeated issues become more central and his worksheet explicitly evaluates safety/validation, Mercury, personal-planet, and outer-to-personal sections separately.
+          - This supports Valley's cluster reducer architecture and selected-evidence display.
+        must_not_claim:
+          - Do not rank evidence only by orb or aspect drama if the theme is not repeated or relevant to the question.
+      - id: burk-moon-venus-safety-validation-alignment
+        claim_type: synastry_pair_family
+        summary: Moon-Venus comparison shows whether emotional safety and validation needs can be met together or pull against each other.
+        use_for:
+          - Read Moon-Venus as safety plus being-valued language, not generic sweetness.
+          - Separate soft alignment from hard needs mismatch in the relationship-fit section.
+        runtime_targets:
+          - safetyValidationLanguage
+          - emotionalSafety
+          - fitSummary
+          - aspectPairContactTemplate
+          - aspectFunctionCombination
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-safety-validation-language
+          - western-aspects-moon-venus
+          - western-aspect-pair-contact-phrase-templates
+        source_locations:
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:5306-5357
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:8764-8794
+        review_notes:
+          - Burk assigns safety needs to Moon and validation needs to Venus, then treats their relation as a core relationship-needs question.
+          - His compatibility method also allows one person's Moon/Venus language to support the other person's safety or validation needs.
+        must_not_claim:
+          - Do not treat Moon-Venus as proof that someone still loves the user or will return.
+          - Do not call hard Moon-Venus bad compatibility; frame it as needs translation and possible mismatch.
+      - id: burk-saturn-to-moon-venus-need-blocks
+        claim_type: synastry_pressure
+        summary: Saturn contacts to Moon or Venus can block or over-condition safety and validation needs, so pressure must be read before action advice.
+        use_for:
+          - Distinguish Moon-Saturn safety blocks from Venus-Saturn validation or commitment pressure.
+          - Keep Saturn pressure nonfatal while explaining why affection can slow down or become guarded.
+        runtime_targets:
+          - aspectPairContactTemplate
+          - aspectFunctionCombination
+          - pressure
+          - emotionalSafety
+          - safetyValidationLanguage
+          - actionBoundary
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-aspects-moon-saturn
+          - western-aspects-venus-saturn
+          - western-aspect-function-combination-reducers
+        source_locations:
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:5610-5763
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:5763-5848
+          - raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:10572-10612
+        review_notes:
+          - Burk links hard Moon-Saturn to safety checklist boundaries and hard Venus-Saturn to validation needs being held just out of reach.
+          - His outer-to-personal method says Moon and Venus contacts are especially critical because they affect safety and validation directly.
+        must_not_claim:
+          - Do not say Saturn means no love, permanent rejection, or inevitable breakup.
+          - Do not use Saturn as a reason to recommend waiting without boundaries.
+
+  - id: western-greene-saturn-method-digest
+    source_id: western-greene-saturn
+    lane: astrology_method
+    status: seed
+    priority: P1
+    product_role: Saturn pressure, delay, defense, fear, maturity, and projection.
+    method_scope:
+      - saturn_pressure
+      - defense_delay
+      - projection
+      - maturity_boundary
+    extraction_goal: Make Saturn language psychologically precise without making fatalistic claims.
+    method_claims:
+      - id: greene-saturn-defense-not-permanent-rejection
+        claim_type: psychological_guardrail
+        summary: The available Saturn extraction supports reading Saturn as process and pressure rather than fixed fate; it should not be written as permanent rejection.
+        use_for:
+          - Keep Saturn language nonfatal while a better body extraction is pending.
+          - Explain coldness, delay, pressure, and guarded behavior without promising the inner state of the absent person.
+        runtime_targets:
+          - pressure
+          - saturnSignDefenseDelay
+          - timingSaturnPressure
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-aspects-saturn-pressure
+          - western-relationship-function-sign-templates
+          - western-transits-timing-selector-windows
+        source_locations:
+          - raw/western/488023677-Liz-Greene-Robert-Hand-Saturn-A-New-Look-at-an-Old-Devil-Weiser-Books-2011-pdf.txt:22-29
+          - raw/western/488023677-Liz-Greene-Robert-Hand-Saturn-A-New-Look-at-an-Old-Devil-Weiser-Books-2011-pdf.txt:407-444
+          - raw/western/488023677-Liz-Greene-Robert-Hand-Saturn-A-New-Look-at-an-Old-Devil-Weiser-Books-2011-pdf.txt:426-451
+        review_notes:
+          - The current extracted text contains strong front-matter support for nonfatal Saturn interpretation, but not enough body text for detailed relationship-Saturn claims.
+          - "Hand's foreword strengthens the nonfatal method boundary: Saturn pressure can change through awareness and should not be written as fixed destiny."
+          - Treat this as a broad nonfatal guardrail until a complete extraction or replacement edition is available.
+        must_not_claim:
+          - Do not say Saturn means the relationship is doomed.
+          - Do not say Saturn delay means someone secretly loves the user.
+    open_questions:
+      - The current local Saturn text appears to contain front matter, blank body pages, and back-cover copy, but not the complete chapter body. Re-extract or replace before adding detailed Saturn synastry claims.
+
+  - id: western-hand-transits-method-digest
+    source_id: western-hand-transits
+    lane: astrology_method
+    status: reviewed
+    priority: P1
+    product_role: Timing climate, contact windows, and action pacing.
+    method_scope:
+      - current_transits
+      - mercury_message_timing
+      - venus_softening
+      - mars_activation
+      - saturn_delay
+      - moon_weather
+    extraction_goal: Upgrade from single current-transit snapshot to a 90-day scoring method.
+    method_claims:
+      - id: hand-transits-timing-climate-not-guarantee
+        claim_type: timing_guardrail
+        summary: Transits describe timing climate and pressure/softening, not guaranteed contact or reconciliation.
+        use_for:
+          - Score better, neutral, and avoid periods without promising exact outcomes.
+        runtime_targets:
+          - currentTransits
+          - timingWindowBand
+          - timingContactReducer
+          - timingMoonWeather
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-transits-timing-window
+          - western-transits-timing-selector-windows
+          - western-contact-timing-action-reducers
+        source_locations:
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:220-228
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:230-237
+        review_notes:
+          - Hand frames transits as information for intelligent decisions and appropriate actions, not inevitable events.
+          - His introduction explicitly contrasts psychological timing interpretation with event-prediction fortune telling.
+          - This supports timing output as action climate rather than a promised reply or reconciliation date.
+        must_not_claim:
+          - Do not promise that a day will make the person reply.
+          - Do not use Moon weather as a major fate indicator.
+      - id: hand-transits-mercury-communication-window
+        claim_type: timing_selector
+        summary: Mercury transits can mark mental focus, communication, routine interchange, calls, messages, and short-term contact tempo.
+        use_for:
+          - Identify lower-pressure message or clarification windows.
+          - Keep Mercury timing as communication support, not a relationship outcome.
+        runtime_targets:
+          - timingMercuryCommunication
+          - timingContactReducer
+          - currentTransits
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-transits-timing-selector-windows
+          - western-contact-timing-action-reducers
+        source_locations:
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:6581-6586
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:6588-6598
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:6600-6606
+        review_notes:
+          - Hand describes Mercury as shifts in mental focus, communications given and received, and increased interchange.
+          - He treats Mercury as everyday interchange and word-reaction loops, supporting low-pressure message clarity rather than emotional escalation.
+          - This supports message-timing selectors, especially when combined with low pressure and nonblocked contact context.
+        must_not_claim:
+          - Do not treat Mercury activity as proof that the other person will message first.
+      - id: hand-transits-venus-softening-window
+        claim_type: timing_selector
+        summary: Venus-related transits can soften relationship tone, support affection, and help smooth tensions, but they often have limited long-range consequence.
+        use_for:
+          - Identify softening windows for gentle contact or repair.
+          - Bound Venus timing so it cannot become a promise of commitment.
+        runtime_targets:
+          - timingVenusSoftening
+          - timingWindowBand
+          - timingContactReducer
+          - currentTransits
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-transits-timing-selector-windows
+          - western-contact-timing-action-reducers
+        source_locations:
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:3128-3156
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:3218-3238
+        review_notes:
+          - Hand uses Venus timing for affection, social ease, smoothing difficulties, and sometimes romance.
+          - He also cautions that such pleasant contact may have no long-range consequence, supporting low-pressure language.
+        must_not_claim:
+          - Do not treat a Venus softening window as proof of lasting reconciliation.
+      - id: hand-transits-mars-activation-caution
+        claim_type: timing_selector
+        summary: Mars-related transits can mark activation, urgency, irritability, and conflict risk; outreach should be slowed or avoided when pressure is high.
+        use_for:
+          - Flag avoid-push windows and hard-contact caution.
+          - Distinguish useful initiative from impulsive pursuit.
+        runtime_targets:
+          - timingMarsActivation
+          - timingWindowBand
+          - timingContactReducer
+          - currentTransits
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-transits-timing-selector-windows
+          - western-contact-timing-action-reducers
+        source_locations:
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:3276-3298
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:3338-3374
+        review_notes:
+          - Hand describes Mars timing as energetic and useful for action, but also prone to anger, impatience, disputes, and projected conflict.
+          - This supports using Mars as activation/caution rather than an automatic contact recommendation.
+        must_not_claim:
+          - Do not recommend chasing, confronting, or forcing clarity under Mars pressure without strong repair and context support.
+      - id: hand-transits-saturn-boundary-pressure
+        claim_type: timing_selector
+        summary: Saturn-related transits can mark limits, isolation, communication difficulty, duty, and relationship obligation pressure.
+        use_for:
+          - Lower certainty and action speed in contact timing.
+          - Explain delay or heaviness without turning it into permanent rejection.
+        runtime_targets:
+          - timingSaturnPressure
+          - timingWindowBand
+          - timingContactReducer
+          - actionBoundary
+          - currentTransits
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-transits-timing-selector-windows
+          - western-contact-timing-action-reducers
+          - western-aspects-saturn-pressure
+        source_locations:
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:3670-3694
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:3790-3818
+        review_notes:
+          - Hand ties Saturn timing to restriction, isolation, low energy, limits from circumstances or people, and the need to balance self-expression with relationship obligations.
+          - This supports boundary/avoid reducers and blocks fatalistic Saturn conclusions.
+        must_not_claim:
+          - Do not say Saturn pressure means the relationship is doomed or that silence proves permanent rejection.
+      - id: hand-transits-moon-weather-secondary
+        claim_type: timing_selector
+        summary: Moon timing can describe short-lived emotional weather and brief relationship ease, but it is too fleeting to drive major relationship conclusions alone.
+        use_for:
+          - Add day-level emotional weather only as secondary support.
+          - Prevent Moon-only timing from becoming a reconciliation signal.
+        runtime_targets:
+          - timingMoonWeather
+          - timingWindowBand
+          - currentTransits
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-transits-timing-selector-windows
+          - western-contact-timing-action-reducers
+        source_locations:
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:5371-5379
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:5395-5406
+        review_notes:
+          - Hand treats Moon-Venus timing as socially warm and useful for existing relationship ease, but explicitly too fleeting for a major relationship beginning by itself.
+          - His Moon-Venus sextile paragraph supports breathing space and emotional communication repair only when stronger relationship evidence also exists.
+          - This supports Moon weather as secondary timing evidence.
+        must_not_claim:
+          - Do not use Moon weather alone as a major fate, return, or reconciliation indicator.
+      - id: hand-transits-easy-difficult-neutrality
+        claim_type: timing_guardrail
+        summary: Easy and difficult transits are not simple good/bad predictions; transit difficulty depends on the planetary combination, natal context, and the person's response.
+        use_for:
+          - Keep timingWindowBand and timingContactReducer from labeling a period as guaranteed good or bad.
+          - Explain why soft windows still require action judgment and hard windows can still be handled constructively.
+        runtime_targets:
+          - timingWindowBand
+          - timingContactReducer
+          - consultationSafety
+          - actionBoundary
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-transits-timing-window
+          - western-contact-timing-action-reducers
+          - consulting-opa-ethics
+        source_locations:
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:472-480
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:509-525
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:550-591
+        review_notes:
+          - Hand rejects the older good-transit/bad-transit fortune-telling frame and says transits themselves do not cause good or bad happenings.
+          - He also warns that easy transits can reinforce weak points and that difficult transits test weak structures rather than doom them.
+        must_not_claim:
+          - Do not say a soft transit guarantees contact or repair.
+          - Do not say a hard transit means failure, punishment, or inevitable conflict.
+      - id: hand-transits-inner-planet-reinforcement-timing
+        claim_type: timing_method
+        summary: Important timing is usually described by several simultaneous factors; inner-planet transits can reinforce and time broader transit processes, but a single transit is often too subtle.
+        use_for:
+          - Keep timing reducers based on combined Mercury/Venus/Mars/Saturn/Moon selectors rather than one isolated transit.
+          - Preserve the internal multi-factor timing scan while blocking exact-date promises in visible output.
+        runtime_targets:
+          - currentTransits
+          - timingWindowBand
+          - timingContactReducer
+          - timingMercuryCommunication
+          - timingMarsActivation
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-transits-timing-window
+          - western-transits-timing-selector-windows
+          - western-contact-timing-action-reducers
+        source_locations:
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:1024-1043
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:1045-1060
+          - raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:1085-1107
+        review_notes:
+          - Hand says important events are usually related to several factors operating simultaneously.
+          - He names inner-planet transits, especially Sun and Mars and sometimes Mercury, as timing reinforcements for broader processes.
+        must_not_claim:
+          - Do not infer a precise public contact date from one transit.
+          - Do not let internal timing precision override contact boundaries, safety, or missing calculation support.
+
+  - id: western-forrest-skymates-method-digest
+    source_id: western-forrest-skymates
+    lane: astrology_method
+    status: reviewed
+    priority: P1
+    product_role: Relationship reading order, profile-first interpretation, human voice, and modern nonfatal synastry guardrails.
+    method_scope:
+      - individual_before_interaction
+      - function_sign_separation
+      - non_generic_love_needs
+      - pivotal_interaspect_selection
+      - modern_nonfatal_synastry
+      - relationship_voice
+    extraction_goal: Use Skymates to make the paid relationship reading more human while preserving deterministic evidence order.
+    method_claims:
+      - id: skymates-individuals-before-interactions
+        claim_type: method_order
+        summary: Synastry begins by understanding each person separately, then interpreting how the two charts interact.
+        use_for:
+          - Keep the paid flow ordered as my chart, their chart, then relationship fit.
+          - Prevent the answer layer from jumping straight to one synastry contact or one recent event.
+        runtime_targets:
+          - personProfile
+          - natalRelationshipNeeds
+          - readingBlueprint
+          - evidenceReducer
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-natal-relationship-potential
+          - western-synastry-evidence-clusters
+          - western-relationship-function-sign-templates
+        source_locations:
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:1271-1292
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:1329-1338
+        review_notes:
+          - "Skymates explicitly describes synastry as a two-step process: understand both individuals, then their interactions."
+          - This supports Valley's result flow beginning with separate profiles before fit and questions.
+        must_not_claim:
+          - Do not answer the user's core question before the profile and relationship evidence layers are established.
+
+      - id: skymates-no-generic-love-needs
+        claim_type: customization_guardrail
+        summary: There is no generic experience of love; the same behavior can nourish one couple and hurt another depending on each person's needs.
+        use_for:
+          - Replace generic suitable/not-suitable copy with needs-based, scenario-aware interpretation.
+          - Use contact status and question context as action boundaries, not as astrology evidence.
+        runtime_targets:
+          - readableInterpretation
+          - relationshipFit
+          - contextReducer
+          - answerEvidenceContract
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-relationship-needs-george-bloch
+          - western-relationship-function-sign-templates
+          - context-contact-status
+        source_locations:
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:1359-1386
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:1414-1425
+        review_notes:
+          - The source gives a concrete example where silence is bonding for one couple and painful for another.
+          - This directly supports the user's concern that generic suitable/not-suitable bullets feel fake.
+        must_not_claim:
+          - Do not write universal advice such as "everyone likes this" or "nobody likes this" as if it came from the chart.
+
+      - id: skymates-keep-planet-functions-distinct
+        claim_type: interpretation_method
+        summary: Sun, Moon, Ascendant, and the planets are distinct functions, and each sign modifies the specific function being read.
+        use_for:
+          - Build card explanations that first explain the planet/function and the sign style separately.
+          - Prevent cross-reading in the definition paragraph before the relationship-behavior section.
+        runtime_targets:
+          - personProfile
+          - planetSignStyle
+          - readableInterpretation
+          - precisionWarnings
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-relationship-function-sign-templates
+          - western-planet-functions-hand
+          - western-sign-element-modality-foundation
+        source_locations:
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:1486-1524
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:1682-1718
+        review_notes:
+          - Skymates warns that an Aries Sun with Pisces Moon is not the same as Pisces Sun with Aries Moon.
+          - This supports the readable interpretation renderer's function-first structure.
+        must_not_claim:
+          - Do not treat the sign label alone as the full interpretation.
+          - Do not merge Sun, Moon, Ascendant, Venus, Mars, and Saturn meanings into one generic sign paragraph.
+
+      - id: skymates-sun-sign-only-is-not-enough
+        claim_type: method_guardrail
+        summary: Sun-sign compatibility is too thin for intimacy; adding Moon and the rest of the chart moves the reading toward real people rather than typologies.
+        use_for:
+          - Explain why the paid reading needs multiple relationship functions before fit and action advice.
+          - Guard against landing-page or result-page copy that promises a Sun-sign match verdict.
+        runtime_targets:
+          - personProfile
+          - relationshipFit
+          - methodGuardrail
+          - narrative
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-relationship-function-sign-templates
+          - western-natal-relationship-potential
+        source_locations:
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:1486-1498
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:1512-1524
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:1531-1567
+        review_notes:
+          - Skymates frames Sun, Moon, and planets as distinct psychological functions before using sign language.
+          - The source uses a Sun Aries plus Moon Virgo example to show why a simple fire-sign match can miss emotional trust needs.
+          - The method explicitly moves from twelve Sun types toward Moon combinations and then the rest of the planets, aspects, houses, and nodes.
+          - This supports Valley's multi-function profile layer before relationship verdicts.
+        must_not_claim:
+          - Do not present element match or Sun-sign match as the relationship answer.
+
+      - id: skymates-pivotal-interaspects-over-aspect-dump
+        claim_type: evidence_selection
+        summary: Effective synastry should go deeply into the pivotal interaspects instead of skimming every contact superficially.
+        use_for:
+          - Rank evidence clusters and keep result pages focused on the contacts that actually explain the question.
+          - Use tighter orbs and contact importance to reduce noisy aspect lists.
+        runtime_targets:
+          - aspectPriority
+          - aspectFunctionCombination
+          - evidenceReducer
+          - includedReadingRows
+          - readingBlueprint
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-synastry-evidence-clusters
+          - western-interchart-aspect-priorities
+          - western-aspect-contact-type-modifiers
+        source_locations:
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:9635-9644
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:9645-9655
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:9656-9667
+        review_notes:
+          - Skymates says one deeply understood interaspect is worth more than many skimmed contacts.
+          - This strengthens the current reducer approach and the decision not to display a full aspect dump.
+          - Skymates names prominent planets, contact-type order, and tightened orbs as practical ways to narrow the field.
+          - This now maps to the chart-variation fixture that locks top-4 eligible major contacts rather than all calculated interaspects.
+        must_not_claim:
+          - Do not treat every calculated aspect as equally important.
+          - Do not overwhelm the result with weak contacts just because they exist.
+
+      - id: skymates-house-transpositions-secondary-and-precision-bound
+        claim_type: advanced_layer_guardrail
+        summary: House transpositions are read after interaspects and should prioritize Sun, Moon, and Ascendant, but they depend on house precision and should remain blocked when birth time/place are unreliable.
+        use_for:
+          - Keep overlay/house claims out of low-precision results.
+          - Prepare the future house overlay layer without leaking unsupported claims into paid V1.
+        runtime_targets:
+          - houseOverlayLayer
+          - precisionWarnings
+          - relationshipFit
+          - readingBlueprint
+        implementation_status: blocked
+        evidence_level: source_backed
+        source_basis:
+          - western-synastry-evidence-clusters
+          - western-relationship-chart-layer
+          - precision-guardrails
+        source_locations:
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:9672-9718
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:9735-9775
+        review_notes:
+          - The source places house transpositions after interaspects and says Sun, Moon, and Ascendant are pivotal.
+          - Because Valley currently blocks unreliable houses/angles, this is a future-layer claim rather than a V1 runtime claim.
+        must_not_claim:
+          - Do not use house overlays when birth time or location precision blocks houses and angles.
+
+      - id: skymates-modern-nonfatal-synastry
+        claim_type: consultation_safety
+        summary: No astrological configuration guarantees relationship success or failure; conflict can be useful when commitment, growth, and communication are present.
+        use_for:
+          - Keep breakup, no-contact, and timing answers conditional rather than fatalistic.
+          - Translate hard aspects as pressure to understand and handle, not proof the relationship is doomed.
+        runtime_targets:
+          - nonfatalSynastrySafety
+          - consultationSafety
+          - actionBoundary
+          - pressure
+          - repair
+          - narrative
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-modern-nonfatal-synastry
+          - western-aspect-contact-type-modifiers
+          - western-synastry-evidence-clusters
+          - consulting-opa-ethics
+        source_locations:
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:10931-10956
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:11069-11074
+        review_notes:
+          - The source explicitly rejects guaranteed success/failure from configurations and treats communication as central.
+          - This supports conditional paid-reading conclusions and nonfatal hard-aspect language.
+        must_not_claim:
+          - Do not promise reunion, permanent breakup, or guaranteed outcome from any chart configuration.
+
+      - id: skymates-readable-language-for-dialogue
+        claim_type: voice_support
+        summary: Astrology works best as precise psychological language that helps people communicate, not as prefabricated answers.
+        use_for:
+          - Improve native Chinese tone after deterministic evidence is selected.
+          - Write action direction as dialogue support rather than scripted control over the other person.
+        runtime_targets:
+          - readableInterpretation
+          - narrative
+          - actionDirection
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-readable-interpretation-renderer
+          - western-contact-timing-action-reducers
+          - consulting-opa-ethics
+        source_locations:
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:10855-10876
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:11069-11074
+        review_notes:
+          - The source frames astrology as a language for compassionate objectivity and communication.
+          - "This supports the readable renderer's job: make calculated evidence relatable without inventing facts."
+        must_not_claim:
+          - Do not introduce karmic certainty or spiritual destiny as a factual claim.
+          - Do not use warm language to hide weak or missing chart evidence.
+      - id: skymates-sun-moon-core-rhythm-interaspect
+        claim_type: synastry_pair_family
+        summary: Sun-Moon interaspects are high-value core-rhythm contacts; they can show deep mutual impact without guaranteeing harmony or outcome.
+        use_for:
+          - Treat Sun-Moon as a pivotal identity/emotional-rhythm contact in fit analysis.
+          - Explain strong recognition or sensitivity without calling it fate.
+        runtime_targets:
+          - aspectPairContactTemplate
+          - aspectFunctionCombination
+          - attraction
+          - emotionalSafety
+          - relationshipFit
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-aspects-sun-moon
+          - western-aspect-pair-contact-phrase-templates
+        source_locations:
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:5659-6127
+        review_notes:
+          - Skymates treats Sun-Moon links as very sensitive, then explains two-way solarization/lunarization and the need to read both people first.
+          - The source explicitly distinguishes flowing tone, challenging tone, and behavioral choice.
+        must_not_claim:
+          - Do not say Sun-Moon proves destiny, compatibility, or reconciliation.
+          - Do not ignore pressure, repair, contact status, or timing just because Sun-Moon is strong.
+      - id: skymates-moon-venus-nurture-trust-bond
+        claim_type: synastry_pair_family
+        summary: Moon-Venus interaspects can describe sweetness, trust, forgiveness, and nurture, while hard contacts need patience around vulnerability.
+        use_for:
+          - Give Moon-Venus fit language a human relationship voice.
+          - Avoid turning softness into a guarantee of repair or commitment.
+        runtime_targets:
+          - aspectPairContactTemplate
+          - aspectFunctionCombination
+          - emotionalSafety
+          - repair
+          - relationshipFit
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-aspects-moon-venus
+          - western-aspect-pair-contact-phrase-templates
+        source_locations:
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:6416-6578
+        review_notes:
+          - Skymates describes Moon-Venus flowing contacts as trust and closeness, while challenging contacts can bring shyness and require patience.
+          - This supports softer repair-entry language without making the aspect a conclusion.
+        must_not_claim:
+          - Do not claim Moon-Venus alone means the person will come back.
+          - Do not recommend pressure or emotional overexposure because a soft contact exists.
+      - id: skymates-moon-saturn-practical-emotional-translation
+        claim_type: synastry_pressure
+        summary: Moon-Saturn interaspects require translation between emotional nurture and practical commitment, especially under challenging contacts.
+        use_for:
+          - Explain why one person may offer rules, clarity, or duty when the other needs softness.
+          - Keep Moon-Saturn pressure as translation work instead of absence of feeling.
+        runtime_targets:
+          - aspectPairContactTemplate
+          - aspectFunctionCombination
+          - emotionalSafety
+          - pressure
+          - relationshipFit
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-aspects-moon-saturn
+          - western-aspect-function-combination-reducers
+        source_locations:
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:6550-6578
+        review_notes:
+          - Skymates describes flowing Moon-Saturn as practical support, loyalty, and reliability.
+          - The challenging contact warning is specifically about emotional and practical languages missing each other, which maps to Valley's translation language.
+        must_not_claim:
+          - Do not treat Moon-Saturn as proof of no feeling.
+          - Do not tell the user to accept coldness or distance without boundaries.
+      - id: skymates-venus-mars-attraction-pursuit-polarity
+        claim_type: synastry_pair_family
+        summary: Venus-Mars interaspects can show strong attraction, pursuit, receptivity, and heat; hard contacts can intensify attraction and friction together.
+        use_for:
+          - Separate chemistry from safety, repair, and commitment.
+          - Explain attraction as one fit layer instead of the answer to the relationship.
+        runtime_targets:
+          - aspectPairContactTemplate
+          - aspectFunctionCombination
+          - attraction
+          - pressure
+          - relationshipFit
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-aspects-venus-mars
+          - western-aspect-pair-contact-phrase-templates
+        source_locations:
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:7205-7228
+        review_notes:
+          - Skymates treats both flowing and challenging Venus-Mars as erotically charged, with hard contacts requiring attention to tension and role dynamics.
+          - This supports Valley's rule that chemistry is evidence, not commitment.
+        must_not_claim:
+          - Do not upgrade sexual or romantic attraction into love, commitment, reply, or reconciliation.
+      - id: skymates-venus-saturn-commitment-and-blockage
+        claim_type: synastry_pressure
+        summary: Venus-Saturn contacts can combine commitment potential with inhibition, guardedness, and control pressure.
+        use_for:
+          - Read Venus-Saturn as sober relationship weight rather than either rejection or guaranteed longevity.
+          - Shape action boundaries when affection is present but expression slows down.
+        runtime_targets:
+          - aspectPairContactTemplate
+          - aspectFunctionCombination
+          - pressure
+          - attraction
+          - actionBoundary
+          - relationshipFit
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-aspects-venus-saturn
+          - western-aspect-function-combination-reducers
+        source_locations:
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:7229-7267
+        review_notes:
+          - Skymates frames harmonious Venus-Saturn as sober stabilizing maturity, and tense Venus-Saturn as effort, blockage, and control issues.
+          - This supports saying affection can be slowed or guarded without saying it is absent.
+        must_not_claim:
+          - Do not treat Venus-Saturn as proof of no love or proof of marriage-level commitment.
+      - id: skymates-mars-saturn-action-boundary-pressure
+        claim_type: synastry_pressure
+        summary: Mars-Saturn contacts can turn action into maturity and endurance, or into controlled anger, cold distance, and stop-go pressure.
+        use_for:
+          - Explain Mars-Saturn as push-brake dynamics in timing and action guidance.
+          - Guard against high-pressure outreach when Mars-Saturn is hard.
+        runtime_targets:
+          - aspectPairContactTemplate
+          - aspectFunctionCombination
+          - pressure
+          - actionBoundary
+          - relationshipFit
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-aspects-mars-saturn
+          - western-aspect-function-combination-reducers
+        source_locations:
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:7504-7523
+        review_notes:
+          - Skymates reframes Mars and Saturn beyond malefic labels, so desire/action and commitment/maturity can cooperate.
+          - The challenging contact warning maps cleanly to Valley's push-brake action boundary.
+        must_not_claim:
+          - Do not recommend confrontation, chasing, or forced clarity because Mars-Saturn creates heat.
+          - Do not say Mars-Saturn means inevitable breakup.
+      - id: skymates-venus-mars-relating-styles-context-bound
+        claim_type: natal_profile
+        summary: Venus and Mars describe relating, attraction, pursuit, defense, and desire, but neither planet should be interpreted apart from the whole chart.
+        use_for:
+          - Deepen Venus and Mars profile cards as attraction and pursuit styles.
+          - Keep chemistry and pursuit language tied to broader safety, pressure, and context evidence.
+        runtime_targets:
+          - venusSignAffectionStyle
+          - marsSignPursuitConflict
+          - attraction
+          - pressure
+          - actionDirection
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-relationship-function-sign-templates
+          - western-aspects-venus-mars
+        source_locations:
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:3050-3073
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:3074-3092
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:3125-3135
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:3650-3670
+        review_notes:
+          - Skymates defines Venus as relatedness, warmth, affection, liking, and attraction, and Mars as drive, defense, pursuit, and desire.
+          - The source warns that no one relates only from Venus or Mars and that context is everything.
+        must_not_claim:
+          - Do not treat Venus or Mars alone as proof of love, sexual access, commitment, or reconciliation.
+          - Do not use Mars pursuit language to justify pressure, chasing, or boundary crossing.
+      - id: skymates-interaspect-selection-priority-procedure
+        claim_type: evidence_selection
+        summary: Interaspect selection should start with Sun/Moon/Ascendant contacts, then prioritize prominent planets and stronger aspect types before narrowing orbs when the grid is too large.
+        use_for:
+          - Strengthen aspect-priority and included-reading-row reducers.
+          - Prevent aspect dumps while preserving pivotal contacts.
+        runtime_targets:
+          - aspectPriority
+          - aspectFunctionCombination
+          - includedReadingRows
+          - evidenceReducer
+          - readingBlueprint
+        implementation_status: implemented
+        evidence_level: source_backed
+        source_basis:
+          - western-synastry-evidence-clusters
+          - western-interchart-aspect-priorities
+          - western-aspect-contact-type-modifiers
+        source_locations:
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:9570-9583
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:9584-9618
+          - raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:9626-9664
+        review_notes:
+          - "Skymates gives a concrete selection sequence: absorb both natal charts, start with primal-triad interaspects, then use prominence, aspect type, and tighter orbs."
+          - This is the source-backed procedure behind the existing top-contact and no-aspect-dump behavior.
+        must_not_claim:
+          - Do not show weak or wide-orb contacts just to fill space.
+          - Do not drop Sun, Moon, or Ascendant considerations when precision supports them.
+
+  - id: western-davison-composite-reserve-digest
+    source_id: western-davison-synastry
+    lane: astrology_method
+    status: seed
+    priority: reserve
+    product_role: Relationship chart and deeper synastry mechanics after V1.
+    method_scope:
+      - davison_relationship_chart
+      - composite_deferral
+    extraction_goal: Keep Davison/composite method available without leaking it into V1.
+    method_claims:
+      - id: davison-reserve-do-not-pretend-calculated
+        claim_type: advanced_layer_guardrail
+        summary: Davison and relationship chart claims should be reserved until the calculation layer and source extraction are deliberately implemented.
+        use_for:
+          - Mark advanced relationship-chart layer as blocked in V1.
+        runtime_targets:
+          - compositeLayer
+          - relationshipChartLayer
+        implementation_status: blocked
+        evidence_level: source_guided
+        source_basis:
+          - western-relationship-chart-layer
+        must_not_claim:
+          - Do not mention relationship chart evidence unless the chart was actually calculated.

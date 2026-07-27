@@ -1,0 +1,48 @@
+services:
+  - type: web
+    name: valley-reading-worker
+    runtime: docker
+    plan: starter
+    region: singapore
+    autoDeployTrigger: off
+    dockerContext: .
+    dockerfilePath: ./services/reading-worker/Dockerfile.agpl
+    healthCheckPath: /healthz
+    maxShutdownDelaySeconds: 300
+    envVars:
+      - key: VALLEY_APP_API_BASE_URL
+        sync: false
+      - key: VALLEY_WORKER_SIGNING_SECRET
+        sync: false
+      - key: VALLEY_ASTROLOGY_LICENSE_DECISION
+        value: agpl-3.0
+      - key: VALLEY_AGPL_SOURCE_URL
+        sync: false
+      - key: VALLEY_AGPL_SOURCE_SHA256
+        sync: false
+      - key: VALLEY_WORKER_ID
+        value: render-production-1
+      - key: VALLEY_WORKER_POLL_SECONDS
+        value: "15"
+      - key: VALLEY_WORKER_LEASE_SECONDS
+        value: "300"
+      - key: VALLEY_WORKER_LEASE_HEARTBEAT_SECONDS
+        value: "60"
+      - key: VALLEY_WORKER_JOB_TIMEOUT_SECONDS
+        value: "900"
+      - key: VALLEY_WORKER_HTTP_TIMEOUT_SECONDS
+        value: "20"
+      - key: VALLEY_WORKER_MAX_RESULT_BYTES
+        value: "3500000"
+      - key: VALLEY_EMAIL_RECONCILIATION_SECONDS
+        value: "60"
+      - key: VALLEY_EMAIL_RECONCILIATION_LIMIT
+        value: "5"
+      - key: VALLEY_EXPECTED_INTAKE_VERSION
+        value: relationship-intake-v1
+      - key: VALLEY_EXPECTED_JOB_VERSION
+        value: paid-reading-job-v1
+      - key: VALLEY_EXPECTED_RESULT_CONTRACT_VERSION
+        value: complete-relationship-result-v1
+      - key: VALLEY_EXPECTED_RUNTIME_VERSION
+        value: valley-paid-reading-runtime-v1

@@ -1,0 +1,73 @@
+version: kb-atoms-v1
+atoms:
+  - id: western-atom-aspect-contact-modifier-conjunction
+    system: western
+    layer: synastry
+    category: aspectContactModifier
+    label: Conjunction 強度修飾
+    source_article_id: western-aspect-contact-type-modifiers
+    claim_ids:
+      - western-aspect-contact-type-modifiers-001
+      - western-aspect-contact-type-modifiers-004
+      - western-aspect-contact-type-modifiers-005
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      aspects_any: [Conjunction]
+      contact_types_any: [conjunction]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 conjunction contact。"
+      interpretation: "Conjunction 表示兩個功能直接疊合與強化，可能融合、競爭或互相放大；必須回到 planet pair 判斷功能。"
+      does_not_prove: "Conjunction 不等於命定、承諾、復合保證，也不能自動當成 soft 或 hard。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-contact-modifier-soft
+    system: western
+    layer: synastry
+    category: aspectContactModifier
+    label: Soft contact 修復入口
+    source_article_id: western-aspect-contact-type-modifiers
+    claim_ids:
+      - western-aspect-contact-type-modifiers-001
+      - western-aspect-contact-type-modifiers-002
+      - western-aspect-contact-type-modifiers-005
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      aspects_any: [Trine, Sextile]
+      contact_types_any: [soft]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 soft contact。"
+      interpretation: "Soft contact 表示互動較容易流動或有協調入口，適合寫成低壓修復條件。"
+      does_not_prove: "Soft contact 不保證對方回覆、復合、承諾或時間點。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-contact-modifier-hard
+    system: western
+    layer: synastry
+    category: aspectContactModifier
+    label: Hard contact 張力修飾
+    source_article_id: western-aspect-contact-type-modifiers
+    claim_ids:
+      - western-aspect-contact-type-modifiers-001
+      - western-aspect-contact-type-modifiers-003
+      - western-aspect-contact-type-modifiers-005
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      aspects_any: [Square, Opposition, Quincunx]
+      contact_types_any: [hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 hard contact。"
+      interpretation: "Hard contact 表示互動帶張力、摩擦或需要調整，適合拆卡住機制與防衛反應。"
+      does_not_prove: "Hard contact 不等於沒有愛、必定分手、誰錯，或關係不可修復。"
+      confidence_floor: low

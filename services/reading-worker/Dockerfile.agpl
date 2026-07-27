@@ -1,0 +1,65 @@
+# Public, reproducible AGPL build. Build from the root of a generated source
+# release:
+# docker build -f services/reading-worker/Dockerfile.agpl .
+FROM python:3.11.9-slim-bookworm AS builder
+
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+WORKDIR /opt/build
+
+RUN python -m venv /opt/venv
+ENV PATH="/opt/venv/bin:${PATH}"
+
+COPY services/reading-worker/requirements.lock services/reading-worker/requirements.lock
+RUN python -m pip install \
+      --require-hashes \
+      --requirement services/reading-worker/requirements.lock
+
+COPY LICENSE LICENSE.md NOTICE.md THIRD_PARTY_NOTICES.md ./
+COPY scripts scripts
+COPY calculation calculation
+COPY dist/kb dist/kb
+COPY services/reading-worker services/reading-worker
+
+ENV PYTHONPATH="/opt/build:/opt/build/scripts:/opt/build/services/reading-worker"
+RUN python -m reading_worker.bundle record --kb-dir /opt/build/dist/kb \
+ && python -m reading_worker.bundle validate --kb-dir /opt/build/dist/kb
+
+FROM python:3.11.9-slim-bookworm AS runtime
+
+ENV PATH="/opt/venv/bin:${PATH}" \
+    PORT="8080" \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONPATH="/opt/valley:/opt/valley/scripts:/opt/valley/services/reading-worker" \
+    PYTHONUNBUFFERED=1 \
+    VALLEY_KB_DIR="/opt/valley/dist/kb" \
+    VALLEY_REPO_ROOT="/opt/valley"
+
+RUN apt-get update \
+ && DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends ca-certificates tzdata \
+ && rm -rf /var/lib/apt/lists/* \
+ && groupadd --system valley \
+ && useradd --system --gid valley --home-dir /nonexistent --shell /usr/sbin/nologin valley
+
+WORKDIR /opt/valley
+COPY --from=builder /opt/venv /opt/venv
+COPY --from=builder /opt/build/LICENSE /opt/valley/LICENSE
+COPY --from=builder /opt/build/LICENSE.md /opt/valley/LICENSE.md
+COPY --from=builder /opt/build/NOTICE.md /opt/valley/NOTICE.md
+COPY --from=builder /opt/build/THIRD_PARTY_NOTICES.md /opt/valley/THIRD_PARTY_NOTICES.md
+COPY --from=builder /opt/build/scripts scripts
+COPY --from=builder /opt/build/calculation calculation
+COPY --from=builder /opt/build/dist/kb dist/kb
+COPY --from=builder /opt/build/services/reading-worker services/reading-worker
+
+USER valley:valley
+EXPOSE 8080
+STOPSIGNAL SIGTERM
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+  CMD ["python", "-c", "import os, urllib.request; urllib.request.urlopen('http://127.0.0.1:' + os.environ.get('PORT', '8080') + '/healthz', timeout=3).read()"]
+
+CMD ["python", "-m", "reading_worker.main"]

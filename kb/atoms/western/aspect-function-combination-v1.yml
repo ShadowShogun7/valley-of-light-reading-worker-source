@@ -1,0 +1,28 @@
+version: kb-atoms-v1
+atoms:
+  - id: western-atom-aspect-function-combination
+    system: western
+    layer: synastry
+    category: aspectFunctionCombination
+    label: 相位功能組合
+    source_article_id: western-aspect-function-combination-reducers
+    claim_ids:
+      - western-aspect-function-combination-reducers-001
+      - western-aspect-function-combination-reducers-002
+      - western-aspect-function-combination-reducers-003
+      - western-aspect-function-combination-reducers-004
+      - western-aspect-function-combination-reducers-005
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Moon, Mercury, Venus, Mars, Saturn, Sun]
+      contact_types_any: [conjunction, soft, hard]
+      relationship_functions_any: [emotional_safety, communication, affection, pursuit_conflict, defense_delay]
+    interpretation:
+      summary_template: "{label}選出{item_count}個組合；主訊號是：{technical}。"
+      empty_summary: "本次沒有可展示的相位功能組合。"
+      interpretation: "先把 pair family、contact type、被觸發點位的元素/三模式語氣組合起來，再交給問題 reducer；不可只列相位名稱。"
+      does_not_prove: "相位功能組合用來分清吸引、壓力、溝通與修復入口，再回到具體互動做判斷。"
+      confidence_floor: medium

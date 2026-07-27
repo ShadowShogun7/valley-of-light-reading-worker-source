@@ -1,0 +1,382 @@
+version: kb-atoms-v1
+atoms:
+  - id: western-atom-pair-template-sun-venus-conjunction
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Sun-Venus conjunction 欣賞疊合
+    source_article_id: western-aspects-sun-venus
+    claim_ids: [western-aspects-sun-venus-001, western-aspects-sun-venus-002]
+    applies_to: &relationship_scope
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_all: [Sun, Venus]
+      contact_types_any: [conjunction]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Sun-Venus conjunction。"
+      interpretation: "Sun-Venus conjunction 表示欣賞、好感與被看見需求直接疊合；可寫成強烈柔性吸引，但不可升級成承諾。"
+      does_not_prove: "Sun-Venus conjunction 不保證對方會回來、承諾或修復。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-sun-venus-soft
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Sun-Venus soft 低壓好感
+    source_article_id: western-aspects-sun-venus
+    claim_ids: [western-aspects-sun-venus-001, western-aspects-sun-venus-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Sun, Venus]
+      contact_types_any: [soft]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Sun-Venus soft contact。"
+      interpretation: "Sun-Venus soft contact 可寫成欣賞與好感較容易流動，是低壓靠近入口，但仍需看壓力層是否能承接。"
+      does_not_prove: "Sun-Venus soft contact 不保證復合、回覆或承諾。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-sun-venus-hard
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Sun-Venus hard 好感與自尊落差
+    source_article_id: western-aspects-sun-venus
+    claim_ids: [western-aspects-sun-venus-001, western-aspects-sun-venus-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Sun, Venus]
+      contact_types_any: [hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Sun-Venus hard contact。"
+      interpretation: "Sun-Venus hard contact 表示好感仍可能存在，但容易混入自尊、期待落差、支配感或停滯感。"
+      does_not_prove: "Sun-Venus hard contact 不能證明沒有愛，也不能證明對方一定願意修復。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-moon-mars-conjunction
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Moon-Mars conjunction 情緒點火
+    source_article_id: western-aspects-moon-mars
+    claim_ids: [western-aspects-moon-mars-001, western-aspects-moon-mars-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Moon, Mars]
+      contact_types_any: [conjunction]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Moon-Mars conjunction。"
+      interpretation: "Moon-Mars conjunction 表示情緒、本能與行動衝動直接點火；有反應，也要控速避免刺激升高。"
+      does_not_prove: "Moon-Mars conjunction 不等於穩定關係，也不能用來指責任何一方。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-moon-mars-soft
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Moon-Mars soft 可承接的熱度
+    source_article_id: western-aspects-moon-mars
+    claim_ids: [western-aspects-moon-mars-001, western-aspects-moon-mars-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Moon, Mars]
+      contact_types_any: [soft]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Moon-Mars soft contact。"
+      interpretation: "Moon-Mars soft contact 表示情緒與行動較容易互相帶動，可寫成有反應的熱度，但仍不是承諾。"
+      does_not_prove: "Moon-Mars soft contact 不保證對方會主動，也不保證關係已安全。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-moon-mars-hard
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Moon-Mars hard 情緒按鈕
+    source_article_id: western-aspects-moon-mars
+    claim_ids: [western-aspects-moon-mars-001, western-aspects-moon-mars-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Moon, Mars]
+      contact_types_any: [hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Moon-Mars hard contact。"
+      interpretation: "Moon-Mars hard contact 表示一靠近就容易按到情緒按鈕，吸引與刺激會同時升高，需要先降反應速度。"
+      does_not_prove: "Moon-Mars hard contact 不是誰錯，也不等於一定吵架或一定分開。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-venus-venus-conjunction
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Venus-Venus conjunction 喜歡語言疊合
+    source_article_id: western-aspects-venus-venus
+    claim_ids: [western-aspects-venus-venus-001, western-aspects-venus-venus-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Venus, Venus]
+      contact_types_any: [conjunction]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Venus-Venus conjunction。"
+      interpretation: "Venus-Venus conjunction 表示喜歡語言、愉悅方式與 validation 需求直接疊合；舒服感明顯，但仍需面對壓力。"
+      does_not_prove: "Venus-Venus conjunction 不等於成熟修復能力或承諾。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-venus-venus-soft
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Venus-Venus soft 舒服入口
+    source_article_id: western-aspects-venus-venus
+    claim_ids: [western-aspects-venus-venus-001, western-aspects-venus-venus-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Venus, Venus]
+      contact_types_any: [soft]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Venus-Venus soft contact。"
+      interpretation: "Venus-Venus soft contact 可寫成 affection style 與相處舒服感較容易同頻，是低壓互動入口。"
+      does_not_prove: "Venus-Venus soft contact 不代表問題已解決，也不保證修復。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-venus-venus-hard
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Venus-Venus hard 舒服感與迴避
+    source_article_id: western-aspects-venus-venus
+    claim_ids: [western-aspects-venus-venus-001, western-aspects-venus-venus-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Venus, Venus]
+      contact_types_any: [hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Venus-Venus hard contact。"
+      interpretation: "Venus-Venus hard contact 表示喜歡語言有牽動也有落差，容易把舒服感誤當成已經面對問題。"
+      does_not_prove: "Venus-Venus hard contact 不能用舒服感證明關係可修復。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-mercury-jupiter-conjunction
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Mercury-Jupiter conjunction 視角放大
+    source_article_id: western-aspects-mercury-jupiter
+    claim_ids: [western-aspects-mercury-jupiter-001, western-aspects-mercury-jupiter-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Mercury, Jupiter]
+      contact_types_any: [conjunction]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Mercury-Jupiter conjunction。"
+      interpretation: "Mercury-Jupiter conjunction 會放大對話、信念與修復想像；可帶來鼓勵，也要避免一次講太大。"
+      does_not_prove: "Mercury-Jupiter conjunction 不保證回覆、原諒或復合。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-mercury-jupiter-soft
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Mercury-Jupiter soft 開闊修復
+    source_article_id: western-aspects-mercury-jupiter
+    claim_ids: [western-aspects-mercury-jupiter-001, western-aspects-mercury-jupiter-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Mercury, Jupiter]
+      contact_types_any: [soft]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Mercury-Jupiter soft contact。"
+      interpretation: "Mercury-Jupiter soft contact 可寫成比較能把話拉開視角、帶幽默或鼓勵的低壓溝通入口。"
+      does_not_prove: "Mercury-Jupiter soft contact 不保證對方會立刻回覆或重新承諾。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-mercury-jupiter-hard
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Mercury-Jupiter hard 誇大與說教
+    source_article_id: western-aspects-mercury-jupiter
+    claim_ids: [western-aspects-mercury-jupiter-001, western-aspects-mercury-jupiter-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Mercury, Jupiter]
+      contact_types_any: [hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Mercury-Jupiter hard contact。"
+      interpretation: "Mercury-Jupiter hard contact 表示對話容易放大成說教、過度解釋、誇大承諾或 false hope。"
+      does_not_prove: "Mercury-Jupiter hard contact 不是不能溝通，但不能用樂觀取代現實條件。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-moon-moon-conjunction
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Moon-Moon conjunction 情緒節奏疊合
+    source_article_id: western-aspects-moon-moon
+    claim_ids: [western-aspects-moon-moon-001, western-aspects-moon-moon-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Moon, Moon]
+      contact_types_any: [conjunction]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Moon-Moon conjunction。"
+      interpretation: "Moon-Moon conjunction 表示私密安全感與生活節奏直接疊合；熟悉感強，但出生時間不明時要降權。"
+      does_not_prove: "Moon-Moon conjunction 用來看私密節奏是否熟悉，再搭配安全感與現實回應判斷。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-moon-moon-soft
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Moon-Moon soft 情緒同頻
+    source_article_id: western-aspects-moon-moon
+    claim_ids: [western-aspects-moon-moon-001, western-aspects-moon-moon-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Moon, Moon]
+      contact_types_any: [soft]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Moon-Moon soft contact。"
+      interpretation: "Moon-Moon soft contact 可寫成情緒節奏較容易互相理解，是安全感入口，但仍需看現實互動。"
+      does_not_prove: "Moon-Moon soft contact 不保證對方仍愛或一定能修復。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-moon-moon-hard
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Moon-Moon hard 本能不安
+    source_article_id: western-aspects-moon-moon
+    claim_ids: [western-aspects-moon-moon-001, western-aspects-moon-moon-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Moon, Moon]
+      contact_types_any: [hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Moon-Moon hard contact。"
+      interpretation: "Moon-Moon hard contact 表示本能安全感節奏容易不同步，親近時可能更快觸發不安或退縮。"
+      does_not_prove: "Moon-Moon hard contact 不能說成誰錯、沒有愛，或必定分開。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-mars-mars-conjunction
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Mars-Mars conjunction 行動疊合
+    source_article_id: western-aspects-mars-mars
+    claim_ids: [western-aspects-mars-mars-001, western-aspects-mars-mars-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Mars, Mars]
+      contact_types_any: [conjunction]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Mars-Mars conjunction。"
+      interpretation: "Mars-Mars conjunction 表示推進、欲望與衝突速度直接疊合；熱度高，也更需要邊界和控速。"
+      does_not_prove: "Mars-Mars conjunction 不等於誰該主動，也不保證關係穩定。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-mars-mars-soft
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Mars-Mars soft 行動協調
+    source_article_id: western-aspects-mars-mars
+    claim_ids: [western-aspects-mars-mars-001, western-aspects-mars-mars-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Mars, Mars]
+      contact_types_any: [soft]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Mars-Mars soft contact。"
+      interpretation: "Mars-Mars soft contact 可寫成推進節奏較容易互相帶動，適合短、明確、低壓的行動。"
+      does_not_prove: "Mars-Mars soft contact 不保證對方會配合或主動。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-mars-mars-hard
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Mars-Mars hard 硬碰硬
+    source_article_id: western-aspects-mars-mars
+    claim_ids: [western-aspects-mars-mars-001, western-aspects-mars-mars-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Mars, Mars]
+      contact_types_any: [hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Mars-Mars hard contact。"
+      interpretation: "Mars-Mars hard contact 表示推進節奏容易硬碰硬，熱度可能變成競爭、急躁或權力拉扯。"
+      does_not_prove: "Mars-Mars hard contact 不是誰錯，也不等於一定爆發或不可修復。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-mercury-sun-conjunction
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Mercury-Sun conjunction 理解疊合
+    source_article_id: western-aspects-mercury-sun
+    claim_ids: [western-aspects-mercury-sun-001, western-aspects-mercury-sun-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Mercury, Sun]
+      contact_types_any: [conjunction]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Mercury-Sun conjunction。"
+      interpretation: "Mercury-Sun conjunction 表示思考、說服與自我表達直接疊合；容易被聽見，也容易刺到自尊。"
+      does_not_prove: "Mercury-Sun conjunction 不保證對方回訊息或接受說法。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-mercury-sun-soft
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Mercury-Sun soft 被聽見入口
+    source_article_id: western-aspects-mercury-sun
+    claim_ids: [western-aspects-mercury-sun-001, western-aspects-mercury-sun-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Mercury, Sun]
+      contact_types_any: [soft]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Mercury-Sun soft contact。"
+      interpretation: "Mercury-Sun soft contact 可寫成比較容易把話說到對方自我感上的入口，適合降低辯論感。"
+      does_not_prove: "Mercury-Sun soft contact 不保證對方會立刻回應或改變立場。"
+      confidence_floor: low
+
+  - id: western-atom-pair-template-mercury-sun-hard
+    system: western
+    layer: synastry
+    category: aspectPairContactTemplate
+    label: Mercury-Sun hard 自尊與說服壓力
+    source_article_id: western-aspects-mercury-sun
+    claim_ids: [western-aspects-mercury-sun-001, western-aspects-mercury-sun-002]
+    applies_to: *relationship_scope
+    selectors:
+      points_all: [Mercury, Sun]
+      contact_types_any: [hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有 Mercury-Sun hard contact。"
+      interpretation: "Mercury-Sun hard contact 表示溝通容易變成自尊、面子或誰說服誰的壓力，修復時要避開辯論姿態。"
+      does_not_prove: "Mercury-Sun hard contact 不代表無法溝通，也不代表對方一定拒絕。"
+      confidence_floor: low

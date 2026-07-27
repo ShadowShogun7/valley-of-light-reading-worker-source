@@ -1,0 +1,207 @@
+version: kb-guardrails-v1
+guardrail_id: western-precision-v1
+applies_to:
+  products: [relationship_compatibility]
+  stages: [in_relationship, in_breakup, all]
+  questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+
+guardrails:
+  - id: western-guardrail-need-desc-block
+    system: western
+    category: precision
+    source_article_id: western-precision-birth-data-quality
+    claim_ids:
+      - western-precision-birth-data-quality-002
+      - western-precision-birth-data-quality-003
+    applies_to: [natal_needs]
+    points_any: [Desc]
+    precision_any: [date_only, location_fallback, unavailable]
+    blocks: [Desc, seventh_house, houses]
+    lowers_confidence: []
+    display: blocked
+    reason: "下降與第七宮需要可靠出生時間與出生地點；本次不作為可展示判斷。"
+
+  - id: western-guardrail-need-moon-uncertain
+    system: western
+    category: precision
+    source_article_id: western-precision-birth-data-quality
+    claim_ids:
+      - western-precision-birth-data-quality-002
+    applies_to: [natal_needs]
+    points_any: [Moon]
+    precision_any: [date_only, unavailable]
+    blocks: []
+    lowers_confidence: [Moon]
+    display: allowed_with_uncertainty
+    reason: "出生時間未知，月亮位置以中午盤保守估算，只作可能線索。"
+
+  - id: western-guardrail-need-location-fallback
+    system: western
+    category: precision
+    source_article_id: western-precision-birth-data-quality
+    claim_ids:
+      - western-precision-birth-data-quality-001
+      - western-precision-birth-data-quality-003
+    applies_to: [natal_needs]
+    points_any: [Moon, Mercury, Venus, Mars, Saturn]
+    precision_any: [location_fallback]
+    blocks: [houses, Asc, Desc]
+    lowers_confidence: []
+    display: allowed_with_uncertainty
+    reason: "出生城市未提供，宮位與上升/下降相關內容已降權。"
+
+  - id: western-guardrail-need-default-allowed
+    system: western
+    category: precision
+    source_article_id: western-precision-birth-data-quality
+    claim_ids:
+      - western-precision-birth-data-quality-001
+    applies_to: [natal_needs]
+    points_any: [Moon, Mercury, Venus, Mars, Saturn]
+    precision_any: [exact_time]
+    blocks: []
+    lowers_confidence: []
+    display: allowed
+    reason: "可用於本次西洋關係需求判斷。"
+
+  - id: western-guardrail-aspect-ineligible
+    system: western
+    category: precision
+    source_article_id: western-precision-birth-data-quality
+    claim_ids:
+      - western-precision-birth-data-quality-002
+    applies_to: [synastry_aspect]
+    points_any: [Moon, Asc, Desc]
+    precision_any: [date_only, location_fallback, unavailable]
+    blocks: [core_judgment]
+    lowers_confidence: [Moon, Asc, Desc]
+    display: blocked
+    reason: "此相位涉及出生時間或角度點，資料精度不足，不能作為本次判斷核心。"
+
+  - id: western-guardrail-aspect-angle-place-block
+    system: western
+    category: precision
+    source_article_id: western-precision-birth-data-quality
+    claim_ids:
+      - western-precision-birth-data-quality-002
+      - western-precision-birth-data-quality-003
+    applies_to: [synastry_aspect]
+    points_any: [Asc, Desc]
+    precision_any: [date_only, location_fallback, unavailable]
+    blocks: [Asc, Desc, houses, house_overlays]
+    lowers_confidence: []
+    display: blocked
+    reason: "上升/下降與宮位需要雙方可靠出生時間與出生城市。"
+
+  - id: western-guardrail-aspect-moon-time-uncertain
+    system: western
+    category: precision
+    source_article_id: western-precision-birth-data-quality
+    claim_ids:
+      - western-precision-birth-data-quality-002
+    applies_to: [synastry_aspect]
+    points_any: [Moon]
+    precision_any: [date_only, unavailable]
+    blocks: []
+    lowers_confidence: [Moon]
+    display: allowed_with_uncertainty
+    reason: "月亮相關訊號受出生時間影響，本次需保守判讀。"
+
+  - id: western-guardrail-aspect-default-allowed
+    system: western
+    category: precision
+    source_article_id: western-precision-birth-data-quality
+    claim_ids:
+      - western-precision-birth-data-quality-001
+    applies_to: [synastry_aspect]
+    points_any: [Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn]
+    precision_any: [exact_time, location_fallback]
+    blocks: []
+    lowers_confidence: []
+    display: allowed
+    reason: "資料精度足以作為本次西洋合盤證據。"
+
+  - id: western-guardrail-house-overlay-time-block
+    system: western
+    category: precision
+    source_article_id: western-precision-birth-data-quality
+    claim_ids:
+      - western-precision-birth-data-quality-002
+    applies_to: [house_overlay]
+    points_any: [Asc, Desc]
+    precision_any: [date_only, unavailable]
+    blocks: [houses, house_overlays]
+    lowers_confidence: []
+    display: blocked
+    reason: "house overlays require reliable birth times for both people."
+
+  - id: western-guardrail-house-overlay-location-block
+    system: western
+    category: precision
+    source_article_id: western-precision-birth-data-quality
+    claim_ids:
+      - western-precision-birth-data-quality-003
+    applies_to: [house_overlay]
+    points_any: [Asc, Desc]
+    precision_any: [location_fallback]
+    blocks: [houses, house_overlays]
+    lowers_confidence: []
+    display: blocked
+    reason: "house overlays require reliable birth cities/coordinates for both people."
+
+  - id: western-guardrail-house-overlay-not-available
+    system: western
+    category: precision
+    source_article_id: western-precision-birth-data-quality
+    claim_ids:
+      - western-precision-birth-data-quality-002
+      - western-precision-birth-data-quality-003
+    applies_to: [house_overlay]
+    points_any: [Asc, Desc]
+    precision_any: [exact_time]
+    blocks: [house_overlays]
+    lowers_confidence: []
+    display: not_available
+    reason: "house overlay calculation is not wired into the Western case file yet."
+
+  - id: western-guardrail-transit-moon-block
+    system: western
+    category: precision
+    source_article_id: western-precision-birth-data-quality
+    claim_ids:
+      - western-precision-birth-data-quality-002
+    applies_to: [current_transit]
+    points_any: [Moon]
+    precision_any: [date_only, unavailable]
+    blocks: [moon_timing]
+    lowers_confidence: [Moon]
+    display: blocked
+    reason: "此行運觸發需要更可靠出生時間，不能作為本次 timing 判斷。"
+
+  - id: western-guardrail-transit-moon-allowed
+    system: western
+    category: precision
+    source_article_id: western-precision-birth-data-quality
+    claim_ids:
+      - western-precision-birth-data-quality-002
+    applies_to: [current_transit]
+    points_any: [Moon]
+    precision_any: [exact_time]
+    blocks: []
+    lowers_confidence: []
+    display: allowed
+    reason: "月亮 timing 已通過出生時間精度檢查。"
+
+  - id: western-guardrail-transit-default-allowed
+    system: western
+    category: precision
+    source_article_id: western-precision-birth-data-quality
+    claim_ids:
+      - western-precision-birth-data-quality-001
+    applies_to: [current_transit]
+    points_any: [Sun, Mercury, Venus, Mars, Jupiter, Saturn]
+    precision_any: [exact_time, date_only, location_fallback]
+    blocks: []
+    lowers_confidence: []
+    display: allowed
+    reason: "此行運觸發不依賴宮位或上升/下降。"

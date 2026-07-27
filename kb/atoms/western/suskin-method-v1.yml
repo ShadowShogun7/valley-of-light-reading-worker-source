@@ -1,0 +1,241 @@
+version: kb-atoms-v1
+atoms:
+  - id: western-atom-method-order
+    system: western
+    layer: context
+    category: methodOrder
+    label: 西洋關係閱讀順序
+    source_article_id: western-synastry-method-order
+    claim_ids:
+      - western-synastry-method-order-001
+      - western-synastry-method-order-002
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Asc, Mercury, Venus, Mars, Saturn, Desc]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有足夠資料展示完整方法順序。"
+      interpretation: "先本命關係潛力，再初步比較，再交互相位、壓力、修復與 timing；問題答案必須最後才形成。"
+      does_not_prove: "方法順序不代表事件保證，也不能替代實際計算證據。"
+      confidence_floor: medium
+
+  - id: western-atom-relationship-potential
+    system: western
+    layer: identity
+    category: relationshipPotential
+    label: 本命關係潛力
+    source_article_id: western-natal-relationship-potential
+    claim_ids:
+      - western-natal-relationship-potential-001
+      - western-natal-relationship-potential-002
+      - western-natal-relationship-potential-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Asc, Mercury, Venus, Mars, Saturn, Desc]
+    interpretation:
+      summary_template: "{label}有{item_count}個可展示本命點；主訊號是：{technical}。"
+      empty_summary: "本次沒有足夠可展示的本命關係潛力。"
+      interpretation: "本命盤先定義每個人在關係中的安全感、表達、慾望、界線與伴侶期待，再看合盤如何觸發。"
+      does_not_prove: "本命關係潛力用來看個人的安全感、表達、欲望與界線，再放進合盤互動裡判斷。"
+      confidence_floor: low
+
+  - id: western-atom-element-comparison
+    system: western
+    layer: synastry
+    category: elementComparison
+    label: 初步元素比較
+    source_article_id: western-initial-comparison-elements
+    claim_ids:
+      - western-initial-comparison-elements-001
+      - western-initial-comparison-elements-002
+      - western-initial-comparison-elements-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Asc, Venus, Mars, Mercury]
+    interpretation:
+      summary_template: "{label}有{item_count}組可比較點位；主訊號是：{technical}。"
+      empty_summary: "本次沒有足夠可展示的元素比較。"
+      interpretation: "元素比較只提供互動風格與日常節奏，不直接判斷兩個人相容或不相容。"
+      does_not_prove: "元素差異不是關係成敗判決，也不能取代交互相位。"
+      confidence_floor: low
+
+  - id: western-atom-luminary-comparison
+    system: western
+    layer: synastry
+    category: luminaryComparison
+    label: 日月核心比較
+    source_article_id: western-interchart-aspect-priorities
+    claim_ids:
+      - western-interchart-aspect-priorities-001
+      - western-interchart-aspect-priorities-004
+      - western-interchart-aspect-priorities-006
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}有{item_count}個可展示日月訊號；主訊號是：{technical}。"
+      empty_summary: "本次沒有足夠可展示的日月比較。"
+      interpretation: "日月比較用來判斷核心生命力與情緒安全是否能互相看見。"
+      does_not_prove: "日月有連結不等於承諾；日月有摩擦也不等於關係必定結束。"
+      confidence_floor: low
+
+  - id: western-atom-ascendant-impression
+    system: western
+    layer: identity
+    category: ascendantImpression
+    label: 上升第一印象
+    source_article_id: western-natal-relationship-potential
+    claim_ids:
+      - western-natal-relationship-potential-002
+      - western-natal-relationship-potential-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Asc]
+      precision_any: [exact_time]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "上升與第一印象層因出生時間或地點不足而不展示。"
+      interpretation: "上升只在出生時間與地點可靠時，用來補充初見反應與外在互動風格。"
+      does_not_prove: "上升不能單獨證明感情深度，也不能在精度不足時補寫。"
+      confidence_floor: low
+
+  - id: western-atom-house-relationship-factors
+    system: western
+    layer: precision
+    category: houseRelationshipFactors
+    label: 關係宮位因素
+    source_article_id: western-houses-angles-foundation
+    claim_ids:
+      - western-houses-angles-foundation-001
+      - western-houses-angles-foundation-003
+      - western-houses-angles-foundation-004
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Asc, Desc, Venus, Mars, Saturn]
+      precision_any: [exact_time]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "宮位、下降與 overlay 因精度不足或引擎未完成而不展示。"
+      interpretation: "宮位代表能量浮現的生活場域；本層只在出生時間與地點可靠時展示本命宮位，overlay/composite 仍保留到付費深度層。"
+      does_not_prove: "缺時間或缺地點時，宮位與 overlay 不能被推測或補寫，也不能替代已計算的合盤或 timing 證據。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-priority
+    system: western
+    layer: synastry
+    category: aspectPriority
+    label: 交互相位優先序
+    source_article_id: western-interchart-aspect-priorities
+    claim_ids:
+      - western-interchart-aspect-priorities-002
+      - western-interchart-aspect-priorities-003
+      - western-interchart-aspect-priorities-004
+      - western-interchart-aspect-priorities-005
+      - western-interchart-aspect-priorities-006
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Mercury, Venus, Mars, Saturn]
+      aspects_any: [Conjunction, Sextile, Square, Trine, Opposition, Quincunx]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}選出{item_count}個優先相位；主訊號是：{technical}。"
+      empty_summary: "本次沒有足夠可展示的優先交互相位。"
+      interpretation: "先選最相關、orb 較緊、方向性清楚、接觸類型較有解讀重量的關鍵合盤相位，再交給問題 reducer。"
+      does_not_prove: "優先相位不是完整關係判決，也不能保證復合；沒有被選入的弱相位不應被補寫成結果。"
+      confidence_floor: low
+
+  - id: western-atom-relationship-chart-layer
+    system: western
+    layer: synastry
+    category: relationshipChartLayer
+    label: 關係盤深度層
+    source_article_id: western-relationship-chart-layer
+    claim_ids:
+      - western-relationship-chart-layer-001
+      - western-relationship-chart-layer-002
+      - western-relationship-chart-layer-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Venus, Mars, Saturn]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "關係盤深度層尚未計算。"
+      interpretation: "Composite/Davison/relationship chart 屬於 paid-depth，應在本命、比較與合盤之後才進入。"
+      does_not_prove: "未計算 composite/Davison 時，不能補寫關係盤故事或精準 timing。"
+      confidence_floor: low
+
+  - id: western-atom-consultation-safety
+    system: western
+    layer: context
+    category: consultationSafety
+    label: 關係諮詢安全
+    source_article_id: western-consultation-ethics
+    claim_ids:
+      - western-consultation-ethics-001
+      - western-consultation-ethics-002
+      - western-consultation-ethics-003
+      - western-consultation-ethics-004
+      - western-consultation-ethics-005
+      - western-consultation-ethics-006
+      - western-consultation-ethics-007
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Mercury, Venus, Mars, Saturn]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有額外諮詢安全限制。"
+      interpretation: "只選準確、相關、有用、急迫的資訊；避免替未在場者寫確定心理診斷或越界建議。"
+      does_not_prove: "諮詢安全層不是占星結論，只限制語氣、隱私與行動建議邊界。"
+      confidence_floor: medium
+
+  - id: western-atom-nonfatal-synastry-safety
+    system: western
+    layer: context
+    category: nonfatalSynastrySafety
+    label: 合盤非命運判決
+    source_article_id: western-modern-nonfatal-synastry
+    claim_ids:
+      - western-modern-nonfatal-synastry-001
+      - western-modern-nonfatal-synastry-002
+      - western-modern-nonfatal-synastry-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Mercury, Venus, Mars, Saturn]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有額外非命運判決限制。"
+      interpretation: "任何合盤配置都不能保證關係成敗；壓力相位要被寫成需要溝通、成長與現實回應承接的條件。"
+      does_not_prove: "合盤壓力、吸引或時機訊號都不能單獨證明一定復合、一定分開或永久沒有機會。"
+      confidence_floor: high

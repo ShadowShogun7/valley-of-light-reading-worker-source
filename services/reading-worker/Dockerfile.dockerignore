@@ -1,0 +1,10 @@
+.DS_Store
+.git
+.venv
+**/__pycache__
+**/*.pyc
+apps
+front-end-template
+infrastructure
+supabase
+wordpress

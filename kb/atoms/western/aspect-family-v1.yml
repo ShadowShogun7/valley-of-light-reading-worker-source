@@ -1,0 +1,423 @@
+version: kb-atoms-v1
+atoms:
+  - id: western-atom-aspect-sun-mars
+    system: western
+    layer: synastry
+    category: attraction
+    label: Sun-Mars 強互動
+    source_article_id: western-aspects-sun-mars
+    claim_ids:
+      - western-aspects-sun-mars-001
+      - western-aspects-sun-mars-002
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, what-did-i-do-wrong]
+    selectors:
+      points_all: [Sun, Mars]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Sun-Mars 強互動。"
+      interpretation: "Sun-Mars 可說明彼此是否容易刺激行動、慾望與反應速度，但不能單獨推論承諾。"
+      does_not_prove: "Sun-Mars 用來看火花與行動衝動，穩定復合要回到後續行動。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-venus-mars
+    system: western
+    layer: synastry
+    category: attraction
+    label: Venus-Mars 吸引
+    source_article_id: western-aspects-venus-mars
+    claim_ids:
+      - western-aspects-venus-mars-001
+      - western-aspects-venus-mars-002
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, what-did-i-do-wrong]
+    selectors:
+      points_all: [Venus, Mars]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Venus-Mars 吸引。"
+      interpretation: "Venus-Mars 可標記喜歡方式與慾望反應的互相牽動，仍需由安全感與壓力層判斷能否承接。"
+      does_not_prove: "吸引用來看靠近動力，承諾與回來要看後續穩定行動。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-moon-venus
+    system: western
+    layer: synastry
+    category: emotionalSafety
+    label: Moon-Venus 情緒好感
+    source_article_id: western-aspects-moon-venus
+    claim_ids:
+      - western-aspects-moon-venus-001
+      - western-aspects-moon-venus-002
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, what-did-i-do-wrong]
+    selectors:
+      points_all: [Moon, Venus]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Moon-Venus 情緒好感。"
+      interpretation: "Moon-Venus 可用來說明情緒舒適感、被喜歡或被照顧的入口。"
+      does_not_prove: "情緒好感用來看柔軟牽動，關係安全與行動要看後續互動。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-sun-moon
+    system: western
+    layer: synastry
+    category: emotionalSafety
+    label: Sun-Moon 情緒連結
+    source_article_id: western-aspects-sun-moon
+    claim_ids:
+      - western-aspects-sun-moon-001
+      - western-aspects-sun-moon-002
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, stay-or-let-go]
+    selectors:
+      points_all: [Sun, Moon]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Sun-Moon 情緒連結。"
+      interpretation: "Sun-Moon 可說明自我表達與情緒反應是否容易互相看見。"
+      does_not_prove: "Sun-Moon 不能單獨證明關係能否修復。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-sun-venus
+    system: western
+    layer: synastry
+    category: attraction
+    label: Sun-Venus 欣賞好感
+    source_article_id: western-aspects-sun-venus
+    claim_ids:
+      - western-aspects-sun-venus-001
+      - western-aspects-sun-venus-002
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, what-did-i-do-wrong]
+    selectors:
+      points_all: [Sun, Venus]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Sun-Venus 欣賞好感。"
+      interpretation: "Sun-Venus 可說明欣賞、好感、被喜歡與關係裡的柔性吸引，但不能單獨升級成承諾。"
+      does_not_prove: "Sun-Venus 好感用來看欣賞與柔性吸引，修復要看後續穩定互動。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-moon-moon
+    system: western
+    layer: synastry
+    category: emotionalSafety
+    label: Moon-Moon 情緒節奏
+    source_article_id: western-aspects-moon-moon
+    claim_ids:
+      - western-aspects-moon-moon-001
+      - western-aspects-moon-moon-002
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, stay-or-let-go]
+    selectors:
+      points_all: [Moon]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Moon-Moon 情緒節奏。"
+      interpretation: "Moon-Moon 可說明私密安全感、生活節奏與情緒本能是否容易互相理解；出生時間不明時必須降權。"
+      does_not_prove: "Moon-Moon 用來看情緒節奏與生活安全感是否同頻，再搭配現實回應判斷。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-moon-mars
+    system: western
+    layer: synastry
+    category: attraction
+    label: Moon-Mars 情緒點火
+    source_article_id: western-aspects-moon-mars
+    claim_ids:
+      - western-aspects-moon-mars-001
+      - western-aspects-moon-mars-002
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_all: [Moon, Mars]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Moon-Mars 情緒點火。"
+      interpretation: "Moon-Mars 可說明情緒、身體反應與行動衝動如何互相點燃；它同時可能是吸引與壓力。"
+      does_not_prove: "Moon-Mars 不等於穩定關係，也不能用來指責任何一方。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-venus-venus
+    system: western
+    layer: synastry
+    category: attraction
+    label: Venus-Venus 喜歡語言
+    source_article_id: western-aspects-venus-venus
+    claim_ids:
+      - western-aspects-venus-venus-001
+      - western-aspects-venus-venus-002
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, what-did-i-do-wrong]
+    selectors:
+      points_all: [Venus]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Venus-Venus 喜歡語言。"
+      interpretation: "Venus-Venus 可說明品味、愉悅方式、validation 與 affection style 是否容易同頻。"
+      does_not_prove: "相處舒服不等於能修復，也不保證承諾。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-mars-mars
+    system: western
+    layer: synastry
+    category: pressure
+    label: Mars-Mars 行動節奏
+    source_article_id: western-aspects-mars-mars
+    claim_ids:
+      - western-aspects-mars-mars-001
+      - western-aspects-mars-mars-002
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [any-chance, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_all: [Mars]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Mars-Mars 行動節奏。"
+      interpretation: "Mars-Mars 可說明兩人的推進、欲望、競爭與衝突節奏是否同步。"
+      does_not_prove: "Mars-Mars 不等於誰錯，也不等於關係一定會爆發或修復。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-mercury-sun
+    system: western
+    layer: synastry
+    category: communication
+    label: Mercury-Sun 理解與自尊
+    source_article_id: western-aspects-mercury-sun
+    claim_ids:
+      - western-aspects-mercury-sun-001
+      - western-aspects-mercury-sun-002
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_all: [Mercury, Sun]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Mercury-Sun 理解與自尊。"
+      interpretation: "Mercury-Sun 可說明理解、說服、被聽見與自我表達是否互相支持或互相刺痛。"
+      does_not_prove: "Mercury-Sun 不保證對方回訊息，也不能單獨證明感情。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-mercury-jupiter
+    system: western
+    layer: synastry
+    category: communication
+    label: Mercury-Jupiter 開闊對話
+    source_article_id: western-aspects-mercury-jupiter
+    claim_ids:
+      - western-aspects-mercury-jupiter-001
+      - western-aspects-mercury-jupiter-002
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_all: [Mercury, Jupiter]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Mercury-Jupiter 開闊對話。"
+      interpretation: "Mercury-Jupiter 可說明幽默、願景、鼓勵與修復樂觀；hard contact 需防止說教、誇大與 false hope。"
+      does_not_prove: "Mercury-Jupiter 不保證回覆、復合或精準時間。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-mars-saturn
+    system: western
+    layer: synastry
+    category: pressure
+    label: Mars-Saturn 壓力
+    source_article_id: western-aspects-mars-saturn
+    claim_ids:
+      - western-aspects-mars-saturn-001
+      - western-aspects-mars-saturn-002
+      - western-aspects-mars-saturn-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_all: [Mars, Saturn]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Mars-Saturn 壓力。"
+      interpretation: "Mars-Saturn 可標記行動被壓住、推進變慢或靠近時更防衛。"
+      does_not_prove: "Mars-Saturn 壓力不等於沒感覺，也不等於必定分開。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-moon-saturn
+    system: western
+    layer: synastry
+    category: pressure
+    label: Moon-Saturn 防衛
+    source_article_id: western-aspects-moon-saturn
+    claim_ids:
+      - western-aspects-moon-saturn-001
+      - western-aspects-moon-saturn-002
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_all: [Moon, Saturn]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Moon-Saturn 防衛。"
+      interpretation: "Moon-Saturn 可說明情緒被壓住、需要安全距離或害怕表露脆弱。"
+      does_not_prove: "Moon-Saturn 用來看情緒被壓住時需要什麼安全距離，以及壓力如何慢慢鬆動。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-venus-saturn
+    system: western
+    layer: synastry
+    category: pressure
+    label: Venus-Saturn 慢熱防衛
+    source_article_id: western-aspects-venus-saturn
+    claim_ids:
+      - western-aspects-venus-saturn-001
+      - western-aspects-venus-saturn-002
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_all: [Venus, Saturn]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Venus-Saturn 慢熱防衛。"
+      interpretation: "Venus-Saturn 可標記喜歡被責任、害怕受傷或延遲表達壓住。"
+      does_not_prove: "Venus-Saturn 不等於不愛，也不保證等待就會變好。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-sun-saturn
+    system: western
+    layer: synastry
+    category: pressure
+    label: Sun-Saturn 壓力
+    source_article_id: western-aspects-sun-saturn
+    claim_ids:
+      - western-aspects-sun-saturn-001
+      - western-aspects-sun-saturn-002
+      - western-aspects-sun-saturn-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_all: [Sun, Saturn]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Sun-Saturn 壓力。"
+      interpretation: "Sun-Saturn 可標記自我表達被評估、延遲或責任壓住。"
+      does_not_prove: "Sun-Saturn 不能單獨判斷關係終局。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-saturn-pressure
+    system: western
+    layer: synastry
+    category: pressure
+    label: Saturn pressure 中高
+    source_article_id: western-aspects-saturn-pressure
+    claim_ids:
+      - western-aspects-saturn-pressure-001
+      - western-aspects-saturn-pressure-002
+      - western-aspects-saturn-pressure-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Saturn]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Saturn pressure。"
+      interpretation: "Saturn pressure 是壓力族群的保守 fallback，用來標記責任、防衛、延遲與距離感。"
+      does_not_prove: "Saturn pressure 不等於沒有感情，也不等於關係必定結束。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-mercury-contacts
+    system: western
+    layer: synastry
+    category: communication
+    label: Mercury 溝通相位
+    source_article_id: western-aspects-mercury-contacts
+    claim_ids:
+      - western-aspects-mercury-contacts-001
+      - western-aspects-mercury-contacts-002
+      - western-aspects-mercury-contacts-003
+      - western-aspects-mercury-contacts-004
+      - western-aspects-mercury-contacts-005
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Mercury]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的 Mercury 溝通相位。"
+      interpretation: "Mercury contacts 用來判斷訊息、語氣、理解方式與修復對話入口；它能解釋誤會，不保證回覆或復合。"
+      does_not_prove: "Mercury 相位用來看訊息和理解方式，回覆與感情狀態要看實際互動。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-outer-planet-intensity
+    system: western
+    layer: synastry
+    category: pressure
+    label: 外行星強度相位
+    source_article_id: western-aspects-outer-planet-intensity-families
+    claim_ids:
+      - western-aspects-outer-planet-intensity-families-001
+      - western-aspects-outer-planet-intensity-families-002
+      - western-aspects-outer-planet-intensity-families-003
+      - western-aspects-outer-planet-intensity-families-004
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Uranus, Neptune, Pluto]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有可展示的外行星強度相位。"
+      interpretation: "Uranus/Neptune/Pluto contacts 只能作為 guarded intensity、instability、idealization 或 power/boundary evidence。"
+      does_not_prove: "外行星強度不等於命中注定、靈魂伴侶、操控診斷或復合保證。"
+      confidence_floor: low

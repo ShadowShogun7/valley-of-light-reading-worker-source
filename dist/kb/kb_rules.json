@@ -1,0 +1,3007 @@
+{
+  "rules": [
+    {
+      "id": "western-rule-still-love-ambiguous-stage",
+      "output": {
+        "because_clusters": [
+          "relationshipStage",
+          "contactStatus",
+          "contactSituationPolicy",
+          "attraction",
+          "communication"
+        ],
+        "confidence": "low",
+        "short_answer": "現在更像曖昧未定義；先看吸引與回應模式，以及對方能不能用穩定行動接住關係。",
+        "therefore": "這裡要先回答互動是否穩定、能否被清楚定義，再談感情深度；不要直接套用復合語言。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 145,
+      "question": "still-love-me",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "relationshipStage",
+            "field": "isAmbiguousStage",
+            "op": "eq",
+            "value": true
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-still-love-precision-limited",
+      "output": {
+        "because_clusters": [
+          "birthDataQuality",
+          "ascendantImpression",
+          "functionElementMatrix",
+          "functionModalityMatrix",
+          "moonSignEmotionalSafety",
+          "mercurySignCommunicationRepair",
+          "identityNeeds",
+          "emotionalSafety",
+          "pressure"
+        ],
+        "confidence": "low",
+        "short_answer": "看得到情緒安全或吸引層的反應，但出生資料精度限制會降低判斷力；先把重點放在回應模式和可觀察互動。",
+        "therefore": "先把月亮、上升/下降點、宮位與宮位重疊相關內容降權，改用可驗證的本命需求、合盤相位與行運氣氛回答。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 130,
+      "question": "still-love-me",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "birthDataQuality",
+            "field": "hasPrecisionLimit",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "emotionalSafety",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.55
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-still-love-live-contact-mixed-signals",
+      "output": {
+        "because_clusters": [
+          "contactStatus",
+          "contactSituationPolicy",
+          "functionElementMatrix",
+          "functionModalityMatrix",
+          "moonSignEmotionalSafety",
+          "mercurySignCommunicationRepair",
+          "relationshipPotential",
+          "luminaryComparison",
+          "pressure",
+          "communication"
+        ],
+        "confidence": "medium",
+        "short_answer": "你們還有接觸，但回應冷或不穩時，不能直接把聯絡解讀成他心裡一定還有你；更像是仍有反應，但也同時卡住。",
+        "therefore": "這裡要把「還有互動」和「能否穩定表達」分開看：有接觸只是線索，不是承諾。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 125,
+      "question": "still-love-me",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "contactStatus",
+            "field": "hasLiveContact",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-still-love-safety-pressure",
+      "output": {
+        "because_clusters": [
+          "moonSignEmotionalSafety",
+          "mercurySignCommunicationRepair",
+          "saturnSignDefenseDelay",
+          "functionElementMatrix",
+          "functionModalityMatrix",
+          "aspectFunctionCombination",
+          "emotionalSafety",
+          "pressure",
+          "communication"
+        ],
+        "confidence": "medium",
+        "short_answer": "對方比較像有情緒反應但被安全感和壓力同時拉住；這能說明為什麼有牽動卻不一定直接表態。",
+        "therefore": "這裡應把重點放在表達被卡住的機制，而不是把它寫成他一定還愛或一定不愛。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 115,
+      "question": "still-love-me",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "emotionalSafety",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-still-love-safety-validation-bridge",
+      "output": {
+        "because_clusters": [
+          "safetyValidationLanguage",
+          "moonSignEmotionalSafety",
+          "venusSignAffectionStyle",
+          "attraction",
+          "emotionalSafety",
+          "pressure",
+          "contactStatus",
+          "contactSituationPolicy"
+        ],
+        "confidence": "medium",
+        "short_answer": "星盤裡看得到你們有些 Moon/Venus 需求語言比較接得上，代表仍有反應或被理解的線索；接下來要看這些回應能否穩定延續。",
+        "therefore": "這裡應把安全感與被重視的橋接說清楚，再看壓力和現實狀態有沒有讓這個橋變得可用。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 112,
+      "question": "still-love-me",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "safetyValidationLanguage",
+            "field": "hasNaturalNeedBridge",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "attraction",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.55
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-still-love-attraction-pressure",
+      "output": {
+        "because_clusters": [
+          "methodOrder",
+          "moonSignEmotionalSafety",
+          "mercurySignCommunicationRepair",
+          "venusSignAffectionStyle",
+          "functionElementMatrix",
+          "functionModalityMatrix",
+          "nonfatalSynastrySafety",
+          "aspectContactModifier",
+          "aspectPairContactTemplate",
+          "aspectPairPhraseTemplateMethod",
+          "aspectSynthesisCrossCheck",
+          "aspectFunctionCombination",
+          "relationshipPotential",
+          "luminaryComparison",
+          "attraction",
+          "emotionalSafety",
+          "pressure"
+        ],
+        "confidence": "medium",
+        "short_answer": "合盤看得到在意，但對方的表達容易被緊繃感或安全感議題壓住；這能說明有反應，不等於能保證他還愛。",
+        "therefore": "這裡應回答回應模式：看見在意，也看見為什麼不直接表態；矛盾點與行動策略放到後續章節整理。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 100,
+      "question": "still-love-me",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "attraction",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-still-love-outer-planet-intensity",
+      "output": {
+        "because_clusters": [
+          "aspectFunctionCombination",
+          "attraction",
+          "pressure",
+          "nonfatalSynastrySafety",
+          "consultationSafety",
+          "emotionalSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "這裡可以說強烈牽動或投射感明顯，但不能把外行星強度直接翻成對方還愛你。",
+        "therefore": "這裡要把強度和穩定愛意分開：先標示自由、理想化或界線課題，再看是否有可承接的安全感與修復條件。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 104,
+      "question": "still-love-me",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "aspectFunctionCombination",
+            "field": "hasOuterPlanetIntensity",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "attraction",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.55
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-still-love-attraction-only",
+      "output": {
+        "because_clusters": [
+          "methodOrder",
+          "natalSymbolFoundation",
+          "planetaryFunctions",
+          "functionElementMatrix",
+          "functionModalityMatrix",
+          "mercurySignCommunicationRepair",
+          "venusSignAffectionStyle",
+          "relationshipPotential",
+          "attraction",
+          "emotionalSafety",
+          "pressure"
+        ],
+        "confidence": "medium",
+        "short_answer": "合盤看得到吸引或熟悉感，但目前仍不能把它說成承諾或復合保證。",
+        "therefore": "下一步要看安全感與修復條件是否能承接這個牽動。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 80,
+      "question": "still-love-me",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "attraction",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-still-love-reconnect-hope-boundary",
+      "output": {
+        "because_clusters": [
+          "desiredOutcome",
+          "attraction",
+          "emotionalSafety",
+          "pressure",
+          "repair",
+          "nonfatalSynastrySafety",
+          "consultationSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "你想重新靠近時，合盤吸引可以說明還有牽動，但不能被寫成對方內心一定還愛或一定會回來。",
+        "therefore": "這裡應把希望保留在條件式：先看安全感、修復條件與現實回應是否能承接，而不是用吸引證據替對方下結論。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 90,
+      "question": "still-love-me",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "desiredOutcome",
+            "field": "wantsReconnect",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "attraction",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-still-love-release-clarity",
+      "output": {
+        "because_clusters": [
+          "desiredOutcome",
+          "pressure",
+          "attraction",
+          "emotionalSafety",
+          "nonfatalSynastrySafety",
+          "consultationSafety"
+        ],
+        "confidence": "low",
+        "short_answer": "如果你其實想要放下，現在更清楚的證據是壓力與距離，而不是穩定愛意；不用把不確定感硬解成他還愛。",
+        "therefore": "這裡要允許放下成為健康選項，同時避免把壓力、沉默或防衛浪漫化成深情。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 75,
+      "question": "still-love-me",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "desiredOutcome",
+            "field": "wantsRelease",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.55
+          },
+          {
+            "cluster": "attraction",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-still-love-pressure-without-attraction",
+      "output": {
+        "because_clusters": [
+          "functionElementMatrix",
+          "functionModalityMatrix",
+          "aspectFunctionCombination",
+          "mercurySignCommunicationRepair",
+          "saturnSignDefenseDelay",
+          "marsSignPursuitConflict",
+          "pressure",
+          "nonfatalSynastrySafety",
+          "communication",
+          "emotionalSafety",
+          "identityNeeds"
+        ],
+        "confidence": "low",
+        "short_answer": "目前更清楚的是防衛、距離或沉重感；感情線索要回到穩定回應和現實互動判斷。",
+        "therefore": "這裡要誠實降低 certainty：先說互動為何變慢，再把是否仍有感情留在條件式判斷。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 70,
+      "question": "still-love-me",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          },
+          {
+            "cluster": "attraction",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-still-love-fallback",
+      "output": {
+        "because_clusters": [
+          "signClassificationFoundation",
+          "planetSignStyle",
+          "functionElementMatrix",
+          "functionModalityMatrix",
+          "moonSignEmotionalSafety",
+          "mercurySignCommunicationRepair",
+          "venusSignAffectionStyle",
+          "identityNeeds",
+          "attraction",
+          "emotionalSafety",
+          "pressure"
+        ],
+        "confidence": "low",
+        "short_answer": "本次可見的西洋證據較保守，先看互動能不能回到比較輕、比較能回應的狀態。",
+        "therefore": "先把星盤線索和現實互動當核心證據整理，再決定下一步。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 0,
+      "question": "still-love-me",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-blocked-contact",
+      "output": {
+        "because_clusters": [
+          "contactStatus",
+          "contactSituationPolicy",
+          "mercurySignCommunicationRepair",
+          "saturnSignDefenseDelay",
+          "pressure",
+          "repair",
+          "currentTransits"
+        ],
+        "confidence": "low",
+        "short_answer": "現在不能把機會寫成主動推進；封鎖或消失是很強的現實邊界，即使星盤看得到吸引線索，也要先停在觀察。",
+        "therefore": "這裡只能說條件是否存在，不能建議繞過邊界或保證對方會回來。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 130,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "contactStatus",
+            "field": "isBlocked",
+            "op": "eq",
+            "value": true
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-ambiguous-clarity",
+      "output": {
+        "because_clusters": [
+          "relationshipStage",
+          "contactStatus",
+          "contactSituationPolicy",
+          "mercurySignCommunicationRepair",
+          "venusSignAffectionStyle",
+          "attraction",
+          "repair"
+        ],
+        "confidence": "medium",
+        "short_answer": "這裡的機會比較像能不能從曖昧走向清楚定義，不是分手後復合保證。",
+        "therefore": "要看對方是否能穩定回應與承接更清楚的互動；吸引只能當線索，不能當承諾。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 125,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "relationshipStage",
+            "field": "isAmbiguousStage",
+            "op": "eq",
+            "value": true
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-long-no-contact-low-repair",
+      "output": {
+        "because_clusters": [
+          "relationshipStage",
+          "contactStatus",
+          "contactSituationPolicy",
+          "repair",
+          "currentTransits"
+        ],
+        "confidence": "low",
+        "short_answer": "分開已久又沒有聯絡時，機會不能只靠想念或牽動成立；目前更需要看是否有新的互動條件。",
+        "therefore": "這裡應把答案降成條件判斷：如果沒有自然回應與修復條件，就不適合把等待寫成機會。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 120,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "relationshipStage",
+            "field": "isLongSeparation",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "contactStatus",
+            "field": "isNoContact",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.55
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-occasional-contact-repair",
+      "output": {
+        "because_clusters": [
+          "contactStatus",
+          "contactSituationPolicy",
+          "mercurySignCommunicationRepair",
+          "venusSignAffectionStyle",
+          "marsSignPursuitConflict",
+          "relationshipPotential",
+          "elementComparison",
+          "repair",
+          "pressure",
+          "currentTransits"
+        ],
+        "confidence": "medium",
+        "short_answer": "偶爾有回覆時，機會比較像維持輕量互動，而不是直接復合訊號；互動越緊，越不能把一次回覆放大成承諾。",
+        "therefore": "要看這些回覆能不能變得穩定、自然、可承接；如果互動一靠近就變重，仍要先讓氣氛變輕。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 118,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "contactStatus",
+            "field": "hasLimitedContact",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.5
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-no-contact-repair-window",
+      "output": {
+        "because_clusters": [
+          "contactStatus",
+          "contactSituationPolicy",
+          "mercurySignCommunicationRepair",
+          "repair",
+          "pressure",
+          "currentTransits"
+        ],
+        "confidence": "medium",
+        "short_answer": "沒有聯絡但修復條件仍存在時，機會只能寫成先觀察互動能否變輕；它不是主動追答案或保證復合。",
+        "therefore": "這裡要把現實斷聯放在第一位：如果沒有自然回應，修復線索只能支持等待壓力下降，不能支持硬推。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 119,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "contactStatus",
+            "field": "isNoContact",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.55
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.7
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-live-contact-pressure",
+      "output": {
+        "because_clusters": [
+          "contactStatus",
+          "contactSituationPolicy",
+          "mercurySignCommunicationRepair",
+          "marsSignPursuitConflict",
+          "saturnSignDefenseDelay",
+          "elementComparison",
+          "aspectPriority",
+          "aspectFunctionCombination",
+          "pressure",
+          "repair"
+        ],
+        "confidence": "medium",
+        "short_answer": "你們還有共同場域或聯絡，但氣氛偏緊時，機會不等於立刻推進；重點是互動能不能先變輕。",
+        "therefore": "這裡應把答案寫成條件式：有接觸線索，但要避免用追問或逼近讓氣氛更重。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 116,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "contactStatus",
+            "field": "hasLiveContact",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-still-in-contact-soft-repair",
+      "output": {
+        "because_clusters": [
+          "contactStatus",
+          "contactSituationPolicy",
+          "mercurySignCommunicationRepair",
+          "repair",
+          "pressure",
+          "communication"
+        ],
+        "confidence": "medium",
+        "short_answer": "還有聊天且壓力未明顯升高時，機會比較像把對話變穩，而不是直接要求復合或定義關係。",
+        "therefore": "這裡要把重點放在互動節奏：短、自然、可退場的修復比一次攤牌更有用。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 117,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "contactStatus",
+            "field": "statusKey",
+            "op": "eq",
+            "value": "still-in-contact"
+          },
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.5
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-strong-attraction-repair",
+      "output": {
+        "because_clusters": [
+          "mercurySignCommunicationRepair",
+          "venusSignAffectionStyle",
+          "marsSignPursuitConflict",
+          "attraction",
+          "repair",
+          "pressure",
+          "currentTransits"
+        ],
+        "confidence": "medium",
+        "short_answer": "有比較清楚的條件式機會：吸引與修復條件同時存在，而且壓力還沒有高到完全蓋過它。",
+        "therefore": "這裡只能說可觀察條件；時機、訊息策略與避雷條件要放到時機判讀與行動方向裡展開。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 115,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "attraction",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.68
+          },
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.55
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.7
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-timing-band-support",
+      "output": {
+        "because_clusters": [
+          "timingContactReducer",
+          "timingWindowBand",
+          "timingMercuryCommunication",
+          "timingVenusSoftening",
+          "timingMoonWeather",
+          "repair",
+          "pressure",
+          "currentTransits"
+        ],
+        "confidence": "medium",
+        "short_answer": "有條件式機會，而且接下來三個月內有比較適合溝通的時段；但這裡只能說趨勢，不能給成功日。",
+        "therefore": "把它當成可觀察條件，不要當成對方一定會回來；精準日期、訊息寫法與避雷條件只能以可用範圍呈現，不作承諾。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 112,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.5
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.72
+          },
+          {
+            "cluster": "timingWindowBand",
+            "field": "topBand",
+            "op": "eq",
+            "value": "better"
+          },
+          {
+            "cluster": "timingMercuryCommunication",
+            "field": "windowCount",
+            "op": "gte",
+            "value": 1
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-mercury-jupiter-support",
+      "output": {
+        "because_clusters": [
+          "aspectFunctionCombination",
+          "aspectContactModifier",
+          "aspectPairContactTemplate",
+          "aspectPairPhraseTemplateMethod",
+          "aspectSynthesisCrossCheck",
+          "mercurySignCommunicationRepair",
+          "repair",
+          "pressure",
+          "communication"
+        ],
+        "confidence": "medium",
+        "short_answer": "有一條偏溝通修復的機會線：水星與木星的互動支持把話說得開闊一點，但不能把樂觀當成對方承諾。",
+        "therefore": "這裡應把機會寫成輕一點的訊息測試；避免長篇說服、過度承諾或用願景替代現實回應。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 111,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "aspectFunctionCombination",
+            "field": "hasMercuryJupiterSupport",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.5
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.7
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-timing-avoid-pressure",
+      "output": {
+        "because_clusters": [
+          "timingContactReducer",
+          "timingWindowBand",
+          "timingMarsActivation",
+          "timingSaturnPressure",
+          "pressure",
+          "repair",
+          "currentTransits",
+          "nonfatalSynastrySafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "目前就算有牽動，也不適合把機會寫成馬上推進；短期壓力偏高時，先降速比追答案更重要。",
+        "therefore": "這裡可以指出先避開緊繃時推進；哪些時間能動、哪些時間要停，只能用範圍與限制呈現。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 108,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "timingWindowBand",
+            "field": "topBand",
+            "op": "eq",
+            "value": "avoid"
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-outer-planet-intensity-caution",
+      "output": {
+        "because_clusters": [
+          "aspectFunctionCombination",
+          "pressure",
+          "repair",
+          "nonfatalSynastrySafety",
+          "consultationSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "強度很容易讓人覺得還有機會，但外行星訊號只能說明牽動、投射或界線課題，不能保證對方會回來。",
+        "therefore": "這裡應把答案降成條件式：先看現實互動和修復條件是否存在，不用強烈感受替代結果判斷。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 106,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "aspectFunctionCombination",
+            "field": "hasOuterPlanetIntensity",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.58
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-timing-softening",
+      "output": {
+        "because_clusters": [
+          "currentTransits",
+          "repair",
+          "pressure",
+          "attraction",
+          "nonfatalSynastrySafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "短期氣氛比較柔和，但它只支持輕一點地試探互動，不支持把機會寫成必然復合。",
+        "therefore": "如果要動，也應觀察對方是否能自然接住互動；日期與訊息內容要受現實邊界和精度限制。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 105,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.5
+          }
+        ],
+        "any": [
+          {
+            "cluster": "currentTransits",
+            "field": "dominantContactType",
+            "op": "eq",
+            "value": "softening"
+          },
+          {
+            "cluster": "currentTransits",
+            "field": "dominantContactType",
+            "op": "eq",
+            "value": "relationship_focus"
+          }
+        ]
+      }
+    },
+    {
+      "id": "western-rule-any-chance-reconnect-high-pressure-boundary",
+      "output": {
+        "because_clusters": [
+          "desiredOutcome",
+          "pressure",
+          "repair",
+          "contactStatus",
+          "contactSituationPolicy",
+          "nonfatalSynastrySafety",
+          "consultationSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "你想復合時，不能把修復條件直接放大成機會；氣氛偏緊代表答案要先寫成降溫條件，而不是立刻推進。",
+        "therefore": "這裡可以承認仍有條件式機會，但必須把邊界說清楚：不適合追問、攤牌或用期待換回應。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 102,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "desiredOutcome",
+            "field": "wantsReconnect",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.7
+          },
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.5
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-understand-before-action",
+      "output": {
+        "because_clusters": [
+          "desiredOutcome",
+          "relationshipPotential",
+          "aspectFunctionCombination",
+          "repair",
+          "pressure"
+        ],
+        "confidence": "medium",
+        "short_answer": "如果你的目標是先理解，這題不該急著變成行動建議；目前更適合拆清楚為什麼還有機會線索、但還不能保證復合。",
+        "therefore": "這裡先回答模式：吸引、修復與壓力如何互相拉扯；是否要聯絡與何時聯絡留到時間層判斷。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 101,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "desiredOutcome",
+            "field": "wantsUnderstand",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.45
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.7
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-repair-low-pressure",
+      "output": {
+        "because_clusters": [
+          "relationshipPotential",
+          "elementComparison",
+          "aspectPriority",
+          "aspectContactModifier",
+          "aspectPairContactTemplate",
+          "aspectPairPhraseTemplateMethod",
+          "aspectSynthesisCrossCheck",
+          "aspectFunctionCombination",
+          "nonfatalSynastrySafety",
+          "repair",
+          "pressure",
+          "currentTransits",
+          "attraction"
+        ],
+        "confidence": "medium",
+        "short_answer": "仍有機會線索，但要先看互動能不能變輕、變穩，再談復合可能。",
+        "therefore": "這裡只說可觀察條件；最佳聯絡時機與訊息策略放到時機判讀與行動方向裡展開。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 100,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.55
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.75
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-low-repair-high-pressure",
+      "output": {
+        "because_clusters": [
+          "aspectFunctionCombination",
+          "mercurySignCommunicationRepair",
+          "saturnSignDefenseDelay",
+          "pressure",
+          "repair",
+          "currentTransits",
+          "emotionalSafety",
+          "nonfatalSynastrySafety"
+        ],
+        "confidence": "low",
+        "short_answer": "目前卡住的地方比修復條件明顯；想念或仍有反應要搭配穩定互動一起看。",
+        "therefore": "這裡要先說阻力在哪裡；是否值得等待，需要看氣氛是否變輕，以及對方是否能穩定回應。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 90,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          },
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.5
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-pressure-first",
+      "output": {
+        "because_clusters": [
+          "natalSymbolFoundation",
+          "aspectFunctionCombination",
+          "mercurySignCommunicationRepair",
+          "venusSignAffectionStyle",
+          "repair",
+          "pressure",
+          "currentTransits",
+          "attraction",
+          "nonfatalSynastrySafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "現在還有機會線索，但卡住的地方比可以重新靠近的條件更明顯；先看互動能不能變輕、變穩。",
+        "therefore": "先判斷氣氛能否降溫，再談機會。這裡不承諾結果。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 80,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.75
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-any-chance-fallback",
+      "output": {
+        "because_clusters": [
+          "elementStyleFoundation",
+          "mercurySignCommunicationRepair",
+          "marsSignPursuitConflict",
+          "saturnSignDefenseDelay",
+          "repair",
+          "pressure",
+          "currentTransits",
+          "attraction"
+        ],
+        "confidence": "low",
+        "short_answer": "目前只能看到有限機會線索，還不能把它寫成清楚的復合條件。",
+        "therefore": "完整機會判斷需要更多時間與互動條件。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 0,
+      "question": "any-chance",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-blocked",
+      "output": {
+        "because_clusters": [
+          "contactStatus",
+          "contactSituationPolicy",
+          "emotionalRisk",
+          "mercurySignCommunicationRepair",
+          "saturnSignDefenseDelay",
+          "timingWindowBand",
+          "currentTransits",
+          "pressure"
+        ],
+        "confidence": "low",
+        "short_answer": "目前不適合主動聯絡；封鎖或消失代表現實邊界比聯絡時機更優先。",
+        "therefore": "可以看情緒狀態與後續變化，但不能建議繞過邊界、連續追問或保證某天會成功。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 150,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "contactStatus",
+            "field": "isBlocked",
+            "op": "eq",
+            "value": true
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-soft-tone-safety",
+      "output": {
+        "because_clusters": [
+          "consultationSafety",
+          "emotionalRisk",
+          "contactStatus",
+          "contactSituationPolicy",
+          "mercurySignCommunicationRepair",
+          "currentTransits",
+          "pressure"
+        ],
+        "confidence": "medium",
+        "short_answer": "你現在的狀態比聯絡時機更重要；如果是為了立刻要答案，先不要急著開口。",
+        "therefore": "先用不增加刺激的原則：穩住自己，再看對方是否有自然回應；訊息策略要跟現實聯絡狀態一起判斷。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 145,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "consultationSafety",
+            "field": "requiresSoftTone",
+            "op": "eq",
+            "value": true
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-no-contact-pressure",
+      "output": {
+        "because_clusters": [
+          "contactStatus",
+          "contactSituationPolicy",
+          "mercurySignCommunicationRepair",
+          "timingWindowBand",
+          "timingSaturnPressure",
+          "pressure",
+          "currentTransits",
+          "emotionalRisk"
+        ],
+        "confidence": "medium",
+        "short_answer": "斷聯加上氣氛偏緊時，現在不適合用追問換答案；最多只能說先放慢，等互動變得比較輕、比較能回應。",
+        "therefore": "這裡可以指出不把氣氛推重的原則，但精準日期和訊息策略不能被寫成保證。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 135,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "contactStatus",
+            "field": "isNoContact",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-occasional-contact",
+      "output": {
+        "because_clusters": [
+          "contactStatus",
+          "contactSituationPolicy",
+          "mercurySignCommunicationRepair",
+          "saturnSignDefenseDelay",
+          "currentTransits",
+          "pressure",
+          "repair",
+          "consultationSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "偶爾有回覆時，比起突然加速，更適合維持短句、可退場的互動方式；氣氛越緊，越要避免追問。",
+        "therefore": "這裡可以說方向，但不指定哪一天，也不給完整訊息模板；細節要看未來三個月氣候與現實回應。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 132,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "contactStatus",
+            "field": "hasLimitedContact",
+            "op": "eq",
+            "value": true
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-no-contact-low-pressure-window",
+      "output": {
+        "because_clusters": [
+          "contactStatus",
+          "contactSituationPolicy",
+          "timingContactReducer",
+          "mercurySignCommunicationRepair",
+          "pressure",
+          "currentTransits"
+        ],
+        "confidence": "medium",
+        "short_answer": "斷聯後即使有比較適合開口的時機，也只能試很短、很輕、可退場的一次互動，不適合追問答案。",
+        "therefore": "這裡要先尊重沒有聯絡這個現實狀態；若要動，也只支持低刺激測試，不公開精準日期。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 134,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "contactStatus",
+            "field": "isNoContact",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "timingContactReducer",
+            "field": "recommendedAction",
+            "op": "eq",
+            "value": "low_pressure_message"
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-still-in-contact-friction",
+      "output": {
+        "because_clusters": [
+          "contactStatus",
+          "contactSituationPolicy",
+          "mercurySignCommunicationRepair",
+          "marsSignPursuitConflict",
+          "elementComparison",
+          "communication",
+          "pressure",
+          "currentTransits"
+        ],
+        "confidence": "medium",
+        "short_answer": "你們還在聊天但偏冷時，重點不是找一天逼出答案，而是降低摩擦、觀察對方能否主動承接。",
+        "therefore": "這裡應建議控速、讓氣氛變輕，不把仍有聊天直接寫成復合條件。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 131,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "contactStatus",
+            "field": "statusKey",
+            "op": "eq",
+            "value": "still-in-contact"
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-shared-space-boundary",
+      "output": {
+        "because_clusters": [
+          "contactStatus",
+          "contactSituationPolicy",
+          "consultationSafety",
+          "mercurySignCommunicationRepair",
+          "pressure",
+          "currentTransits",
+          "relationshipChartLayer"
+        ],
+        "confidence": "medium",
+        "short_answer": "有共同生活或工作場域時，不適合把聯絡時機寫成一次攤牌；界線、場合與低刺激比日期更重要。",
+        "therefore": "這裡只能給安全互動原則，避免讓共同場域變成彼此拉扯的地方。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 130,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "contactStatus",
+            "field": "statusKey",
+            "op": "eq",
+            "value": "living-or-working-together"
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-precision-limited",
+      "output": {
+        "because_clusters": [
+          "birthDataQuality",
+          "timingContactReducer",
+          "mercurySignCommunicationRepair",
+          "saturnSignDefenseDelay",
+          "currentTransits",
+          "pressure",
+          "repair"
+        ],
+        "confidence": "low",
+        "short_answer": "可以看比較輕地靠近的趨勢，但出生時間或城市精度不足時，不能把這裡寫成精準聯絡日期。",
+        "therefore": "先用行運氣氛與壓力狀態判斷節奏；月亮、上升/下降點、宮位與宮位重疊相關時機必須降權或封鎖。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 120,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "birthDataQuality",
+            "field": "hasPrecisionLimit",
+            "op": "eq",
+            "value": true
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-action-avoid",
+      "output": {
+        "because_clusters": [
+          "timingContactReducer",
+          "timingWindowBand",
+          "timingMarsActivation",
+          "timingSaturnPressure",
+          "currentTransits",
+          "pressure",
+          "nonfatalSynastrySafety",
+          "consultationSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "未來一段時間更適合先避開推進；現在不適合用長文、追問、攤牌或連續訊息去撞答案。",
+        "therefore": "這裡只能給行動方向：先等壓力下降，再找短句、可退場的開口方式；精準日期不能被寫成承諾。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 119,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "timingContactReducer",
+            "field": "recommendedAction",
+            "op": "eq",
+            "value": "avoid_push"
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-window-avoid-pressure",
+      "output": {
+        "because_clusters": [
+          "timingContactReducer",
+          "timingWindowBand",
+          "timingMarsActivation",
+          "timingSaturnPressure",
+          "currentTransits",
+          "pressure",
+          "nonfatalSynastrySafety",
+          "consultationSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "短期壓力偏高時，重點不是不能聯絡，而是不適合用急、長、逼問的方式去撞答案。",
+        "therefore": "這裡只說現在適合放慢還是輕一點靠近，不指定哪一天；可試與需避開的時間只能用範圍呈現。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 118,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "timingWindowBand",
+            "field": "topBand",
+            "op": "eq",
+            "value": "avoid"
+          }
+        ],
+        "any": [
+          {
+            "cluster": "timingMarsActivation",
+            "field": "windowCount",
+            "op": "gte",
+            "value": 1
+          },
+          {
+            "cluster": "timingSaturnPressure",
+            "field": "windowCount",
+            "op": "gte",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-reconnect-pressure-boundary",
+      "output": {
+        "because_clusters": [
+          "desiredOutcome",
+          "contactSituationPolicy",
+          "pressure",
+          "timingContactReducer",
+          "nonfatalSynastrySafety",
+          "consultationSafety",
+          "mercurySignCommunicationRepair"
+        ],
+        "confidence": "medium",
+        "short_answer": "你想重新靠近時，壓力偏高代表聯絡不能被寫成追結果；即使有可以行動的訊號，也要先避免逼問與長文。",
+        "therefore": "這裡只支持低刺激原則：等壓力下降、訊息短、可退場；日期與內容策略要受精度和現實邊界限制。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 117,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "desiredOutcome",
+            "field": "wantsReconnect",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-stabilize-low-pressure",
+      "output": {
+        "because_clusters": [
+          "desiredOutcome",
+          "contactSituationPolicy",
+          "timingContactReducer",
+          "mercurySignCommunicationRepair",
+          "pressure",
+          "repair"
+        ],
+        "confidence": "medium",
+        "short_answer": "如果目標是把關係氣氛穩住，現在可以支持短而輕的訊息，但目的不是要答案，而是降低摩擦。",
+        "therefore": "這裡要把行動寫成維持穩定語氣：短、具體、可退場；不要把它變成表白、追問或重新定義關係。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 114,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "desiredOutcome",
+            "field": "wantsStabilize",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.62
+          },
+          {
+            "cluster": "timingContactReducer",
+            "field": "recommendedAction",
+            "op": "eq",
+            "value": "low_pressure_message"
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-action-low-pressure",
+      "output": {
+        "because_clusters": [
+          "contactSituationPolicy",
+          "timingContactReducer",
+          "timingWindowBand",
+          "timingMercuryCommunication",
+          "timingVenusSoftening",
+          "timingMoonWeather",
+          "mercurySignCommunicationRepair",
+          "pressure"
+        ],
+        "confidence": "medium",
+        "short_answer": "目前比較適合短而輕的訊息，但它只支持測試互動能否自然接住，不支持索取承諾。",
+        "therefore": "這裡應把行動寫成短、清楚、可退場；最佳日期、訊息模板與避雷字眼不能被寫成保證。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 113,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.7
+          },
+          {
+            "cluster": "timingContactReducer",
+            "field": "recommendedAction",
+            "op": "eq",
+            "value": "low_pressure_message"
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-mercury-better-window",
+      "output": {
+        "because_clusters": [
+          "timingWindowBand",
+          "timingMercuryCommunication",
+          "timingVenusSoftening",
+          "timingMoonWeather",
+          "mercurySignCommunicationRepair",
+          "currentTransits",
+          "pressure"
+        ],
+        "confidence": "medium",
+        "short_answer": "接下來三個月裡有比較適合溝通的時段；這裡可以說適合用低刺激方式整理訊息，但不能指定哪一天。",
+        "therefore": "真正要做的是控制語氣與長度；最佳日期、訊息模板與避雷字眼要依短期氣候與現實狀態調整。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 112,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.7
+          },
+          {
+            "cluster": "timingWindowBand",
+            "field": "topBand",
+            "op": "eq",
+            "value": "better"
+          },
+          {
+            "cluster": "timingMercuryCommunication",
+            "field": "windowCount",
+            "op": "gte",
+            "value": 1
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-mercury-jupiter-support",
+      "output": {
+        "because_clusters": [
+          "aspectFunctionCombination",
+          "mercurySignCommunicationRepair",
+          "pressure",
+          "repair",
+          "communication"
+        ],
+        "confidence": "medium",
+        "short_answer": "水星與木星的互動支持把訊息寫得開闊、輕一點，但聯絡仍要短、具體、不要一次談太大。",
+        "therefore": "這裡可給語氣方向，不指定哪一天，也不給完整模板；避免把幽默、鼓勵或願景寫成承諾要求。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 111,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "aspectFunctionCombination",
+            "field": "hasMercuryJupiterSupport",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-softening-low-pressure",
+      "output": {
+        "because_clusters": [
+          "currentTransits",
+          "timingMoonWeather",
+          "aspectFunctionCombination",
+          "mercurySignCommunicationRepair",
+          "pressure",
+          "repair",
+          "communication"
+        ],
+        "confidence": "medium",
+        "short_answer": "目前比較適合輕一點靠近，而不是硬碰硬；可以給趨勢，但不能把日期寫成保證。",
+        "therefore": "若要聯絡，重點是降低要求與確認壓力；文字策略和最佳時間要依短期氣候與現實狀態調整。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 110,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.7
+          }
+        ],
+        "any": [
+          {
+            "cluster": "currentTransits",
+            "field": "dominantContactType",
+            "op": "eq",
+            "value": "softening"
+          },
+          {
+            "cluster": "currentTransits",
+            "field": "dominantContactType",
+            "op": "eq",
+            "value": "relationship_focus"
+          }
+        ]
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-mercury-sun-hard",
+      "output": {
+        "because_clusters": [
+          "aspectFunctionCombination",
+          "mercurySignCommunicationRepair",
+          "pressure",
+          "timingWindowBand",
+          "consultationSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "聯絡可以考慮，但水星與太陽的緊張互動不能用辯論、糾正或逼對方承認來打開話題。",
+        "therefore": "這裡應把聯絡原則寫成短句、可退場；用字與日期都要受精度和現實邊界限制。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 109,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "aspectFunctionCombination",
+            "field": "hasMercurySunHard",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.55
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-mercury-jupiter-hard",
+      "output": {
+        "because_clusters": [
+          "aspectFunctionCombination",
+          "mercurySignCommunicationRepair",
+          "pressure",
+          "consultationSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "可以聯絡也不能用長篇解釋、說教或過度承諾打開話題；水星與木星的緊張互動會把話放大。",
+        "therefore": "這裡應要求訊息短、實際、可退場；不要用願景或保證去換對方回應。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 108,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "aspectFunctionCombination",
+            "field": "hasMercuryJupiterHard",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.55
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-activation-pressure",
+      "output": {
+        "because_clusters": [
+          "currentTransits",
+          "aspectFunctionCombination",
+          "mercurySignCommunicationRepair",
+          "pressure",
+          "communication",
+          "birthDataQuality"
+        ],
+        "confidence": "medium",
+        "short_answer": "現在比較容易被急躁或防衛帶著走，不適合用追問式聯絡換答案。",
+        "therefore": "這裡只提示先控速與降低刺激；若要找可行日期，需要完整時間範圍。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 105,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "currentTransits",
+            "field": "dominantContactType",
+            "op": "eq",
+            "value": "activation_pressure"
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.55
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-pressure",
+      "output": {
+        "because_clusters": [
+          "nonfatalSynastrySafety",
+          "consultationSafety",
+          "relationshipChartLayer",
+          "houseRelationshipFactors",
+          "mercurySignCommunicationRepair",
+          "currentTransits",
+          "pressure",
+          "birthDataQuality",
+          "repair"
+        ],
+        "confidence": "medium",
+        "short_answer": "目前只能判斷要先放慢，還是用比較輕的方式靠近；精準聯絡日期不能被寫成承諾。",
+        "therefore": "壓力偏強時，要先判斷什麼時候比較不會把對方推進防衛。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 100,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.7
+          },
+          {
+            "cluster": "currentTransits",
+            "field": "hasAllowedTiming",
+            "op": "eq",
+            "value": true
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-when-to-contact-fallback",
+      "output": {
+        "because_clusters": [
+          "currentTransits",
+          "mercurySignCommunicationRepair",
+          "pressure",
+          "birthDataQuality",
+          "angleHouseFramework",
+          "aspectInterpretationFoundation",
+          "repair"
+        ],
+        "confidence": "low",
+        "short_answer": "目前只能判斷要先放慢，還是用比較輕的方式靠近；精準聯絡日期不能被寫成承諾。",
+        "therefore": "先看接下來的互動狀態是否適合開口，不要把單一相位當成必然回覆。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 0,
+      "question": "when-to-contact",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-what-wrong-self-blame",
+      "output": {
+        "because_clusters": [
+          "emotionalRisk",
+          "moonSignEmotionalSafety",
+          "mercurySignCommunicationRepair",
+          "marsSignPursuitConflict",
+          "communication",
+          "pressure",
+          "identityNeeds"
+        ],
+        "confidence": "medium",
+        "short_answer": "現在更重要的是把互動循環拆開，避免你把全部責任扛回自己身上。",
+        "therefore": "這裡要用合盤與溝通證據說明模式，把責任放回兩個人的互動裡看。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 130,
+      "question": "what-did-i-do-wrong",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "emotionalRisk",
+            "field": "isSelfBlaming",
+            "op": "eq",
+            "value": true
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-what-wrong-element-friction",
+      "output": {
+        "because_clusters": [
+          "elementComparison",
+          "moonSignEmotionalSafety",
+          "mercurySignCommunicationRepair",
+          "marsSignPursuitConflict",
+          "relationshipPotential",
+          "communication",
+          "pressure",
+          "emotionalSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "卡住不一定是你做錯，而是雙方互動風格有明顯摩擦：同一件事可能被不同節奏、語氣或需求解讀。",
+        "therefore": "這裡要把元素摩擦降成互動風格差，不可寫成兩個人不相容或誰比較有問題。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 112,
+      "question": "what-did-i-do-wrong",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "elementComparison",
+            "field": "frictionElementCount",
+            "op": "gte",
+            "value": 3
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-what-wrong-safety-validation-language",
+      "output": {
+        "because_clusters": [
+          "safetyValidationLanguage",
+          "moonSignEmotionalSafety",
+          "venusSignAffectionStyle",
+          "emotionalSafety",
+          "communication",
+          "pressure"
+        ],
+        "confidence": "medium",
+        "short_answer": "這不像你單方面做錯，而是你們在安全感與被重視的語言上容易聽岔：一方以為自己在靠近，另一方可能感到壓力、冷淡或沒有被接住。",
+        "therefore": "這裡要先翻譯 Moon/Venus 需求語言，再看哪一種互動會降低誤會；不要把整段關係歸因成某一次錯誤。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 118,
+      "question": "what-did-i-do-wrong",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "safetyValidationLanguage",
+            "field": "hasSafetyValidationObstacle",
+            "op": "eq",
+            "value": true
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-what-wrong-communication-only",
+      "output": {
+        "because_clusters": [
+          "communication",
+          "mercurySignCommunicationRepair",
+          "moonSignEmotionalSafety",
+          "venusSignAffectionStyle",
+          "emotionalSafety",
+          "pressure"
+        ],
+        "confidence": "medium",
+        "short_answer": "這比較像表達方式和理解節奏錯位，不是你一個人做錯。",
+        "therefore": "這裡應把焦點放在訊息如何被接收、哪裡容易誤會，而不是責怪用戶。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 115,
+      "question": "what-did-i-do-wrong",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "communication",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-what-wrong-understand-frame",
+      "output": {
+        "because_clusters": [
+          "desiredOutcome",
+          "communication",
+          "mercurySignCommunicationRepair",
+          "emotionalSafety",
+          "pressure"
+        ],
+        "confidence": "medium",
+        "short_answer": "如果你真正想理解發生了什麼，這題要先拆溝通模式，而不是把它寫成你做錯或對方一定有惡意。",
+        "therefore": "這裡應把焦點放在訊息如何被接收、哪裡容易錯位，以及下次怎麼降低誤解，不把責任全放到某一個人身上。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 116,
+      "question": "what-did-i-do-wrong",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "desiredOutcome",
+            "field": "wantsUnderstand",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "communication",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.55
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-what-wrong-communication-pressure",
+      "output": {
+        "because_clusters": [
+          "relationshipPotential",
+          "elementComparison",
+          "aspectContactModifier",
+          "aspectPairContactTemplate",
+          "aspectPairPhraseTemplateMethod",
+          "aspectSynthesisCrossCheck",
+          "aspectFunctionCombination",
+          "moonSignEmotionalSafety",
+          "mercurySignCommunicationRepair",
+          "marsSignPursuitConflict",
+          "saturnSignDefenseDelay",
+          "pressure",
+          "communication",
+          "emotionalSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "卡住不是單純誰做錯，而是溝通方式和緊繃感容易讓雙方在靠近時互相觸發。",
+        "therefore": "這裡應拆互動循環，不把責任全放到某一個人身上；盲點與修復流程放到行動方向整理。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 100,
+      "question": "what-did-i-do-wrong",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [],
+        "any": [
+          {
+            "cluster": "communication",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.55
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          }
+        ]
+      }
+    },
+    {
+      "id": "western-rule-what-wrong-function-water-pressure",
+      "output": {
+        "because_clusters": [
+          "functionElementMatrix",
+          "aspectFunctionCombination",
+          "moonSignEmotionalSafety",
+          "venusSignAffectionStyle",
+          "pressure",
+          "communication",
+          "emotionalSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "這不像單一錯誤，而是情緒接收度高的需求遇到壓力時被放大；越想確認，越可能讓對方進入防衛或退縮。",
+        "therefore": "這裡應把水象月亮/金星的情緒需求和壓力相位一起讀，避免把敏感反應寫成都是你做錯。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 105,
+      "question": "what-did-i-do-wrong",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "functionElementMatrix",
+            "field": "hasWaterMoonOrVenus",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-what-wrong-saturn-function-pressure",
+      "output": {
+        "because_clusters": [
+          "aspectFunctionCombination",
+          "aspectContactModifier",
+          "aspectPairContactTemplate",
+          "aspectPairPhraseTemplateMethod",
+          "aspectSynthesisCrossCheck",
+          "functionElementMatrix",
+          "functionModalityMatrix",
+          "pressure",
+          "communication",
+          "emotionalSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "這不像某一次單一錯誤，而是情緒、愛意或推進步調碰到土星式自我保護時，雙方都容易感到被壓住。",
+        "therefore": "這裡應拆是哪個關係功能被責任、害怕或控制感卡住，不把結果歸咎於你一個人。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 104,
+      "question": "what-did-i-do-wrong",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "aspectFunctionCombination",
+            "field": "hasSaturnFunctionPressure",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-what-wrong-mercury-jupiter-hard",
+      "output": {
+        "because_clusters": [
+          "aspectFunctionCombination",
+          "mercurySignCommunicationRepair",
+          "communication",
+          "pressure"
+        ],
+        "confidence": "medium",
+        "short_answer": "這不等於你做錯，而是對話可能被放大成過度解釋、說教、承諾太多或期待太大。",
+        "therefore": "這裡應把盲點寫成溝通尺度問題：少一點證明自己，多一點具體、短句和可被接住的現實語言。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 103,
+      "question": "what-did-i-do-wrong",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "aspectFunctionCombination",
+            "field": "hasMercuryJupiterHard",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "communication",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.55
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-what-wrong-needs-mismatch",
+      "output": {
+        "because_clusters": [
+          "moonSignEmotionalSafety",
+          "mercurySignCommunicationRepair",
+          "venusSignAffectionStyle",
+          "emotionalSafety",
+          "communication",
+          "pressure"
+        ],
+        "confidence": "low",
+        "short_answer": "問題更像雙方安全感與需求沒有對上，而不是某個單一錯誤造成全部結果。",
+        "therefore": "這裡要幫用戶看見互動需求差，而不是把星盤寫成自責工具。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 90,
+      "question": "what-did-i-do-wrong",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "identityNeeds",
+            "field": "hasBothPeopleNeeds",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "emotionalSafety",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.55
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-what-wrong-fallback",
+      "output": {
+        "because_clusters": [
+          "planetaryFunctions",
+          "modalityResponseFoundation",
+          "aspectInterpretationFoundation",
+          "moonSignEmotionalSafety",
+          "mercurySignCommunicationRepair",
+          "marsSignPursuitConflict",
+          "saturnSignDefenseDelay",
+          "pressure",
+          "communication",
+          "emotionalSafety"
+        ],
+        "confidence": "low",
+        "short_answer": "目前證據不足以把問題歸因到單一錯誤，應先回到雙方需求與互動節奏。",
+        "therefore": "不要把星盤寫成責怪用戶的結論。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 0,
+      "question": "what-did-i-do-wrong",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-stay-let-go-high-risk-pressure",
+      "output": {
+        "because_clusters": [
+          "emotionalRisk",
+          "mercurySignCommunicationRepair",
+          "saturnSignDefenseDelay",
+          "pressure",
+          "repair",
+          "desiredOutcome"
+        ],
+        "confidence": "medium",
+        "short_answer": "如果你已經很痛或很急，這題要先回到健康邊界；壓力偏高時，等待不能變成唯一選項。",
+        "therefore": "這裡應先保護你，不替你下命令，但要把消耗與界線講清楚。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 135,
+      "question": "stay-or-let-go",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "emotionalRisk",
+            "field": "isHighRisk",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-stay-let-go-soft-tone-safety",
+      "output": {
+        "because_clusters": [
+          "consultationSafety",
+          "emotionalRisk",
+          "desiredOutcome",
+          "pressure",
+          "repair"
+        ],
+        "confidence": "medium",
+        "short_answer": "你不用今天逼自己做最後決定。先看這段關係是讓你慢慢穩下來，還是一直把你拉進消耗。",
+        "therefore": "這裡應先給健康邊界：等或放下都要以你能不能穩定生活、對方能不能穩定回應為前提。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 140,
+      "question": "stay-or-let-go",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "consultationSafety",
+            "field": "requiresSoftTone",
+            "op": "eq",
+            "value": true
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-stay-let-go-decide-long-separation",
+      "output": {
+        "because_clusters": [
+          "desiredOutcome",
+          "relationshipStage",
+          "repair",
+          "currentTransits"
+        ],
+        "confidence": "medium",
+        "short_answer": "分開已久又想決定去留時，答案不能只看在意；要看是否還有新的回應、修復條件與健康等待條件。",
+        "therefore": "如果現實沒有新條件，放下也必須是被允許的選項，而不是被星盤否定。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 125,
+      "question": "stay-or-let-go",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "desiredOutcome",
+            "field": "wantsDecide",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "relationshipStage",
+            "field": "isLongSeparation",
+            "op": "eq",
+            "value": true
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-stay-let-go-release-permission",
+      "output": {
+        "because_clusters": [
+          "desiredOutcome",
+          "pressure",
+          "repair",
+          "nonfatalSynastrySafety",
+          "consultationSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "如果你想要放下，星盤不應把等待變成義務；壓力偏高、修復條件不足時，放下是被允許的健康選項。",
+        "therefore": "這裡要把答案寫成支持界線與復原，而不是用牽動感要求你繼續消耗。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 124,
+      "question": "stay-or-let-go",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "desiredOutcome",
+            "field": "wantsRelease",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.55
+          },
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.6
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-stay-let-go-high-pressure-low-repair",
+      "output": {
+        "because_clusters": [
+          "aspectFunctionCombination",
+          "mercurySignCommunicationRepair",
+          "saturnSignDefenseDelay",
+          "pressure",
+          "repair",
+          "emotionalSafety",
+          "currentTransits",
+          "nonfatalSynastrySafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "目前消耗訊號大於修復條件；有吸引也不適合被寫成繼續等的理由。",
+        "therefore": "這裡要把等待條件講清楚：看壓力能否下降、對方是否能配合，而不是要求用戶無限消耗。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 120,
+      "question": "stay-or-let-go",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.75
+          },
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.55
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-stay-let-go-timing-avoid-risk",
+      "output": {
+        "because_clusters": [
+          "timingContactReducer",
+          "timingWindowBand",
+          "timingSaturnPressure",
+          "timingMarsActivation",
+          "nonfatalSynastrySafety",
+          "consultationSafety",
+          "pressure",
+          "repair"
+        ],
+        "confidence": "medium",
+        "short_answer": "短期氣氛偏緊時，先不要把等待當成答案；你要看的不是還有沒有牽動，而是壓力有沒有下降、對方有沒有穩定回應。",
+        "therefore": "這裡只能先提醒健康等待條件；哪段時間適合靠近、哪段時間該停下來，要依短期氣候與現實回應判斷。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 115,
+      "question": "stay-or-let-go",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "timingWindowBand",
+            "field": "topBand",
+            "op": "eq",
+            "value": "avoid"
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-stay-let-go-outer-planet-intensity",
+      "output": {
+        "because_clusters": [
+          "aspectFunctionCombination",
+          "nonfatalSynastrySafety",
+          "consultationSafety",
+          "pressure",
+          "repair",
+          "relationshipChartLayer"
+        ],
+        "confidence": "medium",
+        "short_answer": "強烈牽動不等於值得繼續等；外行星強度要先被讀成界線、投射或不穩定課題。",
+        "therefore": "這裡要把等待條件寫清楚：只有在現實回應和修復條件變穩時，強度才有被承接的可能。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 112,
+      "question": "stay-or-let-go",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "aspectFunctionCombination",
+            "field": "hasOuterPlanetIntensity",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.6
+          },
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.65
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-stay-let-go-repair-offsets-pressure",
+      "output": {
+        "because_clusters": [
+          "moonSignEmotionalSafety",
+          "mercurySignCommunicationRepair",
+          "saturnSignDefenseDelay",
+          "repair",
+          "pressure",
+          "emotionalSafety",
+          "currentTransits"
+        ],
+        "confidence": "medium",
+        "short_answer": "還不到必須用放下作唯一答案；修復條件存在，但必須看對方是否能穩定承接。",
+        "therefore": "這裡只能給健康等待條件，不能替用戶下命令，也不能保證對方會改變。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 110,
+      "question": "stay-or-let-go",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.6
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.7
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-stay-let-go-reconnect-conditional-wait",
+      "output": {
+        "because_clusters": [
+          "desiredOutcome",
+          "repair",
+          "pressure",
+          "currentTransits",
+          "nonfatalSynastrySafety",
+          "consultationSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "你想復合時，還不到只能放下；但等待必須有條件：修復條件要能變成穩定回應，而不是只有你單方面撐住。",
+        "therefore": "這裡要給健康等待條件，不承諾對方會回來，也不鼓勵無期限等待。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 111,
+      "question": "stay-or-let-go",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "desiredOutcome",
+            "field": "wantsReconnect",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.6
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.7
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-stay-let-go-pressure-dominant",
+      "output": {
+        "because_clusters": [
+          "nonfatalSynastrySafety",
+          "consultationSafety",
+          "relationshipPotential",
+          "relationshipChartLayer",
+          "aspectFunctionCombination",
+          "pressure",
+          "emotionalSafety",
+          "repair",
+          "currentTransits"
+        ],
+        "confidence": "medium",
+        "short_answer": "這段關係的消耗訊號較突出；有吸引不等於值得繼續等待。",
+        "therefore": "這份解讀先看緊繃感是否能下降與安全是否能恢復，不用等待換答案。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 100,
+      "question": "stay-or-let-go",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gt",
+            "value": 0.7
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-stay-let-go-venus-saturn-pressure",
+      "output": {
+        "because_clusters": [
+          "aspectFunctionCombination",
+          "aspectContactModifier",
+          "aspectPairContactTemplate",
+          "aspectPairPhraseTemplateMethod",
+          "aspectSynthesisCrossCheck",
+          "venusSignAffectionStyle",
+          "saturnSignDefenseDelay",
+          "pressure",
+          "repair",
+          "nonfatalSynastrySafety",
+          "consultationSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "金星與土星的壓力代表關係有重量，但不能把重量直接翻成值得一直等；承諾可能與阻滯風險要一起看。",
+        "therefore": "這裡要把等待寫成有條件：看對方能否穩定表達與降低控制/害怕，而不是只靠牽動撐住。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 99,
+      "question": "stay-or-let-go",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "aspectFunctionCombination",
+            "field": "hasVenusSaturnPressure",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-stay-let-go-fixed-defense-waiting",
+      "output": {
+        "because_clusters": [
+          "functionModalityMatrix",
+          "aspectFunctionCombination",
+          "saturnSignDefenseDelay",
+          "moonSignEmotionalSafety",
+          "pressure",
+          "repair",
+          "consultationSafety"
+        ],
+        "confidence": "medium",
+        "short_answer": "如果壓力高、修復條件弱，又有固定模式卡在月亮或土星，等待很容易變成僵持，而不是自然恢復。",
+        "therefore": "這裡要把等待寫成有條件：必須看到壓力下降與對方可持續回應，不能只靠牽動撐著。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 98,
+      "question": "stay-or-let-go",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [
+          {
+            "cluster": "functionModalityMatrix",
+            "field": "hasFixedMoonOrSaturn",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "cluster": "pressure",
+            "field": "strongestStrength",
+            "op": "gte",
+            "value": 0.62
+          },
+          {
+            "cluster": "repair",
+            "field": "strongestStrength",
+            "op": "lt",
+            "value": 0.6
+          }
+        ],
+        "any": []
+      }
+    },
+    {
+      "id": "western-rule-stay-let-go-fallback",
+      "output": {
+        "because_clusters": [
+          "planetaryFunctions",
+          "moonSignEmotionalSafety",
+          "mercurySignCommunicationRepair",
+          "saturnSignDefenseDelay",
+          "pressure",
+          "emotionalSafety",
+          "repair",
+          "currentTransits"
+        ],
+        "confidence": "medium",
+        "short_answer": "這段關係仍要看牽動能否被安全承接；有吸引不等於可以忽略壓力。",
+        "therefore": "如果修復條件沒有穩定出現，就不應把牽動當成繼續消耗的理由。"
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "priority": 0,
+      "question": "stay-or-let-go",
+      "ruleset_id": "western-relationship-result-v1",
+      "when": {
+        "all": [],
+        "any": []
+      }
+    }
+  ],
+  "rulesets": [
+    {
+      "applies_to": {
+        "products": [
+          "relationship_compatibility"
+        ],
+        "questions": [
+          "still-love-me",
+          "any-chance",
+          "when-to-contact",
+          "what-did-i-do-wrong",
+          "stay-or-let-go"
+        ],
+        "stages": [
+          "all"
+        ]
+      },
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "rule_ids": [
+        "western-rule-still-love-ambiguous-stage",
+        "western-rule-still-love-precision-limited",
+        "western-rule-still-love-live-contact-mixed-signals",
+        "western-rule-still-love-safety-pressure",
+        "western-rule-still-love-safety-validation-bridge",
+        "western-rule-still-love-attraction-pressure",
+        "western-rule-still-love-outer-planet-intensity",
+        "western-rule-still-love-attraction-only",
+        "western-rule-still-love-reconnect-hope-boundary",
+        "western-rule-still-love-release-clarity",
+        "western-rule-still-love-pressure-without-attraction",
+        "western-rule-still-love-fallback",
+        "western-rule-any-chance-blocked-contact",
+        "western-rule-any-chance-ambiguous-clarity",
+        "western-rule-any-chance-long-no-contact-low-repair",
+        "western-rule-any-chance-occasional-contact-repair",
+        "western-rule-any-chance-no-contact-repair-window",
+        "western-rule-any-chance-live-contact-pressure",
+        "western-rule-any-chance-still-in-contact-soft-repair",
+        "western-rule-any-chance-strong-attraction-repair",
+        "western-rule-any-chance-timing-band-support",
+        "western-rule-any-chance-mercury-jupiter-support",
+        "western-rule-any-chance-timing-avoid-pressure",
+        "western-rule-any-chance-outer-planet-intensity-caution",
+        "western-rule-any-chance-timing-softening",
+        "western-rule-any-chance-reconnect-high-pressure-boundary",
+        "western-rule-any-chance-understand-before-action",
+        "western-rule-any-chance-repair-low-pressure",
+        "western-rule-any-chance-low-repair-high-pressure",
+        "western-rule-any-chance-pressure-first",
+        "western-rule-any-chance-fallback",
+        "western-rule-when-to-contact-blocked",
+        "western-rule-when-to-contact-soft-tone-safety",
+        "western-rule-when-to-contact-no-contact-pressure",
+        "western-rule-when-to-contact-occasional-contact",
+        "western-rule-when-to-contact-no-contact-low-pressure-window",
+        "western-rule-when-to-contact-still-in-contact-friction",
+        "western-rule-when-to-contact-shared-space-boundary",
+        "western-rule-when-to-contact-precision-limited",
+        "western-rule-when-to-contact-action-avoid",
+        "western-rule-when-to-contact-window-avoid-pressure",
+        "western-rule-when-to-contact-reconnect-pressure-boundary",
+        "western-rule-when-to-contact-stabilize-low-pressure",
+        "western-rule-when-to-contact-action-low-pressure",
+        "western-rule-when-to-contact-mercury-better-window",
+        "western-rule-when-to-contact-mercury-jupiter-support",
+        "western-rule-when-to-contact-softening-low-pressure",
+        "western-rule-when-to-contact-mercury-sun-hard",
+        "western-rule-when-to-contact-mercury-jupiter-hard",
+        "western-rule-when-to-contact-activation-pressure",
+        "western-rule-when-to-contact-pressure",
+        "western-rule-when-to-contact-fallback",
+        "western-rule-what-wrong-self-blame",
+        "western-rule-what-wrong-element-friction",
+        "western-rule-what-wrong-safety-validation-language",
+        "western-rule-what-wrong-communication-only",
+        "western-rule-what-wrong-understand-frame",
+        "western-rule-what-wrong-communication-pressure",
+        "western-rule-what-wrong-function-water-pressure",
+        "western-rule-what-wrong-saturn-function-pressure",
+        "western-rule-what-wrong-mercury-jupiter-hard",
+        "western-rule-what-wrong-needs-mismatch",
+        "western-rule-what-wrong-fallback",
+        "western-rule-stay-let-go-high-risk-pressure",
+        "western-rule-stay-let-go-soft-tone-safety",
+        "western-rule-stay-let-go-decide-long-separation",
+        "western-rule-stay-let-go-release-permission",
+        "western-rule-stay-let-go-high-pressure-low-repair",
+        "western-rule-stay-let-go-timing-avoid-risk",
+        "western-rule-stay-let-go-outer-planet-intensity",
+        "western-rule-stay-let-go-repair-offsets-pressure",
+        "western-rule-stay-let-go-reconnect-conditional-wait",
+        "western-rule-stay-let-go-pressure-dominant",
+        "western-rule-stay-let-go-venus-saturn-pressure",
+        "western-rule-stay-let-go-fixed-defense-waiting",
+        "western-rule-stay-let-go-fallback"
+      ],
+      "ruleset_id": "western-relationship-result-v1",
+      "version": "kb-rules-v1"
+    }
+  ],
+  "version": "kb-rules-v1"
+}

@@ -1,0 +1,248 @@
+version: kb-guardrails-v1
+guardrail_id: western-method-v1
+applies_to:
+  products: [relationship_compatibility]
+  stages: [in_relationship, in_breakup, all]
+  questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+
+guardrails:
+  - id: western-guardrail-no-single-aspect-verdict
+    system: western
+    category: method
+    source_article_id: western-synastry-method
+    claim_ids:
+      - western-synastry-method-001
+    applies_to: [synastry_aspect, reading_blueprint, narrative]
+    points_any: []
+    precision_any: []
+    blocks: [single_aspect_verdict, automatic_compatibility_verdict, automatic_breakup_verdict]
+    lowers_confidence: []
+    display: blocked
+    reason: "合盤只能辨認關係中的相容區與低相容區；不可用單一相位直接判斷關係成敗或復合結果。"
+
+  - id: western-guardrail-no-sun-sign-pairing
+    system: western
+    category: method
+    source_article_id: western-astrology-for-yourself-method-foundation
+    claim_ids:
+      - western-astrology-for-yourself-method-foundation-002
+    applies_to: [identity_needs, synastry_aspect, narrative]
+    points_any: [Sun]
+    precision_any: []
+    blocks: [sun_sign_pairing_verdict, sign_only_compatibility]
+    lowers_confidence: []
+    display: blocked
+    reason: "George/Bloch 明確要求讀盤超越太陽星座；太陽星座或同元素只能作為起點，不可寫成完整相容判斷。"
+
+  - id: western-guardrail-relationship-needs-before-compatibility
+    system: western
+    category: method
+    source_article_id: western-relationship-needs-george-bloch
+    claim_ids:
+      - western-relationship-needs-george-bloch-001
+      - western-relationship-needs-george-bloch-003
+    applies_to: [identity_needs, synastry_aspect, reading_blueprint, narrative]
+    points_any: [Sun, Moon, Mercury, Venus, Mars, Asc, Desc]
+    precision_any: []
+    blocks: [compatibility_without_needs_analysis, sign_only_relationship_answer, direct_compatibility_verdict]
+    lowers_confidence: [element_only_compatibility_verdict]
+    display: blocked
+    reason: "George/Bloch 先要求定義各自關係需求，再談相容；不可跳過 Moon/Mercury/Venus/Mars 等本命需求直接回答合不合。"
+
+  - id: western-guardrail-natal-context-first
+    system: western
+    category: method
+    source_article_id: western-synastry-relationship-framework
+    claim_ids:
+      - western-synastry-relationship-framework-001
+      - western-synastry-relationship-framework-002
+    applies_to: [identity_needs, synastry_aspect, reading_blueprint, narrative]
+    points_any: []
+    precision_any: []
+    blocks: [chart_only_relationship_reading, isolated_synastry_interpretation]
+    lowers_confidence: []
+    display: blocked
+    reason: "關係占星必須先理解兩個人的本命關係模式，再看合盤如何觸發；不可只用兩張盤的相位替整段關係下結論。"
+
+  - id: western-guardrail-question-after-case-file
+    system: western
+    category: method
+    source_article_id: western-synastry-relationship-framework
+    claim_ids:
+      - western-synastry-relationship-framework-001
+      - western-synastry-relationship-framework-002
+    applies_to: [question_blueprint, reading_blueprint, narrative]
+    points_any: []
+    precision_any: []
+    blocks: [preset_question_answer, unsupported_behavior_prediction]
+    lowers_confidence: []
+    display: blocked
+    reason: "使用者問題必須由已組裝的本命需求、合盤、壓力、修復與 timing case file 回答；不可先用固定問題文案或單一星盤事實推結論。"
+
+  - id: western-guardrail-suskin-method-order
+    system: western
+    category: method
+    source_article_id: western-synastry-method-order
+    claim_ids:
+      - western-synastry-method-order-001
+      - western-synastry-method-order-002
+    applies_to: [identity_needs, synastry_aspect, reading_blueprint, narrative]
+    points_any: []
+    precision_any: []
+    blocks: [direct_question_answer_without_case_file, timing_first_relationship_verdict, synastry_before_natal_context]
+    lowers_confidence: []
+    display: blocked
+    reason: "Suskin 方法順序要求先看本命關係潛力，再看互動與合盤，最後才回答使用者問題；不可直接從問題跳到復合/聯絡結論。"
+
+  - id: western-guardrail-element-not-person-verdict
+    system: western
+    category: method
+    source_article_id: western-initial-comparison-elements
+    claim_ids:
+      - western-initial-comparison-elements-003
+    applies_to: [identity_needs, synastry_aspect, reading_blueprint, narrative]
+    points_any: [Sun, Moon, Asc, Mercury, Venus, Mars]
+    precision_any: []
+    blocks: [element_only_compatibility_verdict, element_only_breakup_verdict, element_as_person_judgment]
+    lowers_confidence: [element_comparison]
+    display: blocked
+    reason: "元素比較只能描述互動風格，不能寫成兩個人相容/不相容的總判決，也不能取代交互相位。"
+
+  - id: western-guardrail-prioritize-relevant-evidence
+    system: western
+    category: method
+    source_article_id: western-interchart-aspect-priorities
+    claim_ids:
+      - western-interchart-aspect-priorities-004
+    applies_to: [synastry_aspect, question_blueprint, reading_blueprint, narrative]
+    points_any: []
+    precision_any: []
+    blocks: [dump_all_aspects, unranked_aspect_listing, irrelevant_chart_fact]
+    lowers_confidence: []
+    display: blocked
+    reason: "關係閱讀需要選擇與問題最相關、最有用、orb 較緊且方向性清楚的證據；不可把所有相位堆給使用者。"
+
+  - id: western-guardrail-relationship-chart-paid-depth
+    system: western
+    category: method
+    source_article_id: western-relationship-chart-layer
+    claim_ids:
+      - western-relationship-chart-layer-001
+      - western-relationship-chart-layer-002
+    applies_to: [relationship_chart, composite_chart, davison_chart, reading_blueprint, narrative]
+    points_any: []
+    precision_any: []
+    blocks: [uncomputed_composite_claim, uncomputed_davison_claim, unclear_relationship_start_chart]
+    lowers_confidence: [relationship_chart_timing]
+    display: blocked
+    reason: "關係盤、Composite、Davison 與起始時刻 chart 屬於後段/付費深度層；未計算或起點不清時不可補寫關係盤故事。"
+
+  - id: western-guardrail-consultation-privacy
+    system: western
+    category: method
+    source_article_id: western-consultation-ethics
+    claim_ids:
+      - western-consultation-ethics-001
+      - western-consultation-ethics-002
+      - western-consultation-ethics-003
+      - western-consultation-ethics-004
+      - western-consultation-ethics-005
+      - western-consultation-ethics-006
+      - western-consultation-ethics-007
+    applies_to: [question_blueprint, reading_blueprint, narrative]
+    points_any: []
+    precision_any: []
+    blocks: [third_party_inner_state_certainty, private_psychological_diagnosis, unsafe_contact_advice]
+    lowers_confidence: [high_emotional_risk_contact_advice]
+    display: blocked
+    reason: "關係閱讀涉及第三方資料與高情緒風險；只應輸出準確、相關、有用、急迫的資訊，不替未在場者寫確定內心或越界行動建議。"
+
+  - id: western-guardrail-symbol-foundation-before-synthesis
+    system: western
+    category: method
+    source_article_id: western-astrology-for-yourself-method-foundation
+    claim_ids:
+      - western-astrology-for-yourself-method-foundation-001
+      - western-astrology-for-yourself-method-foundation-003
+    applies_to: [reading_blueprint, narrative, controlled_rag]
+    points_any: []
+    precision_any: []
+    blocks: [synthesis_without_symbol_foundation, single_symbol_total_reading, unsupported_symbol_blending]
+    lowers_confidence: []
+    display: blocked
+    reason: "George/Bloch 方法要求先把占星字母組成句子，並把 birth chart 視為 planets/signs/houses 的互鎖系統；不可讓 LLM 直接把幾個詞混成整體關係結論。"
+
+  - id: western-guardrail-no-planet-literalism
+    system: western
+    category: method
+    source_article_id: western-planets-planetary-functions-hand
+    claim_ids:
+      - western-planets-planetary-functions-hand-006
+    applies_to: [identity_needs, synastry_aspect, reading_blueprint, narrative]
+    points_any: [Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn]
+    precision_any: []
+    blocks: [planet_as_actual_person, planet_as_literal_event, third_party_inner_state_from_planet]
+    lowers_confidence: [third_party_inner_state_certainty]
+    display: blocked
+    reason: "Hand 明確提醒行星不是具體人物或物件；產品只能說行星功能如何被呈現，不能把它寫成對方確定內心或事件保證。"
+
+  - id: western-guardrail-orb-not-on-off-switch
+    system: western
+    category: method
+    source_article_id: western-aspect-interpretation-foundation
+    claim_ids:
+      - western-aspect-interpretation-foundation-003
+    applies_to: [synastry_aspect, aspect_priority, reading_blueprint, narrative]
+    points_any: [Sun, Moon, Mercury, Venus, Mars, Saturn]
+    precision_any: []
+    blocks: [orb_on_off_switch, wide_orb_full_force, weak_aspect_overclaim]
+    lowers_confidence: [wide_orb_aspect, low_relevance_aspect]
+    display: blocked
+    reason: "Hand 反對把 orb 當成突然開關；越接近 exact 的相位才應優先，wide-orb 訊號必須降權。"
+
+  - id: western-guardrail-hard-aspects-are-not-fate
+    system: western
+    category: method
+    source_article_id: western-aspect-synthesis-george-bloch
+    claim_ids:
+      - western-aspect-synthesis-george-bloch-003
+      - western-aspect-synthesis-george-bloch-004
+    applies_to: [synastry_aspect, aspect_priority, reading_blueprint, narrative]
+    points_any: [Sun, Moon, Mercury, Venus, Mars, Saturn]
+    precision_any: []
+    blocks: [hard_aspect_fatalism, pressure_as_no_love, pressure_as_permanent_breakup, hard_aspect_total_verdict]
+    lowers_confidence: [pressure_only_answer, single_hard_aspect]
+    display: blocked
+    reason: "George/Bloch 將困難相位視為挑戰與整合潛力；壓力相位可以說明卡住，但不可寫成沒有愛、永久結束或命運判決。"
+
+  - id: western-guardrail-modern-synastry-nonfatal
+    system: western
+    category: method
+    source_article_id: western-modern-nonfatal-synastry
+    claim_ids:
+      - western-modern-nonfatal-synastry-001
+      - western-modern-nonfatal-synastry-002
+      - western-modern-nonfatal-synastry-003
+    applies_to: [synastry_aspect, pressure, repair, question_blueprint, reading_blueprint, narrative, action_direction]
+    points_any: [Sun, Moon, Mercury, Venus, Mars, Saturn]
+    precision_any: []
+    blocks: [guaranteed_reunion, guaranteed_breakup, chart_configuration_success_failure_verdict, pressure_as_doomed_relationship, hard_aspect_total_verdict, timing_as_guaranteed_contact_success]
+    lowers_confidence: [pressure_only_answer, single_hard_aspect, no_contact_outcome_prediction, reconnect_desire_as_result]
+    display: blocked
+    reason: "Forrest/Skymates 明確反對用任何星盤配置保證關係成敗；產品必須把復合、分開、聯絡時機與壓力相位都寫成條件式判斷，並保留溝通與現實回應作為修復條件。"
+
+  - id: western-guardrail-no-sign-placement-verdict
+    system: western
+    category: method
+    source_article_id: western-individual-sign-meanings-hand
+    claim_ids:
+      - western-individual-sign-meanings-hand-001
+      - western-individual-sign-meanings-hand-007
+      - western-individual-sign-meanings-hand-012
+    applies_to: [identity_needs, planet_sign_style, reading_blueprint, narrative]
+    points_any: [Sun, Moon, Mercury, Venus, Mars, Saturn]
+    precision_any: []
+    blocks: [sun_sign_compatibility_verdict, planet_sign_as_commitment_proof, sign_as_total_personality, moon_sign_as_inner_state_proof, mercury_sign_as_contact_proof, venus_sign_as_love_proof, mars_sign_as_blame_proof, saturn_sign_as_permanent_rejection]
+    lowers_confidence: [single_sign_evidence, moon_time_uncertain]
+    display: blocked
+    reason: "Hand 的十二星座語義只能描述行星功能的表達風格；Moon/Mercury/Venus/Mars/Saturn 落星座也不可被寫成讀心、聯絡保證、愛情保證、責任歸咎或永久拒絕。"

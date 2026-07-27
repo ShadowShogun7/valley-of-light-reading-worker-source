@@ -1,0 +1,158 @@
+version: kb-atoms-v1
+atoms:
+  - id: western-atom-timing-mercury-communication
+    system: western
+    layer: timing
+    category: timingMercuryCommunication
+    label: Mercury 溝通窗口
+    source_article_id: western-transits-timing-selector-windows
+    claim_ids:
+      - western-transits-timing-selector-windows-001
+      - western-transits-timing-selector-windows-006
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [all]
+    selectors:
+      transit_points_any: [Mercury]
+      natal_points_any: [Sun, Moon, Mercury, Venus, Mars, Saturn]
+      timing_categories_any: [communication_window, communication_pressure]
+      relationship_functions_any: [communication, repair]
+    interpretation:
+      summary_template: "{label}掃描到{window_count}個溝通相關 timing 訊號；主軸是：{dominant_window}。"
+      empty_summary: "未來三個月掃描內沒有明顯 Mercury 溝通 timing 訊號。"
+      interpretation: "Mercury timing 可以支援訊息清晰度、對話節奏與修復語氣，但不保證對方回覆。"
+      does_not_prove: "Mercury timing 不證明對方一定會回、不等於復合，也不能替代訊息內容策略。"
+      confidence_floor: low
+
+  - id: western-atom-timing-venus-softening
+    system: western
+    layer: timing
+    category: timingVenusSoftening
+    label: Venus 緩和窗口
+    source_article_id: western-transits-timing-selector-windows
+    claim_ids:
+      - western-transits-timing-selector-windows-002
+      - western-transits-timing-selector-windows-006
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [all]
+    selectors:
+      transit_points_any: [Venus]
+      natal_points_any: [Sun, Moon, Venus, Mars]
+      timing_categories_any: [softening, relationship_focus]
+      window_bands_any: [better]
+      relationship_functions_any: [softening, repair]
+    interpretation:
+      summary_template: "{label}掃描到{window_count}個緩和訊號；主軸是：{dominant_window}。"
+      empty_summary: "未來三個月掃描內沒有明顯 Venus 緩和 timing 訊號。"
+      interpretation: "Venus timing 可以標記較柔和的靠近氣候，適合低壓釋放善意，但不代表長期結果。"
+      does_not_prove: "Venus timing 不保證承諾、復合、回覆或精準成功日期。"
+      confidence_floor: low
+
+  - id: western-atom-timing-mars-activation
+    system: western
+    layer: timing
+    category: timingMarsActivation
+    label: Mars 啟動與刺激
+    source_article_id: western-transits-timing-selector-windows
+    claim_ids:
+      - western-transits-timing-selector-windows-003
+      - western-transits-timing-selector-windows-006
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [all]
+    selectors:
+      transit_points_any: [Mars]
+      natal_points_any: [Sun, Moon, Venus, Mars, Saturn]
+      timing_categories_any: [activation_pressure]
+      window_bands_any: [avoid, neutral]
+      relationship_functions_any: [activation, pressure]
+    interpretation:
+      summary_template: "{label}掃描到{window_count}個刺激/急躁訊號；主軸是：{dominant_window}。"
+      empty_summary: "未來三個月掃描內沒有明顯 Mars activation 訊號。"
+      interpretation: "Mars timing 會提高行動、急迫或摩擦感；聯絡問題中要先控速，避免硬碰硬。"
+      does_not_prove: "Mars timing 不代表一定吵架，也不代表必須立刻行動。"
+      confidence_floor: low
+
+  - id: western-atom-timing-saturn-pressure
+    system: western
+    layer: timing
+    category: timingSaturnPressure
+    label: 土星邊界壓力
+    source_article_id: western-transits-timing-selector-windows
+    claim_ids:
+      - western-transits-timing-selector-windows-004
+      - western-transits-timing-selector-windows-006
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [all]
+    selectors:
+      transit_points_any: [Saturn]
+      natal_points_any: [Sun, Moon, Venus, Mars, Saturn]
+      timing_categories_any: [pressure]
+      window_bands_any: [avoid, neutral]
+      relationship_functions_any: [boundary, pressure]
+    interpretation:
+      summary_template: "{label}掃描到{window_count}個責任/邊界訊號；主軸是：{dominant_window}。"
+      empty_summary: "未來三個月掃描內沒有明顯土星壓力時機訊號。"
+      interpretation: "土星時機訊號會提高限制、責任、孤立或邊界感；聯絡建議要改用保守語氣。"
+      does_not_prove: "土星時機訊號不等於沒有感情，也不代表等待一定有效。"
+      confidence_floor: low
+
+  - id: western-atom-timing-moon-weather
+    system: western
+    layer: timing
+    category: timingMoonWeather
+    label: Moon 短期情緒天氣
+    source_article_id: western-transits-timing-selector-windows
+    claim_ids:
+      - western-transits-timing-selector-windows-005
+      - western-transits-timing-selector-windows-006
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [all]
+    selectors:
+      transit_points_any: [Moon]
+      natal_points_any: [Sun, Moon, Venus, Mars, Saturn]
+      timing_categories_any: [emotional_weather]
+      window_bands_any: [neutral]
+      relationship_functions_any: [emotional_weather]
+    interpretation:
+      summary_template: "{label}掃描到{window_count}個短期情緒訊號；主軸是：{dominant_window}。"
+      empty_summary: "未來三個月掃描內沒有可用的 Moon 情緒天氣訊號。"
+      interpretation: "Moon timing 只能輔助當日情緒氣候，不能單獨作為重大關係或復合判斷。"
+      does_not_prove: "Moon timing 不保證聯絡、復合、承諾或長期結果。"
+      confidence_floor: low
+
+  - id: western-atom-timing-window-band
+    system: western
+    layer: timing
+    category: timingWindowBand
+    label: 未來三個月行動氣候
+    source_article_id: western-transits-timing-selector-windows
+    claim_ids:
+      - western-transits-timing-selector-windows-001
+      - western-transits-timing-selector-windows-002
+      - western-transits-timing-selector-windows-003
+      - western-transits-timing-selector-windows-004
+      - western-transits-timing-selector-windows-005
+      - western-transits-timing-selector-windows-006
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [all]
+    selectors:
+      timing_categories_any: [communication_window, softening, relationship_focus, activation_pressure, communication_pressure, pressure, emotional_weather]
+      window_bands_any: [better, neutral, avoid]
+      relationship_functions_any: [contact_timing, message_strategy, safety]
+    interpretation:
+      summary_template: "{label}：{top_band_label}；低壓窗口 {better_count}、需避開窗口 {avoid_count}、觀察窗口 {neutral_count}。"
+      empty_summary: "本次尚未產生短期行動氣候。"
+      interpretation: "短期行動氣候只把未來一段時間分成比較適合、普通、要避開的互動節奏；免費頁只能顯示趨勢。"
+      does_not_prove: "短期行動氣候不提供精準成功日期，不保證對方回覆或復合。"
+      confidence_floor: low

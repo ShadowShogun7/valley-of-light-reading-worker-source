@@ -1,0 +1,52 @@
+version: kb-atoms-v1
+atoms:
+  - id: western-atom-function-element-matrix
+    system: western
+    layer: identity
+    category: functionElementMatrix
+    label: 行星功能元素矩陣
+    source_article_id: western-function-element-templates
+    claim_ids:
+      - western-function-element-templates-001
+      - western-function-element-templates-002
+      - western-function-element-templates-003
+      - western-function-element-templates-004
+      - western-function-element-templates-005
+      - western-function-element-templates-006
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Moon, Mercury, Venus, Mars, Saturn]
+    interpretation:
+      summary_template: "{label}統整{item_count}個關係功能點；主元素是{dominant_element_label}：{technical}。"
+      empty_summary: "本次沒有足夠可展示的行星功能元素資料。"
+      interpretation: "元素用來修飾 Moon/Mercury/Venus/Mars/Saturn 的關係功能：火象偏直接、土象偏穩定、風象偏對話、水象偏情緒接收。"
+      does_not_prove: "元素矩陣不能單獨證明兩人合不合、誰愛誰、是否聯絡、是否承諾或關係會不會回來。"
+      confidence_floor: medium
+
+  - id: western-atom-function-modality-matrix
+    system: western
+    layer: identity
+    category: functionModalityMatrix
+    label: 行星功能三模式矩陣
+    source_article_id: western-function-modality-templates
+    claim_ids:
+      - western-function-modality-templates-001
+      - western-function-modality-templates-002
+      - western-function-modality-templates-003
+      - western-function-modality-templates-004
+      - western-function-modality-templates-005
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Moon, Mercury, Venus, Mars, Saturn]
+    interpretation:
+      summary_template: "{label}統整{item_count}個關係功能點；主模式是{dominant_modality_label}：{technical}。"
+      empty_summary: "本次沒有足夠可展示的行星功能三模式資料。"
+      interpretation: "三模式用來修飾 Moon/Mercury/Venus/Mars/Saturn 的反應節奏：cardinal 啟動，fixed 維持，mutable 調整。"
+      does_not_prove: "三模式矩陣不能單獨證明誰錯、誰逃避、誰一定會回來、或你必須等待。"
+      confidence_floor: medium

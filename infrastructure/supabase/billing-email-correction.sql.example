@@ -1,0 +1,50 @@
+-- Run only as the database owner, first in disposable staging.
+--
+-- Before this action, an authorized WooCommerce operator must:
+--   1. verify the purchaser/payment through the approved support procedure;
+--   2. correct the WooCommerce order billing email;
+--   3. re-fetch that exact order through authenticated Woo REST `context=edit`;
+--   4. confirm processing/completed + paid timestamp, product 13, quantity 1,
+--      TWD 1280, no refund, and the corrected billing email; and
+--   5. retain only a SHA-256 verification-reference hash in the audit record.
+--
+-- Never run this from a public order-number + new-email request. The function
+-- immediately revokes a link that may have reached the wrong recipient,
+-- creates one replacement grant, and queues recovery to the corrected address.
+
+with correction_input as (
+  select
+    'REPLACE_WITH_PRIVATE_COMMERCE_ORDER_UUID'::uuid as commerce_order_id,
+    'REPLACE_WITH_64_CHAR_OLD_EMAIL_HASH'::text as expected_email_hash,
+    'REPLACE_WITH_CORRECTED_EMAIL'::text as corrected_email,
+    'REPLACE_WITH_64_CHAR_NAMED_OPERATOR_HASH'::text as actor_hash,
+    'REPLACE_WITH_64_CHAR_VERIFICATION_REFERENCE_HASH'::text
+      as verification_reference_hash,
+    'BILLING_EMAIL_TYPO_VERIFIED'::text as reason_code,
+    'REPLACE_WITH_UNIQUE_ACTION_ID'::text as idempotency_key,
+    extensions.gen_random_uuid() as replacement_grant_id,
+    date_trunc('second', now() + interval '30 days')
+      as replacement_grant_expires_at
+),
+prepared as (
+  select
+    correction_input.*,
+    'paid-access-recovery-v1:' ||
+      correction_input.replacement_grant_id::text
+      as recovery_template_version
+  from correction_input
+)
+select private.valley_correct_reading_billing_email(
+  prepared.commerce_order_id,
+  prepared.expected_email_hash,
+  lower(trim(prepared.corrected_email)),
+  prepared.actor_hash,
+  prepared.verification_reference_hash,
+  prepared.reason_code,
+  prepared.idempotency_key,
+  prepared.replacement_grant_id,
+  prepared.replacement_grant_expires_at,
+  prepared.recovery_template_version
+)
+from prepared;
+

@@ -1,0 +1,42 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "official.valeoflight.com"
+        }
+      ],
+      "missing": [
+        {
+          "type": "header",
+          "key": "x-vale-proxy",
+          "value": "1"
+        }
+      ],
+      "destination": "https://valeoflight.com/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "official.valeoflight.com"
+        }
+      ],
+      "missing": [
+        {
+          "type": "header",
+          "key": "x-vale-proxy",
+          "value": "1"
+        }
+      ],
+      "destination": "https://valeoflight.com/:path*",
+      "permanent": true
+    }
+  ]
+}

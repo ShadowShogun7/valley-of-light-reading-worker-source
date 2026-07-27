@@ -1,0 +1,214 @@
+version: kb-atoms-v1
+atoms:
+  - id: western-atom-identity-needs
+    system: western
+    layer: identity
+    category: identityNeeds
+    label: 本命關係需求
+    source_article_id: western-relationship-needs-george-bloch
+    claim_ids:
+      - western-relationship-needs-george-bloch-003
+      - western-relationship-needs-george-bloch-004
+      - western-relationship-needs-george-bloch-005
+      - western-relationship-needs-george-bloch-006
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Moon, Mercury, Venus, Mars, Saturn, Desc]
+    interpretation:
+      summary_template: "{label}有{item_count}個可展示本命點；主訊號是：{technical}。"
+      empty_summary: "本次沒有足夠可展示的本命關係需求。"
+      interpretation: "先看各自的情緒安全、溝通理解、喜歡方式、行動節奏與防衛方式，避免把合盤相位孤立解讀。"
+      does_not_prove: "本命需求用來看兩人各自需要什麼條件，下一步仍回到實際回應與合盤互動。"
+      confidence_floor: low
+
+  - id: western-atom-synastry-attraction
+    system: western
+    layer: synastry
+    category: attraction
+    label: 合盤吸引群組
+    source_article_id: western-synastry-evidence-clusters
+    claim_ids:
+      - western-synastry-evidence-clusters-001
+      - western-synastry-evidence-clusters-002
+      - western-synastry-evidence-clusters-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Venus, Mars]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}有{item_count}個可展示相位；主訊號是：{technical}。"
+      empty_summary: "本次沒有足夠可展示的合盤吸引群組證據。"
+      interpretation: "牽動存在，但仍需由情緒安全與壓力群組判斷是否能穩定表達。"
+      does_not_prove: "吸引用來看靠近動力，承諾與回來要看後續穩定行動。"
+      confidence_floor: low
+
+  - id: western-atom-synastry-emotional-safety
+    system: western
+    layer: synastry
+    category: emotionalSafety
+    label: 合盤情緒安全群組
+    source_article_id: western-synastry-evidence-clusters
+    claim_ids:
+      - western-synastry-evidence-clusters-001
+      - western-synastry-evidence-clusters-002
+      - western-synastry-evidence-clusters-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Moon, Venus, Saturn]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}有{item_count}個可展示相位；主訊號是：{technical}。"
+      empty_summary: "本次沒有足夠可展示的合盤情緒安全群組證據。"
+      interpretation: "此群組用來判斷親近時能否被接住，以及冷淡是否可能來自安全感防衛。"
+      does_not_prove: "情緒安全訊號用來看親近時是否接得住，以及壓力來時會怎麼防衛。"
+      confidence_floor: low
+
+  - id: western-atom-safety-validation-language
+    system: western
+    layer: synastry
+    category: safetyValidationLanguage
+    label: 安全感與被重視語言
+    source_article_id: western-safety-validation-language
+    claim_ids:
+      - western-safety-validation-language-001
+      - western-safety-validation-language-002
+      - western-safety-validation-language-003
+      - western-safety-validation-language-004
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Moon, Venus]
+    interpretation:
+      summary_template: "{label}檢查{item_count}組月亮與金星互動；主訊號是：{technical}。"
+      empty_summary: "本次沒有足夠可展示的安全感與被重視語言。"
+      interpretation: "先比較兩人的月亮安全感語言與金星被重視語言，包含月亮與金星的交叉橋接，再判斷關係是否容易讓彼此感到安心和被珍惜。"
+      does_not_prove: "安全感與被重視語言不能單獨證明愛、不愛、復合、承諾或對方會主動聯絡。"
+      confidence_floor: medium
+
+  - id: western-atom-synastry-pressure
+    system: western
+    layer: synastry
+    category: pressure
+    label: 合盤壓力群組
+    source_article_id: western-synastry-evidence-clusters
+    claim_ids:
+      - western-synastry-evidence-clusters-001
+      - western-synastry-evidence-clusters-002
+      - western-synastry-evidence-clusters-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Moon, Mercury, Venus, Mars, Saturn]
+      aspects_any: [Square, Opposition, Quincunx]
+      contact_types_any: [hard]
+    interpretation:
+      summary_template: "{label}有{item_count}個可展示相位；主訊號是：{technical}。"
+      empty_summary: "本次沒有足夠可展示的合盤壓力群組證據。"
+      interpretation: "此群組是卡住機制的主要來源；壓力高不等於沒感覺，但會影響回應速度。"
+      does_not_prove: "壓力高不等於沒有感覺，也不等於關係必定結束。"
+      confidence_floor: low
+
+  - id: western-atom-synastry-communication
+    system: western
+    layer: synastry
+    category: communication
+    label: 合盤溝通摩擦
+    source_article_id: western-synastry-evidence-clusters
+    claim_ids:
+      - western-synastry-evidence-clusters-001
+      - western-synastry-evidence-clusters-002
+      - western-synastry-evidence-clusters-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Mercury]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}有{item_count}個可展示相位；主訊號是：{technical}。"
+      empty_summary: "本次沒有足夠可展示的合盤溝通摩擦證據。"
+      interpretation: "此群組用來判斷訊息、語氣與理解方式是否容易讓雙方失焦。"
+      does_not_prove: "溝通摩擦不等於誰對誰錯，也不代表不能修復。"
+      confidence_floor: low
+
+  - id: western-atom-synastry-repair
+    system: western
+    layer: synastry
+    category: repair
+    label: 合盤修復潛力
+    source_article_id: western-synastry-repair-conditions
+    claim_ids:
+      - western-synastry-repair-conditions-001
+      - western-synastry-repair-conditions-002
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [in_relationship, in_breakup, all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      contact_types_any: [soft]
+    interpretation:
+      summary_template: "{label}有{item_count}個可展示相位；主訊號是：{technical}。"
+      empty_summary: "本次沒有足夠可展示的合盤修復潛力證據。"
+      interpretation: "此群組只代表有協調入口；是否能修復仍要看壓力下降與 timing 氣候。"
+      does_not_prove: "修復潛力不是復合保證，仍要看壓力與時間窗。"
+      confidence_floor: low
+
+  - id: western-atom-current-transits
+    system: western
+    layer: timing
+    category: currentTransits
+    label: 當下行運氣候
+    source_article_id: western-transits-timing-window
+    claim_ids:
+      - western-transits-timing-window-001
+      - western-transits-timing-window-002
+      - western-transits-timing-window-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Mercury, Venus, Mars, Saturn]
+    interpretation:
+      summary_template: "{label}有{item_count}個可展示行運觸發；主訊號是：{technical}。"
+      empty_summary: "本次沒有足夠可展示的當下行運觸發。"
+      interpretation: "行運只支援當下氣候與行動節奏，不提供事件保證。"
+      does_not_prove: "行運不保證某天一定聯絡或復合。"
+      confidence_floor: low
+
+  - id: western-atom-birth-data-quality
+    system: western
+    layer: precision
+    category: birthDataQuality
+    label: 出生資料精度
+    source_article_id: western-precision-birth-data-quality
+    claim_ids:
+      - western-precision-birth-data-quality-001
+      - western-precision-birth-data-quality-002
+      - western-precision-birth-data-quality-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      precision_any: [exact_time, date_only, location_fallback, unavailable]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "出生資料精度未完整標記。"
+      interpretation: "缺出生時間或城市時，Moon、Asc/Desc、houses 與 overlays 必須降權或封鎖。"
+      does_not_prove: "資料不足不能被補寫成角度點、宮位、overlay 或精準 timing 結論。"
+      confidence_floor: low

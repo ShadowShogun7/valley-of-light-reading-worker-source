@@ -1,0 +1,121 @@
+version: kb-atoms-v1
+atoms:
+  - id: western-atom-context-relationship-stage
+    system: western
+    layer: context
+    category: relationshipStage
+    label: 關係階段
+    source_article_id: context-relationship-stage
+    claim_ids:
+      - context-relationship-stage-001
+      - context-relationship-stage-002
+      - context-relationship-stage-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors: {}
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有明確關係階段。"
+      interpretation: "關係階段決定答案框架：剛分手、冷戰、分手已久、危機與曖昧期不能共用同一種結論。"
+      does_not_prove: "關係階段用來決定答案框架，還要搭配星盤證據和現實回應。"
+      confidence_floor: low
+
+  - id: western-atom-context-contact-status
+    system: western
+    layer: context
+    category: contactStatus
+    label: 聯絡狀態
+    source_article_id: context-contact-status
+    claim_ids:
+      - context-contact-status-001
+      - context-contact-status-002
+      - context-contact-status-003
+      - context-contact-status-004
+      - context-contact-status-005
+      - context-contact-status-006
+      - context-contact-status-007
+      - context-contact-status-008
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors: {}
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有明確聯絡狀態。"
+      interpretation: "聯絡狀態決定能否建議低壓互動；封鎖、斷聯、偶爾回覆與仍有接觸需要不同 reducer。"
+      does_not_prove: "聯絡狀態不等於愛或不愛，也不能保證對方會回覆。"
+      confidence_floor: low
+
+  - id: western-atom-contact-situation-policy
+    system: western
+    layer: context
+    category: contactSituationPolicy
+    label: 聯絡情境行動尺度
+    source_article_id: context-contact-status
+    claim_ids:
+      - context-contact-status-001
+      - context-contact-status-002
+      - context-contact-status-003
+      - context-contact-status-004
+      - context-contact-status-005
+      - context-contact-status-006
+      - context-contact-status-007
+      - context-contact-status-008
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors: {}
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有足夠聯絡情境，行動建議要保守。"
+      interpretation: "把封鎖、斷聯、偶爾回覆、冷淡但仍有聊天、共同場域，轉成不同的行動尺度；同一組星盤證據不能直接套用同一種聯絡建議。"
+      does_not_prove: "聯絡情境尺度不能證明愛或不愛，也不能讓 timing 越過對方邊界。"
+      confidence_floor: low
+
+  - id: western-atom-context-emotional-risk
+    system: western
+    layer: context
+    category: emotionalRisk
+    label: 情緒風險
+    source_article_id: context-emotional-risk
+    claim_ids:
+      - context-emotional-risk-001
+      - context-emotional-risk-002
+      - context-emotional-risk-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors: {}
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有收集情緒風險。"
+      interpretation: "情緒風險用來調整語氣與安全邊界；焦慮、自責或絕望時要降低 certainty，避免責備與鼓勵追問。"
+      does_not_prove: "情緒風險不是星盤事實，也不能用來替對方下結論。"
+      confidence_floor: low
+
+  - id: western-atom-context-desired-outcome
+    system: western
+    layer: context
+    category: desiredOutcome
+    label: 用戶想要的結果
+    source_article_id: context-desired-outcome
+    claim_ids:
+      - context-desired-outcome-001
+      - context-desired-outcome-002
+      - context-desired-outcome-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors: {}
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有明確想要的結果。"
+      interpretation: "desired outcome 決定答案要偏向復聯、理解、決定或放下；它影響框架，但不能覆蓋證據。"
+      does_not_prove: "想復合不代表會復合，想放下也不代表感情不存在。"
+      confidence_floor: low

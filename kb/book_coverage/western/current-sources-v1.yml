@@ -1,0 +1,607 @@
+version: kb-book-coverage-v1
+sources:
+  - source_id: western-hand-horoscope-symbols
+    priority: P0
+    product_role: Foundation grammar for planets, signs, houses, aspects, and precision gates.
+    sections:
+      - section_id: planet-function-sign-style
+        title: Planet function and sign style grammar
+        line_range: "raw/western/horoscope-symbols-robert-hand-extracted.txt:527-555"
+        topics: [planetary_functions, sign_style, symbol_grammar]
+        runtime_targets:
+          - planetaryFunctions
+          - planetSignStyle
+          - moonSignEmotionalSafety
+          - mercurySignCommunicationRepair
+          - venusSignAffectionStyle
+          - marsSignPursuitConflict
+          - saturnSignDefenseDelay
+        status: implemented
+        digest_claim_ids:
+          - hand-symbol-grammar-planet-function-sign-style
+      - section_id: houses-and-angles-precision
+        title: Houses and angles require time and place
+        line_range: "raw/western/horoscope-symbols-robert-hand-extracted.txt:944-1090"
+        topics: [houses, angles, precision_guardrails]
+        runtime_targets: [birthDataQuality, angleHouseFramework, houseOverlayLayer]
+        status: implemented
+        digest_claim_ids:
+          - hand-symbol-grammar-house-angle-gate
+      - section_id: aspect-synthesis-foundation
+        title: Aspect synthesis needs points, type, and strength
+        line_range: "raw/western/horoscope-symbols-robert-hand-extracted.txt:3820-3850"
+        topics: [aspects, synthesis, contact_type]
+        runtime_targets: [aspectInterpretationFoundation, aspectContactModifier, aspectFunctionCombination]
+        status: implemented
+        digest_claim_ids:
+          - hand-symbol-grammar-aspect-synthesis
+      - section_id: planet-pair-function-framework
+        title: Moon Mercury, Mars Venus, and Jupiter Saturn function pairs
+        line_range: "raw/western/horoscope-symbols-robert-hand-extracted.txt:1213-1299"
+        topics: [planetary_function_pairs, moon_mercury, mars_venus, jupiter_saturn, relationship_functions]
+        runtime_targets: [planetaryFunctions, planetSignStyle, functionElementMatrix, functionModalityMatrix]
+        status: implemented
+        digest_claim_ids:
+          - hand-planet-pair-function-fields
+      - section_id: moon-symbolism-depth
+        title: Moon as containment, belonging, emotional reflex, and nurture
+        line_range: "raw/western/horoscope-symbols-robert-hand-extracted.txt:1621-1797"
+        topics: [moon, emotional_safety, belonging, unconscious_patterns, nurture]
+        runtime_targets: [moonSignEmotionalSafety, identityNeeds, readableInterpretation]
+        status: implemented
+        digest_claim_ids:
+          - hand-moon-emotional-containment-belonging
+      - section_id: mercury-symbolism-depth
+        title: Mercury as communication, translation, mapmaking, and detail process
+        line_range: "raw/western/horoscope-symbols-robert-hand-extracted.txt:1798-1989"
+        topics: [mercury, communication, translation, mapmaking, repair_language]
+        runtime_targets: [mercurySignCommunicationRepair, communication, readableInterpretation]
+        status: implemented
+        digest_claim_ids:
+          - hand-mercury-communication-translation-map
+      - section_id: venus-symbolism-depth
+        title: Venus as voluntary attraction, harmony, love, and self-expression
+        line_range: "raw/western/horoscope-symbols-robert-hand-extracted.txt:1990-2132"
+        topics: [venus, attraction, harmony, voluntary_bonding, affection]
+        runtime_targets: [venusSignAffectionStyle, attraction, safetyValidationLanguage, readableInterpretation]
+        status: implemented
+        digest_claim_ids:
+          - hand-venus-voluntary-attraction-harmony
+      - section_id: mars-symbolism-depth
+        title: Mars as individuality, action, conflict, and desire balance
+        line_range: "raw/western/horoscope-symbols-robert-hand-extracted.txt:2133-2256"
+        topics: [mars, action, individuality, conflict, desire, venus_mars_balance]
+        runtime_targets: [marsSignPursuitConflict, pressure, attraction, actionDirection]
+        status: implemented
+        digest_claim_ids:
+          - hand-mars-individuality-action-conflict
+      - section_id: saturn-symbolism-depth
+        title: Saturn as limits, structure, reality, maturity, and rigidity risk
+        line_range: "raw/western/horoscope-symbols-robert-hand-extracted.txt:2413-2598"
+        topics: [saturn, limits, structure, maturity, rigidity, social_reality]
+        runtime_targets: [saturnSignDefenseDelay, pressure, timingSaturnPressure, actionBoundary]
+        status: implemented
+        digest_claim_ids:
+          - hand-saturn-limits-reality-structure
+
+  - source_id: western-suskin-synastry
+    priority: P0
+    product_role: Primary relationship reading order for natal needs before synastry.
+    sections:
+      - section_id: natal-before-synastry
+        title: Read natal relationship potential before comparing charts
+        line_range: "raw/western/718226037-Synastry-Understanding-the-Astrology-of-Relationships-Rod-Suskin-Z-Library.txt:276-294"
+        topics: [method_order, natal_relationship_potential, synastry_sequence]
+        runtime_targets: [identityNeeds, relationshipPotential, readingBlueprint]
+        status: implemented
+        digest_claim_ids:
+          - suskin-method-order-natal-before-synastry
+          - suskin-method-order-aspects-after-foundation
+      - section_id: initial-comparison-orientation
+        title: Element and luminary comparison as orientation, not verdict
+        line_range: "raw/western/718226037-Synastry-Understanding-the-Astrology-of-Relationships-Rod-Suskin-Z-Library.txt:465-545"
+        topics: [initial_comparison, elements, luminaries]
+        runtime_targets: [elementComparison, luminaryComparison, fitSummary]
+        status: implemented
+        digest_claim_ids:
+          - suskin-method-order-comparison-is-orientation
+      - section_id: relationship-chart-later
+        title: Relationship chart layer follows natal and synastry proof
+        line_range: "raw/western/718226037-Synastry-Understanding-the-Astrology-of-Relationships-Rod-Suskin-Z-Library.txt:550-580"
+        topics: [relationship_chart, composite_deferral, davison_deferral]
+        runtime_targets: [relationshipChartLayer, compositeLayer]
+        status: blocked
+        blocked_reason: Composite and Davison layers are not calculated in paid V1.
+        digest_claim_ids:
+          - suskin-method-order-relationship-chart-later
+
+  - source_id: western-george-bloch-astrology-for-yourself
+    priority: P0
+    product_role: Natal synthesis cross-check for profile and relationship-needs layers.
+    sections:
+      - section_id: natal-synthesis-sequence
+        title: Natal synthesis before relationship answers
+        line_range: "raw/western/astrology-for-yourself-george-bloch-extracted.txt:1468-1492"
+        topics: [natal_synthesis, planets_signs_houses, profile_order]
+        runtime_targets: [relationshipProfiles, identityNeeds, functionElementMatrix, functionModalityMatrix]
+        status: implemented
+        digest_claim_ids:
+          - george-bloch-natal-synthesis-before-answer
+      - section_id: sun-moon-asc-profile
+        title: Sun Moon Ascendant profile with precision limits
+        line_range: "raw/western/astrology-for-yourself-george-bloch-extracted.txt:1722-1818"
+        topics: [sun_moon_asc, profile, birth_time_precision]
+        runtime_targets: [relationshipProfiles, sunMoonAscProfile, birthDataQuality, precisionWarnings]
+        status: implemented
+        digest_claim_ids:
+          - george-bloch-sun-moon-asc-profile-layer
+      - section_id: aspect-synthesis-cross-check
+        title: Aspect synthesis cross-check
+        line_range: "raw/western/astrology-for-yourself-george-bloch-extracted.txt:4540-4632"
+        topics: [aspects, synthesis, cross_check]
+        runtime_targets: [aspectSynthesisCrossCheck, aspectPairPhraseTemplateMethod]
+        status: implemented
+        digest_claim_ids:
+          - george-bloch-aspect-synthesis-cross-check
+      - section_id: moon-through-saturn-function-elements
+        title: Moon Mercury Venus Mars and Saturn function element tables
+        line_range: "raw/western/astrology-for-yourself-george-bloch-extracted.txt:1954-2220"
+        topics: [planetary_functions, moon, mercury, venus, mars, saturn, element_templates]
+        runtime_targets:
+          - moonSignEmotionalSafety
+          - mercurySignCommunicationRepair
+          - venusSignAffectionStyle
+          - marsSignPursuitConflict
+          - saturnSignDefenseDelay
+          - functionElementMatrix
+          - readableInterpretation
+        status: implemented
+        digest_claim_ids:
+          - george-bloch-function-elements-moon-through-saturn
+      - section_id: relationship-chart-comparison-purpose
+        title: Relationship comparison clarifies wants, needs, and dynamics
+        line_range: "raw/western/astrology-for-yourself-george-bloch-extracted.txt:5567-5592"
+        topics: [relationship_comparison, wants_needs, chart_interaction, method_order]
+        runtime_targets: [relationshipProfiles, relationshipPotential, fitSummary, readingBlueprint]
+        status: implemented
+        digest_claim_ids:
+          - george-bloch-relationship-comparison-wants-needs
+      - section_id: synthesis-stands-out-method
+        title: Chart interpretation starts with what stands out
+        line_range: "raw/western/astrology-for-yourself-george-bloch-extracted.txt:6955-7003"
+        topics: [synthesis, salient_themes, element_modality, sun_moon_asc]
+        runtime_targets: [evidenceReducer, readingBlueprint, relationshipProfiles, aspectPriority]
+        status: implemented
+        digest_claim_ids:
+          - george-bloch-synthesis-salient-themes-first
+
+  - source_id: western-burk-relationship-handbook
+    priority: P1
+    product_role: Practical relationship-needs and synastry mechanics.
+    sections:
+      - section_id: people-before-relationship-chart
+        title: Relationship astrology compares two people first
+        line_range: "raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:720-785"
+        topics: [method_order, people_before_charts, relationship_profiles]
+        runtime_targets: [relationshipProfiles, identityNeeds, relationshipPotential, readingBlueprint]
+        status: implemented
+        digest_claim_ids:
+          - burk-relationship-astrology-people-before-charts
+      - section_id: safety-validation-needs
+        title: Safety and validation before compatibility
+        line_range: "raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:1209-1218"
+        topics: [relationship_needs, safety, validation]
+        runtime_targets: [identityNeeds, emotionalSafety, safetyValidationLanguage, attraction, repair, fitSummary]
+        status: implemented
+        digest_claim_ids:
+          - burk-safety-validation-needs-before-compatibility
+      - section_id: safety-validation-language-comparison
+        title: Moon and Venus safety-validation language comparison
+        line_range: "raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:8764-8794"
+        topics: [relationship_needs, moon_venus, element_language, fit_summary]
+        runtime_targets: [safetyValidationLanguage, emotionalSafety, fitSummary]
+        status: implemented
+        digest_claim_ids:
+          - burk-safety-validation-needs-before-compatibility
+      - section_id: synastry-as-trigger
+        title: Synastry contacts trigger natal patterns
+        line_range: "raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:9048-9070"
+        topics: [synastry_mechanics, natal_trigger, overlays_secondary]
+        runtime_targets: [aspectFunctionCombination, aspectPairContactTemplate, aspectPriority, houseOverlayLayer]
+        status: implemented
+        digest_claim_ids:
+          - burk-synastry-as-persistent-trigger
+      - section_id: personal-planet-contact-families
+        title: Personal planet contact families and attraction sparks
+        line_range: "raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:9070-9145"
+        topics: [personal_planets, contact_type, attraction_pressure]
+        runtime_targets: [aspectPairContactTemplate, aspectContactModifier, aspectFunctionCombination, attraction, pressure, communication]
+        status: implemented
+        digest_claim_ids:
+          - burk-personal-planet-connections-attraction-and-sparks
+      - section_id: outer-to-personal-pressure
+        title: Outer planet pressure on Moon and Venus needs context
+        line_range: "raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:10572-10612"
+        topics: [outer_planets, pressure, safety_validation]
+        runtime_targets: [aspectFunctionCombination, pressure, emotionalSafety, timingSaturnPressure, consultationSafety]
+        status: implemented
+        digest_claim_ids:
+          - burk-outer-to-personal-pressure-needs-context
+      - section_id: repeated-themes-over-single-contacts
+        title: Repeated themes outrank isolated contacts
+        line_range: "raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:11170-11212"
+        topics: [evidence_selection, repeated_themes, reducer_weighting]
+        runtime_targets: [aspectPriority, aspectFunctionCombination, readingBlueprint, evidenceReducer]
+        status: implemented
+        digest_claim_ids:
+          - burk-repeated-themes-outweigh-single-contacts
+      - section_id: moon-safety-needs-depth
+        title: Moon safety needs as survival, emotional connection, and boundaries
+        line_range: "raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:2679-2760"
+        topics: [moon, safety_needs, emotional_connection, boundaries, defense_response]
+        runtime_targets: [moonSignEmotionalSafety, emotionalSafety, safetyValidationLanguage, identityNeeds]
+        status: implemented
+        digest_claim_ids:
+          - burk-moon-safety-survival-connection-boundaries
+      - section_id: moon-venus-internal-needs-fit
+        title: Moon and Venus internal safety-validation alignment
+        line_range: "raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:5306-5540"
+        topics: [moon_venus, safety_validation, internal_fit, element_modality, relationship_patterns]
+        runtime_targets: [safetyValidationLanguage, emotionalSafety, fitSummary, relationshipProfiles]
+        status: implemented
+        digest_claim_ids:
+          - burk-moon-venus-safety-validation-alignment
+      - section_id: moon-saturn-venus-saturn-need-blocks
+        title: Saturn contacts as safety and validation need blocks
+        line_range: "raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:5610-5848"
+        topics: [moon_saturn, venus_saturn, safety_blocks, validation_blocks, pressure]
+        runtime_targets: [aspectFunctionCombination, pressure, emotionalSafety, safetyValidationLanguage, actionBoundary]
+        status: implemented
+        digest_claim_ids:
+          - burk-saturn-to-moon-venus-need-blocks
+      - section_id: synastry-safety-validation-interchart-check
+        title: Interchart contacts can support or interrupt safety and validation needs
+        line_range: "raw/western/469771786-Astrological-Relationship-Handbook-Kevin-B-Burk-2006-Serendipity-Press.txt:8764-8806"
+        topics: [synastry, safety_validation, interchart_contacts, compatibility_method]
+        runtime_targets: [aspectFunctionCombination, safetyValidationLanguage, emotionalSafety, fitSummary, evidenceReducer]
+        status: implemented
+        digest_claim_ids:
+          - burk-moon-venus-safety-validation-alignment
+
+  - source_id: western-hand-transits
+    priority: P1
+    product_role: Timing climate and contact pacing.
+    sections:
+      - section_id: timing-climate-not-guarantee
+        title: Transits as timing climate, not guaranteed outcome
+        line_range: "raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:220-237"
+        topics: [timing_guardrail, current_transits, nonfatal_prediction, action_climate]
+        runtime_targets: [currentTransits, timingWindowBand, timingContactReducer, timingMoonWeather]
+        status: implemented
+        digest_claim_ids:
+          - hand-transits-timing-climate-not-guarantee
+      - section_id: mercury-communication-window
+        title: Mercury communication and message tempo
+        line_range: "raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:6581-6606"
+        topics: [mercury_timing, communication, contact_tempo, message_clarity]
+        runtime_targets: [timingMercuryCommunication, timingContactReducer, currentTransits]
+        status: implemented
+        digest_claim_ids:
+          - hand-transits-mercury-communication-window
+      - section_id: venus-softening-window
+        title: Venus softening without commitment promises
+        line_range: "raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:3128-3156"
+        topics: [venus_timing, softening, affection]
+        runtime_targets: [timingVenusSoftening, timingWindowBand, timingContactReducer, currentTransits]
+        status: implemented
+        digest_claim_ids:
+          - hand-transits-venus-softening-window
+      - section_id: mars-activation-caution
+        title: Mars activation and conflict caution
+        line_range: "raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:3276-3298"
+        topics: [mars_timing, activation, conflict_risk]
+        runtime_targets: [timingMarsActivation, timingWindowBand, timingContactReducer, currentTransits]
+        status: implemented
+        digest_claim_ids:
+          - hand-transits-mars-activation-caution
+      - section_id: saturn-boundary-pressure
+        title: Saturn boundary pressure and slowed action
+        line_range: "raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:3670-3694"
+        topics: [saturn_timing, boundary, delay]
+        runtime_targets: [timingSaturnPressure, timingWindowBand, timingContactReducer, actionBoundary, currentTransits]
+        status: implemented
+        digest_claim_ids:
+          - hand-transits-saturn-boundary-pressure
+      - section_id: moon-weather-secondary
+        title: Moon weather remains secondary
+        line_range: "raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:5371-5406"
+        topics: [moon_timing, emotional_weather, secondary_signal, breathing_space]
+        runtime_targets: [timingMoonWeather, timingWindowBand, currentTransits]
+        status: implemented
+        digest_claim_ids:
+          - hand-transits-moon-weather-secondary
+      - section_id: easy-difficult-transit-neutrality
+        title: Easy and difficult transits are not simple good or bad predictions
+        line_range: "raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:472-592"
+        topics: [transit_guardrail, easy_difficult, neutrality, reaction, natal_context]
+        runtime_targets: [timingWindowBand, timingContactReducer, consultationSafety, actionBoundary]
+        status: implemented
+        digest_claim_ids:
+          - hand-transits-easy-difficult-neutrality
+      - section_id: transit-combination-timing-rules
+        title: Inner-planet timing can reinforce broader transit processes
+        line_range: "raw/western/436195408-Planets-in-Transit-Life-Cycles-for-Living-PDFDrive-com.txt:1024-1110"
+        topics: [timing_method, inner_planets, transit_combinations, peak_timing]
+        runtime_targets: [currentTransits, timingWindowBand, timingContactReducer, timingMercuryCommunication, timingMarsActivation]
+        status: implemented
+        digest_claim_ids:
+          - hand-transits-inner-planet-reinforcement-timing
+
+  - source_id: western-forrest-skymates
+    priority: P1
+    product_role: Profile-first synastry method, non-generic relationship voice, and modern nonfatal guardrails.
+    sections:
+      - section_id: individuals-before-interactions
+        title: Understand both individuals before interpreting interactions
+        line_range: "raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:1271-1292"
+        topics: [method_order, individual_profiles, synastry_sequence]
+        runtime_targets: [personProfile, natalRelationshipNeeds, readingBlueprint, evidenceReducer]
+        status: implemented
+        digest_claim_ids:
+          - skymates-individuals-before-interactions
+      - section_id: no-generic-love-needs
+        title: Love needs are not generic
+        line_range: "raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:1359-1386"
+        topics: [customization, relationship_needs, context]
+        runtime_targets: [readableInterpretation, relationshipFit, contextReducer, answerEvidenceContract]
+        status: implemented
+        digest_claim_ids:
+          - skymates-no-generic-love-needs
+      - section_id: keep-functions-distinct
+        title: Keep Sun Moon Ascendant and planet functions distinct
+        line_range: "raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:1486-1524"
+        topics: [function_sign_separation, profile, symbol_grammar]
+        runtime_targets: [personProfile, planetSignStyle, readableInterpretation, precisionWarnings]
+        status: implemented
+        digest_claim_ids:
+          - skymates-keep-planet-functions-distinct
+      - section_id: sun-sign-not-enough
+        title: Sun sign alone is too thin for intimacy
+        line_range: "raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:1486-1568"
+        topics: [sun_sign_guardrail, function_sign_separation, moon_needs, profile_depth]
+        runtime_targets: [personProfile, relationshipFit, methodGuardrail, narrative]
+        status: implemented
+        digest_claim_ids:
+          - skymates-sun-sign-only-is-not-enough
+      - section_id: pivotal-interaspects
+        title: Go deep on pivotal interaspects
+        line_range: "raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:9635-9667"
+        topics: [evidence_selection, orbs, aspect_priority]
+        runtime_targets: [aspectPriority, aspectFunctionCombination, evidenceReducer, includedReadingRows, readingBlueprint]
+        status: implemented
+        digest_claim_ids:
+          - skymates-pivotal-interaspects-over-aspect-dump
+      - section_id: house-transpositions-secondary
+        title: House transpositions are secondary and precision-bound
+        line_range: "raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:9672-9718"
+        topics: [house_transpositions, overlays, precision_guardrails]
+        runtime_targets: [houseOverlayLayer, precisionWarnings, relationshipFit, readingBlueprint]
+        status: blocked
+        blocked_reason: House overlays require reliable birth time and place and are not fully productized in paid V1.
+        digest_claim_ids:
+          - skymates-house-transpositions-secondary-and-precision-bound
+      - section_id: modern-nonfatal-synastry
+        title: No configuration guarantees success or failure
+        line_range: "raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:10931-10956"
+        topics: [nonfatal_synastry, conflict, commitment_growth]
+        runtime_targets: [nonfatalSynastrySafety, consultationSafety, actionBoundary, pressure, repair, narrative]
+        status: implemented
+        digest_claim_ids:
+          - skymates-modern-nonfatal-synastry
+      - section_id: astrology-as-dialogue-language
+        title: Astrology as communication language
+        line_range: "raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:10855-10876"
+        topics: [readable_language, dialogue, action_direction]
+        runtime_targets: [readableInterpretation, narrative, actionDirection]
+        status: implemented
+        digest_claim_ids:
+          - skymates-readable-language-for-dialogue
+      - section_id: venus-mars-relating-styles
+        title: Venus and Mars as relating, attraction, pursuit, and conflict styles
+        line_range: "raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:3050-3667"
+        topics: [venus_mars, attraction, pursuit, conflict, relating_style]
+        runtime_targets: [venusSignAffectionStyle, marsSignPursuitConflict, attraction, pressure, actionDirection]
+        status: implemented
+        digest_claim_ids:
+          - skymates-venus-mars-relating-styles-context-bound
+      - section_id: interaspect-selection-procedure
+        title: Interaspect selection procedure and prioritization order
+        line_range: "raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:9573-9657"
+        topics: [interaspects, aspect_priority, orb_tightening, evidence_selection]
+        runtime_targets: [aspectPriority, aspectFunctionCombination, includedReadingRows, evidenceReducer, readingBlueprint]
+        status: implemented
+        digest_claim_ids:
+          - skymates-interaspect-selection-priority-procedure
+      - section_id: sun-moon-interaspect-template
+        title: Sun Moon interaspect as a high-value relationship contact
+        line_range: "raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:5659-6127"
+        topics: [sun_moon, interaspect_template, primal_triad, recognition]
+        runtime_targets: [aspectPairContactTemplate, aspectFunctionCombination, attraction, emotionalSafety]
+        status: implemented
+        digest_claim_ids:
+          - skymates-sun-moon-core-rhythm-interaspect
+      - section_id: moon-venus-saturn-interaspects
+        title: Moon with Venus and Saturn interaspects for nurture and pressure
+        line_range: "raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:6416-6578"
+        topics: [moon_venus, moon_saturn, nurture, pressure, interaspect_template]
+        runtime_targets: [aspectPairContactTemplate, aspectFunctionCombination, emotionalSafety, pressure, repair]
+        status: implemented
+        digest_claim_ids:
+          - skymates-moon-venus-nurture-trust-bond
+          - skymates-moon-saturn-practical-emotional-translation
+      - section_id: venus-mars-saturn-interaspects
+        title: Venus Mars and Venus Saturn interaspects for attraction and sober pressure
+        line_range: "raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:7128-7267"
+        topics: [venus_mars, venus_saturn, attraction, erotic_charge, pressure, interaspect_template]
+        runtime_targets: [aspectPairContactTemplate, aspectFunctionCombination, attraction, pressure, actionBoundary]
+        status: implemented
+        digest_claim_ids:
+          - skymates-venus-mars-attraction-pursuit-polarity
+          - skymates-venus-saturn-commitment-and-blockage
+      - section_id: mars-saturn-interaspect-template
+        title: Mars Saturn interaspect as action pressure and boundary pattern
+        line_range: "raw/western/739983674-Steven-Forrest-Skymates-Steven-Forrest-Jodie-Forrest-Z-Library.txt:7504-7523"
+        topics: [mars_saturn, pressure, action_boundary, conflict_rhythm, interaspect_template]
+        runtime_targets: [aspectPairContactTemplate, aspectFunctionCombination, pressure, actionBoundary, relationshipFit]
+        status: implemented
+        digest_claim_ids:
+          - skymates-mars-saturn-action-boundary-pressure
+
+  - source_id: western-greene-saturn
+    priority: P1
+    product_role: Saturn pressure and nonfatal delay guardrails.
+    sections:
+      - section_id: saturn-as-process-not-fate
+        title: Saturn as process and pressure rather than fixed fate
+        line_range: "raw/western/488023677-Liz-Greene-Robert-Hand-Saturn-A-New-Look-at-an-Old-Devil-Weiser-Books-2011-pdf.txt:22-29"
+        topics: [saturn_pressure, nonfatal_guardrail, delay]
+        runtime_targets: [pressure, saturnSignDefenseDelay, timingSaturnPressure]
+        status: implemented
+        digest_claim_ids:
+          - greene-saturn-defense-not-permanent-rejection
+      - section_id: saturn-awareness-not-fixed-fate
+        title: Saturn awareness and choice boundary
+        line_range: "raw/western/488023677-Liz-Greene-Robert-Hand-Saturn-A-New-Look-at-an-Old-Devil-Weiser-Books-2011-pdf.txt:407-444"
+        topics: [saturn_pressure, awareness, nonfatal_guardrail]
+        runtime_targets: [pressure, saturnSignDefenseDelay, timingSaturnPressure]
+        status: implemented
+        digest_claim_ids:
+          - greene-saturn-defense-not-permanent-rejection
+      - section_id: full-saturn-body-extraction
+        title: Detailed Saturn relationship chapters
+        topics: [saturn_synastry, defense_delay, projection]
+        runtime_targets: [pressure, saturnSignDefenseDelay, timingSaturnPressure]
+        status: blocked
+        blocked_reason: Current local extraction contains front matter, blank body pages, and back-cover copy, not enough chapter body for detailed Saturn claims.
+    open_questions:
+      - Replace or re-extract Greene Saturn before adding detailed Saturn synastry claims.
+
+  - source_id: western-davison-synastry
+    priority: reserve
+    product_role: Reserve relationship chart and deeper synastry method.
+    sections:
+      - section_id: relationship-chart-reserve
+        title: Relationship chart and Davison layer reserve
+        line_range: "raw/western/143558960-81507433-Davison-Synastry.txt:1-7"
+        topics: [davison, relationship_chart, composite_deferral]
+        runtime_targets: [compositeLayer, relationshipChartLayer]
+        status: blocked
+        blocked_reason: Davison relationship chart is not calculated or exposed in paid V1.
+        digest_claim_ids:
+          - davison-reserve-do-not-pretend-calculated
+
+  - source_id: western-hand-composite
+    priority: reserve
+    product_role: Reserve composite chart method after V1.
+    sections:
+      - section_id: composite-chart-reserve
+        title: Composite chart creates a third chart of the relationship
+        line_range: "raw/western/843287714-Planets-in-Composite-Analyzing-Human-Relationships.txt:15909-15925"
+        topics: [composite_chart, relationship_chart, advanced_layer]
+        runtime_targets: [compositeLayer, relationshipChartLayer]
+        status: blocked
+        blocked_reason: Composite charts are not calculated in paid V1 and must not leak into runtime claims.
+
+  - source_id: consulting-opa-ethics
+    priority: P0
+    product_role: Consultation ethics, client agency, and third-party boundaries.
+    sections:
+      - section_id: third-party-and-client-agency
+        title: Third-party caution and client agency
+        line_range: "raw/cross/opa-ethics-source-note.txt:7-25"
+        topics: [consultation_ethics, third_party_caution, client_agency]
+        runtime_targets: [consultationSafety, contextModifier, answerEvidenceContract, actionBoundary, donts, precisionWarnings]
+        status: implemented
+        digest_claim_ids:
+          - opa-third-party-boundary
+          - opa-client-agency-action-boundary
+      - section_id: context-action-policy
+        title: Relationship context modifies action but not astrology conclusions
+        line_range: "raw/cross/opa-ethics-source-note.txt:12-40"
+        topics: [context_policy, blocked_contact, no_contact]
+        runtime_targets: [answerEvidenceContract, contextModifier, relationshipResultRules, contactStatus, contactSituationPolicy, actionBoundary, donts, timingContactReducer, timeline]
+        status: implemented
+        digest_claim_ids:
+          - valley-context-modifies-action-not-conclusion
+          - valley-contact-status-action-scale
+          - valley-blocked-contact-hard-boundary
+          - valley-no-contact-lowers-action-speed
+      - section_id: shared-space-boundary-policy
+        title: Shared real-world space requires discretion and pressure restraint
+        line_range: "raw/cross/opa-ethics-source-note.txt:32-35"
+        topics: [shared_space, discretion, boundary, non_harm]
+        runtime_targets: [contactSituationPolicy, actionBoundary, donts]
+        status: implemented
+        digest_claim_ids:
+          - valley-shared-space-discretion-boundary
+      - section_id: context-boundary-trace-policy
+        title: Context is a boundary trace, not calculation evidence
+        line_range: "raw/cross/opa-ethics-source-note.txt:52-55"
+        topics: [context_boundary, evidence_contract, client_agency, nonfatal_language]
+        runtime_targets: [answerEvidenceContract, contextModifier, consultationSafety]
+        status: implemented
+        digest_claim_ids:
+          - valley-context-boundary-trace-not-evidence
+      - section_id: question-specific-selector-policy
+        title: Five core relationship questions require different evidence weighting
+        line_range: "raw/cross/opa-ethics-source-note.txt:17-55"
+        topics: [question_selector, evidence_weighting, answer_contract, client_agency]
+        runtime_targets: [answerEvidenceContract, relationshipResultRules, contextReducer, timingContactReducer, actionBoundary]
+        status: implemented
+        digest_claim_ids:
+          - valley-question-still-love-evidence-selector
+          - valley-question-any-chance-conditional-selector
+          - valley-question-when-to-contact-timing-selector
+          - valley-question-self-blame-interaction-cycle-selector
+          - valley-question-stay-let-go-boundary-selector
+    open_questions:
+      - Replace source-note anchors with full local extracts only if licensing and source access make that safe.
+
+  - source_id: relationship-gottman-bids-repair
+    priority: P1
+    product_role: Contact behavior and repair-tone support after astrology evidence is selected.
+    sections:
+      - section_id: contact-as-bid-not-proof
+        title: Contact behavior is an interaction signal, not proof
+        line_range: "raw/cross/gottman-bids-source-note.txt:8-21"
+        topics: [contact_status, repair, interaction_signal, contact_policy_pacing]
+        runtime_targets: [contactStatus, contactSituationPolicy, timingContactReducer, actionBoundary]
+        status: implemented
+        digest_claim_ids:
+          - gottman-contact-as-bid-not-proof
+      - section_id: repair-tone-before-content
+        title: Repair tone before explanation content
+        line_range: "raw/cross/gottman-bids-source-note.txt:13-21"
+        topics: [repair_attempts, message_tone, deescalation]
+        runtime_targets: [timingMercuryMessage, timingVenusSoftening, donts]
+        status: implemented
+        digest_claim_ids:
+          - gottman-repair-tone-before-content
+      - section_id: limited-replies-existing-channel-repair
+        title: Limited replies and cold chat require existing-channel repair tone
+        line_range: "raw/cross/gottman-bids-source-note.txt:23-26"
+        topics: [limited_contact, cold_chat, repair_tone, existing_channel]
+        runtime_targets: [contactSituationPolicy, actionBoundary, donts, timingMercuryMessage]
+        status: implemented
+        digest_claim_ids:
+          - gottman-limited-reply-existing-channel-repair
+      - section_id: no-contact-low-stimulation-test
+        title: No-contact outreach can only be a low-stimulation test when supported
+        line_range: "raw/cross/gottman-bids-source-note.txt:28-31"
+        topics: [no_contact, low_pressure_message, repair_bid, timing_boundary]
+        runtime_targets: [contactSituationPolicy, timingContactReducer, actionBoundary, donts]
+        status: implemented
+        digest_claim_ids:
+          - gottman-no-contact-low-stimulation-bid
+    open_questions:
+      - Replace source-note anchors with full local extracts only if licensing and source access make that safe.

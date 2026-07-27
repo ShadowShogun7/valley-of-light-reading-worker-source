@@ -1,0 +1,346 @@
+version: kb-atoms-v1
+atoms:
+  - id: western-atom-natal-symbol-foundation
+    system: western
+    layer: context
+    category: natalSymbolFoundation
+    label: 占星符號基礎
+    source_article_id: western-astrology-for-yourself-method-foundation
+    claim_ids:
+      - western-astrology-for-yourself-method-foundation-001
+      - western-astrology-for-yourself-method-foundation-002
+      - western-astrology-for-yourself-method-foundation-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Asc, Desc, Mercury, Venus, Mars, Jupiter, Saturn]
+      aspects_any: [Conjunction, Sextile, Square, Trine, Opposition, Quincunx]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "本次沒有額外符號基礎說明。"
+      interpretation: "讀盤必須先理解可計算符號，再合成關係答案；先把問題轉成可觀察互動、壓力與時機判斷。"
+      does_not_prove: "符號基礎不是事件預測，也不能替代實際合盤、精度與現實互動資料。"
+      confidence_floor: medium
+
+  - id: western-atom-planetary-functions-hand
+    system: western
+    layer: identity
+    category: planetaryFunctions
+    label: 行星功能基礎
+    source_article_id: western-planets-planetary-functions-hand
+    claim_ids:
+      - western-planets-planetary-functions-hand-001
+      - western-planets-planetary-functions-hand-002
+      - western-planets-planetary-functions-hand-003
+      - western-planets-planetary-functions-hand-004
+      - western-planets-planetary-functions-hand-005
+      - western-planets-planetary-functions-hand-006
+      - western-planets-planetary-functions-hand-007
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn]
+    interpretation:
+      summary_template: "{label}用 Sun/Moon/Mercury/Venus/Mars/Saturn 定義本命需求與合盤觸發。"
+      empty_summary: "本次沒有額外行星功能說明。"
+      interpretation: "行星代表功能與能量，不是具體人物、事件保證或第三方內心；合盤應解釋功能互動。"
+      does_not_prove: "任何單一行星功能都不能單獨證明愛、不愛、承諾或復合。"
+      confidence_floor: medium
+
+  - id: western-atom-sun-moon-asc-profile
+    system: western
+    layer: identity
+    category: sunMoonAscProfile
+    label: 太陽月亮上升主輪廓
+    source_article_id: western-sun-moon-asc-profile-george-bloch
+    claim_ids:
+      - western-sun-moon-asc-profile-george-bloch-001
+      - western-sun-moon-asc-profile-george-bloch-002
+      - western-sun-moon-asc-profile-george-bloch-003
+      - western-sun-moon-asc-profile-george-bloch-004
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Asc, Desc]
+      precision_any: [exact_time, date_only, location_fallback]
+    interpretation:
+      summary_template: "{label}讀出{item_count}個可用主輪廓點；主訊號是：{technical}。"
+      empty_summary: "本次沒有足夠主輪廓點可展示。"
+      interpretation: "太陽、月亮與上升可作為人格輪廓基礎；月亮需依出生時間降權，上升與下降必須有可靠時間與地點才可展示。"
+      does_not_prove: "太陽月亮上升不能單獨證明愛、不愛、復合、承諾或對方內心。"
+      confidence_floor: low
+
+  - id: western-atom-sign-classification-foundation
+    system: western
+    layer: identity
+    category: signClassificationFoundation
+    label: 星座結構基礎
+    source_article_id: western-sign-element-modality-foundation
+    claim_ids:
+      - western-sign-element-modality-foundation-001
+      - western-sign-element-modality-foundation-002
+      - western-sign-element-modality-foundation-003
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Asc]
+    interpretation:
+      summary_template: "{label}：先讀行星功能如何被 signs 的 element/modality 修飾。"
+      empty_summary: "本次沒有額外星座結構基礎說明。"
+      interpretation: "星座不是單一人格標籤；每個 sign 由元素、三模式、極性等結構組合而成，應用來修飾行星功能。"
+      does_not_prove: "星座結構不能單獨證明相容、承諾、聯絡或復合。"
+      confidence_floor: medium
+
+  - id: western-atom-element-style-foundation
+    system: western
+    layer: identity
+    category: elementStyleFoundation
+    label: 元素風格基礎
+    source_article_id: western-sign-element-modality-foundation
+    claim_ids:
+      - western-sign-element-modality-foundation-003
+      - western-sign-element-modality-foundation-004
+      - western-sign-element-modality-foundation-005
+      - western-sign-element-modality-foundation-006
+      - western-sign-element-modality-foundation-007
+      - western-sign-element-modality-foundation-008
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Asc]
+    interpretation:
+      summary_template: "{label}：fire/earth/air/water 只描述經驗與互動風格，不是相容 verdict。"
+      empty_summary: "本次沒有額外元素風格說明。"
+      interpretation: "元素可翻譯成行動、穩定、思考/社交與情緒共感等風格；它是背景語法，不應壓過行星、相位與現實邊界。"
+      does_not_prove: "元素風格不能單獨證明兩人合不合、誰愛誰、或關係會不會回來。"
+      confidence_floor: medium
+
+  - id: western-atom-modality-response-foundation
+    system: western
+    layer: identity
+    category: modalityResponseFoundation
+    label: 三模式反應基礎
+    source_article_id: western-sign-element-modality-foundation
+    claim_ids:
+      - western-sign-element-modality-foundation-009
+      - western-sign-element-modality-foundation-010
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Asc]
+    interpretation:
+      summary_template: "{label}：cardinal/fixed/mutable 可說明啟動、維持、調整與壓力反應節奏。"
+      empty_summary: "本次沒有額外三模式反應說明。"
+      interpretation: "三模式可用於描述關係中誰先推動、誰維持、誰轉向調整；它是反應節奏，不是好壞判決。"
+      does_not_prove: "三模式不能單獨證明責任歸屬、承諾或關係結局。"
+      confidence_floor: medium
+
+  - id: western-atom-planet-sign-style
+    system: western
+    layer: identity
+    category: planetSignStyle
+    label: 行星落星座語氣
+    source_article_id: western-individual-sign-meanings-hand
+    claim_ids:
+      - western-individual-sign-meanings-hand-001
+      - western-individual-sign-meanings-hand-002
+      - western-individual-sign-meanings-hand-003
+      - western-individual-sign-meanings-hand-004
+      - western-individual-sign-meanings-hand-005
+      - western-individual-sign-meanings-hand-006
+      - western-individual-sign-meanings-hand-007
+      - western-individual-sign-meanings-hand-008
+      - western-individual-sign-meanings-hand-009
+      - western-individual-sign-meanings-hand-010
+      - western-individual-sign-meanings-hand-011
+      - western-individual-sign-meanings-hand-012
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Mercury, Venus, Mars, Saturn]
+    interpretation:
+      summary_template: "{label}：把 Sun/Moon/Mercury/Venus/Mars/Saturn 的 sign placement 轉成具體需求語氣。"
+      empty_summary: "本次沒有足夠行星落星座資料。"
+      interpretation: "行星落星座描述某個行星功能用哪種星座風格表達；應綁定 planet function 使用，不可單獨當人格或相容判決。"
+      does_not_prove: "行星落星座不能單獨證明對方愛不愛、會不會聯絡、是否承諾或關係結局。"
+      confidence_floor: medium
+
+  - id: western-atom-moon-sign-emotional-safety
+    system: western
+    layer: identity
+    category: moonSignEmotionalSafety
+    label: 月亮落星座安全感語氣
+    source_article_id: western-relationship-function-sign-templates
+    claim_ids:
+      - western-relationship-function-sign-templates-001
+      - western-relationship-function-sign-templates-002
+      - western-relationship-function-sign-templates-007
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Moon]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "月亮星座資料不足或出生時間使月亮線索需降權。"
+      interpretation: "Moon-in-sign 只說情緒安全與調節方式；出生時間未知時必須低信心處理。"
+      does_not_prove: "月亮星座用來看情緒安全與調節方式，下一步仍要看實際互動是否穩定。"
+      confidence_floor: low
+
+  - id: western-atom-mercury-sign-communication-repair
+    system: western
+    layer: identity
+    category: mercurySignCommunicationRepair
+    label: 水星落星座溝通與修復語氣
+    source_article_id: western-relationship-function-sign-templates
+    claim_ids:
+      - western-relationship-function-sign-templates-001
+      - western-relationship-function-sign-templates-003
+      - western-relationship-function-sign-templates-007
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Mercury]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "水星星座資料不足。"
+      interpretation: "Mercury-in-sign 說明思考、訊息接收、語氣選擇與修復對話風格；它應用來拆溝通循環，不可替對方寫內心台詞。"
+      does_not_prove: "水星星座不能單獨證明對方會聯絡、應該說哪一句話、是否有感情或關係會復合。"
+      confidence_floor: medium
+
+  - id: western-atom-venus-sign-affection-style
+    system: western
+    layer: identity
+    category: venusSignAffectionStyle
+    label: 金星落星座喜歡方式
+    source_article_id: western-relationship-function-sign-templates
+    claim_ids:
+      - western-relationship-function-sign-templates-001
+      - western-relationship-function-sign-templates-004
+      - western-relationship-function-sign-templates-007
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Venus]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "金星星座資料不足。"
+      interpretation: "Venus-in-sign 說明喜歡、吸引與被珍惜的語氣；它只能描述 affection style，不能升級成承諾。"
+      does_not_prove: "金星星座不能單獨證明對方愛你、願意承諾、會主動聯絡或會復合。"
+      confidence_floor: medium
+
+  - id: western-atom-mars-sign-pursuit-conflict
+    system: western
+    layer: identity
+    category: marsSignPursuitConflict
+    label: 火星落星座推進與衝突節奏
+    source_article_id: western-relationship-function-sign-templates
+    claim_ids:
+      - western-relationship-function-sign-templates-001
+      - western-relationship-function-sign-templates-005
+      - western-relationship-function-sign-templates-007
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Mars]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "火星星座資料不足。"
+      interpretation: "Mars-in-sign 說明靠近、推進、自主與衝突反應節奏；它應用來拆互動循環，不用來指責任何一方。"
+      does_not_prove: "火星星座不能單獨證明誰錯、誰攻擊、是否有性吸引或關係會不會復合。"
+      confidence_floor: medium
+
+  - id: western-atom-saturn-sign-defense-delay
+    system: western
+    layer: identity
+    category: saturnSignDefenseDelay
+    label: 土星落星座防衛與延遲模式
+    source_article_id: western-relationship-function-sign-templates
+    claim_ids:
+      - western-relationship-function-sign-templates-001
+      - western-relationship-function-sign-templates-006
+      - western-relationship-function-sign-templates-007
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Saturn]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "土星星座資料不足。"
+      interpretation: "土星落星座說明界線、害怕、責任與延遲如何呈現；它是壓力語法，不是拒絕或命運判決。"
+      does_not_prove: "土星星座不能單獨證明對方不愛、永遠不會回來、或你必須無限等待。"
+      confidence_floor: medium
+
+  - id: western-atom-angle-house-framework
+    system: western
+    layer: precision
+    category: angleHouseFramework
+    label: 角度點與宮位基礎
+    source_article_id: western-houses-angles-foundation
+    claim_ids:
+      - western-houses-angles-foundation-001
+      - western-houses-angles-foundation-002
+      - western-houses-angles-foundation-003
+      - western-houses-angles-foundation-004
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Asc, Desc, Midheaven, IC]
+      precision_any: [exact_time]
+    interpretation:
+      summary_template: "{label}：{technical}。"
+      empty_summary: "角度點與宮位因出生時間或地點不足而不展示。"
+      interpretation: "Asc/Desc/MC/IC、houses 與 overlays 屬於時間/地點敏感層；完整資料才可進入閱讀。"
+      does_not_prove: "角度點與宮位不能在缺時間或缺地點時被補寫，也不能替代已計算的合盤或 timing 證據。"
+      confidence_floor: low
+
+  - id: western-atom-aspect-interpretation-foundation
+    system: western
+    layer: synastry
+    category: aspectInterpretationFoundation
+    label: 相位解讀基礎
+    source_article_id: western-aspect-interpretation-foundation
+    claim_ids:
+      - western-aspect-interpretation-foundation-001
+      - western-aspect-interpretation-foundation-002
+      - western-aspect-interpretation-foundation-003
+      - western-aspect-interpretation-foundation-004
+    applies_to:
+      products: [relationship_compatibility]
+      stages: [all]
+      questions: [still-love-me, any-chance, when-to-contact, what-did-i-do-wrong, stay-or-let-go]
+    selectors:
+      points_any: [Sun, Moon, Mercury, Venus, Mars, Saturn]
+      aspects_any: [Conjunction, Sextile, Square, Trine, Opposition, Quincunx]
+      contact_types_any: [conjunction, soft, hard]
+    interpretation:
+      summary_template: "{label}：保留 aspect type、orb、方向性與 hard/soft 語義。"
+      empty_summary: "本次沒有額外相位基礎說明。"
+      interpretation: "相位表示兩種功能如何互動；tight orb 與問題相關性應優先，hard aspects 是需要處理的張力，不是壞結果保證。"
+      does_not_prove: "相位不能單獨證明承諾、聯絡、復合或關係終局。"
+      confidence_floor: medium

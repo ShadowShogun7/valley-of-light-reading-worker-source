@@ -1,0 +1,2474 @@
+{
+  "archiveFormat": "valley-agpl-source-v1",
+  "excluded": [
+    "credentials, environment values, customer/order/birth data, and logs",
+    "raw/ copyrighted source corpus",
+    "third-party and non-source media, font, and document assets",
+    "dependency, cache, editor, and private deployment state"
+  ],
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "acaf679f5da370e78f0d08141c6126c93a07f3430f3af6603972733b6ec22352",
+      "size": 32096
+    },
+    {
+      "path": "LICENSE.md",
+      "sha256": "20031ad9a39a059a34d24920437de5a9e71fa7fd6555171ff1fb0506164fa83a",
+      "size": 847
+    },
+    {
+      "path": "NOTICE.md",
+      "sha256": "a73bbacb61df8f41ad724dcd7441054a258800c9ccdaaafe5b1a9b5e70f6e8c0",
+      "size": 1797
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "3b59f40cf0fd31a2ccbf86fc9823d6aee5e9f0c9aa91fcf7314d36112e4f619d",
+      "size": 667
+    },
+    {
+      "path": "apps/web/.env.example",
+      "sha256": "6ea2bbdff6d72b5db9879f4897293e10e8efa2aeb30e7787eaee11c0fc796284",
+      "size": 2777
+    },
+    {
+      "path": "apps/web/.env.staging.example",
+      "sha256": "461761fc0d73b0630ad8943840b881ec9f9abb69c385d3048f29ccc952ccdb06",
+      "size": 2396
+    },
+    {
+      "path": "apps/web/.gitignore",
+      "sha256": "08a5a770ee4b1b03ecc05d86a36ed62e08360acd3e498f7c5b79285662dd7eed",
+      "size": 93
+    },
+    {
+      "path": "apps/web/README.md",
+      "sha256": "38ff7a0dad695044322125112fec3cd12b6346f273af38133a72e97ea6faceb5",
+      "size": 10836
+    },
+    {
+      "path": "apps/web/next-env.d.ts",
+      "sha256": "7b550dda9686c16f36a17bf9051d5dbf31e98555b30d114ac49fc49a1e712651",
+      "size": 247
+    },
+    {
+      "path": "apps/web/next.config.mjs",
+      "sha256": "816bf26d566c94eb0b76c980ce26631c423efb0806bc2444ad64fefb2ae05cda",
+      "size": 1741
+    },
+    {
+      "path": "apps/web/package-lock.json",
+      "sha256": "28f79242b3c933db434fe5ae2e3bc35c1d5296c6c163e4341a5deae9873dfcae",
+      "size": 66970
+    },
+    {
+      "path": "apps/web/package.json",
+      "sha256": "f8b52aebae33e134e08b9a54d94935b4f78482b5dff8c07262d8f7b7eabb36cc",
+      "size": 1001
+    },
+    {
+      "path": "apps/web/public/brand/README.md",
+      "sha256": "943620652c5e7f558c9d319a794255d94bb37fdebed2ca5f0822c7bf06974b41",
+      "size": 599
+    },
+    {
+      "path": "apps/web/public/cosmic/README.md",
+      "sha256": "3eed9e0206336bbaaa19088aad3475d48c4fc9086421dadb52a0c9e53a9849a6",
+      "size": 1414
+    },
+    {
+      "path": "apps/web/scripts/smoke-dashboard.mjs",
+      "sha256": "a03fbb312fdb70ad66b076bbe04016eb124e8aad5f0b1b51c13380d68f32a75f",
+      "size": 112674
+    },
+    {
+      "path": "apps/web/scripts/smoke-production-api-matrix.mjs",
+      "sha256": "5840cbb49a05190eaf104051a0d497692a540546ca24cfdf68b869bc714c7ff6",
+      "size": 30365
+    },
+    {
+      "path": "apps/web/src/app/api/health/paid-reading/route.ts",
+      "sha256": "990bef52c93eeec829bfc48a7af516e7b9672d3100d36f02b4771ca0934ba78c",
+      "size": 2488
+    },
+    {
+      "path": "apps/web/src/app/api/integrations/resend/webhook/route.ts",
+      "sha256": "524a0e88c4d0f8d77d95fbb8f57b4cef243de4ecc5c527a84daeb62ea84a50f2",
+      "size": 2883
+    },
+    {
+      "path": "apps/web/src/app/api/integrations/woocommerce/webhook/route.ts",
+      "sha256": "d3da0a4c9d4411b23d98a5458bab71d288d75737b0dcf09213f09bf4bb362faa",
+      "size": 5252
+    },
+    {
+      "path": "apps/web/src/app/api/internal/reading-worker/claim/route.ts",
+      "sha256": "5288393d77c75d7eb4022f9e95c68fbe886682c1925d11540fd0e80a5afe495c",
+      "size": 2337
+    },
+    {
+      "path": "apps/web/src/app/api/internal/reading-worker/email-reconciliation/route.ts",
+      "sha256": "e054b56e199233306f4070b36f333598b8bf054fc2de5829e6178326b89b9aa2",
+      "size": 4627
+    },
+    {
+      "path": "apps/web/src/app/api/internal/reading-worker/failure/route.ts",
+      "sha256": "00a6b127dbc55b4dd0fb807da2dd5a73fc6f4019f740b0059f0a624723a44f04",
+      "size": 2350
+    },
+    {
+      "path": "apps/web/src/app/api/internal/reading-worker/heartbeat/route.ts",
+      "sha256": "0f69844fc7e0f2a4c548b69e64328c8ba454cd8b81b83e04524b49178d7c8a86",
+      "size": 2327
+    },
+    {
+      "path": "apps/web/src/app/api/internal/reading-worker/result/route.ts",
+      "sha256": "0ee882b07ee4c0687987ddfc454ca17999d6f7d479b3a9178fc19ad2819aa23a",
+      "size": 4561
+    },
+    {
+      "path": "apps/web/src/app/api/internal/woocommerce/reconciliation/route.ts",
+      "sha256": "002380399f0e0a4a11a2370b0b0f9fa8e7843a4e3d58dcbcbb4d706dce81ac40",
+      "size": 1986
+    },
+    {
+      "path": "apps/web/src/app/api/reading-access/exchange/route.ts",
+      "sha256": "006afc62288388ed430a1d9fee912ec518d2231fa00dd58280c8835e4b4328ce",
+      "size": 3013
+    },
+    {
+      "path": "apps/web/src/app/api/reading-access/intake/route.ts",
+      "sha256": "798c0adb4d5890618b2c3ed1fd6b387489a25733be33db14cdd77a77c0bc108a",
+      "size": 2802
+    },
+    {
+      "path": "apps/web/src/app/api/reading-access/recover/route.ts",
+      "sha256": "a2576249d53d1108e33d85b2355fc58df0b388795972a9ca115936d43eafc04d",
+      "size": 3392
+    },
+    {
+      "path": "apps/web/src/app/api/reading-access/route.ts",
+      "sha256": "0ae5c0072bdbb3ee81ca9bebd749e2d2d2c8a394670c61ead95e08b0ed8e1ee8",
+      "size": 3084
+    },
+    {
+      "path": "apps/web/src/app/api/reading-access/submit/route.ts",
+      "sha256": "4232a4f5bdb40f1885ca7f5688fc42ec6dacc60a382efdb52020938e56bb2623",
+      "size": 3639
+    },
+    {
+      "path": "apps/web/src/app/api/readings/free-result/route.ts",
+      "sha256": "968936dae820a3a3d29c143dbcfdc2aa75df367bb7e8a98073a33ac3ff519892",
+      "size": 127
+    },
+    {
+      "path": "apps/web/src/app/api/readings/relationship-result/route.ts",
+      "sha256": "a7fcca69063cb0593afea1bb7dd766123977717844add202649353cdbd99b9b0",
+      "size": 10529
+    },
+    {
+      "path": "apps/web/src/app/globals.css",
+      "sha256": "b16fb7600b7694b86257c9e620d589cba8c5f9345ddfe5aeb858a2ee1bb520ab",
+      "size": 395101
+    },
+    {
+      "path": "apps/web/src/app/layout.tsx",
+      "sha256": "bbdfa0f5084a3df43e09d755b9c76738f4e12c54609986f0a490e0087bfd99c7",
+      "size": 737
+    },
+    {
+      "path": "apps/web/src/app/page.tsx",
+      "sha256": "4b1048a0b22ae5c376fa2e574e5de2af376a18880fca05c3c4cce2a84ab5c13c",
+      "size": 693
+    },
+    {
+      "path": "apps/web/src/app/r/page.tsx",
+      "sha256": "b8f2d46ef59cd65fe31b9b9139b6b23d5f72a3441bd5bc23d1c4d1a1c34d5115",
+      "size": 414
+    },
+    {
+      "path": "apps/web/src/app/reading/page.tsx",
+      "sha256": "64d0b38af49c39d225783b8a84356f6597f75f879db2b4e4cc9743bcb15edee7",
+      "size": 406
+    },
+    {
+      "path": "apps/web/src/app/recover/page.tsx",
+      "sha256": "87fb86704d91f43cc93cef9b4b224f1135067570ea2bac296f90b65efbf1a0c3",
+      "size": 419
+    },
+    {
+      "path": "apps/web/src/app/review/page.tsx",
+      "sha256": "251659e3a083dd5041d931c06cfe73c63ee87e650e913e63890a855162c89d1e",
+      "size": 495
+    },
+    {
+      "path": "apps/web/src/app/source/page.tsx",
+      "sha256": "d69a7df05abe7744125a540cddbc4ea338adb822949e4651d699b0b1fe2a0f1b",
+      "size": 1453
+    },
+    {
+      "path": "apps/web/src/components/AccessLinkExchange.tsx",
+      "sha256": "cee795328bf2bc8fc243fae655fb8d4f37ef0c0af05ce65e675b06a38f87213c",
+      "size": 1910
+    },
+    {
+      "path": "apps/web/src/components/AstrologyResultPage.tsx",
+      "sha256": "2fc6fd79974ede5c4c229dd4c25aaa7f40ed61a336d321bf591472cb4e2b8691",
+      "size": 118246
+    },
+    {
+      "path": "apps/web/src/components/BrandLogo.tsx",
+      "sha256": "7f136fbf4c1782b3c86438315559fe266be7914b867befa50cf42e5ad74f0a3e",
+      "size": 1103
+    },
+    {
+      "path": "apps/web/src/components/ImmersiveCosmicDashboard.tsx",
+      "sha256": "4fe9184cb325523cc187cbfdc5ea510ba7fd6a0e2cc64281143dc4fb76d9ed50",
+      "size": 109588
+    },
+    {
+      "path": "apps/web/src/components/IntakeFlow.tsx",
+      "sha256": "b4a7498be5c5f6da3b9e244f889631897534d253a35419a0635d76c412e389ea",
+      "size": 36497
+    },
+    {
+      "path": "apps/web/src/components/PaidReadingJourney.tsx",
+      "sha256": "a723e342f7c6136fdfc08387a0359f757d3feecb33b2e5e12df91ac56e9f5a33",
+      "size": 7453
+    },
+    {
+      "path": "apps/web/src/components/Phase5ReviewDashboard.tsx",
+      "sha256": "5b3a8ed84233c709bb66557147bbd3cec3ecaadbc3091ee6752d994b8dbdaa14",
+      "size": 12876
+    },
+    {
+      "path": "apps/web/src/components/ReadingRecoveryForm.tsx",
+      "sha256": "64aa6aee77a0a45e7125be228b7ab0932411f6cb0f8f2f8c3f73faa0578f084b",
+      "size": 3182
+    },
+    {
+      "path": "apps/web/src/components/ScenarioDashboard.tsx",
+      "sha256": "e52f32f3185f299636a77d0d10c22a6ec18f4c3eb6a86db009aa75e9185f0f08",
+      "size": 14929
+    },
+    {
+      "path": "apps/web/src/data/complete-relationship-result.ts",
+      "sha256": "f366a1a5873917db7135020c863547f61597513e4714d155dd3da985aa84bf7b",
+      "size": 53731
+    },
+    {
+      "path": "apps/web/src/data/demo-reading.ts",
+      "sha256": "48d45eb9c9c3ccecaca99ca3d5ef94aee7c628daea4d15a7246dd0b541c10d32",
+      "size": 4870
+    },
+    {
+      "path": "apps/web/src/data/free-result.ts",
+      "sha256": "3ec94791481f91437459a64413885e6b968effc1eb05d149f25b3f2303772733",
+      "size": 48
+    },
+    {
+      "path": "apps/web/src/data/generated/phase5-review-cases.json",
+      "sha256": "d76db4307299d4d855c5a716b56c2032776f9583575a4f509527b507f58f7dbc",
+      "size": 657303
+    },
+    {
+      "path": "apps/web/src/data/generated/phase7-review-cases.json",
+      "sha256": "526d2e18b55dfbd24e42be34d8678bf71e22a2bbf239dc342068bcb9d8f4d3f4",
+      "size": 1329847
+    },
+    {
+      "path": "apps/web/src/data/generated/relationship-result-scenarios.json",
+      "sha256": "29abcf2a4c1a9d485bca722ec7e4acc0938eb4517c96e63399dbe314e50ea579",
+      "size": 68023846
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/access.ts",
+      "sha256": "11d4293ff338c291786aba9158799585b3b0fcbfcaa4d6e4821232e10375c514",
+      "size": 795
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/crypto.test.ts",
+      "sha256": "43dc2c8dff186b8090a955ba5b3964149e282de6c1ae1096ba838337c2d8828c",
+      "size": 3407
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/crypto.ts",
+      "sha256": "2afec0c0c3e352812ec6b4e1b5c4ad32e25c254cd7ea349b224475d59d605ba2",
+      "size": 4564
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/customer-result.ts",
+      "sha256": "2c8aaafeb77c8025f6daa971e5795e4988cb0f515a8630c38cb56cc58a072020",
+      "size": 5263
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/email.test.ts",
+      "sha256": "6685429b1ff22a979f6721668dfa76794a475b3d015e2de36e2d1a9d72c238ea",
+      "size": 1913
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/email.ts",
+      "sha256": "d3631fac03e07599196c20386ad22da56ff6bcb47ef591c76781901040ec4b09",
+      "size": 7667
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/env.test.ts",
+      "sha256": "da0e715e1811ae147cb28b6c87bd302294785a3c90d572d7309ca88d69e839e9",
+      "size": 11074
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/env.ts",
+      "sha256": "a3a56b9a1f2ee3dbe461cde1f35cb5c372413ec7325c2adec2216194dc9e0b9f",
+      "size": 14060
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/http.ts",
+      "sha256": "aad0423c4c8cbcb413a2edf83ef1680bfcfbcd02519a3817dbde65010c519ba2",
+      "size": 2303
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/intake.test.ts",
+      "sha256": "3dc11468745b1bd5e1dc6519f4fcccebde5cadec8929eed3fdf7127daf12cce0",
+      "size": 1864
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/intake.ts",
+      "sha256": "47ee72f4fceaacfa496a3a6fd6209532ce68d082aab6a7859ad5253775e0a3b2",
+      "size": 4540
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/locations.ts",
+      "sha256": "53b5c22c66ff6138617eb2ecac465180094b582b6dbd27f619748ce8e071e714",
+      "size": 1255
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/repository.ts",
+      "sha256": "ac4471b1545ea2d30c6e95ebc5d9f96080794b17efe116587cd6fa3c00b7b4ac",
+      "size": 20669
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/schema.test.ts",
+      "sha256": "281931e4d2dd3c22327c4bac2ae2a67f00e7f37def3152ceede6bb3cce5dd37d",
+      "size": 6980
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/session.ts",
+      "sha256": "acffcc298c0de0214bcc2e60893b47526e1cfb20aac6fbd7706862945fa6b883",
+      "size": 698
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/state.test.ts",
+      "sha256": "0f528a43cbc717acf961950c47e5b612929279e2cea039115da744a511349304",
+      "size": 3005
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/state.ts",
+      "sha256": "bc58f80efea4aebe20b91747b701a3e972f1e200f327de048000d199c1d74c97",
+      "size": 788
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/supabase.ts",
+      "sha256": "04229a565f6b1e53a04b1c99e513fda18b2830f412f4c686f3b89b7d3a627403",
+      "size": 822
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/time.ts",
+      "sha256": "84746b9c6cc19cabd30588c66e7dab33f253ca0dc53e77e6d906c19e7623f99a",
+      "size": 243
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/woocommerce-reconciliation.ts",
+      "sha256": "425ed8e50370d4cbe9825adefcbfd65c3b88c101a89b926f3c130e03dfa5d819",
+      "size": 3361
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/woocommerce-sync.ts",
+      "sha256": "98c950943aa27b4dc3d0fc470d489ebf0f7802ba09019fc0574bd3df7ba61553",
+      "size": 2519
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/woocommerce.test.ts",
+      "sha256": "bfbc26dcf370e2cd78295111ce2e588c163b77e26788d64f8ec8a56606cd26b1",
+      "size": 12644
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/woocommerce.ts",
+      "sha256": "e1d604c774f9b03a6410529e78795eab3317deba060a5744ce411c0e58c7f4ec",
+      "size": 21356
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/worker.ts",
+      "sha256": "17a55eaadc1e396bf65123031e785b4d70d70aea2c361e244a039bd85c28662b",
+      "size": 1647
+    },
+    {
+      "path": "apps/web/tsconfig.json",
+      "sha256": "5563bf72ae43a35ad7902e45d2c0e491e6ac05cb1d35ea3b0c10e3711484903b",
+      "size": 703
+    },
+    {
+      "path": "apps/web/vercel.json",
+      "sha256": "3fe8dba16e3be52a9cfa59a075c6d9628226f556b27e3310340c814fd73eb733",
+      "size": 124
+    },
+    {
+      "path": "calculation/__init__.py",
+      "sha256": "3296508e1151f1db29ee868a439c11927dfc7fea285e77a8957ac8b3054d9254",
+      "size": 55
+    },
+    {
+      "path": "calculation/bazi/__init__.py",
+      "sha256": "661007f24c7d554976df3ac90434e4ed53a6c6b6ca24b7b585357ecfecae25cf",
+      "size": 53
+    },
+    {
+      "path": "calculation/bazi/lunar_verifier.py",
+      "sha256": "d3ba195f3ee9df39081ab235704cedbf03bd345a72a205934789ca516bcdfd92",
+      "size": 6669
+    },
+    {
+      "path": "calculation/bazi/signals.py",
+      "sha256": "49eea898ab44b8dbde615854c58391261e398bdaf05899f7a09b89d16abd29a7",
+      "size": 35759
+    },
+    {
+      "path": "calculation/bazi/sxtwl_adapter.py",
+      "sha256": "e6ce8c9ce979eca527095bb07eed5c82fd92f37df16cc7354ef63fa84a09c2bf",
+      "size": 3392
+    },
+    {
+      "path": "calculation/western/__init__.py",
+      "sha256": "6ad7c07e87eb71bb27f0c7553af83522ded13f11a2a0ce4f366a6bb4d9e9f2c9",
+      "size": 66
+    },
+    {
+      "path": "calculation/western/immanuel_adapter.py",
+      "sha256": "941a5c8fb689d469ec956d4d5d5b3a61870c731c97c9379d81a5440e753b84ec",
+      "size": 15196
+    },
+    {
+      "path": "calculation/western/signals.py",
+      "sha256": "77bd818db381199af2e219c0ed4d866b910b8a6caab2e858a4532ec6a037a32e",
+      "size": 20086
+    },
+    {
+      "path": "dist/kb/kb_articles.json",
+      "sha256": "6ac677018640be213c10a0ff795ddfb32e1ba8e649aadec003c886901b1ae88a",
+      "size": 409427
+    },
+    {
+      "path": "dist/kb/kb_atoms.json",
+      "sha256": "ff84f1788eca2134df12b124b0d1f19012a49fb5faf9c573f31e134cf74a8384",
+      "size": 227551
+    },
+    {
+      "path": "dist/kb/kb_claims.json",
+      "sha256": "8908684d517d0f9c3474f9c9a9315b7e4cdd82a6def59bed0497640996c1ee6b",
+      "size": 299691
+    },
+    {
+      "path": "dist/kb/kb_guardrails.json",
+      "sha256": "b3b41fae52cfc9a99e2be92070c73a9fa94acdc10b8155a492be009737f8b21b",
+      "size": 31406
+    },
+    {
+      "path": "dist/kb/kb_links.json",
+      "sha256": "cf9b807190165d17d776320e4cef7ab054eb47ac05ad77391a1cfe2e4727b4db",
+      "size": 228367
+    },
+    {
+      "path": "dist/kb/kb_question_blueprints.json",
+      "sha256": "087398ce02a4dd5d68cb316386f68d5f0f4540d530c40e0f305d7ac19f877ff9",
+      "size": 23976
+    },
+    {
+      "path": "dist/kb/kb_rules.json",
+      "sha256": "5b1b14bb442ff64e054486c55362c394d98888a17d6a9efe73e8f411f47493db",
+      "size": 99225
+    },
+    {
+      "path": "dist/kb/manifest.json",
+      "sha256": "8a71d4f42f20db83d2f5f9703e3e31dafb12305db03dfbd793901f4c6d46062c",
+      "size": 299
+    },
+    {
+      "path": "dist/kb/western-engine-comparison.json",
+      "sha256": "07b02712fa68d3729394ec3889e215712da6cbc5304d05a324fa4e7bb959c266",
+      "size": 306635
+    },
+    {
+      "path": "docs/product/00-current-v1-contract.md",
+      "sha256": "da67df4beda1c1a2feadaf5b061f7e7dde3f7a21de5544f3dfb87ffbb65cd98d",
+      "size": 5557
+    },
+    {
+      "path": "docs/product/01-product-tiers.md",
+      "sha256": "cff5d8c9a68720bfd9551ada1ebd89090713892f4f6cd7d8fa0827ff02355f9f",
+      "size": 8976
+    },
+    {
+      "path": "docs/product/02-landing-page-flow.md",
+      "sha256": "807338dfea9f6620ff7e2a357d9f024dcf3128cf7d3048488d0a4070d580a194",
+      "size": 14107
+    },
+    {
+      "path": "docs/product/03-onboarding-questions.md",
+      "sha256": "4bb6c60cf9008e490b9948bb512d159c61d4036203a6f7a19377a8f3b05c7a90",
+      "size": 9650
+    },
+    {
+      "path": "docs/product/04-free-result-page.md",
+      "sha256": "3ae611a740f02c4e67627c5468b9411265b0bf5ad2fc9ee0674879ea0c06db51",
+      "size": 15238
+    },
+    {
+      "path": "docs/product/05-paid-report-structure.md",
+      "sha256": "4ee33e1afc75f313a7fc1e719ef911c6896b2b5c73c35ef86494a92898d68b01",
+      "size": 11482
+    },
+    {
+      "path": "docs/product/06-ritual-system.md",
+      "sha256": "1af7f47b09a77687e56e022dd8d3b8c5c0e98c3496431757eddaac9951b1b51e",
+      "size": 13224
+    },
+    {
+      "path": "docs/product/07-reading-contract.md",
+      "sha256": "52689c6f485fa0ff20495fb87c4c16235f0c8b76eac28f7730f29a3b4ab1cff5",
+      "size": 16653
+    },
+    {
+      "path": "docs/product/08-result-dashboard-design.md",
+      "sha256": "6be0e3bf6b27829cb7ceb6717b6eaef3feb7ad0a6c77a798c4f4d917845ab946",
+      "size": 16386
+    },
+    {
+      "path": "docs/product/09-frontend-flow-view-model.md",
+      "sha256": "fcc630468335d0fbc64d9167f037ced389e8c847f581c6609e8262b6d037e21b",
+      "size": 8687
+    },
+    {
+      "path": "docs/product/10-bazi-reading-interpreter.md",
+      "sha256": "feb67571a45c67ce093b81fa0524028e1201ae04fd40f5bbd54ba2dff908c113",
+      "size": 4038
+    },
+    {
+      "path": "docs/product/11-western-relationship-reading-framework.md",
+      "sha256": "0678ce7a35727d3a404fa6d2f15e21208ab5984e3e60f571829c9b00a72de94c",
+      "size": 10616
+    },
+    {
+      "path": "docs/product/12-astrology-session-handoff.md",
+      "sha256": "239edbafab93dae6bdfe3a118ebd980aa0e1d6897560cda6a40d65b2ac8df33d",
+      "size": 3762
+    },
+    {
+      "path": "docs/product/13-western-suskin-method-system.md",
+      "sha256": "2d6942aad226dad4ad481562038f3f502505ea9887dfe22e4e012eb43409cdeb",
+      "size": 6393
+    },
+    {
+      "path": "docs/product/14-paid-v1-result-section-contract.md",
+      "sha256": "a8b623f4a30b166bc0c8eacbd252d79b419568af61736296dc1a1ff9a5cd2063",
+      "size": 9264
+    },
+    {
+      "path": "docs/product/15-book-digestion-continuation-handoff.md",
+      "sha256": "933cee199b11fd85df9858df5d18fa37fab2089e5c03eb2731d2cc3122599938",
+      "size": 18170
+    },
+    {
+      "path": "docs/product/16-paid-v1-native-copy-contract.md",
+      "sha256": "945e486074e1160858d856fc5852f652412afe6acf6795e1b25e2864f4b4f1f3",
+      "size": 3476
+    },
+    {
+      "path": "docs/product/17-paid-v1-precision-layer-boundary-contract.md",
+      "sha256": "235ef0a9d156adfeece68229aef25ca2476df5c818651f42fcd2c72dd22a286a",
+      "size": 2625
+    },
+    {
+      "path": "docs/product/18-paid-v1-relationship-thesis-contract.md",
+      "sha256": "e56891969a334e0b44c7f77c83dc15325c6df1b29515a6a38556b279a6f15585",
+      "size": 9673
+    },
+    {
+      "path": "docs/product/19-final-narrative-native-zh-tw-realization-contract.md",
+      "sha256": "587bab82629c0620478b82c6e91fa15e5a8a912b25413426d76f90c4fc570d29",
+      "size": 18423
+    },
+    {
+      "path": "docs/product/20-production-commerce-legal-copy-zh-tw.md",
+      "sha256": "f4d627a195fcab4fb07090feced819f12eb55d3553d4ce7893439d1c1650f9e9",
+      "size": 10968
+    },
+    {
+      "path": "docs/product/README.md",
+      "sha256": "16cdaa70c0425a0f4a70b568162a69c10c2979cce37a0f733706ab7f25c3702b",
+      "size": 4005
+    },
+    {
+      "path": "docs/tech/01-tech-stack.md",
+      "sha256": "bf74745b591d9bd3b1f99a2b795937342ac08add7a3d72d3ec5db3cb6f098fe2",
+      "size": 14012
+    },
+    {
+      "path": "docs/tech/02-backend-architecture.md",
+      "sha256": "a89c248a2742a5d7833e43909b1052216242a3c286cf8b621b4979610ac8f90b",
+      "size": 8264
+    },
+    {
+      "path": "docs/tech/03-database-schema.md",
+      "sha256": "a0f1c0348fd4708d0b73c1b3b7501cc388581a3963c6c3e6863083fc1bb95010",
+      "size": 14331
+    },
+    {
+      "path": "docs/tech/04-calculation-engines.md",
+      "sha256": "85ad8859ddc71622f5ca20d4f53e08b9dcee37ec775b4f738d589b0cb402603a",
+      "size": 21106
+    },
+    {
+      "path": "docs/tech/05-kb-integration.md",
+      "sha256": "ad23a873da08cfd13ac7eb71894bdfaf8071c4efcb0749cf0b58b7bda7057838",
+      "size": 19983
+    },
+    {
+      "path": "docs/tech/06-llm-prompt-strategy.md",
+      "sha256": "91708cf834461a0e69730c64fa058bd06d38935cc70c57ce918293e9a30838df",
+      "size": 7890
+    },
+    {
+      "path": "docs/tech/07-claim-schema.md",
+      "sha256": "0fbc192a596abe70cb19db9dcb8ff7a12ff5e182866dfa63deed64c69f2b8c27",
+      "size": 5606
+    },
+    {
+      "path": "docs/tech/08-retriever-contract.md",
+      "sha256": "e2dcc60cc1c461ff40de9a0f149de133d794b8d64c99eb18feaf5b0a8c2a7893",
+      "size": 12430
+    },
+    {
+      "path": "docs/tech/09-structured-kb-atoms-rules.md",
+      "sha256": "d191cff810d06111588615055ea85823d96f773d3ea2136af467050f67ba1279",
+      "size": 5209
+    },
+    {
+      "path": "docs/tech/10-hosted-supabase-cutover.md",
+      "sha256": "039b72583daf938bef80a003248ff739d5dfa5cec8e62033ea46bffb8bb60eec",
+      "size": 3142
+    },
+    {
+      "path": "docs/tech/11-final-narrative-fact-contract.md",
+      "sha256": "1d0963bfea824978718554d69305be71f865153a1375e4c1896edc3179cf2599",
+      "size": 4442
+    },
+    {
+      "path": "docs/tech/12-final-narrative-fact-renderer.md",
+      "sha256": "c44fb8668b9ef2993653c068c8b46e73ec2d3be5bd66c2c13813a84785635dc9",
+      "size": 5164
+    },
+    {
+      "path": "docs/tech/13-production-commerce-and-reading-delivery-architecture.md",
+      "sha256": "23dce857efe960bb59f8449673dcfe8dad424633e7aab78a8b7031f8f979a622",
+      "size": 51617
+    },
+    {
+      "path": "docs/tech/14-production-launch-readiness.md",
+      "sha256": "24ea2bdae028354cd35793b814a4f78bd1b3eddd5e225492c8b0cc13e5bc165a",
+      "size": 39362
+    },
+    {
+      "path": "docs/tech/15-staging-commerce-e2e-runbook.md",
+      "sha256": "267ea7f390c2a3abec68bea3abfb294cdce871ba624a10f64b1ef084c0a3d31e",
+      "size": 18454
+    },
+    {
+      "path": "docs/tech/16-agpl-production-compliance.md",
+      "sha256": "c40551845e46a6cbd6038bdb1bbeabdc91437465ae6ff0d4e97893fa6d93c370",
+      "size": 2594
+    },
+    {
+      "path": "docs/tech/README.md",
+      "sha256": "1fab877ad9094238deccf7e9b481bbc86c6820c45b3fd46a954a53e7908a3210",
+      "size": 4091
+    },
+    {
+      "path": "front-end-template/.env.example",
+      "sha256": "ff3aafd042f63f91ccc4f00e627fb152e2b11f7beda2f668b38388203fbd14b5",
+      "size": 69
+    },
+    {
+      "path": "front-end-template/.gitignore",
+      "sha256": "f08accc6807143b76142bf693361ac1596326c86189fcf92557065b1de8627ac",
+      "size": 53
+    },
+    {
+      "path": "front-end-template/DS_Store",
+      "sha256": "00b2595298b7a33a52e58abd6c3320699d06a3d657e0ee4d7128ff831cad7d5e",
+      "size": 6148
+    },
+    {
+      "path": "front-end-template/dist/assets/index-8stZ2tc5.js",
+      "sha256": "7c6961d296dfe08de5b6b6f483e87c4c0717cfc5f5aa7e8f2fe54fe5e7e2e1c5",
+      "size": 388665
+    },
+    {
+      "path": "front-end-template/dist/assets/index-DmHaf6su.css",
+      "sha256": "5d84844779f8670f3e1794f2b63b68fed3542cc6eec494fbcea166ca7e18bc7f",
+      "size": 16382
+    },
+    {
+      "path": "front-end-template/dist/index.html",
+      "sha256": "731b61ab59f2dc133c6c7cd0fa29d1d0629ac55d88c5e36bddb1ad80e1dacc93",
+      "size": 905
+    },
+    {
+      "path": "front-end-template/index.css",
+      "sha256": "487003b1e4adc6b84636a07e041203ec105dd5d1ec7ffd73c19d596744a389e8",
+      "size": 8106
+    },
+    {
+      "path": "front-end-template/index.html",
+      "sha256": "5698df5d3d905f57ff8f93ee8d2826035f694343fcc2406257d01beed3bc6475",
+      "size": 807
+    },
+    {
+      "path": "front-end-template/package-lock.json",
+      "sha256": "8fd03643c27d42b0e4bdc07cadc6309c00030ec1f119a571458d9700e4d3bbe2",
+      "size": 95350
+    },
+    {
+      "path": "front-end-template/package.json",
+      "sha256": "4f09926833cc0e6d6d0d47596310a0c3497ea065cfc93d7b6b7c35cb292451f6",
+      "size": 532
+    },
+    {
+      "path": "front-end-template/postcss.config.js",
+      "sha256": "082f9a07aae22ae329bfc652d405ba5a704cba1ee86f4b78c7c70f98d628a610",
+      "size": 79
+    },
+    {
+      "path": "front-end-template/src/App.tsx",
+      "sha256": "e5e2b2f9c5fd71999a644595870dd47fcec2e84cc070ffc693b0e10ec51d55e9",
+      "size": 152812
+    },
+    {
+      "path": "front-end-template/src/config/commerce.ts",
+      "sha256": "cffbdef3989acd63200ab0ad42e96ae40145b3e6265779f561ced30c7d18d4ca",
+      "size": 569
+    },
+    {
+      "path": "front-end-template/src/main.tsx",
+      "sha256": "0580ed5e3ff9d2bb03be2ed6dde0c4f0c1d7a4d77aab2c05caf89292a4d242fd",
+      "size": 231
+    },
+    {
+      "path": "front-end-template/src/vite-env.d.ts",
+      "sha256": "e97641eedbc6db4c8d02a587eb1ce0acacdb2183c6f89d1e34dd7a13bb03dec2",
+      "size": 171
+    },
+    {
+      "path": "front-end-template/tailwind.config.js",
+      "sha256": "2a4c6a7b23d2b9890e7849a458cf4e49fecaef278b28938c8fd85c19275f9a6c",
+      "size": 283
+    },
+    {
+      "path": "front-end-template/tsconfig.app.json",
+      "sha256": "18eef6f87ef638fb29585831d4c1898a1d06b725164f01d36be48120f6afa6d7",
+      "size": 578
+    },
+    {
+      "path": "front-end-template/tsconfig.json",
+      "sha256": "770b4140bbb581e2dfd9ea9946ffc9c75a1d86ba7d2db5f77c83e37cbdf9d808",
+      "size": 119
+    },
+    {
+      "path": "front-end-template/tsconfig.node.json",
+      "sha256": "c5475123f01d6e4efacbf324703984eb12ff62feae221273e42ddad39ec1c1f7",
+      "size": 408
+    },
+    {
+      "path": "front-end-template/vercel.json",
+      "sha256": "030a981767470d847c44b8f4bc67cbd4267fc8116000ef52bcc2219cbf907337",
+      "size": 810
+    },
+    {
+      "path": "front-end-template/vite.config.ts",
+      "sha256": "c9f2b1d8adb74ccdf5b3279875524ab2f6c1dccf88474c85e96d02aec6964910",
+      "size": 135
+    },
+    {
+      "path": "infrastructure/cloudflare/apex-router/.wrangler/cache/wrangler-account.json",
+      "sha256": "d8e6d9ac977987397f258f8062b56d40c65d2c2fc574976c0d434bdc488f61d1",
+      "size": 111
+    },
+    {
+      "path": "infrastructure/cloudflare/apex-router/README.md",
+      "sha256": "586293043d0dbae7821cbb75d66136768ca0e611898c889b72c051a24b66870a",
+      "size": 1932
+    },
+    {
+      "path": "infrastructure/cloudflare/apex-router/smoke-production.mjs",
+      "sha256": "88a5d7ba6132fe31e82214544ebe74dace405bf6c178cddfa2e0b6c5eb34920e",
+      "size": 4173
+    },
+    {
+      "path": "infrastructure/cloudflare/apex-router/worker.mjs",
+      "sha256": "027646b323f568c977b68fbf18eaeaba09508b2a1d0516f331de3e707f1cb825",
+      "size": 3746
+    },
+    {
+      "path": "infrastructure/cloudflare/apex-router/worker.test.mjs",
+      "sha256": "55f5f2ccbdf8bfaf6ac8a924cf6b93986d0d0d6f1232028e86d954a77d17bbf9",
+      "size": 3954
+    },
+    {
+      "path": "infrastructure/cloudflare/apex-router/wrangler.toml",
+      "sha256": "3d1cf9e02c2a9d6d884d4b3e2f7f3c10e4636312c34897c8c51d865eb225f361",
+      "size": 255
+    },
+    {
+      "path": "infrastructure/supabase/README.md",
+      "sha256": "f205bdade9702e0ae001ede75524c72910537522a6354f3c931def7c329f3659",
+      "size": 2125
+    },
+    {
+      "path": "infrastructure/supabase/billing-email-correction.sql.example",
+      "sha256": "b38f1231ab29b90180808751492aa1361bbd4968780873095d9cb7cb95021b88",
+      "size": 2075
+    },
+    {
+      "path": "infrastructure/supabase/reading-retention-cron.sql.example",
+      "sha256": "a4ada1a29730e5e8477a7ffdb7be5ebd651b7e58b637475e7d9811d4564de766",
+      "size": 2022
+    },
+    {
+      "path": "kb/atoms/western/aspect-contact-modifier-v1.yml",
+      "sha256": "833386d6e399b8d7d4f8d4fa70c04de1e5578fc8f103a1c64b1b487cf7658977",
+      "size": 3188
+    },
+    {
+      "path": "kb/atoms/western/aspect-family-v1.yml",
+      "sha256": "9de5c7cf23dfef695e4d910d36073e83f17f4b41ac2f9079c1b19962eab802e7",
+      "size": 17184
+    },
+    {
+      "path": "kb/atoms/western/aspect-function-combination-v1.yml",
+      "sha256": "b2e0301757fcb1098859ff2646be10a3058be3e9438de7b8eacbda87665698c5",
+      "size": 1485
+    },
+    {
+      "path": "kb/atoms/western/aspect-method-v1.yml",
+      "sha256": "5a3c0990b3eb7642b38e2d7c57625939b75e9d582f522c0d27b8e4fa1e3ed7da",
+      "size": 2618
+    },
+    {
+      "path": "kb/atoms/western/aspect-pair-contact-template-v1.yml",
+      "sha256": "8a6a6f8e92fa1ab8d6d8348f8241c3d8279c697f8ed22763bbb33a942a305dae",
+      "size": 17688
+    },
+    {
+      "path": "kb/atoms/western/aspect-pair-contact-template-v2.yml",
+      "sha256": "058b2cfa8ec259b80511e70a8258dccbf64a0f02110afab24be96932daedac8e",
+      "size": 33768
+    },
+    {
+      "path": "kb/atoms/western/context-v1.yml",
+      "sha256": "2509d75a6aa446d82c926dca6cce5253369125d1f04402ff59cb0249428fe7a8",
+      "size": 5010
+    },
+    {
+      "path": "kb/atoms/western/function-matrix-v1.yml",
+      "sha256": "64e47ee9323973a24eb09730d436a888911e3c743b9e018010de1a63618f4813",
+      "size": 2614
+    },
+    {
+      "path": "kb/atoms/western/horoscope-symbols-v1.yml",
+      "sha256": "828c4176d516a24606e8b2a542b3c26c8a47b6d3e774b57d2edbc85f0b83d5fd",
+      "size": 16805
+    },
+    {
+      "path": "kb/atoms/western/relationship-free-v1.yml",
+      "sha256": "f4984867900d5419c200d475f244a02962842a387b85ad79d22d9be3032a4d4a",
+      "size": 9788
+    },
+    {
+      "path": "kb/atoms/western/suskin-method-v1.yml",
+      "sha256": "271347209696c5ea33328d2d20e65ba34878eabb52d23d0aa071fd973ed37150",
+      "size": 11054
+    },
+    {
+      "path": "kb/atoms/western/timing-contact-reducer-v1.yml",
+      "sha256": "9c8cc9e3fa63be5b6a2679147423863f2ce10ff9a9c5d735beb594de5b2e65fa",
+      "size": 1767
+    },
+    {
+      "path": "kb/atoms/western/timing-window-v1.yml",
+      "sha256": "32a9d20146ea5b429989f24e8379601851527e99a24d7a32da2d6a29a4291a9a",
+      "size": 7313
+    },
+    {
+      "path": "kb/book_coverage/western/current-sources-v1.yml",
+      "sha256": "7e4e9fa16d274d582a042056b48fd28e3ce07919efec5f79033307c558c9e9c3",
+      "size": 36417
+    },
+    {
+      "path": "kb/book_digests/western/core-method-v1.yml",
+      "sha256": "3d83b6be2488c1502447cdea3b280d35bf1786bc7a479239e08770c9c2f8930f",
+      "size": 86051
+    },
+    {
+      "path": "kb/book_digests/western/situation-framework-v1.yml",
+      "sha256": "ee3d8f999a1e89625f33ded055df371ea0e7ba05ea5c841e39b65c9a31570236",
+      "size": 26105
+    },
+    {
+      "path": "kb/guardrails/western/method-v1.yml",
+      "sha256": "b3470a326b76e660d581fd0d66b1a5c5d9b2a79906b858151013ab091c2b4fa4",
+      "size": 12311
+    },
+    {
+      "path": "kb/guardrails/western/precision-v1.yml",
+      "sha256": "bc777eaf5af1c1aaf9c807eac4d527800ed7eb3e187ee8c9f66b7e3ca404d7ed",
+      "size": 7384
+    },
+    {
+      "path": "kb/question_blueprints/western/relationship-result-v1.yml",
+      "sha256": "c91da8bd2a0d6e75427f4af184cdc887c666658ed5ff25427bda8ee2fbad1a8f",
+      "size": 16723
+    },
+    {
+      "path": "kb/rules/western/relationship-result-v1.yml",
+      "sha256": "e22d4456f18b5777a7c7a336f61b4952ab76dae2713f58ef5d00c7b22f990ac9",
+      "size": 62021
+    },
+    {
+      "path": "scripts/README.md",
+      "sha256": "1d7f3e00a6e5fd8691065ea17ba001bc60389bb7658303f5ff952aa8664e73a1",
+      "size": 21675
+    },
+    {
+      "path": "scripts/audit_final_narrative_native_zh_tw.py",
+      "sha256": "0e6c3ee5974b23f90c74b10541d68f39b1304b248853bd88c678b71eba07bb88",
+      "size": 34047
+    },
+    {
+      "path": "scripts/audit_final_narrative_production_readiness.py",
+      "sha256": "a20f78b1e5392bcfba390eedbfdae007c5bf8721a1cee7b98a3383731838e635",
+      "size": 32557
+    },
+    {
+      "path": "scripts/audit_relationship_fit_semantic_similarity.py",
+      "sha256": "82e98905f786ce3c5d9c776ffc957c76a9e9070618f048dec88870d4778562c0",
+      "size": 10480
+    },
+    {
+      "path": "scripts/audit_relationship_result_variation.py",
+      "sha256": "2f0b78d55e617252e3de2496c93a1f02ff4a1eedaaedbcf81df22344a449df60",
+      "size": 26743
+    },
+    {
+      "path": "scripts/book_coverage.py",
+      "sha256": "0c76c62e71a5f830c17ad41b39d5832cb207860bfe3cc542e8efabb8985e0a1a",
+      "size": 9741
+    },
+    {
+      "path": "scripts/book_digests.py",
+      "sha256": "4c1317b87871bd8611b16a3af332efec58b03c549fa963e44e30d22aed109bbd",
+      "size": 9474
+    },
+    {
+      "path": "scripts/build_free_result_from_reading.py",
+      "sha256": "56d9895fb485e48f61e54884bb2c319368dab9212573290ae6df74cba42ea727",
+      "size": 213
+    },
+    {
+      "path": "scripts/build_free_result_view_models.py",
+      "sha256": "258d53e365cca3efe473fa9b75bc6d00149a071d630c8cbf24c109e39c6bcf1f",
+      "size": 1066
+    },
+    {
+      "path": "scripts/build_reading_context.py",
+      "sha256": "1aa83afbad8f369abea421f0ae957b599daba19618b98887d02af2f2868e9d5a",
+      "size": 13467
+    },
+    {
+      "path": "scripts/build_reading_phase5_calibration.py",
+      "sha256": "64541f6e24deaaf88f4da5a69cc2a9bf442986e157ccaec23734664d8c7d140c",
+      "size": 23766
+    },
+    {
+      "path": "scripts/build_reading_phase7_calibration.py",
+      "sha256": "2b2184cdc6d2b9fcaa0575b2f63541d6f722832cf8a29948dc5521a171aa41bb",
+      "size": 28279
+    },
+    {
+      "path": "scripts/build_reading_production_baseline.py",
+      "sha256": "696ff9cad49d9556218e5920e2df191f8e64dd3511e53c9e998ef7f5b6b655e0",
+      "size": 25542
+    },
+    {
+      "path": "scripts/build_relationship_result_from_reading.py",
+      "sha256": "864c98669b6c6ab1c8dca9c5a5bb569bbfc21252eaecc82c0add18a066598965",
+      "size": 4508
+    },
+    {
+      "path": "scripts/build_relationship_result_view_models.py",
+      "sha256": "fb2e713f28549c903cc3ed144fb9dc130590b036e14b9063f165f1ae947cfd3b",
+      "size": 3704
+    },
+    {
+      "path": "scripts/calc_spike.py",
+      "sha256": "773898c9b7f64fa72f1b221943b252ff98aa876de484bb12eaa51573fb6450e1",
+      "size": 11360
+    },
+    {
+      "path": "scripts/calc_western_spike.py",
+      "sha256": "0e81ce20469446b2a1b285b69327c71f3b2f885e39713f1b2be3fc38afe95b00",
+      "size": 13600
+    },
+    {
+      "path": "scripts/check_supabase_migration_contract.py",
+      "sha256": "8122941b2107676a52b516f3ec951658d20890328dd6fa641879498472bee72c",
+      "size": 10587
+    },
+    {
+      "path": "scripts/check_supabase_runtime_readiness.py",
+      "sha256": "d2f81a48159de24696ca55cd87ac8341beffb7b4fc44f2b0b0f125b346e84f9e",
+      "size": 5942
+    },
+    {
+      "path": "scripts/compare_western_engines.py",
+      "sha256": "e12c02c5d35cc0c63db5339a49b2b0c9874b441cd6791bd9e2157ce72f018db5",
+      "size": 21532
+    },
+    {
+      "path": "scripts/compile_kb.py",
+      "sha256": "9031aa6d57a41e416b3b96159c209fdef83d5caa2ac936addbf4afe966468021",
+      "size": 10001
+    },
+    {
+      "path": "scripts/compile_structured_kb.py",
+      "sha256": "37a3ca5c3f208ff31fd2415dc406eae76b541fa01faac801697565ef411c1a83",
+      "size": 2074
+    },
+    {
+      "path": "scripts/complete_relationship_result_runtime.py",
+      "sha256": "f5ab912d74207e5e29f4e07b7654570606afa18ea4105e54f5b1356bc234bd14",
+      "size": 733928
+    },
+    {
+      "path": "scripts/generate_relationship_depth_fixtures.py",
+      "sha256": "0b719afc16b54859ed7cef19150e39285980f4877fdb2a252de04aa96315b848",
+      "size": 32480
+    },
+    {
+      "path": "scripts/kb_utils.py",
+      "sha256": "8206338e7b3e9db5d6a3f1961d98eaa89e7da232a0768852fa1878d8ef66cba0",
+      "size": 10932
+    },
+    {
+      "path": "scripts/lint_kb.py",
+      "sha256": "b387c2f545b08276a2e97ef84ab9aabb765058433ceea2809a9d857dce42a921",
+      "size": 9963
+    },
+    {
+      "path": "scripts/method_claim_usage.py",
+      "sha256": "48615b316f5da798bfc79920639159c87192d02fc57c0bca3fdb0656c2ad25da",
+      "size": 17106
+    },
+    {
+      "path": "scripts/promote_phase5_reviewed_golden.py",
+      "sha256": "3c6d66e34f8899dc2241740c61dcca73f3fc98b5fc8f6bac78120ba85c4f45b0",
+      "size": 4692
+    },
+    {
+      "path": "scripts/promote_phase7_reviewed_golden.py",
+      "sha256": "0769c93d6b7931e717dbc13edd1086261e50eabf843b4e4e8ce3a683b848db36",
+      "size": 5624
+    },
+    {
+      "path": "scripts/readable_interpretation/__init__.py",
+      "sha256": "c96355cfe10dea932f487948d3ae85fd6fb69dc180a0086d43fd4381500b80e9",
+      "size": 1676
+    },
+    {
+      "path": "scripts/readable_interpretation/copy_contract.py",
+      "sha256": "b6ba973296e50f939de2fd13c7af7a23f0d00467784484c81f3d40dbe4ae5f08",
+      "size": 2296
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_chinese_contract.py",
+      "sha256": "9e264096390d6e6d7b7a3abdcdf42edda7c360c6ea19904702a692a3738a87bd",
+      "size": 9279
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_chinese_plan.py",
+      "sha256": "f56749dcb483a484ed18eb81149698010ed02733c573a170a58fc935c959cfec",
+      "size": 10148
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_chinese_quality.py",
+      "sha256": "35e999376165763ecc0389063f58951a7ff661a72a421cec140f4ba5ca56369c",
+      "size": 22546
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_composer.py",
+      "sha256": "046022ded1613c96077d2d07ecaf6435c07a22e526c6f78cf5dde459a80d240f",
+      "size": 8060
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_composition.py",
+      "sha256": "de038772e51160c143e13c89b15ae905dcc11eec84fa9738982c0df99e4ed1c7",
+      "size": 15013
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_fact_contract.py",
+      "sha256": "1d8730560ccd4bc4340506d3295312153d6dd416ceaca89d519e66c9b6d41fb1",
+      "size": 21476
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_fact_renderer.py",
+      "sha256": "a34ecf653a4c8f239adfacfd510f1f4facebd02d3152d09f9b34fb4366f20d6d",
+      "size": 66959
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_page_grammar.py",
+      "sha256": "e455066b49254cbe163dd5f5c2d3cd81ded96315c6af5c7b58879831a8cccee3",
+      "size": 4072
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_pages/__init__.py",
+      "sha256": "4eadf42dc3269fd033ca7c25ae5a6c2bb514d2af69de4a273037231c3a9bd0b6",
+      "size": 891
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_pages/action_direction_renderer.py",
+      "sha256": "2881c8f7ef38400f85a569fb0e4c8349a562e58bc894a0f52fa869b09687aeb9",
+      "size": 40135
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_pages/chart_positioning_renderer.py",
+      "sha256": "e95770abb5376c4521ddb01de52e73d052b2783691f11abaa2b8628a90ddc4f2",
+      "size": 4906
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_pages/chart_positioning_zh_tw_catalog.py",
+      "sha256": "b3f37595ab1288a7f5d861c75cd7c23f27e32284779f145732394e9decaeef09",
+      "size": 39564
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_pages/core_answer_renderer.py",
+      "sha256": "79f017ed8f0b6529f0b1e8d7570a714634da26acf40e6070a1a615edf472a826",
+      "size": 74383
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_pages/relationship_fit_renderer.py",
+      "sha256": "1f965d3ee36dfb1cc38257f01cd7d22451bff2d1a9b9a74a4b1da036e09837d6",
+      "size": 7547
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_pages/relationship_fit_zh_tw_catalog.py",
+      "sha256": "09440e05bc7bae7264853ea72b84ad2004151a11a8867868e891c2d218826cd0",
+      "size": 46455
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_pages/timing_renderer.py",
+      "sha256": "df24cec531cc6aa49a7e1e825e081d080cb2e1419d8fe86c3cc0d7d40c9b6ae7",
+      "size": 41880
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_paragraph_plan.py",
+      "sha256": "f06b7e50770e6d1f6ac675cc82c543e5ba014c916716e44614748e93a36bb51c",
+      "size": 13023
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_realization.py",
+      "sha256": "75043cfa0217d4ce67015a632265cd3fbaaee87544a1541d7e675acfacfd75f8",
+      "size": 2620
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_semantic_coverage.py",
+      "sha256": "ed7fab19fcbf53cc50774653680d261eac132cfc8a1b041e7621208ad81e4086",
+      "size": 8054
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_semantic_domains.py",
+      "sha256": "4939bf43da85319bbf1f8cbf1cfc3ec808e8498b4f7982a144e1492941575343",
+      "size": 6159
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_signal_service.py",
+      "sha256": "ae8aff8e28a68795d1b749f6b225177f5433724af752321c9ffb72333a3e8805",
+      "size": 4486
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_story_arc.py",
+      "sha256": "3205e7640e5376182d214d5c4781fe05e1cdc9ce33cbd620408afa8f77490e45",
+      "size": 11161
+    },
+    {
+      "path": "scripts/readable_interpretation/final_narrative_test_engine.py",
+      "sha256": "2c3e74353bc19c322192a82194c5970fe09c28830dc1063dd3e965ad02eee5bc",
+      "size": 17567
+    },
+    {
+      "path": "scripts/readable_interpretation/schema.py",
+      "sha256": "6cc92450d9b0908959d2eb9155af54d30e802b0d35845cdb0db2d10d5cde2b9b",
+      "size": 3323
+    },
+    {
+      "path": "scripts/readable_interpretation/section_narrative_spec.py",
+      "sha256": "1458ce5f93c679284ccd5a619ca4d87c537190e86374990fcfad654e5732e7c2",
+      "size": 65265
+    },
+    {
+      "path": "scripts/readable_interpretation/zh_tw.py",
+      "sha256": "fd346157f9f09b6b0b85a3f91a6275069e3ca31f005d7e0a97cfef6f22be2efc",
+      "size": 164403
+    },
+    {
+      "path": "scripts/relationship_status_answer_policy.py",
+      "sha256": "09bab90abbd1be688de90a8146ed86dbd067ed23094ca1bd280225b682627b39",
+      "size": 26189
+    },
+    {
+      "path": "scripts/report_book_coverage.py",
+      "sha256": "e45fe51522b6b2ad9e98da9435ad3e48fa462e8845494b0a84fbc0a17d6dbfb0",
+      "size": 6035
+    },
+    {
+      "path": "scripts/report_book_digest_coverage.py",
+      "sha256": "9ccb7cc4edb3fe30ebf3ab29aaa9eb1dc26acbd99e18ab1174ea2bf3cbf89125",
+      "size": 10107
+    },
+    {
+      "path": "scripts/report_book_digestion_execution_matrix.py",
+      "sha256": "a0060c5f8a53453ced6dbaa332a711798682dbc3c7c3f1ad2614375709a0b282",
+      "size": 24598
+    },
+    {
+      "path": "scripts/report_method_claim_runtime_usage.py",
+      "sha256": "784af4740be053dd030d6a4a1cf0344cb148a098ef028a6a2fa6755ed112de46",
+      "size": 5890
+    },
+    {
+      "path": "scripts/report_method_deepening_backlog.py",
+      "sha256": "e73b6109a982ef30d9b0ae9a9c9b6a9eb36c5e15a7ee2ffc393d422a3711ce45",
+      "size": 13799
+    },
+    {
+      "path": "scripts/report_paid_v11_precision_depth_audit.py",
+      "sha256": "88890fce1a21ee78dcd95f174bf0be72c32a933374515be20a5a5ade125921bd",
+      "size": 16284
+    },
+    {
+      "path": "scripts/report_paid_v1_result_surface_evidence.py",
+      "sha256": "bf37f41aa484f9b12c217fa1d31bda6430c9f2a921bd86e08d2d518e89ca3e17",
+      "size": 40137
+    },
+    {
+      "path": "scripts/report_paid_v1_western_completion_audit.py",
+      "sha256": "177f98e2b3554affc23baae63565e05dd6e1301d93dfcfebfe2dd5e8673dceae",
+      "size": 18517
+    },
+    {
+      "path": "scripts/report_relationship_case_model_audit.py",
+      "sha256": "01189a0f148f9280931f1438206c8d6709ce800892445de0dff3f8acc478e177",
+      "size": 23165
+    },
+    {
+      "path": "scripts/report_structured_kb_coverage.py",
+      "sha256": "78f785e333315dea734aaba7167573b2f8da21e8ae11a92aa58794db8271418d",
+      "size": 29456
+    },
+    {
+      "path": "scripts/report_timing_reducer_branch_evidence.py",
+      "sha256": "d1a1096a84462229642dcf81071035749c859e131e667ec78a99fa2acbdc46da",
+      "size": 20810
+    },
+    {
+      "path": "scripts/report_v1_reading_function_coverage.py",
+      "sha256": "f5aaebe1710d4fb40647c05e186549f7a35815b488d79b0a05b2f0fd4b7e0909",
+      "size": 15187
+    },
+    {
+      "path": "scripts/report_visible_reading_depth.py",
+      "sha256": "430bf1657635207100d744db71c5731b92ce1a0358b2c5ebc5095f6007c667a8",
+      "size": 1502
+    },
+    {
+      "path": "scripts/report_western_source_inventory_audit.py",
+      "sha256": "22d23ada66ba6de2fc608273736b431472e5a562ebe9b8a069b73f6876db5511",
+      "size": 9192
+    },
+    {
+      "path": "scripts/retrieval_smoke.py",
+      "sha256": "bb167fca9d7d599f137ad6193b3cde2185c8e0fcf64bf9774582721a9b5aff81",
+      "size": 6759
+    },
+    {
+      "path": "scripts/retrieve_kb.py",
+      "sha256": "bc9b831c8023a1ca93638f15cbca54701a4d9c1d060d31cd8ba42a1083183c8a",
+      "size": 18380
+    },
+    {
+      "path": "scripts/retrieve_structured_kb.py",
+      "sha256": "563cd2c18842341549aac54f4e3a5ed3194eb321c88d11d1e1095f799cb82d1e",
+      "size": 16668
+    },
+    {
+      "path": "scripts/run_supabase_structured_runtime_cutover.py",
+      "sha256": "214980b3f39f21ff585f295ef2ec9ad5c3f8fc919230c1718b3e8c45d74c4df6",
+      "size": 9716
+    },
+    {
+      "path": "scripts/select_signals.py",
+      "sha256": "d86250aa86da62adc3e43866f0efddc53590984c76c61dfde57b68c409f6e579",
+      "size": 27956
+    },
+    {
+      "path": "scripts/smoke_final_narrative_context_storyline.py",
+      "sha256": "89ea2a6e3edf52655e333ef594f591ad7e0558acf9ad74b8849d355ffdd5c87d",
+      "size": 14027
+    },
+    {
+      "path": "scripts/smoke_final_narrative_fact_contract.py",
+      "sha256": "fc99a881a90261e5ce4f3979cbd816bda2449deab81172d34d7e233f4dce1404",
+      "size": 5341
+    },
+    {
+      "path": "scripts/smoke_final_narrative_lock.py",
+      "sha256": "621bc1c78da87be49750a2d2bb3db714e1fb1dfb45b0b51d95b54e312b54470e",
+      "size": 12967
+    },
+    {
+      "path": "scripts/smoke_final_narrative_v6_semantic_diversity.py",
+      "sha256": "cb1817fb7578513c65e1e39dfffa37e0c319388be1b9c75e9c46f882afb4bf11",
+      "size": 33618
+    },
+    {
+      "path": "scripts/smoke_phase5_human_feedback_regressions.py",
+      "sha256": "c559816250f0c250fb5b277399d87c1142977497058d79c7e5a1a6911d8ac7f0",
+      "size": 4096
+    },
+    {
+      "path": "scripts/smoke_reading_phase2_diversity.py",
+      "sha256": "f64b732e5dd92b71afc8783af6ade441dd5a21f4a08c2aeb7f0228d1370a08b4",
+      "size": 3248
+    },
+    {
+      "path": "scripts/smoke_reading_phase3_depth.py",
+      "sha256": "867f78c0eb9084ea32af413117822273cc1c05d083eacf9d5bb6efd74bc89c69",
+      "size": 5966
+    },
+    {
+      "path": "scripts/smoke_reading_phase4_provenance.py",
+      "sha256": "f32a5cca4353aa09f2aefa075dbb422879d33a17ad6335684fb4d781bc558692",
+      "size": 6267
+    },
+    {
+      "path": "scripts/smoke_reading_phase5_human_acceptance.py",
+      "sha256": "9fa6c5ea083224ee7facf0df76c0d4f1ea35711693c7e114c7a78e2021fba442",
+      "size": 2051
+    },
+    {
+      "path": "scripts/smoke_reading_phase7_human_acceptance.py",
+      "sha256": "4a7e10f147f3b1be73a6a433195e21b92cd931c506e5c4b964e618a3c798a260",
+      "size": 2312
+    },
+    {
+      "path": "scripts/smoke_reading_production_baseline.py",
+      "sha256": "efc6e19aae4d8699d9ee04c4fe00a7d64e83115ee33910c4eb20ee0199366059",
+      "size": 10492
+    },
+    {
+      "path": "scripts/smoke_relationship_archetype_selector.py",
+      "sha256": "19010f5177e38f41d2dc8c97bbc2087c3c3533bafa46c3ab4e700f8e4eee1803",
+      "size": 6910
+    },
+    {
+      "path": "scripts/smoke_relationship_input_contract.py",
+      "sha256": "c3b8e325f73437600261f9273fbe6a73f23b0f3e5298ba1030126f93456ea051",
+      "size": 2331
+    },
+    {
+      "path": "scripts/smoke_relationship_status_answer_policy.py",
+      "sha256": "c4411a3f0508a6fb0ce5035ffbb94590d1832e07556141647a8136116fad40ea",
+      "size": 11084
+    },
+    {
+      "path": "scripts/smoke_section_narrative_phase2.py",
+      "sha256": "2cd510596f1208af0d276453dc262b65f227abf533e902f9b44f864fa72da392",
+      "size": 9242
+    },
+    {
+      "path": "scripts/smoke_section_narrative_phase3.py",
+      "sha256": "e66dd6798a5e5c767c1e1c59b815229d388244ee26f561d8df65390e284067f0",
+      "size": 7253
+    },
+    {
+      "path": "scripts/smoke_section_narrative_spec.py",
+      "sha256": "b438659a9696af9a3c4fdff44238c7757d9fb98b3d3d341e3d5a285f3a67f3de",
+      "size": 8266
+    },
+    {
+      "path": "scripts/smoke_western_answer_layer.py",
+      "sha256": "3da3bdfe4132613b76996261975aa82d5c0b616ddf6d75e888c4a5740e47f298",
+      "size": 7724
+    },
+    {
+      "path": "scripts/smoke_western_answer_rule_matrix.py",
+      "sha256": "01ec316677d9b9f0ef7d5029dfa2a4dd51b72071ea0c959f374e6016399aaebd",
+      "size": 4679
+    },
+    {
+      "path": "scripts/smoke_western_chart_variation_matrix.py",
+      "sha256": "cd9e1a078317ff3c42f625312255e7b9d2f55bf788599e42510803d4e893583d",
+      "size": 60699
+    },
+    {
+      "path": "scripts/smoke_western_complete_result_flow.py",
+      "sha256": "d5df0e60d2dad02fdec2a34aa76d67dd612b882cf9fca59523209fb79265a1cb",
+      "size": 92256
+    },
+    {
+      "path": "scripts/smoke_western_context_matrix.py",
+      "sha256": "5e47f1be2e38d9b594a73fea6f0766cbd49220a22e26f27ae11345acca453eec",
+      "size": 80230
+    },
+    {
+      "path": "scripts/smoke_western_final_interpretation_layer.py",
+      "sha256": "218c6c005dc3c76b30bf9b5f9aa1004ef12343acbf9c289be3f679471bfd281c",
+      "size": 22345
+    },
+    {
+      "path": "scripts/smoke_western_fixture_depth_coverage.py",
+      "sha256": "23ed882025f72cb284c08f440b968e4ed1476e9fbf5a1fefb0c4001b6f8613d0",
+      "size": 15958
+    },
+    {
+      "path": "scripts/smoke_western_free_flow.py",
+      "sha256": "656780889a821d52278384f7044672ca5cfc11af55d2b475ec467d528d03d90d",
+      "size": 212
+    },
+    {
+      "path": "scripts/smoke_western_native_copy_contract.py",
+      "sha256": "1911096e7e61e4870483421f618a55b2208e77eb7aced5970c7e5c00d316a51c",
+      "size": 16071
+    },
+    {
+      "path": "scripts/smoke_western_precision_layer_boundaries.py",
+      "sha256": "2642b589df95321eb9e2937fb1d3ec3d839fb01b47c5b261a519db75da023546",
+      "size": 13798
+    },
+    {
+      "path": "scripts/smoke_western_relationship_case_model.py",
+      "sha256": "67f0ad057dba6fcfe7dbd0e43558d9908012b8bbd87324e07132007fab599bcd",
+      "size": 21271
+    },
+    {
+      "path": "scripts/smoke_western_relationship_insight_blocks.py",
+      "sha256": "08e8605d68c47b291df2bfac8ac72a1c202eb5bbe261e11f156b85743818f010",
+      "size": 11101
+    },
+    {
+      "path": "scripts/smoke_western_relationship_thesis.py",
+      "sha256": "a36518e12ef6d1f214f0ca33143e9813d4f52d70a5fbd7e5a06aff385ffb654e",
+      "size": 10700
+    },
+    {
+      "path": "scripts/smoke_western_safety_validation_language_matrix.py",
+      "sha256": "33639060b7ce46aeb65d0b1257218ef27e44d6e06aa0f9937e8bc757601b911c",
+      "size": 11800
+    },
+    {
+      "path": "scripts/smoke_western_timing_window_matrix.py",
+      "sha256": "8fe8b3ef7db53244d859376c8ddb127b5194773a4eaafd6bbfef78668e14f03b",
+      "size": 25730
+    },
+    {
+      "path": "scripts/smoke_western_visible_reading_depth.py",
+      "sha256": "a467d0118f09cdc27c2ae88a4a51c3497fbfcb171d903350a15f9a5c57d45025",
+      "size": 904
+    },
+    {
+      "path": "scripts/smoke_western_when_to_contact_rule_matrix.py",
+      "sha256": "5751e879c16d2b1bc58d538fef226de0eb3d657ad44067a07c0743733bb2f14c",
+      "size": 3954
+    },
+    {
+      "path": "scripts/structured_kb.py",
+      "sha256": "a49b4acbcebc3521bdee18de236b1f22c6a61110d61fd47bf6e9385d7241e924",
+      "size": 21861
+    },
+    {
+      "path": "scripts/structured_retrieval_smoke.py",
+      "sha256": "92c3d00b0b95a066b90e520186ff1a8c86f6aa273218b561adbef02c9cae903e",
+      "size": 3510
+    },
+    {
+      "path": "scripts/structured_runtime.py",
+      "sha256": "965c15533ca052728bc208a1071ffce9870907109d6793a4746f5502b847a768",
+      "size": 13588
+    },
+    {
+      "path": "scripts/structured_runtime_contract.py",
+      "sha256": "cb3a8776996ff63a81be18f29b5d268750a27056d49112fa7a47a5262abff413",
+      "size": 8902
+    },
+    {
+      "path": "scripts/supabase_target_guard.py",
+      "sha256": "4cbe92ece8dc833a87b821fdab9bc5bd4c239713253ae68e5ef6cce0924d6925",
+      "size": 7640
+    },
+    {
+      "path": "scripts/sync_supabase.py",
+      "sha256": "10cd775bb9d8d409bb2f18645dc9d16864c2289363248c37f33493b82b5a232e",
+      "size": 23104
+    },
+    {
+      "path": "scripts/test_reading_phase5_calibration.py",
+      "sha256": "04d280774d95a9683cadb7e0b100d911a546e75c2affdb464e76b0a8fb531d24",
+      "size": 39773
+    },
+    {
+      "path": "scripts/test_reading_quality_engine.py",
+      "sha256": "ec6c9bf14b0a666faf83da7a6261d299f3fd5453d315ac42263fa8656a5651fa",
+      "size": 38775
+    },
+    {
+      "path": "scripts/validate.py",
+      "sha256": "860b36375fda715efc2af032d593ce89e0270c6f950918b7e733d56342a85f58",
+      "size": 18182
+    },
+    {
+      "path": "scripts/validate_book_coverage.py",
+      "sha256": "1b23f915119cc9d02792c021fbc025bc991ed2442237700f0b336655c2de82df",
+      "size": 1262
+    },
+    {
+      "path": "scripts/validate_book_digestion_execution_matrix.py",
+      "sha256": "262b0dd7213e4fb9957c55b0b54c80488fd5fdd0914bbdd40a562bf46ff567ec",
+      "size": 1082
+    },
+    {
+      "path": "scripts/validate_book_digests.py",
+      "sha256": "c716c7370092dec0b89fbfe9c160a0748cc0d9beb601eb782d74b68b038cb78d",
+      "size": 1253
+    },
+    {
+      "path": "scripts/validate_method_claim_runtime_usage.py",
+      "sha256": "ff6e5d28c20e72740b62cce3129261b1b29eba6531c1f96c65a40db22b7f6aac",
+      "size": 710
+    },
+    {
+      "path": "scripts/validate_paid_v1_result_section_contract.py",
+      "sha256": "3351969328b82bab7ef29ceb11a4a3b261dfd9de8df5d90cecb94c3b67d73ccf",
+      "size": 25918
+    },
+    {
+      "path": "scripts/validate_supabase_structured_runtime.py",
+      "sha256": "8cbc4780709bae1cae653d6f6da062a941e87498d99246bc5bb0095a78378b26",
+      "size": 15282
+    },
+    {
+      "path": "scripts/validate_western_runtime_method_contract.py",
+      "sha256": "fe0d7c217345169b97a2ab7943af16a96b73eb59b8df69846d40feadc66540cd",
+      "size": 8973
+    },
+    {
+      "path": "scripts/verify_final_narrative_chart_positioning_native_zh_tw.py",
+      "sha256": "835b2d0e1df5cbc8ef9e8412f6047e23a606799194e423ef84e558da0cdb2bfb",
+      "size": 14697
+    },
+    {
+      "path": "scripts/verify_final_narrative_native_zh_tw_foundation.py",
+      "sha256": "409aa0d82bb68a1211edcd98eb9cee8c361929f492a1111dc2a756e859cb183b",
+      "size": 12936
+    },
+    {
+      "path": "scripts/verify_final_narrative_paragraph_plans.py",
+      "sha256": "43e3ffc460a5c4bcf049768946075b4c81285934f6c01cbea5e0dd780d922b4d",
+      "size": 8425
+    },
+    {
+      "path": "scripts/verify_final_narrative_phase1_compatibility.py",
+      "sha256": "22e2f782e55af5362f486493026a7745943fe96574e24e23f00c71ca8abe911b",
+      "size": 7095
+    },
+    {
+      "path": "scripts/verify_final_narrative_phase2_fact_only.py",
+      "sha256": "f626fa8574e5221b2b6ac21d41d56524075df08a53b6f9f8b9e717bb7ca3da90",
+      "size": 5673
+    },
+    {
+      "path": "scripts/verify_final_narrative_phase2_page_modules.py",
+      "sha256": "3c3ae557c8e4fecb7d8eb616370f211035efba60cfd8e282436de229dfb4bf51",
+      "size": 5193
+    },
+    {
+      "path": "scripts/verify_final_narrative_phase3_realization.py",
+      "sha256": "40e9220dcf95ce69a99bbdfa9b8b525850cddaf2b66bfefe08b3123ed97d92e6",
+      "size": 17804
+    },
+    {
+      "path": "scripts/verify_final_narrative_phase4_semantic_coverage.py",
+      "sha256": "e840dd5e3c75b01e434fb8ccb808b5ed66f01f40bf830ee42f9680757fe06102",
+      "size": 28045
+    },
+    {
+      "path": "scripts/verify_final_narrative_phase5_composition.py",
+      "sha256": "1707c32abff6389dde769b6009c6d352c0cc6706a897f311e192e2ee0bf8e7f4",
+      "size": 9913
+    },
+    {
+      "path": "scripts/verify_final_narrative_phase6_test_engine.py",
+      "sha256": "e8e03959463a12358666c1a8c80783df13c31d81be0547bc88be167042e71f93",
+      "size": 28530
+    },
+    {
+      "path": "scripts/verify_final_narrative_r5_page_realizers.py",
+      "sha256": "5055f7d1c538142ee7bbf3489bc0a4aeda678ad0b321d250c63b8cd8282158e8",
+      "size": 23334
+    },
+    {
+      "path": "scripts/verify_final_narrative_r6_chinese_quality.py",
+      "sha256": "6560e99462ee1d3e65ca1e3e9593a913b60df44e286d3718e66185badf342343",
+      "size": 26979
+    },
+    {
+      "path": "scripts/verify_final_narrative_relationship_fit_native_zh_tw.py",
+      "sha256": "c7bd46ef815926a66e2e06873aed46f87c4a9c1abf4365519e2a1ababd6a9b9f",
+      "size": 17233
+    },
+    {
+      "path": "scripts/verify_final_narrative_story_arc.py",
+      "sha256": "14d40af7451161c7ae67ffafac64c8082bb505a8c4bfeec745cd30e43cb1cdb2",
+      "size": 7560
+    },
+    {
+      "path": "scripts/verify_paid_v1_reading_stack.py",
+      "sha256": "7be7be91c66a6851c7da1c190f58a70d568d08c51157a53616dbe5ffecc430c9",
+      "size": 29287
+    },
+    {
+      "path": "scripts/verify_reading_phase7_calibration.py",
+      "sha256": "6773762f2ef615501c2105c1288da1380862511a25c57267933a4e347083dc2b",
+      "size": 28609
+    },
+    {
+      "path": "scripts/visible_reading_depth.py",
+      "sha256": "4a87d4b4677f0528438829fdf38ac6f00a5b45de013c76494eb6ecbada893226",
+      "size": 45066
+    },
+    {
+      "path": "scripts/western_free_result_runtime.py",
+      "sha256": "20be4f96d8c421994994fcedec2447209f938c938c3a04376473529044670a3f",
+      "size": 174
+    },
+    {
+      "path": "services/reading-worker/.dockerignore",
+      "sha256": "ebf29642e5432375198d0a28f1472f02ed0204720594352910b9ab2a72ab151b",
+      "size": 103
+    },
+    {
+      "path": "services/reading-worker/Dockerfile.agpl",
+      "sha256": "8b0b2fb5d9edc2d061ea1ab30784b38eed2c44a4c428af1f00ca2b365b03e8d4",
+      "size": 2513
+    },
+    {
+      "path": "services/reading-worker/Dockerfile.agpl.dockerignore",
+      "sha256": "22d247fee576480ebd1915e677007824682af5e130a2bb555d411976ce0f3900",
+      "size": 269
+    },
+    {
+      "path": "services/reading-worker/Dockerfile.dockerignore",
+      "sha256": "ebf29642e5432375198d0a28f1472f02ed0204720594352910b9ab2a72ab151b",
+      "size": 103
+    },
+    {
+      "path": "services/reading-worker/README.md",
+      "sha256": "cf62e7c9f87d07971cb1d6ba2b27896b41e3029bca8e1a13f0fe12e6624aa846",
+      "size": 9467
+    },
+    {
+      "path": "services/reading-worker/build_agpl_source_release.py",
+      "sha256": "ac5d67b24cedf192c8c9433fb9b851c2012b81af7fc0b01b78a53163a76d6d8f",
+      "size": 7357
+    },
+    {
+      "path": "services/reading-worker/reading_worker/__init__.py",
+      "sha256": "299bf2a3ddc321a4ea5b5ac7f9b36c785752d815bd46b5d2b6a7e7941fdbaf13",
+      "size": 497
+    },
+    {
+      "path": "services/reading-worker/reading_worker/bundle.py",
+      "sha256": "63648ea53b315d4fd914bf26352260abb8daab4355e83d017e9b6cdc93c6393a",
+      "size": 9419
+    },
+    {
+      "path": "services/reading-worker/reading_worker/client.py",
+      "sha256": "fbb724e03809425a9ecb0c84435641c1e7ce71e60e1e77252088042a2ec7e51e",
+      "size": 10658
+    },
+    {
+      "path": "services/reading-worker/reading_worker/config.py",
+      "sha256": "80d5ffe140daaa07dda128c42d3f2e38a5f199a5b07254abae05e4c26674365d",
+      "size": 9231
+    },
+    {
+      "path": "services/reading-worker/reading_worker/generation.py",
+      "sha256": "79dbd5182b3d1e04cafde3226defb9f593ee121c8f983b85dac04f61cb01a7ee",
+      "size": 4456
+    },
+    {
+      "path": "services/reading-worker/reading_worker/generation_subprocess.py",
+      "sha256": "3e8cc2aca2c09733bc78b9fce8fd609e4ca740267368ec16c16fbc1453fffe01",
+      "size": 2186
+    },
+    {
+      "path": "services/reading-worker/reading_worker/http_server.py",
+      "sha256": "aaf9973bd1190f0ecc318d098f07f81540238ebd82fae194c834017db01d83cf",
+      "size": 4500
+    },
+    {
+      "path": "services/reading-worker/reading_worker/intake.py",
+      "sha256": "b89a8f8a7ccb4a3cbc0f1a9ed6e9bd4fff163b341f3725587ea7e8fa877ea527",
+      "size": 7253
+    },
+    {
+      "path": "services/reading-worker/reading_worker/main.py",
+      "sha256": "6713cbf70ff17a7571af42352cbf9bc3640a0202c6b112bdac3c4ecd4d83e92b",
+      "size": 3544
+    },
+    {
+      "path": "services/reading-worker/reading_worker/runtime.py",
+      "sha256": "864d2bce06a2507affc6abb93a8ebe1493783d48e4424e28c83908d485873df0",
+      "size": 8173
+    },
+    {
+      "path": "services/reading-worker/reading_worker/service.py",
+      "sha256": "f650870e344138ca01314b94f27d50e1b20eec63d493308bb8a0ddfb7b2afc07",
+      "size": 14715
+    },
+    {
+      "path": "services/reading-worker/render-agpl.yaml",
+      "sha256": "1e964538ffc3c1191c68b3f2923edfc6cc4e540dd37c83bcb3ec14b2aa3435e0",
+      "size": 1554
+    },
+    {
+      "path": "services/reading-worker/requirements.lock",
+      "sha256": "ac6f7dee05fb3f7116fa773ea8b0efb56333cd1d3ddd3d4d4b8749e4c1f8d274",
+      "size": 22360
+    },
+    {
+      "path": "services/reading-worker/requirements.txt",
+      "sha256": "f442a38da1a51ccdbe71c53ceb8df7ce65e7c06ce05fd559b3918037dd454b73",
+      "size": 51
+    },
+    {
+      "path": "services/reading-worker/tests/test_bundle.py",
+      "sha256": "3aebe0fca5dd37ac20af1b264adc361258db3532e8a281620f1d6dd2c8fbaf4a",
+      "size": 2425
+    },
+    {
+      "path": "services/reading-worker/tests/test_client.py",
+      "sha256": "8a4a90fc60bf03a026d7fe7c330b9e83235ab5ceb60068bcff5286dfb820e096",
+      "size": 1742
+    },
+    {
+      "path": "services/reading-worker/tests/test_config.py",
+      "sha256": "d460e2654951a70aca2db8eda2a75ddc1a1163f2187a96078f1cbf53564b46a8",
+      "size": 3499
+    },
+    {
+      "path": "services/reading-worker/tests/test_generation.py",
+      "sha256": "530e2ac546cd28a14b63fcb4d4c6e29e11ba67fbee8231f5d01b1a394ecc4209",
+      "size": 3316
+    },
+    {
+      "path": "services/reading-worker/tests/test_http_server.py",
+      "sha256": "9bdd1dfa57a6256c62a7c2bdb0a5e9d5c07a1d61067a0eda8768768092e9a164",
+      "size": 4488
+    },
+    {
+      "path": "services/reading-worker/tests/test_intake.py",
+      "sha256": "82ced861f7056512249875e93d624072023301ed794db551b0a7bab3826958cb",
+      "size": 3278
+    },
+    {
+      "path": "services/reading-worker/tests/test_runtime_location.py",
+      "sha256": "d136b1d0dd6c8a057d483af03587345199a7b3d5dda789028ee0feede6ce48b5",
+      "size": 878
+    },
+    {
+      "path": "services/reading-worker/tests/test_service.py",
+      "sha256": "2788bcb5b3b7094871fdcf6f3bdc24c2818c6685e05c43909c80f04bc9e30d17",
+      "size": 5750
+    },
+    {
+      "path": "supabase/migrations/20260519152111_init_kb_runtime.sql",
+      "sha256": "326b3247a583752ccc93587b16a57c6c702a0084493b2dba8697df3b4d57bd39",
+      "size": 6598
+    },
+    {
+      "path": "supabase/migrations/20260525095713_add_structured_kb_runtime.sql",
+      "sha256": "ea477d0ba6e11cef7a7beea7d21b7e31183c3e128a0235d46de38f9fc01a4d55",
+      "size": 9925
+    },
+    {
+      "path": "supabase/migrations/20260525112318_add_question_blueprint_version.sql",
+      "sha256": "1deabba33c409c1925809529e53ddb8e1e56baf59ff89b07f0b0e34581cb11b1",
+      "size": 438
+    },
+    {
+      "path": "supabase/migrations/20260726170000_add_paid_reading_delivery.sql",
+      "sha256": "999e6fbcf7818aaae4ff53359e113f7559973a503dda20d154f031353d85029f",
+      "size": 153629
+    },
+    {
+      "path": "wiki/ARTICLE_TEMPLATE.md",
+      "sha256": "8cd96bebee02f4c636469a030b5d8014141140c02df40d3cd363f806a969ae92",
+      "size": 2355
+    },
+    {
+      "path": "wiki/README.md",
+      "sha256": "aafc4e425e84aaab63bc6389ccac6e20863b02684ab4d6092b8272de51c8a57d",
+      "size": 1546
+    },
+    {
+      "path": "wiki/bazi/README.md",
+      "sha256": "e5dfff9f0713cbccd7551585c0c94d429e92b59a525265f9d61f36f569f7b981",
+      "size": 827
+    },
+    {
+      "path": "wiki/bazi/dizhi/README.md",
+      "sha256": "0d210b2bd08e81034ab0ba5abfeb1debe92309ad7efd33983713fe061ebe9dc5",
+      "size": 287
+    },
+    {
+      "path": "wiki/bazi/geju/README.md",
+      "sha256": "5fe2f68f97280f5e1cbb0453c1df636d07b958b0215132cc2dd5f201c6b03464",
+      "size": 277
+    },
+    {
+      "path": "wiki/bazi/geju/month-command-strength.md",
+      "sha256": "574af3e89f544434dc95647d3674e94423fa90ce895da173cd86b03b3b1836e2",
+      "size": 5444
+    },
+    {
+      "path": "wiki/bazi/hehun/README.md",
+      "sha256": "fb66bf31b2f40818e4a0c6aff857147530aeb06aa10b4da64c50c5f74c7a1787",
+      "size": 364
+    },
+    {
+      "path": "wiki/bazi/hehun/day-branch-conflict-combination.md",
+      "sha256": "9cabff20c5af87679f9d0437e4ea8866b4a0aa1bf041a804a5cef050046c1db0",
+      "size": 5554
+    },
+    {
+      "path": "wiki/bazi/hehun/marriage-palace.md",
+      "sha256": "63c937f3341e816cdb34c09419abc9d8435b5b92d282998d92fa53b7f9d3088c",
+      "size": 5380
+    },
+    {
+      "path": "wiki/bazi/hehun/spouse-star.md",
+      "sha256": "01c3e2c271a06803c09e8e40a37595bc7f98672e44b78c7d02ce815b76749c04",
+      "size": 5260
+    },
+    {
+      "path": "wiki/bazi/hehun/year-only-matching-is-insufficient.md",
+      "sha256": "4d2cc1d9e1409361b16592095dd110ee028b3aaf4061f13197e0a1644d3f2981",
+      "size": 4585
+    },
+    {
+      "path": "wiki/bazi/shishen/README.md",
+      "sha256": "03ef1e18f0eee98239045cfda951d5d9ab07b6788d58ed70111ae26d5f44db7f",
+      "size": 343
+    },
+    {
+      "path": "wiki/bazi/shishen/ten-gods-relationship-roles.md",
+      "sha256": "bfc4928e226677c45e7cdc2683a2dc4a2ac5e2a66101a558570c88c213a64ec5",
+      "size": 5551
+    },
+    {
+      "path": "wiki/bazi/tiangan/README.md",
+      "sha256": "60fb9b001c867c9558d93be109ce86411948c0b7b0ee7c3579d3eb472d75b4b9",
+      "size": 331
+    },
+    {
+      "path": "wiki/bazi/tiangan/bing-huo.md",
+      "sha256": "6a88f9a5933c8c34e7a30f73b28dfc4889d258e70b75dd0e5a3a5c459e09a343",
+      "size": 5580
+    },
+    {
+      "path": "wiki/bazi/tiangan/ding-huo.md",
+      "sha256": "7bf3e18796b1d5b070014855900af58cc9ae59615bef2258e0cb2d897c99d0d3",
+      "size": 5166
+    },
+    {
+      "path": "wiki/bazi/tiangan/ji-tu.md",
+      "sha256": "b2da0babe6749f4e1d44f744befc847671c838374e4308a35e3875bac2b25832",
+      "size": 5469
+    },
+    {
+      "path": "wiki/bazi/tiangan/jia-mu.md",
+      "sha256": "f7c0697b6524c47322585cf162433052c9199421a7a3be7e4195aa79b9eb3dc1",
+      "size": 5871
+    },
+    {
+      "path": "wiki/bazi/tiangan/xin-jin.md",
+      "sha256": "684486ef9d88cc5e2684439431584b8408e10b5cf2c0cd54f3a98fc01eba94cd",
+      "size": 5528
+    },
+    {
+      "path": "wiki/bazi/tiangan/yi-mu.md",
+      "sha256": "3160645246db1f205c2f879498011f141659fc9ddbb4f6e1c995348ac192b35c",
+      "size": 4612
+    },
+    {
+      "path": "wiki/bazi/timing/README.md",
+      "sha256": "7fb8bfbe09c84cd899aab1c3d36eff24fe7ba1e2fb403787e29098a6c74b3140",
+      "size": 244
+    },
+    {
+      "path": "wiki/bazi/timing/luck-flow.md",
+      "sha256": "7eb774f9dd0d79a30cf5e3163d954fe9dbde61d98be1397c73e93c0b90a4cd33",
+      "size": 6544
+    },
+    {
+      "path": "wiki/bazi/timing/year-month-trigger.md",
+      "sha256": "862640bb7cbba7959282e1c10378d96d8d73da2320c36602701500c106422741",
+      "size": 6673
+    },
+    {
+      "path": "wiki/bazi/wuxing/README.md",
+      "sha256": "b65b866942c3f75ac49d72a871e62e80d96e54298fede7677cfc04336cdd5f34",
+      "size": 238
+    },
+    {
+      "path": "wiki/bazi/wuxing/mu-sheng-huo.md",
+      "sha256": "4b658acbc80ba76dfcc6fe97ee76e4b089a1078d0100a09c4c3c0f817dabfb53",
+      "size": 4646
+    },
+    {
+      "path": "wiki/context/README.md",
+      "sha256": "24fc1a9a0948cc556390c00b3a775d940d7bc3a86ee4de812133288b8ec204e4",
+      "size": 2157
+    },
+    {
+      "path": "wiki/context/contact/relationship-contact-status.md",
+      "sha256": "0b5cae595f45ad394f5adb90a595eadcfda4cce9dd75e4695df5dac54e99a1b9",
+      "size": 10046
+    },
+    {
+      "path": "wiki/context/outcomes/desired-outcome.md",
+      "sha256": "7ff8215edcc50da5587bf2800b068bfa1ff617f08ff67f352e3fd55239a16bf3",
+      "size": 5191
+    },
+    {
+      "path": "wiki/context/questions/README.md",
+      "sha256": "087adb562b5e44d3c6df714338ccdfcbf9541b1aba87bb945f4c7e5150d5de0a",
+      "size": 404
+    },
+    {
+      "path": "wiki/context/questions/any-chance.md",
+      "sha256": "4cc30f83dd5873b8ca88d3973052fa208d7a0d7cdc961f46b8c91bc20f977f36",
+      "size": 4994
+    },
+    {
+      "path": "wiki/context/questions/stay-or-let-go.md",
+      "sha256": "af3aac62c5f5316cc3e4aad0cf2ef1e574a44d8352de8f3df56eeecedfa287b2",
+      "size": 5175
+    },
+    {
+      "path": "wiki/context/questions/still-love-me.md",
+      "sha256": "61980f42ec75ba2cdb9d572f98fd625069e6c67e5568ef40a483a3fa0c841e99",
+      "size": 5384
+    },
+    {
+      "path": "wiki/context/questions/what-did-i-do-wrong.md",
+      "sha256": "ce6d38634bdc06cd17ea558974990e0702b6a7c645781b81bcbd92ae2e7d7add",
+      "size": 5251
+    },
+    {
+      "path": "wiki/context/questions/when-to-contact.md",
+      "sha256": "4cb91c754289c4ab4893a669e131e308feb4d802860f65c3def84268b84618d4",
+      "size": 5002
+    },
+    {
+      "path": "wiki/context/safety/emotional-risk.md",
+      "sha256": "aa50d6bd41aaca2f35e9db8d2909a35a324f5e58bbe8347a8a66bd5104a89fde",
+      "size": 5061
+    },
+    {
+      "path": "wiki/context/stages/README.md",
+      "sha256": "9f7f03c091274ff128a537782da9f3a81950af7794ecc5201383d8fa1caad5c4",
+      "size": 550
+    },
+    {
+      "path": "wiki/context/stages/ambiguous.md",
+      "sha256": "6ef0b705853cf945ddfc0bb2d2bf978344c423fbe291cb419a4a64cdab3dcfa0",
+      "size": 4375
+    },
+    {
+      "path": "wiki/context/stages/broke-up-long.md",
+      "sha256": "70fa2b347a429dfa7ecec6022d5c02d85570d5dcde2c23a160412d5d29fdda8b",
+      "size": 5067
+    },
+    {
+      "path": "wiki/context/stages/broke-up-recent.md",
+      "sha256": "40aeafc2f4b80f0505e6f44b9de74d0d1e09d593cd5c0f070f56edc0ae851b41",
+      "size": 5288
+    },
+    {
+      "path": "wiki/context/stages/cold-war.md",
+      "sha256": "1718a8e13fb94ffa99cf720b2909f7a13d03288cd56176fbfa7b9cde9c304cfd",
+      "size": 5005
+    },
+    {
+      "path": "wiki/context/stages/crisis.md",
+      "sha256": "a1918656f20145893508a895dc15f6f151de6a86ec9f53c45ec39b5f71f1262b",
+      "size": 5016
+    },
+    {
+      "path": "wiki/context/stages/relationship-stage.md",
+      "sha256": "47e06ed86ebd66817f16e489f93a16e907be636d695cee867c9347c73f11cab8",
+      "size": 5659
+    },
+    {
+      "path": "wiki/context/tone/README.md",
+      "sha256": "d9210bce613d1679745f127e99daffbbee61063b1bcae757358330b8440dd418",
+      "size": 217
+    },
+    {
+      "path": "wiki/cross/README.md",
+      "sha256": "90a16314504bddbb1411dc99e42117fe428d26db5f4f4f4a8185bb185d9a6ef5",
+      "size": 569
+    },
+    {
+      "path": "wiki/western/README.md",
+      "sha256": "5a75286caf0cc2e63cad224f8cd6f797830fc984fe43aed1f97e6fbefbaaa1ad",
+      "size": 1331
+    },
+    {
+      "path": "wiki/western/aspects/README.md",
+      "sha256": "2f5afa8f6d43256c2ae9694c54a300e39a4863952fd7798cc7cf0ed3af166f00",
+      "size": 874
+    },
+    {
+      "path": "wiki/western/aspects/aspect-function-combination-reducers.md",
+      "sha256": "06d5011f3d81ade6ecffc1e387badb2aad200a888a049481d46e8daff70aa913",
+      "size": 10482
+    },
+    {
+      "path": "wiki/western/aspects/aspect-interpretation-foundation.md",
+      "sha256": "84e939bd999187c5dcf416a8e2236447612944f9fa81dfb1ca00e282c6b13a33",
+      "size": 7974
+    },
+    {
+      "path": "wiki/western/aspects/aspect-synthesis-george-bloch.md",
+      "sha256": "d98971c3f09f73bee9b214f3bcaaf236e88481890681d0eec89bd8662d0aad06",
+      "size": 7184
+    },
+    {
+      "path": "wiki/western/aspects/contact-type-modifiers.md",
+      "sha256": "a3bf105d8dc1e24eccfe15a9f22e57af6ce56d8e03a6b0979177e3eb2e0c0911",
+      "size": 9607
+    },
+    {
+      "path": "wiki/western/aspects/mars-mars.md",
+      "sha256": "e70e7e015e65f0cffe248fc7cd27721931afa28a938143ca9d1812ea2e0e950f",
+      "size": 5205
+    },
+    {
+      "path": "wiki/western/aspects/mars-saturn.md",
+      "sha256": "2fd4fd6b96afc715f1a31877b01304ca1d8b61f32b46df385180fac6d7c7c67f",
+      "size": 6749
+    },
+    {
+      "path": "wiki/western/aspects/mercury-contacts.md",
+      "sha256": "b4199928e3896874166f4bf6ab3bc99f897b195927fe63331918f7754a947388",
+      "size": 10891
+    },
+    {
+      "path": "wiki/western/aspects/mercury-jupiter.md",
+      "sha256": "eac33a4dad2caf597fbc7140253c34c27b7fa3780c84531d4d01f3f288b140a1",
+      "size": 5218
+    },
+    {
+      "path": "wiki/western/aspects/mercury-sun.md",
+      "sha256": "54e4eb17ec5397f0294a90805b87396742a1be9ba2e02be1aa27d19bf83e024f",
+      "size": 4838
+    },
+    {
+      "path": "wiki/western/aspects/moon-mars.md",
+      "sha256": "c9a62381c5c4ea67e5856dad3966ec951fb8a99fa0f5de7e0c4843dfb7862cd4",
+      "size": 5378
+    },
+    {
+      "path": "wiki/western/aspects/moon-moon.md",
+      "sha256": "4efc2c206b948b9fefd3140e8743232a051051c7649dfaa4a803a4b154193f1e",
+      "size": 5296
+    },
+    {
+      "path": "wiki/western/aspects/moon-saturn.md",
+      "sha256": "1e686235cfcb173d2ffbe0ef805e34e5a914148eebc4864fb190e8a22e479f60",
+      "size": 5090
+    },
+    {
+      "path": "wiki/western/aspects/moon-venus.md",
+      "sha256": "35d70e497365789a3c870b2548c4d644c0839b44162739c4138e18e1f0f9778b",
+      "size": 5803
+    },
+    {
+      "path": "wiki/western/aspects/outer-planet-intensity-families.md",
+      "sha256": "9955f5e9666139784fcb1e9224d30061ed8f66521c915a8a4e3162237bfcdd95",
+      "size": 9179
+    },
+    {
+      "path": "wiki/western/aspects/pair-contact-phrase-templates.md",
+      "sha256": "2badfe8f6f2e3f7a3ac09700c67aa5a2912d2d3c25bc44a68ba7eb3774014837",
+      "size": 11481
+    },
+    {
+      "path": "wiki/western/aspects/saturn-pressure.md",
+      "sha256": "ed04a45c21c7fdb74bd251390478960c3c0e89808641769f8af26d473d6ef479",
+      "size": 5658
+    },
+    {
+      "path": "wiki/western/aspects/sun-mars.md",
+      "sha256": "920d80cb1ec16544aa6ceb03f682591069e24ae779b53336da4b95a0491880b7",
+      "size": 5311
+    },
+    {
+      "path": "wiki/western/aspects/sun-moon.md",
+      "sha256": "b633d83a830270903f421257884da416cd50f6cdad04fed04baa49037c5c1cb9",
+      "size": 5406
+    },
+    {
+      "path": "wiki/western/aspects/sun-saturn.md",
+      "sha256": "ae71436d54dfa0790f3fe12c4075c280f4aedf0f3d9d9587e6d5708f69f4dcf3",
+      "size": 6670
+    },
+    {
+      "path": "wiki/western/aspects/sun-venus.md",
+      "sha256": "463fe0907501e2868dda32992b7bf3c1f45f28a6393a418d3a20323633a4dbcc",
+      "size": 5334
+    },
+    {
+      "path": "wiki/western/aspects/venus-mars.md",
+      "sha256": "68535c6582a343227f80e4462f109561c5105ebb0080882649bcdbb55844697b",
+      "size": 4965
+    },
+    {
+      "path": "wiki/western/aspects/venus-saturn.md",
+      "sha256": "35e5ec8cbd45cd164b4370712111a23e48234c2ab255a3d6239af57b8a25776f",
+      "size": 5154
+    },
+    {
+      "path": "wiki/western/aspects/venus-venus.md",
+      "sha256": "79fb664492a9e6606469ce408898097de6689c546e317ba9852c9cc02b0c9432",
+      "size": 4845
+    },
+    {
+      "path": "wiki/western/composite/README.md",
+      "sha256": "25c12194d88e8e6ba78d788dd70c66cfa7f3ca80e79361665a8f42f3fa6fbed2",
+      "size": 222
+    },
+    {
+      "path": "wiki/western/composite/composite-chart.md",
+      "sha256": "ff0021a69ccf3a4ca659e04cee0a1e429514f016021e4a06f13b15d69bec3031",
+      "size": 5306
+    },
+    {
+      "path": "wiki/western/composite/relationship-chart-layer.md",
+      "sha256": "7611fc129899d89be5e03e97037c2220fb8ad142ad385c7b8b311344a8722910",
+      "size": 5719
+    },
+    {
+      "path": "wiki/western/houses/README.md",
+      "sha256": "72d3f565f19299e8b2c0311691c094e562cce9fb9a8993aa3596a39979a99bde",
+      "size": 650
+    },
+    {
+      "path": "wiki/western/houses/angles-houses-foundation.md",
+      "sha256": "5b2134edbb81311e66d45403c42ec091def5b74c294df3bc87b9263403e54521",
+      "size": 9044
+    },
+    {
+      "path": "wiki/western/planets/README.md",
+      "sha256": "f386e387dbbe0a2b4d1356978c01557d5bbafc0b945c5a89ba4a81b3fdec0feb",
+      "size": 855
+    },
+    {
+      "path": "wiki/western/planets/natal-relationship-needs.md",
+      "sha256": "4c885970f87862d4d950657a55040d4cf27bdbb18478908503451bcfb57b9ab6",
+      "size": 6077
+    },
+    {
+      "path": "wiki/western/planets/natal-relationship-potential.md",
+      "sha256": "76b62ad741188fc6c10db421d36028b504a9e6785f72b771fa9d412ee2094dcb",
+      "size": 6168
+    },
+    {
+      "path": "wiki/western/planets/planetary-functions-hand.md",
+      "sha256": "433c05edd740dd0a23b9b55c550d1b8a187ebab61033a1be0392844ce669311c",
+      "size": 10372
+    },
+    {
+      "path": "wiki/western/planets/relationship-needs-george-bloch.md",
+      "sha256": "6d6bd241b050427cb0bc4634bdf053b04083497701c3cc460028746a03d3fbc5",
+      "size": 9462
+    },
+    {
+      "path": "wiki/western/planets/sun-moon-asc-profile-george-bloch.md",
+      "sha256": "72fe887efe7cc19743afd156ef259d29c4047c81f9a38ad5e279808826a6fa1b",
+      "size": 7140
+    },
+    {
+      "path": "wiki/western/precision/README.md",
+      "sha256": "f7a780ad68d3f5010a3b76bcf763a0434d61ada1c788987711fa6d862ecc9b9b",
+      "size": 451
+    },
+    {
+      "path": "wiki/western/precision/birth-data-quality.md",
+      "sha256": "2872a473258caf27216239772f47f0123bd8864db31d34bea0a9be425a7efad0",
+      "size": 7304
+    },
+    {
+      "path": "wiki/western/signs/README.md",
+      "sha256": "28dae156c90b0feb5adf551196337e0cd4d6c1716f1b38e9e95c6b1db1a54488",
+      "size": 773
+    },
+    {
+      "path": "wiki/western/signs/element-polarity-modality-george-bloch.md",
+      "sha256": "664d621c299ba4d8815c6483fbccc4a08490face1b4629dd5f190fcd435c8ef8",
+      "size": 6573
+    },
+    {
+      "path": "wiki/western/signs/function-element-templates.md",
+      "sha256": "00cfedda3081f3de2e42c4098e10c6cfb798440c8db4a9a2acd92c38456f52de",
+      "size": 9967
+    },
+    {
+      "path": "wiki/western/signs/function-modality-templates.md",
+      "sha256": "d7ea29f64b446f38e9f30c2f28ac30b2dca46cff9322fe443739d23adb30f8b3",
+      "size": 8884
+    },
+    {
+      "path": "wiki/western/signs/individual-sign-meanings-hand.md",
+      "sha256": "a761a86d6da40357988abb3262cb8e8a1efb778506daafaa44c79ea261c28845",
+      "size": 14276
+    },
+    {
+      "path": "wiki/western/signs/relationship-function-sign-templates.md",
+      "sha256": "012ee8bdb91a59929d03a331f7846e211e8cbd6755ee502292e764ec57af54de",
+      "size": 12698
+    },
+    {
+      "path": "wiki/western/signs/sign-element-modality-foundation.md",
+      "sha256": "4e1dc227c25f954f50daa0cf305c4df61b318978eef81b20d86b8ee05d1be854",
+      "size": 13162
+    },
+    {
+      "path": "wiki/western/synastry/README.md",
+      "sha256": "bc31f4e6c8568369df357b7a0268527528f0ffa3a0eb9f957cb7058cb016192e",
+      "size": 1129
+    },
+    {
+      "path": "wiki/western/synastry/astrology-for-yourself-method-foundation.md",
+      "sha256": "e1f001351c74a35b8e7c9a012c660c576aeb77763aff554895195b0c8c5fafdd",
+      "size": 6661
+    },
+    {
+      "path": "wiki/western/synastry/consultation-ethics.md",
+      "sha256": "6ea4ab0e4c5bc3cdbee1cee9d53f573519c151df04c2678a98ca67989398d01b",
+      "size": 9796
+    },
+    {
+      "path": "wiki/western/synastry/evidence-clusters.md",
+      "sha256": "cf9f3e00139092c769b2e1503bf2e8de156e767b53626c06a15473e2d91bf656",
+      "size": 7844
+    },
+    {
+      "path": "wiki/western/synastry/horoscope-symbols-foundation.md",
+      "sha256": "6bbc5c301a6edae3deb5ff56640663d90358f7d38646759b1de35c76c156009e",
+      "size": 7241
+    },
+    {
+      "path": "wiki/western/synastry/initial-comparison-elements.md",
+      "sha256": "f021362557069aca8822538930ddba22d863742974f92fbd405b3e27285c38fb",
+      "size": 5522
+    },
+    {
+      "path": "wiki/western/synastry/interchart-aspect-priorities.md",
+      "sha256": "099f00acd8418ce5432d4c0a93e890343b5b5ec6c14af4fac6cc5fa53f3bbb87",
+      "size": 9288
+    },
+    {
+      "path": "wiki/western/synastry/method-order.md",
+      "sha256": "2f7bf0cd4e61f487a2b7b9ed8791a2788eae2f1bcb72a91155596c9d25245fca",
+      "size": 5501
+    },
+    {
+      "path": "wiki/western/synastry/modern-nonfatal-synastry.md",
+      "sha256": "4f948e85da099ed567faa8387f27d3d0c670ca912dfa09c6a4647029e00be4d3",
+      "size": 6367
+    },
+    {
+      "path": "wiki/western/synastry/relationship-framework.md",
+      "sha256": "2302328599b864a4306fd9a29c1e14cf7f5eebfc852bc6834de6959457390101",
+      "size": 4820
+    },
+    {
+      "path": "wiki/western/synastry/repair-conditions.md",
+      "sha256": "5fb1e7c0b1b55c381b4864eff202e9c2508e030f156b587d33104c4fb230ca7e",
+      "size": 5856
+    },
+    {
+      "path": "wiki/western/synastry/safety-validation-language.md",
+      "sha256": "437881bd2faf96dc219e31cd4db93ea82adefefe1d63f737bcacddc07e1cb8ed",
+      "size": 8469
+    },
+    {
+      "path": "wiki/western/synastry/synastry-method.md",
+      "sha256": "e4670502afc4be46295de93b1740dcce7699ca48de7d85644d1a65815d5f3180",
+      "size": 4316
+    },
+    {
+      "path": "wiki/western/transits/README.md",
+      "sha256": "22ee5e8e2b7bfbf7eb1c3dc5d6b3842d16bc44268327546dd481c333130eb072",
+      "size": 192
+    },
+    {
+      "path": "wiki/western/transits/contact-timing-action-reducers.md",
+      "sha256": "0ab8022b010ac467953aefb252608b9331c8071bffa42deacb80ac21274f6649",
+      "size": 12335
+    },
+    {
+      "path": "wiki/western/transits/timing-selector-windows.md",
+      "sha256": "c50187e6d3b797c5776153fbaa21486c371f157334d627a716ffda0fbea7c21f",
+      "size": 9171
+    },
+    {
+      "path": "wiki/western/transits/timing-window.md",
+      "sha256": "652564df1ba7baf182cf26e8fbe488271fed53a7d23c77e812108f62981ff41f",
+      "size": 6027
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/README.md",
+      "sha256": "4ecd70188407cd52757ecb90aa8d105f73707aba61d25f5306c2a3488b4a1d33",
+      "size": 13693
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/src/AccessEmail.php",
+      "sha256": "bdb8768326a054f8ef6d5320550ba71c0ddb488626b89d687df7cfa52f26d9a1",
+      "size": 31510
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/src/AccessEmailPolicy.php",
+      "sha256": "f31891ffec533cf55899fb70701fd221b7b89be28eec7cc5dfb69272f009b18a",
+      "size": 7934
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/src/BillingEmailConfirmation.php",
+      "sha256": "31a4700b1842e1e6e1b35c55217124f71593917796d82d52e2be703e5d093193",
+      "size": 18619
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/src/CartPolicy.php",
+      "sha256": "f042b3acd77e6391f9fbf56529553c5a2b76e40194df277c3f1bd9156658fd21",
+      "size": 796
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/src/CheckoutGuard.php",
+      "sha256": "41927176f24b87792771422f540e7d0e9092ec9ea09148e7e6c11535435ae857",
+      "size": 6146
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/src/CheckoutTerms.php",
+      "sha256": "808e5b48f3333d6aa25d0518210b026755ba8574c8421820a1f7154ff03ae43e",
+      "size": 5895
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/src/CommerceInvariant.php",
+      "sha256": "6a157843ef922d82325936cd1551695b6d46e4d8a0b2f7eefc287106a357488f",
+      "size": 4956
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/src/DirectCheckout.php",
+      "sha256": "ffdb8d14441311346437f7e73d5d0985cc4c40bc1d19f185ef2e7e39173011d1",
+      "size": 5587
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/src/HealthStatus.php",
+      "sha256": "f15490fdb19df4aa69b29d660067aeeedd09be635c0606c312f66c85391a2c5f",
+      "size": 2038
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/src/LaunchGate.php",
+      "sha256": "8dbec96859719c94fb17e05e76a608bf9dadb068ff74f429dac95b3f45f1872e",
+      "size": 1492
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/src/OrderMetadata.php",
+      "sha256": "78ba25054a3618f5ca90a8f113aecafd46e205328b082314cbbb014f5e4efe38",
+      "size": 5883
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/src/PrivacyPolicy.php",
+      "sha256": "9c64c2ac1f7d918ba06e91af246a4d79287e75e6543bd93924fc3cbf35fd7589",
+      "size": 1448
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/src/ProductPolicy.php",
+      "sha256": "8d6a9034ac4d14419e1309e8c0b2c4697b7af7494d326bd938d17c3881784cd1",
+      "size": 5889
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/src/ReadingProduct.php",
+      "sha256": "c1fd07abd7a7b3725ad7988f266ff51b43914bbb259440646aaee2c23ad0758a",
+      "size": 11407
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/src/ThankYouMessage.php",
+      "sha256": "98567ac08a4f500d18ee5f60edfa256dbaa6d6624045f3bc59fc889796be2edb",
+      "size": 3606
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/tests/AccessEmailPolicyTest.php",
+      "sha256": "a818cdd9001ce778f8ef501db30d04d39e396b05dd12d4f9f92fc85b0b89e67b",
+      "size": 4869
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/tests/BillingEmailConfirmationTest.php",
+      "sha256": "40cfea2d0ba79f2ec1efbc94f26878b40c52096aee8f40033f8b2360807327a4",
+      "size": 4827
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/tests/CheckoutTermsTest.php",
+      "sha256": "823bf930993923cbdde091642ef277aec21d3c7412d209d12ebc0e811879f790",
+      "size": 4492
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/tests/CommerceInvariantTest.php",
+      "sha256": "1f41c18eb6454916d8404462abc6672a1c9cc457b69d0a27e88a349b0e426d46",
+      "size": 3134
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/tests/static-verification.mjs",
+      "sha256": "6a6f4534cd997543d80be31aa5048539e0848c89486a75895297cb8ce3d51395",
+      "size": 10572
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/valley-of-light-commerce-bridge.php",
+      "sha256": "cbb3e11cb8abe3cdd468701cc2837304c6d62a7e6149303a2f6586f0fad323bf",
+      "size": 3589
+    }
+  ],
+  "license": "AGPL-3.0-or-later",
+  "releaseId": "v2026.07.27.1",
+  "sourceUrl": "https://github.com/ShadowShogun7/valley-of-light-reading-worker-source/releases/download/v2026.07.27.1/valley-of-light-agpl-source-v2026.07.27.1.zip"
+}

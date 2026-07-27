@@ -1,0 +1,59 @@
+-- Run this only as the database owner, first in disposable staging.
+-- Do not replace the placeholders until the owner has approved the policy,
+-- anchor contract, legal-hold process, cadence, and retention durations.
+--
+-- Required policy anchor contract:
+--   reading-retention-anchor-v1
+--   incomplete: last activity across paid order, reading, and intake
+--   delivered: delivered_at, or ready_at when delivery has not occurred
+--   revoked: refunded_at, or the reading's last status update
+--
+-- The private runner is intentionally unavailable to service_role. The cron
+-- job must therefore be registered by the migration/database owner.
+-- Approved policy semantics are immutable. To change a duration or anchor,
+-- disable the old version, create and approve a new version, test it in
+-- staging, then update both this job and VALLEY_RETENTION_POLICY_VERSION.
+
+select cron.schedule(
+  'valley-reading-retention-hourly',
+  '7 * * * *',
+  $retention$
+    select private.valley_run_reading_retention_batch(
+      'REPLACE_WITH_APPROVED_POLICY_VERSION',
+      'REPLACE_WITH_64_CHARACTER_SCHEDULER_ACTOR_HASH',
+      50
+    );
+  $retention$
+);
+
+-- Verify registration and ownership after scheduling:
+select jobid, jobname, schedule, database, username, active
+from cron.job
+where jobname = 'valley-reading-retention-hourly';
+
+-- Run one bounded staging batch manually as the same owner before launch:
+select private.valley_run_reading_retention_batch(
+  'REPLACE_WITH_APPROVED_POLICY_VERSION',
+  'REPLACE_WITH_64_CHARACTER_SCHEDULER_ACTOR_HASH',
+  5
+);
+
+-- Confirm the latest run completed and no overdue backlog remains:
+select
+  policy_version,
+  status,
+  scanned_readings,
+  staged_actions,
+  completed_actions,
+  skipped_actions,
+  failed_actions,
+  policy_snapshot,
+  overdue_remaining,
+  started_at,
+  finished_at
+from private.reading_retention_runs
+order by started_at desc
+limit 10;
+
+-- Rollback the schedule without weakening data immutability:
+-- select cron.unschedule('valley-reading-retention-hourly');
