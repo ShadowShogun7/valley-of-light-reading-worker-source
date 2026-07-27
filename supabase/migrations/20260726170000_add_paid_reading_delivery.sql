@@ -4968,7 +4968,7 @@ revoke all on function public.valley_revoke_paid_woocommerce_order(text, text, t
 revoke all on function public.valley_set_access_grant_token_hash(uuid, text) from public, anon, authenticated;
 revoke all on function public.valley_get_paid_reading(uuid, text, timestamptz) from public, anon, authenticated;
 revoke all on function public.valley_save_reading_intake_draft(uuid, text, timestamptz, jsonb) from public, anon, authenticated;
-revoke all on function public.valley_submit_reading_intake(uuid, text, timestamptz, text, jsonb, jsonb, text, timestamptz) from public, anon, authenticated;
+revoke all on function public.valley_submit_reading_intake(uuid, text, timestamptz, text, jsonb, jsonb, text, text, timestamptz, text, text, timestamptz) from public, anon, authenticated;
 revoke all on function public.valley_claim_reading_fulfillment(uuid, text, integer) from public, anon, authenticated;
 revoke all on function public.valley_fail_reading_fulfillment(uuid, uuid, text, integer, boolean, text) from public, anon, authenticated;
 revoke all on function public.valley_renew_reading_fulfillment_lease(uuid, uuid, text, integer, integer) from public, anon, authenticated;
@@ -4992,7 +4992,7 @@ grant execute on function public.valley_revoke_paid_woocommerce_order(text, text
 grant execute on function public.valley_set_access_grant_token_hash(uuid, text) to service_role;
 grant execute on function public.valley_get_paid_reading(uuid, text, timestamptz) to service_role;
 grant execute on function public.valley_save_reading_intake_draft(uuid, text, timestamptz, jsonb) to service_role;
-grant execute on function public.valley_submit_reading_intake(uuid, text, timestamptz, text, jsonb, jsonb, text, timestamptz) to service_role;
+grant execute on function public.valley_submit_reading_intake(uuid, text, timestamptz, text, jsonb, jsonb, text, text, timestamptz, text, text, timestamptz) to service_role;
 grant execute on function public.valley_claim_reading_fulfillment(uuid, text, integer) to service_role;
 grant execute on function public.valley_fail_reading_fulfillment(uuid, uuid, text, integer, boolean, text) to service_role;
 grant execute on function public.valley_renew_reading_fulfillment_lease(uuid, uuid, text, integer, integer) to service_role;

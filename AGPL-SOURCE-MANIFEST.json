@@ -1829,8 +1829,8 @@
     },
     {
       "path": "supabase/migrations/20260726170000_add_paid_reading_delivery.sql",
-      "sha256": "88f4da7d52d8d5a3df3a20d62a973903a19e6cc32da5e4f37e8552028db11d40",
-      "size": 155802
+      "sha256": "32299d0c25f51b53baaeb05946d03f3d3be754c2a6b96e8136d2dadeabcd6d1e",
+      "size": 155864
     },
     {
       "path": "wiki/ARTICLE_TEMPLATE.md",
@@ -2474,6 +2474,6 @@
     }
   ],
   "license": "AGPL-3.0-or-later",
-  "releaseId": "v2026.07.27.3",
-  "sourceUrl": "https://github.com/ShadowShogun7/valley-of-light-reading-worker-source/releases/tag/v2026.07.27.3"
+  "releaseId": "v2026.07.27.4",
+  "sourceUrl": "https://github.com/ShadowShogun7/valley-of-light-reading-worker-source/releases/tag/v2026.07.27.4"
 }
