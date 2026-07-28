@@ -24,8 +24,8 @@
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
-      "sha256": "3b59f40cf0fd31a2ccbf86fc9823d6aee5e9f0c9aa91fcf7314d36112e4f619d",
-      "size": 667
+      "sha256": "4a27db5b72899321f2c9a5992fc33a455e06d060ae5513bbee98611d0cf4bbf3",
+      "size": 724
     },
     {
       "path": "apps/web/.env.example",
@@ -499,7 +499,7 @@
     },
     {
       "path": "dist/kb/manifest.json",
-      "sha256": "4ae4aa83b8d9be3031f6239c3a4b4054d6e35adcd07fc06ee28523fb3cccad01",
+      "sha256": "83f663afc4019ec00d9e0f10ab3375fbb9cc410a3ea3ceb00ac5f18029284bd4",
       "size": 298
     },
     {
@@ -1764,13 +1764,13 @@
     },
     {
       "path": "services/reading-worker/requirements.lock",
-      "sha256": "ac6f7dee05fb3f7116fa773ea8b0efb56333cd1d3ddd3d4d4b8749e4c1f8d274",
-      "size": 22360
+      "sha256": "e12a1d0a4ecee01f84e3b7fc430d99feef883288b97885d317a025a8becfa80c",
+      "size": 33624
     },
     {
       "path": "services/reading-worker/requirements.txt",
-      "sha256": "f442a38da1a51ccdbe71c53ceb8df7ce65e7c06ce05fd559b3918037dd454b73",
-      "size": 51
+      "sha256": "6591e6a3a76ea78aeda77c70e2b9366e0ba339cbe2ec80700fdd7e462031c89a",
+      "size": 68
     },
     {
       "path": "services/reading-worker/tests/test_bundle.py",
@@ -2479,6 +2479,6 @@
     }
   ],
   "license": "AGPL-3.0-or-later",
-  "releaseId": "v2026.07.28.1",
-  "sourceUrl": "https://github.com/ShadowShogun7/valley-of-light-reading-worker-source/releases/download/v2026.07.28.1/valley-of-light-agpl-source-v2026.07.28.1.zip"
+  "releaseId": "v2026.07.28.2",
+  "sourceUrl": "https://github.com/ShadowShogun7/valley-of-light-reading-worker-source/releases/download/v2026.07.28.2/valley-of-light-agpl-source-v2026.07.28.2.zip"
 }

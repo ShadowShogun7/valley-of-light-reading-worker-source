@@ -3,6 +3,7 @@
 The paid-reading worker currently installs:
 
 - `immanuel==1.5.4`, distributed under `AGPL-3.0-or-later`;
+- `pydantic==2.12.5`, distributed under the MIT License;
 - `pyswisseph==2.10.3.2`, distributed under `AGPL-3.0`; and
 - Swiss Ephemeris through pyswisseph, used under its AGPL licensing path.
 
