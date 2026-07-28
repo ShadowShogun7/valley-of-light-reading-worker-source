@@ -93,6 +93,10 @@ Dockerfile.
 Build one reviewed source release with:
 
 ```sh
+python3 scripts/compile_kb.py \
+  --out dist/kb \
+  --published-only
+
 python3 services/reading-worker/build_agpl_source_release.py \
   --release-id <immutable-release-id> \
   --source-url https://<public-release-url> \

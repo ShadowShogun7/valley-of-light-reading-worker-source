@@ -464,8 +464,8 @@
     },
     {
       "path": "dist/kb/kb_articles.json",
-      "sha256": "6ac677018640be213c10a0ff795ddfb32e1ba8e649aadec003c886901b1ae88a",
-      "size": 409427
+      "sha256": "531148e8e649222f6292d259b317aec69c0a7aa2f68b480572b0db3e0ba4b062",
+      "size": 337590
     },
     {
       "path": "dist/kb/kb_atoms.json",
@@ -474,8 +474,8 @@
     },
     {
       "path": "dist/kb/kb_claims.json",
-      "sha256": "8908684d517d0f9c3474f9c9a9315b7e4cdd82a6def59bed0497640996c1ee6b",
-      "size": 299691
+      "sha256": "fe3a14a46e23db514125c8e6198f5ee24a3fb65201aa3c21ccba4aa65a6afbb2",
+      "size": 264282
     },
     {
       "path": "dist/kb/kb_guardrails.json",
@@ -484,8 +484,8 @@
     },
     {
       "path": "dist/kb/kb_links.json",
-      "sha256": "cf9b807190165d17d776320e4cef7ab054eb47ac05ad77391a1cfe2e4727b4db",
-      "size": 228367
+      "sha256": "78891f7b20ee6fa09fda4e6b8b5e9ca5084be6a656eda2573fa2d1b7db14325a",
+      "size": 192935
     },
     {
       "path": "dist/kb/kb_question_blueprints.json",
@@ -499,8 +499,8 @@
     },
     {
       "path": "dist/kb/manifest.json",
-      "sha256": "8a71d4f42f20db83d2f5f9703e3e31dafb12305db03dfbd793901f4c6d46062c",
-      "size": 299
+      "sha256": "4ae4aa83b8d9be3031f6239c3a4b4054d6e35adcd07fc06ee28523fb3cccad01",
+      "size": 298
     },
     {
       "path": "dist/kb/western-engine-comparison.json",
@@ -1694,13 +1694,13 @@
     },
     {
       "path": "services/reading-worker/README.md",
-      "sha256": "cf62e7c9f87d07971cb1d6ba2b27896b41e3029bca8e1a13f0fe12e6624aa846",
-      "size": 9467
+      "sha256": "732cd3dcd9946a200ffe3f1d955d3327e384a3020fec3b2643f4dfeab83bae4f",
+      "size": 9537
     },
     {
       "path": "services/reading-worker/build_agpl_source_release.py",
-      "sha256": "34c7382dd4888dfc23753389748e99fe572a5dfb383ed859b8f4687cf552c191",
-      "size": 7374
+      "sha256": "72bf2b2bef3b9d3bc18fcc81537910cba67397b9415363fbc07b6a5e8ce403cd",
+      "size": 8518
     },
     {
       "path": "services/reading-worker/reading_worker/__init__.py",
@@ -1811,6 +1811,11 @@
       "path": "services/reading-worker/tests/test_service.py",
       "sha256": "2788bcb5b3b7094871fdcf6f3bdc24c2818c6685e05c43909c80f04bc9e30d17",
       "size": 5750
+    },
+    {
+      "path": "services/reading-worker/tests/test_source_release.py",
+      "sha256": "e963e08fbcf316f0347f4882d947842dca6e3adc09c5d353e240032f293379a4",
+      "size": 1936
     },
     {
       "path": "supabase/migrations/20260519152111_init_kb_runtime.sql",
@@ -2474,6 +2479,6 @@
     }
   ],
   "license": "AGPL-3.0-or-later",
-  "releaseId": "v2026.07.27.4",
-  "sourceUrl": "https://github.com/ShadowShogun7/valley-of-light-reading-worker-source/releases/tag/v2026.07.27.4"
+  "releaseId": "v2026.07.28.1",
+  "sourceUrl": "https://github.com/ShadowShogun7/valley-of-light-reading-worker-source/releases/download/v2026.07.28.1/valley-of-light-agpl-source-v2026.07.28.1.zip"
 }

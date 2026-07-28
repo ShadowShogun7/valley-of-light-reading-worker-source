@@ -78,6 +78,15 @@ ALLOWED_ENV_EXAMPLES = {
     ".env.example",
     ".env.staging.example",
 }
+REQUIRED_RELEASE_KB_FILES = {
+    "kb_articles.json",
+    "kb_atoms.json",
+    "kb_claims.json",
+    "kb_guardrails.json",
+    "kb_question_blueprints.json",
+    "kb_rules.json",
+    "manifest.json",
+}
 RELEASE_ID_PATTERN = re.compile(r"^[A-Za-z0-9._-]{1,100}$")
 STRONG_SECRET_PATTERNS = {
     "private key": re.compile(rb"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
@@ -162,6 +171,28 @@ def validate_source_url(value: str) -> str:
     return value
 
 
+def validate_release_kb() -> None:
+    """Reject source releases built from a draft-inclusive KB compile."""
+
+    kb_dir = ROOT / "dist" / "kb"
+    missing = sorted(
+        name for name in REQUIRED_RELEASE_KB_FILES if not (kb_dir / name).is_file()
+    )
+    if missing:
+        raise SourceReleaseError(
+            "Published-only KB compile is incomplete; missing: " + ", ".join(missing)
+        )
+    try:
+        manifest = json.loads((kb_dir / "manifest.json").read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise SourceReleaseError("Published-only KB manifest is unreadable") from error
+    if not isinstance(manifest, dict) or manifest.get("published_only") is not True:
+        raise SourceReleaseError(
+            "AGPL source release requires `python3 scripts/compile_kb.py "
+            "--out dist/kb --published-only` first"
+        )
+
+
 def zip_info(name: str) -> zipfile.ZipInfo:
     info = zipfile.ZipInfo(name, date_time=(1980, 1, 1, 0, 0, 0))
     info.compress_type = zipfile.ZIP_DEFLATED
@@ -180,6 +211,7 @@ def build_release(
             "Release ID must contain only letters, numbers, dot, underscore, or dash"
         )
     source_url = validate_source_url(source_url)
+    validate_release_kb()
     files = release_files()
     root_name = f"valley-of-light-agpl-source-{release_id}"
     output_dir.mkdir(parents=True, exist_ok=True)

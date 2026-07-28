@@ -1,11 +1,11 @@
 {
-  "article_count": 82,
+  "article_count": 66,
   "atom_count": 131,
-  "claim_count": 272,
-  "generated_at": "2026-07-24T16:56:21.269017+00:00",
+  "claim_count": 238,
+  "generated_at": "2026-07-28T03:05:09.345907+00:00",
   "guardrail_count": 30,
-  "link_count": 813,
-  "published_only": false,
+  "link_count": 678,
+  "published_only": true,
   "question_blueprint_count": 1,
   "rule_count": 76,
   "source_manifest": "docs/research/sources.yml"
