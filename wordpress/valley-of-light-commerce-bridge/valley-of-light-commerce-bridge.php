@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Vale of Light Commerce Bridge
  * Description: Fixed-product checkout and post-payment handoff for the Vale of Light relationship reading.
- * Version: 0.3.0
+ * Version: 0.4.2
  * Requires at least: 6.5
  * Requires PHP: 8.1
  * Requires Plugins: woocommerce
@@ -17,7 +17,7 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-define('VOL_COMMERCE_BRIDGE_VERSION', '0.3.0');
+define('VOL_COMMERCE_BRIDGE_VERSION', '0.4.2');
 define('VOL_COMMERCE_BRIDGE_FILE', __FILE__);
 define('VOL_COMMERCE_BRIDGE_DIR', plugin_dir_path(__FILE__));
 
@@ -32,6 +32,7 @@ require_once VOL_COMMERCE_BRIDGE_DIR . 'src/DirectCheckout.php';
 require_once VOL_COMMERCE_BRIDGE_DIR . 'src/CartPolicy.php';
 require_once VOL_COMMERCE_BRIDGE_DIR . 'src/CheckoutGuard.php';
 require_once VOL_COMMERCE_BRIDGE_DIR . 'src/OrderMetadata.php';
+require_once VOL_COMMERCE_BRIDGE_DIR . 'src/EcpayPaymentReconciler.php';
 require_once VOL_COMMERCE_BRIDGE_DIR . 'src/ThankYouMessage.php';
 require_once VOL_COMMERCE_BRIDGE_DIR . 'src/AccessEmail.php';
 require_once VOL_COMMERCE_BRIDGE_DIR . 'src/HealthStatus.php';
@@ -45,6 +46,7 @@ use ValeOfLight\CommerceBridge\DirectCheckout;
 use ValeOfLight\CommerceBridge\HealthStatus;
 use ValeOfLight\CommerceBridge\LaunchGate;
 use ValeOfLight\CommerceBridge\OrderMetadata;
+use ValeOfLight\CommerceBridge\EcpayPaymentReconciler;
 use ValeOfLight\CommerceBridge\PrivacyPolicy;
 use ValeOfLight\CommerceBridge\ProductPolicy;
 use ValeOfLight\CommerceBridge\ThankYouMessage;
@@ -72,6 +74,7 @@ function vol_commerce_bridge_boot(): void
     (new CartPolicy())->register();
     (new CheckoutGuard())->register();
     (new OrderMetadata())->register();
+    (new EcpayPaymentReconciler())->register();
     (new ThankYouMessage())->register();
     (new HealthStatus())->register();
     (new PrivacyPolicy())->register();

@@ -437,7 +437,7 @@ def render_report(result: Mapping[str, Any], corpus: Mapping[str, Any]) -> str:
                 [
                     split,
                     section_id,
-                    *[f"{float(dimensions.get(key) or 0):.2f}" for key in ("readability", "specificity", "relevance", "emotionalSafety", "topicOwnership", "differentiation")],
+                    *[f"{float(dimensions.get(key) or 0):.2f}" for key in ("readability", "semanticCorrespondence", "relevance", "emotionalSafety", "topicOwnership", "differentiation")],
                 ]
             )
     distribution_rows = [
@@ -493,7 +493,7 @@ def render_report(result: Mapping[str, Any], corpus: Mapping[str, Any]) -> str:
         "## Automated Split Scores",
         "",
         *markdown_table(
-            ["Split", "Page", "Readability", "Specificity", "Relevance", "Safety", "Ownership", "Differentiation"],
+            ["Split", "Page", "Readability heuristic", "Fact correspondence", "Relevance", "Safety", "Ownership", "Differentiation"],
             score_rows,
         ),
         "",

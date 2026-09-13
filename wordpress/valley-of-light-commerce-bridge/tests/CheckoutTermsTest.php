@@ -63,9 +63,9 @@ $assertSame(
     'The production checkout terms lifecycle must be internally valid.'
 );
 $assertSame(
-    'commerce-terms-2026-07-26-draft',
+    'commerce-terms-2026-07-26',
     CheckoutTerms::currentVersion(),
-    'Staging must not mint a production-looking consent cohort from draft legal copy.'
+    'Production checkout must mint only the approved immutable consent cohort.'
 );
 
 $evidence = [

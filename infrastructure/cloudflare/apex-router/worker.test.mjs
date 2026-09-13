@@ -31,6 +31,19 @@ test("proxies only the landing build asset namespaces", () => {
   );
 });
 
+test("proxies landing-owned root favicon files", () => {
+  const faviconPaths = [
+    "/favicon.ico",
+    "/favicon-48x48.png",
+    "/favicon-96x96.png",
+    "/apple-touch-icon.png"
+  ];
+
+  for (const path of faviconPaths) {
+    assert.equal(shouldUseLandingOrigin(request(path)), true, path);
+  }
+});
+
 test("keeps WordPress and WooCommerce paths on the existing origin", () => {
   const wordpressPaths = [
     "/wp-admin/",

@@ -88,6 +88,11 @@
       "size": 30365
     },
     {
+      "path": "apps/web/scripts/smoke-reading-display.mjs",
+      "sha256": "380beb287d7009f0837ff5eef55f1d59e2afdf08967a5378429c144166e96633",
+      "size": 5137
+    },
+    {
       "path": "apps/web/src/app/api/health/paid-reading/route.ts",
       "sha256": "990bef52c93eeec829bfc48a7af516e7b9672d3100d36f02b4771ca0934ba78c",
       "size": 2488
@@ -169,18 +174,23 @@
     },
     {
       "path": "apps/web/src/app/globals.css",
-      "sha256": "9cd020ccae8fd0b938a8ae3c98da8e8a951e9b96ccb150f90eebb51ffe1bfc46",
-      "size": 395164
+      "sha256": "e63f36afd661380bcae0d22845af1a3e6bfa7e81de2da52f8bef79bfa688b86b",
+      "size": 400346
     },
     {
       "path": "apps/web/src/app/layout.tsx",
-      "sha256": "bbdfa0f5084a3df43e09d755b9c76738f4e12c54609986f0a490e0087bfd99c7",
-      "size": 737
+      "sha256": "3516019493f31780e58b6804d20803244edb8c26777ed5b241f8f9dcc51b38c3",
+      "size": 643
     },
     {
       "path": "apps/web/src/app/page.tsx",
       "sha256": "4b1048a0b22ae5c376fa2e574e5de2af376a18880fca05c3c4cce2a84ab5c13c",
       "size": 693
+    },
+    {
+      "path": "apps/web/src/app/preview/page.tsx",
+      "sha256": "cb916d3f40e24467d5a27c7d062642a589f2033c7d254e5f65325fc1bf59b184",
+      "size": 1489
     },
     {
       "path": "apps/web/src/app/r/page.tsx",
@@ -214,8 +224,8 @@
     },
     {
       "path": "apps/web/src/components/AstrologyResultPage.tsx",
-      "sha256": "2fc6fd79974ede5c4c229dd4c25aaa7f40ed61a336d321bf591472cb4e2b8691",
-      "size": 118246
+      "sha256": "b9700cb14c81fc013c1c6f952df87b6ba5ca10e47ef546aa49606ee8eb419ef8",
+      "size": 116474
     },
     {
       "path": "apps/web/src/components/BrandLogo.tsx",
@@ -223,24 +233,34 @@
       "size": 1103
     },
     {
+      "path": "apps/web/src/components/CalculationLoadingGate.tsx",
+      "sha256": "11b4c56ff1023aebe1c84d8506efeb87485fa8461393480450ede0289bebc043",
+      "size": 7079
+    },
+    {
       "path": "apps/web/src/components/ImmersiveCosmicDashboard.tsx",
-      "sha256": "4fe9184cb325523cc187cbfdc5ea510ba7fd6a0e2cc64281143dc4fb76d9ed50",
-      "size": 109588
+      "sha256": "7b46bbc009c5315e32ef2382aaa23178c3bdc39bef7799950e5a4b6880f065dd",
+      "size": 111326
     },
     {
       "path": "apps/web/src/components/IntakeFlow.tsx",
-      "sha256": "3e1db34ac18b8ed324708158054531bc147f162881f2eae1f1954290c0112f62",
-      "size": 37861
+      "sha256": "58e9601167541750d0aa5e6b896584769aaf9c48eb042386d305b47b78c7f8a5",
+      "size": 38203
     },
     {
       "path": "apps/web/src/components/PaidReadingJourney.tsx",
-      "sha256": "8827af245ae94d1eea1f01098472552c29f068590ae2da55f96de97ac270a13e",
-      "size": 8123
+      "sha256": "d63f3d8a9d61f4081e5f1aec1d851a8612ab07caf37ed8097f66f97ecf960cd9",
+      "size": 8201
     },
     {
       "path": "apps/web/src/components/Phase5ReviewDashboard.tsx",
-      "sha256": "5b3a8ed84233c709bb66557147bbd3cec3ecaadbc3091ee6752d994b8dbdaa14",
-      "size": 12876
+      "sha256": "a451013cbb746ee2fdca19a77ac4379fbc183adaf64603154ccc02451ca46d14",
+      "size": 12869
+    },
+    {
+      "path": "apps/web/src/components/ReaderChapter.tsx",
+      "sha256": "78bdd617dfc3e599661317dcb870bf796c3eeacdd4be63b177cc358a19f82af7",
+      "size": 982
     },
     {
       "path": "apps/web/src/components/ReadingRecoveryForm.tsx",
@@ -249,8 +269,8 @@
     },
     {
       "path": "apps/web/src/components/ScenarioDashboard.tsx",
-      "sha256": "e52f32f3185f299636a77d0d10c22a6ec18f4c3eb6a86db009aa75e9185f0f08",
-      "size": 14929
+      "sha256": "619d226d877086a65fd1f473b6e6986441e9751884602fcd656910af66cf96f3",
+      "size": 8176
     },
     {
       "path": "apps/web/src/data/complete-relationship-result.ts",
@@ -274,13 +294,13 @@
     },
     {
       "path": "apps/web/src/data/generated/phase7-review-cases.json",
-      "sha256": "526d2e18b55dfbd24e42be34d8678bf71e22a2bbf239dc342068bcb9d8f4d3f4",
-      "size": 1329847
+      "sha256": "62e5670b5ed0aebceced8aa345e4039c63e41d128a17c7bddf62538751dbf16d",
+      "size": 1330495
     },
     {
       "path": "apps/web/src/data/generated/relationship-result-scenarios.json",
-      "sha256": "29abcf2a4c1a9d485bca722ec7e4acc0938eb4517c96e63399dbe314e50ea579",
-      "size": 68023846
+      "sha256": "c020186dee0f4cf42d93a012ad59cd334a689ad1c49094c09f0798415b3a2929",
+      "size": 70304823
     },
     {
       "path": "apps/web/src/lib/paid-reading/access.ts",
@@ -351,6 +371,16 @@
       "path": "apps/web/src/lib/paid-reading/locations.ts",
       "sha256": "53b5c22c66ff6138617eb2ecac465180094b582b6dbd27f619748ce8e071e714",
       "size": 1255
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/reader-chapter.test.ts",
+      "sha256": "4e4182bc364abb07aa1f66fc840efc2312d925d2eb8220681afe6708dcc979d6",
+      "size": 3275
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/reader-chapter.ts",
+      "sha256": "9a0b50d797eb133c3d26f04679c7e21a8a4689dc26baa6abd6979280b15941dd",
+      "size": 1268
     },
     {
       "path": "apps/web/src/lib/paid-reading/repository.ts",
@@ -604,13 +634,13 @@
     },
     {
       "path": "docs/product/19-final-narrative-native-zh-tw-realization-contract.md",
-      "sha256": "587bab82629c0620478b82c6e91fa15e5a8a912b25413426d76f90c4fc570d29",
-      "size": 18423
+      "sha256": "5d77a7caa8e01a72fbecb6f11092c7fb7ae1d39379bcb023b9300b73709c3e85",
+      "size": 20827
     },
     {
       "path": "docs/product/20-production-commerce-legal-copy-zh-tw.md",
-      "sha256": "f4d627a195fcab4fb07090feced819f12eb55d3553d4ce7893439d1c1650f9e9",
-      "size": 10968
+      "sha256": "95131813bc85d34a37bf82b565c1b2add2d5a4153f23d8344c1856e5bcb26826",
+      "size": 11107
     },
     {
       "path": "docs/product/README.md",
@@ -718,9 +748,9 @@
       "size": 6148
     },
     {
-      "path": "front-end-template/dist/assets/index-8stZ2tc5.js",
-      "sha256": "7c6961d296dfe08de5b6b6f483e87c4c0717cfc5f5aa7e8f2fe54fe5e7e2e1c5",
-      "size": 388665
+      "path": "front-end-template/dist/assets/index-Di8ZZXnz.js",
+      "sha256": "3614073ef113af160cf7026404224cc4c7868d1f66552c8619e2e7413d76b4c2",
+      "size": 387601
     },
     {
       "path": "front-end-template/dist/assets/index-DmHaf6su.css",
@@ -728,9 +758,14 @@
       "size": 16382
     },
     {
+      "path": "front-end-template/dist/favicon.ico",
+      "sha256": "331c2b04d486c18af631e629d069cd7c92b67340e284406e993a139efa297dae",
+      "size": 774
+    },
+    {
       "path": "front-end-template/dist/index.html",
-      "sha256": "731b61ab59f2dc133c6c7cd0fa29d1d0629ac55d88c5e36bddb1ad80e1dacc93",
-      "size": 905
+      "sha256": "da04c37a30563c1e052b5b2fbd53b9f7fbb1e2632ab8d14e079b4fdd5acef086",
+      "size": 8961
     },
     {
       "path": "front-end-template/index.css",
@@ -739,8 +774,8 @@
     },
     {
       "path": "front-end-template/index.html",
-      "sha256": "5698df5d3d905f57ff8f93ee8d2826035f694343fcc2406257d01beed3bc6475",
-      "size": 807
+      "sha256": "7bcfb00f5c04ba0984ed6089a5a7dfe4fd736a843afacd1c41356f524cd22d8f",
+      "size": 8863
     },
     {
       "path": "front-end-template/package-lock.json",
@@ -758,9 +793,14 @@
       "size": 79
     },
     {
+      "path": "front-end-template/public/favicon.ico",
+      "sha256": "331c2b04d486c18af631e629d069cd7c92b67340e284406e993a139efa297dae",
+      "size": 774
+    },
+    {
       "path": "front-end-template/src/App.tsx",
-      "sha256": "e5e2b2f9c5fd71999a644595870dd47fcec2e84cc070ffc693b0e10ec51d55e9",
-      "size": 152812
+      "sha256": "ba08e18b7ef5a84552c1f6fcc5296a7cadc704172b57f2f35239ebd930149c5b",
+      "size": 152286
     },
     {
       "path": "front-end-template/src/config/commerce.ts",
@@ -809,23 +849,23 @@
     },
     {
       "path": "infrastructure/cloudflare/apex-router/README.md",
-      "sha256": "586293043d0dbae7821cbb75d66136768ca0e611898c889b72c051a24b66870a",
-      "size": 1932
+      "sha256": "9f43d2bc8a24e7b1878140ea10fcecaec118e089eeffbbba49f1e2a5108a2b45",
+      "size": 2021
     },
     {
       "path": "infrastructure/cloudflare/apex-router/smoke-production.mjs",
-      "sha256": "88a5d7ba6132fe31e82214544ebe74dace405bf6c178cddfa2e0b6c5eb34920e",
-      "size": 4173
+      "sha256": "78e289b2fd65616e91db28545c8e910d04b04b800888f74b5f35f3ae2e83e67f",
+      "size": 4651
     },
     {
       "path": "infrastructure/cloudflare/apex-router/worker.mjs",
-      "sha256": "027646b323f568c977b68fbf18eaeaba09508b2a1d0516f331de3e707f1cb825",
-      "size": 3746
+      "sha256": "84c7a164fdfbaf50a45507b1561fb0c734c86a0c8951855a19e0fe735150a82a",
+      "size": 3921
     },
     {
       "path": "infrastructure/cloudflare/apex-router/worker.test.mjs",
-      "sha256": "55f5f2ccbdf8bfaf6ac8a924cf6b93986d0d0d6f1232028e86d954a77d17bbf9",
-      "size": 3954
+      "sha256": "4829a73aa963feb2de758abcf6a485b99bb4c60f9ed79c6562513734790da237",
+      "size": 4257
     },
     {
       "path": "infrastructure/cloudflare/apex-router/wrangler.toml",
@@ -834,8 +874,8 @@
     },
     {
       "path": "infrastructure/supabase/README.md",
-      "sha256": "f205bdade9702e0ae001ede75524c72910537522a6354f3c931def7c329f3659",
-      "size": 2125
+      "sha256": "b097f06923ce70d9b3f720ca50d96c31df022ca2c8a3b767daf7ae217a8fc24f",
+      "size": 2762
     },
     {
       "path": "infrastructure/supabase/billing-email-correction.sql.example",
@@ -959,8 +999,8 @@
     },
     {
       "path": "scripts/audit_final_narrative_production_readiness.py",
-      "sha256": "a20f78b1e5392bcfba390eedbfdae007c5bf8721a1cee7b98a3383731838e635",
-      "size": 32557
+      "sha256": "f4868a083a00b310aef5144977f44c3b2db5ccb1814345b3fd0be7e5edc70278",
+      "size": 34185
     },
     {
       "path": "scripts/audit_relationship_fit_semantic_similarity.py",
@@ -999,8 +1039,8 @@
     },
     {
       "path": "scripts/build_reading_phase5_calibration.py",
-      "sha256": "64541f6e24deaaf88f4da5a69cc2a9bf442986e157ccaec23734664d8c7d140c",
-      "size": 23766
+      "sha256": "c711661ce476a81ddc889be9dc6610e81e227913a719fa51a0597417fb7b3d66",
+      "size": 24518
     },
     {
       "path": "scripts/build_reading_phase7_calibration.py",
@@ -1059,8 +1099,8 @@
     },
     {
       "path": "scripts/complete_relationship_result_runtime.py",
-      "sha256": "f5ab912d74207e5e29f4e07b7654570606afa18ea4105e54f5b1356bc234bd14",
-      "size": 733928
+      "sha256": "40af26688c1738ba3f0b664268b2ac1c8da06c4ba485311ce72d7f8dc02eb122",
+      "size": 734643
     },
     {
       "path": "scripts/generate_relationship_depth_fixtures.py",
@@ -1103,6 +1143,11 @@
       "size": 2296
     },
     {
+      "path": "scripts/readable_interpretation/decision_zh_tw_catalog.py",
+      "sha256": "5c10fb9aa65162de1b373292eb1ca9519cc390905433d69c43373c3a617f20d6",
+      "size": 9611
+    },
+    {
       "path": "scripts/readable_interpretation/final_narrative_chinese_contract.py",
       "sha256": "9e264096390d6e6d7b7a3abdcdf42edda7c360c6ea19904702a692a3738a87bd",
       "size": 9279
@@ -1129,13 +1174,13 @@
     },
     {
       "path": "scripts/readable_interpretation/final_narrative_fact_contract.py",
-      "sha256": "1d8730560ccd4bc4340506d3295312153d6dd416ceaca89d519e66c9b6d41fb1",
-      "size": 21476
+      "sha256": "d5fe777a3340dcdfdadf84bc54458aaf1644b925023c61da064786abd1e7b8f7",
+      "size": 23576
     },
     {
       "path": "scripts/readable_interpretation/final_narrative_fact_renderer.py",
-      "sha256": "a34ecf653a4c8f239adfacfd510f1f4facebd02d3152d09f9b34fb4366f20d6d",
-      "size": 66959
+      "sha256": "c7c37bed2d3c240782d02c8e1a488420f78f37467c651512bdd2d2a7ff5bbeae",
+      "size": 67492
     },
     {
       "path": "scripts/readable_interpretation/final_narrative_page_grammar.py",
@@ -1149,8 +1194,8 @@
     },
     {
       "path": "scripts/readable_interpretation/final_narrative_pages/action_direction_renderer.py",
-      "sha256": "2881c8f7ef38400f85a569fb0e4c8349a562e58bc894a0f52fa869b09687aeb9",
-      "size": 40135
+      "sha256": "5742bf512b8c24ea33febd933283d9d42ae5d761c5b24a9ae59672ad2584301e",
+      "size": 41494
     },
     {
       "path": "scripts/readable_interpretation/final_narrative_pages/chart_positioning_renderer.py",
@@ -1164,8 +1209,8 @@
     },
     {
       "path": "scripts/readable_interpretation/final_narrative_pages/core_answer_renderer.py",
-      "sha256": "79f017ed8f0b6529f0b1e8d7570a714634da26acf40e6070a1a615edf472a826",
-      "size": 74383
+      "sha256": "4e9e9816dcdeaac500d0a129a039d2293174d2a5891192521c53875d2eb3ff7a",
+      "size": 74374
     },
     {
       "path": "scripts/readable_interpretation/final_narrative_pages/relationship_fit_renderer.py",
@@ -1179,8 +1224,8 @@
     },
     {
       "path": "scripts/readable_interpretation/final_narrative_pages/timing_renderer.py",
-      "sha256": "df24cec531cc6aa49a7e1e825e081d080cb2e1419d8fe86c3cc0d7d40c9b6ae7",
-      "size": 41880
+      "sha256": "a88792494d15ed42f9d9314f05b4906542a35663364fc462d49f1c8c74b6f109",
+      "size": 47534
     },
     {
       "path": "scripts/readable_interpretation/final_narrative_paragraph_plan.py",
@@ -1214,8 +1259,8 @@
     },
     {
       "path": "scripts/readable_interpretation/final_narrative_test_engine.py",
-      "sha256": "2c3e74353bc19c322192a82194c5970fe09c28830dc1063dd3e965ad02eee5bc",
-      "size": 17567
+      "sha256": "1ee2cc60b5dae409421eb60f4aba260b41a6cdf43f40d5d539fbb27dee92d9af",
+      "size": 18239
     },
     {
       "path": "scripts/readable_interpretation/schema.py",
@@ -1224,8 +1269,8 @@
     },
     {
       "path": "scripts/readable_interpretation/section_narrative_spec.py",
-      "sha256": "1458ce5f93c679284ccd5a619ca4d87c537190e86374990fcfad654e5732e7c2",
-      "size": 65265
+      "sha256": "3d8262b0b68d6fc39f9ebf87613508468ab1479db49328465ecf9211f0225f20",
+      "size": 68410
     },
     {
       "path": "scripts/readable_interpretation/zh_tw.py",
@@ -1534,8 +1579,8 @@
     },
     {
       "path": "scripts/test_reading_phase5_calibration.py",
-      "sha256": "04d280774d95a9683cadb7e0b100d911a546e75c2affdb464e76b0a8fb531d24",
-      "size": 39773
+      "sha256": "09e3f29a895d9bcf4859b67d77573344468923718638b66fc361e07c17d3a6bc",
+      "size": 40942
     },
     {
       "path": "scripts/test_reading_quality_engine.py",
@@ -1629,13 +1674,13 @@
     },
     {
       "path": "scripts/verify_final_narrative_phase6_test_engine.py",
-      "sha256": "e8e03959463a12358666c1a8c80783df13c31d81be0547bc88be167042e71f93",
-      "size": 28530
+      "sha256": "9784c25175fc433057b73092b36a2caab6a7ec6b82f4a3c2fab7caf9ab7c1e97",
+      "size": 28672
     },
     {
       "path": "scripts/verify_final_narrative_r5_page_realizers.py",
-      "sha256": "5055f7d1c538142ee7bbf3489bc0a4aeda678ad0b321d250c63b8cd8282158e8",
-      "size": 23334
+      "sha256": "633bc60fdc59cbf5493fff38a88cd0aa62f006d24cfd763b022f7e32c5fc3635",
+      "size": 23406
     },
     {
       "path": "scripts/verify_final_narrative_r6_chinese_quality.py",
@@ -1654,13 +1699,18 @@
     },
     {
       "path": "scripts/verify_paid_v1_reading_stack.py",
-      "sha256": "7be7be91c66a6851c7da1c190f58a70d568d08c51157a53616dbe5ffecc430c9",
-      "size": 29287
+      "sha256": "8380eef2b05bc0c5685d8dd0945f5bb2e507792e8d8482f06e7287e3d6eb5613",
+      "size": 29432
+    },
+    {
+      "path": "scripts/verify_reading_architecture_repair.py",
+      "sha256": "01932cc254d432acc9e0892f8aba17bd08cf55fa12564d3d23a38e8c4e34c828",
+      "size": 12248
     },
     {
       "path": "scripts/verify_reading_phase7_calibration.py",
-      "sha256": "6773762f2ef615501c2105c1288da1380862511a25c57267933a4e347083dc2b",
-      "size": 28609
+      "sha256": "7bcc12057e96594e02876cc052a23a980677e56c5450aab549e5850def796601",
+      "size": 28638
     },
     {
       "path": "scripts/visible_reading_depth.py",
@@ -1709,8 +1759,8 @@
     },
     {
       "path": "services/reading-worker/reading_worker/bundle.py",
-      "sha256": "63648ea53b315d4fd914bf26352260abb8daab4355e83d017e9b6cdc93c6393a",
-      "size": 9419
+      "sha256": "342150c978463c8824414ab1b216739c7641bdf80318a2f552d6d7dd36edb582",
+      "size": 10305
     },
     {
       "path": "services/reading-worker/reading_worker/client.py",
@@ -1774,8 +1824,8 @@
     },
     {
       "path": "services/reading-worker/tests/test_bundle.py",
-      "sha256": "3aebe0fca5dd37ac20af1b264adc361258db3532e8a281620f1d6dd2c8fbaf4a",
-      "size": 2425
+      "sha256": "61236d300a58d4865618639d8eca7fc8a10b0020bdf29c3f52dee3e7a329a09d",
+      "size": 2703
     },
     {
       "path": "services/reading-worker/tests/test_client.py",
@@ -1836,6 +1886,11 @@
       "path": "supabase/migrations/20260726170000_add_paid_reading_delivery.sql",
       "sha256": "32299d0c25f51b53baaeb05946d03f3d3be754c2a6b96e8136d2dadeabcd6d1e",
       "size": 155864
+    },
+    {
+      "path": "supabase/migrations/20260731143000_enable_production_reading_retention.sql",
+      "sha256": "f39f17cfc9ce35c69519545ec1ae49a2529bfff8d9cac4c7b6625faf0e85fe3c",
+      "size": 2738
     },
     {
       "path": "wiki/ARTICLE_TEMPLATE.md",
@@ -2369,8 +2424,13 @@
     },
     {
       "path": "wordpress/valley-of-light-commerce-bridge/README.md",
-      "sha256": "4ecd70188407cd52757ecb90aa8d105f73707aba61d25f5306c2a3488b4a1d33",
-      "size": 13693
+      "sha256": "04a4468dceced3c8f479e09dfcc78bc1170071693aad8c14a93eff7f923f2acf",
+      "size": 14495
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/assets/order-received.css",
+      "sha256": "f7be594d5a81bc012b1b72f7199b23854bcd3c408732841408cf97b7b6b94957",
+      "size": 3968
     },
     {
       "path": "wordpress/valley-of-light-commerce-bridge/src/AccessEmail.php",
@@ -2399,8 +2459,8 @@
     },
     {
       "path": "wordpress/valley-of-light-commerce-bridge/src/CheckoutTerms.php",
-      "sha256": "808e5b48f3333d6aa25d0518210b026755ba8574c8421820a1f7154ff03ae43e",
-      "size": 5895
+      "sha256": "f9be8a6230ac3beb9f1e8e808e947fbdd56a68f6613d69ae5fd0c52ef9e29b2b",
+      "size": 5889
     },
     {
       "path": "wordpress/valley-of-light-commerce-bridge/src/CommerceInvariant.php",
@@ -2409,8 +2469,13 @@
     },
     {
       "path": "wordpress/valley-of-light-commerce-bridge/src/DirectCheckout.php",
-      "sha256": "ffdb8d14441311346437f7e73d5d0985cc4c40bc1d19f185ef2e7e39173011d1",
-      "size": 5587
+      "sha256": "70030c99ecfdd204d36885927394fd77fc2689174b606d8539e21b3cf252c3df",
+      "size": 6379
+    },
+    {
+      "path": "wordpress/valley-of-light-commerce-bridge/src/EcpayPaymentReconciler.php",
+      "sha256": "6ad6af12dc1c43aa222f947a773b6521d5cf27a170ef58c97242b0672ed73431",
+      "size": 10172
     },
     {
       "path": "wordpress/valley-of-light-commerce-bridge/src/HealthStatus.php",
@@ -2439,13 +2504,13 @@
     },
     {
       "path": "wordpress/valley-of-light-commerce-bridge/src/ReadingProduct.php",
-      "sha256": "c1fd07abd7a7b3725ad7988f266ff51b43914bbb259440646aaee2c23ad0758a",
-      "size": 11407
+      "sha256": "08981675d11ccde8123c3282a923d551be5f57df317d0a2212346aa96ca3106f",
+      "size": 11519
     },
     {
       "path": "wordpress/valley-of-light-commerce-bridge/src/ThankYouMessage.php",
-      "sha256": "98567ac08a4f500d18ee5f60edfa256dbaa6d6624045f3bc59fc889796be2edb",
-      "size": 3606
+      "sha256": "37b6a1005f89942738c82805274031f1a62d95149440cd1e40c1701de8b1d773",
+      "size": 3936
     },
     {
       "path": "wordpress/valley-of-light-commerce-bridge/tests/AccessEmailPolicyTest.php",
@@ -2459,8 +2524,8 @@
     },
     {
       "path": "wordpress/valley-of-light-commerce-bridge/tests/CheckoutTermsTest.php",
-      "sha256": "823bf930993923cbdde091642ef277aec21d3c7412d209d12ebc0e811879f790",
-      "size": 4492
+      "sha256": "4fc56145cc6ea13e903a5182132f6ac1af51c6d5b0cf4025b33e3bd58cfb96bc",
+      "size": 4479
     },
     {
       "path": "wordpress/valley-of-light-commerce-bridge/tests/CommerceInvariantTest.php",
@@ -2468,17 +2533,22 @@
       "size": 3134
     },
     {
+      "path": "wordpress/valley-of-light-commerce-bridge/tests/EcpayPaymentQueryPolicyTest.php",
+      "sha256": "e5e51ade6aea6f8be2adaeb56153682923c280f07272fb6e908f8a1896a9ab97",
+      "size": 2661
+    },
+    {
       "path": "wordpress/valley-of-light-commerce-bridge/tests/static-verification.mjs",
-      "sha256": "6a6f4534cd997543d80be31aa5048539e0848c89486a75895297cb8ce3d51395",
-      "size": 10572
+      "sha256": "e6c4c86764fcbc028c954ab62395efdff669cafd09bfdc6e46fa8fc9ba35e5ae",
+      "size": 12461
     },
     {
       "path": "wordpress/valley-of-light-commerce-bridge/valley-of-light-commerce-bridge.php",
-      "sha256": "cbb3e11cb8abe3cdd468701cc2837304c6d62a7e6149303a2f6586f0fad323bf",
-      "size": 3589
+      "sha256": "83689c809b6ba233d5a256b64a9a699ffecab89758ffbee08092b6a49bf60cc6",
+      "size": 3765
     }
   ],
   "license": "AGPL-3.0-or-later",
-  "releaseId": "v2026.07.28.2",
-  "sourceUrl": "https://github.com/ShadowShogun7/valley-of-light-reading-worker-source/releases/download/v2026.07.28.2/valley-of-light-agpl-source-v2026.07.28.2.zip"
+  "releaseId": "v2026.09.13.1",
+  "sourceUrl": "https://github.com/ShadowShogun7/valley-of-light-reading-worker-source/releases/download/v2026.09.13.1/valley-of-light-agpl-source-v2026.09.13.1.zip"
 }

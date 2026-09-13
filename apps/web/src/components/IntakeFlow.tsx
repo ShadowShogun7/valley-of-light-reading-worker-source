@@ -122,7 +122,7 @@ const flowSteps: FlowStep[] = [
 ];
 
 const steps: Array<{ id: IntakeStep; label: string }> = [
-  { id: "opening", label: "準備開始" },
+  { id: "opening", label: "開始" },
   ...flowSteps.map(({ id, label }) => ({ id, label })),
 ];
 
@@ -475,17 +475,19 @@ export function IntakeFlow({
   return (
     <main className={`intake-design-shell ${isOpening ? "intro-mode" : ""}`}>
       <div className="intake-design-app">
-        <header className="intake-design-topbar" aria-label="頁首">
-          <div className="intake-design-brand">
-            <BrandLogo className="intake-design-brand-logo" variant="wordmark" />
-          </div>
-          <div className="intake-design-top-actions" aria-hidden="true">
-            <div className="intake-design-ghost-pill">關係解讀填寫流程</div>
-            <div className="intake-design-ghost-pill">
-              {isOpening ? "準備開始" : `步驟 ${currentFlowStep} / ${flowSteps.length}`}
+        {isOpening ? null : (
+          <header className="intake-design-topbar" aria-label="頁首">
+            <div className="intake-design-brand">
+              <BrandLogo className="intake-design-brand-logo" variant="wordmark" />
             </div>
-          </div>
-        </header>
+            <div className="intake-design-top-actions" aria-hidden="true">
+              <div className="intake-design-ghost-pill">關係解讀填寫流程</div>
+              <div className="intake-design-ghost-pill">
+                步驟 {currentFlowStep} / {flowSteps.length}
+              </div>
+            </div>
+          </header>
+        )}
 
         <div className="intake-design-layout">
           {isOpening ? null : (
@@ -671,7 +673,6 @@ function OpeningStep({
 }) {
   return (
     <div className="origin-hero">
-      <div className="origin-step-pill">準備開始</div>
       <div className="origin-cover">
         <div className="origin-brand" aria-label={`${brand.title} ${brand.subtitle}`}>
           <BrandLogo className="origin-brand-logo" variant="wordmark" />
@@ -679,7 +680,7 @@ function OpeningStep({
 
         <div className="origin-copy">
           <h1 className="origin-title">關係合盤解讀</h1>
-          <p className="origin-subtitle">看懂你們之間真正卡住的地方</p>
+          <p className="origin-subtitle">看懂你們為何彼此吸引，又為何反覆錯過</p>
         </div>
 
         <div className="origin-orbs" aria-hidden="true">
@@ -788,7 +789,10 @@ function BirthDataStep({
       <div className="intake-design-form-grid">
         <div className="intake-design-field-row intake-design-birth-primary-row">
           <label className="intake-design-form-card intake-design-date-card">
-            <span className="intake-design-field-label">出生日期</span>
+            <span className="intake-design-field-label intake-design-field-label-with-hint">
+              <span>出生日期</span>
+              <small>年／月／日</small>
+            </span>
             <SegmentedBirthDateInput
               invalid={birthDateValidation.isComplete && !birthDateValidation.isValid}
               onChange={(birthDate) => update({ birthDate })}
@@ -798,15 +802,30 @@ function BirthDataStep({
             {birthDateValidation.message ? <small className="intake-design-error">{birthDateValidation.message}</small> : null}
           </label>
 
-          <label className="intake-design-form-card">
-            <span className="intake-design-field-label">出生時間</span>
+          <div className="intake-design-form-card intake-design-time-card">
+            <label className="intake-design-field-label" htmlFor={`${title}-birth-time`}>
+              出生時間
+            </label>
             <input
+              id={`${title}-birth-time`}
               disabled={profile.unknownTime}
               onChange={(event) => update({ birthTime: event.target.value })}
               type="time"
               value={profile.unknownTime ? "" : profile.birthTime}
             />
-          </label>
+            <button
+              aria-pressed={profile.unknownTime}
+              className={`intake-design-toggle-card intake-design-time-toggle ${profile.unknownTime ? "is-active" : ""}`}
+              onClick={() => update({ birthTime: profile.unknownTime ? profile.birthTime : "", unknownTime: !profile.unknownTime })}
+              type="button"
+            >
+              <span className="intake-design-toggle-box" aria-hidden="true" />
+              <span>
+                <strong>不知道出生時間</strong>
+                <small>不知道也可以繼續，結果會避開需要精準時辰才適合判斷的部分。</small>
+              </span>
+            </button>
+          </div>
         </div>
 
         <div className="intake-design-field-row">
@@ -846,17 +865,6 @@ function BirthDataStep({
           </div>
         </div>
 
-        <button
-          className={`intake-design-toggle-card ${profile.unknownTime ? "is-active" : ""}`}
-          onClick={() => update({ birthTime: profile.unknownTime ? profile.birthTime : "", unknownTime: !profile.unknownTime })}
-          type="button"
-        >
-          <span className="intake-design-toggle-box" aria-hidden="true" />
-          <span>
-            <strong>不知道出生時間</strong>
-            <small>不知道也可以繼續，結果會避開需要精準時辰才適合判斷的部分。</small>
-          </span>
-        </button>
       </div>
 
       <NavigationRow disabled={!canContinue} microCopy="不知道出生時間也可以繼續；如果日期不完整，會先請你補齊。" onBack={onBack} onNext={onNext} />

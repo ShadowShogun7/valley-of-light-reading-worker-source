@@ -8,6 +8,7 @@ import type {
   WesternNeedPoint
 } from "@/data/complete-relationship-result";
 import { BrandLogo } from "@/components/BrandLogo";
+import { ReaderChapter } from "@/components/ReaderChapter";
 import { ImmersiveCosmicDashboard } from "@/components/ImmersiveCosmicDashboard";
 
 type ResultViewModel = CompleteRelationshipResultViewModel;
@@ -574,6 +575,7 @@ export function AstrologyResultPage({ data }: { data: ResultViewModel }) {
         nextStepId="core-answer"
         onNext={openStep}
       >
+        <ReaderChapter sectionId="chart-positioning" section={finalReadingSections["chart-positioning"]} />
         <ChartPositioningDossier
           personA={personA}
           personB={personB}
@@ -602,7 +604,7 @@ export function AstrologyResultPage({ data }: { data: ResultViewModel }) {
         nextStepId="timing-reading"
         onNext={openStep}
       >
-        <CoreQuestionPanel data={data} finalReading={finalReadingSections["core-answer"]} />
+        <ReaderChapter sectionId="core-answer" section={finalReadingSections["core-answer"]} />
       </ResultStepSection>
     ),
     "timing-reading": (
@@ -615,11 +617,7 @@ export function AstrologyResultPage({ data }: { data: ResultViewModel }) {
         nextStepId="action-direction"
         onNext={openStep}
       >
-        <TimingPanel
-          finalReading={finalReadingSections["timing-reading"]}
-          relationshipTurningWindows={data.relationshipTurningWindows}
-          timingGuidance={data.timingGuidance ?? data.readableQuestionAnswer?.sections.timing}
-        />
+        <ReaderChapter sectionId="timing-reading" section={finalReadingSections["timing-reading"]} />
       </ResultStepSection>
     ),
     "action-direction": (
@@ -630,15 +628,7 @@ export function AstrologyResultPage({ data }: { data: ResultViewModel }) {
         summary="下一步先看四件事：可以做、先不要、停止線，以及對方回應後怎麼接。"
         finalReading={finalReadingSections["action-direction"]}
       >
-        <ActionDirectionPanel
-          actionGuidance={data.actionGuidance ?? data.readableQuestionAnswer?.sections.action}
-          chance={data.chance}
-          donts={donts}
-          finalReading={finalReadingSections["action-direction"]}
-          fightLandmines={data.fightLandmines}
-          timeline={data.timeline}
-          reasons={data.reasons}
-        />
+        <ReaderChapter sectionId="action-direction" section={finalReadingSections["action-direction"]} />
       </ResultStepSection>
     )
   };
@@ -904,9 +894,7 @@ function ResultStepSection({
             <span className="reading-sigil">{number}</span>
             <h2 className="reading-section-title">{title}</h2>
           </div>
-          <p className="reading-section-sub">{sectionSummary}</p>
         </div>
-        <div className="reading-section-kicker">{sectionKicker}</div>
       </div>
       <div className="reading-ornament" aria-hidden="true" />
       {visual === "chart" ? (
@@ -983,11 +971,6 @@ function ChartPositioningDossier({
         ))}
       </div>
 
-      <footer className="cosmic-positioning-footer">
-        <span aria-hidden="true">✦</span>
-        <p>{notes.length ? cleanCopy(notes[0]) : "星盤先幫你看懂兩個人的關係使用方式，真正的答案仍要回到互動裡慢慢驗證。"}</p>
-        <span aria-hidden="true">✦</span>
-      </footer>
     </section>
   );
 }
@@ -1006,7 +989,6 @@ function PositioningProfilePanel({
       <ChartEmblem label={title} owner={owner} size="portrait" />
       <div>
         <span>{title}</span>
-        <h3>{cleanCopy(profile.headline)}</h3>
       </div>
     </article>
   );
@@ -1063,7 +1045,6 @@ function PositioningPersonCell({
           {ownerLabel}｜{displaySignLabel(card)}
         </strong>
         <span>{meta.join(" / ")}</span>
-        <p>{positioningCardCopy(card)}</p>
       </div>
     </div>
   );
@@ -1423,27 +1404,14 @@ function PositioningCompatibilitySnapshot({
           <div className="compatibility-section-title-lock">
             <div>
               <h3 id="positioning-compatibility-type-title">關係型態</h3>
-              <p>先用一句話，說清楚這段關係主要怎麼運作。</p>
             </div>
           </div>
           <div className="compatibility-section-note">RELATIONSHIP ARCHETYPE</div>
         </div>
 
         <article className="compatibility-fit-panel compatibility-type-card">
-          <div className="compatibility-type-main" data-reviewed-summary="relationship-fit">
-            <div className="compatibility-micro-label">這段關係的主要型態</div>
-            <h3>{reviewedSummary?.headline ?? cleanCopy(relationshipType.title)}</h3>
-            <p className="compatibility-type-summary">
-              {reviewedSummary?.paragraph ?? (thesisBody || cleanCopy(relationshipType.meaning))}
-            </p>
-            {reviewedSummary ? <small className="reviewed-summary-caution">{reviewedSummary.caution}</small> : null}
-            {visibleRelationshipReasons.length ? (
-              <div className="compatibility-reason-chips" aria-label="關係型態選擇原因">
-                {visibleRelationshipReasons.map((reason, index) => (
-                  <span className="compatibility-reason-chip" key={`${reason}-${index}`}>{cleanCopy(reason)}</span>
-                ))}
-              </div>
-            ) : null}
+          <div className="compatibility-type-main">
+            <ReaderChapter sectionId="relationship-fit" section={finalReading} />
           </div>
           <aside className="reading-boundary compatibility-score-side" aria-label="星盤契合度">
             <div className="reading-boundary-title">星盤契合度</div>
@@ -1461,7 +1429,6 @@ function PositioningCompatibilitySnapshot({
           <div className="compatibility-section-title-lock">
             <div>
               <h3 id="positioning-compatibility-radar-title">契合雷達</h3>
-              <p>用六個面向快速看懂這段關係的平衡。</p>
             </div>
           </div>
           <div className="compatibility-section-note">QUICK RELATIONSHIP SNAPSHOT</div>

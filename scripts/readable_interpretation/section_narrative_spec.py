@@ -8,6 +8,7 @@ override reader-facing paragraphs.
 from __future__ import annotations
 
 import re
+from datetime import date
 from typing import Any, Iterable
 
 from .final_narrative_fact_contract import (
@@ -20,7 +21,7 @@ from .schema import NarrativeEvidence, RelationshipCaseModelTrace, SectionNarrat
 
 LEGACY_SECTION_NARRATIVE_SPEC_VERSION = "section-narrative-spec-v1"
 EVIDENCE_DEPTH_SECTION_NARRATIVE_SPEC_VERSION = "section-narrative-spec-v2"
-SECTION_NARRATIVE_SPEC_VERSION = "section-narrative-spec-v4"
+SECTION_NARRATIVE_SPEC_VERSION = "section-narrative-spec-v5"
 SECTION_NARRATIVE_RENDERER_VERSION = "section-spec-renderer-v6"
 RELATIONSHIP_CASE_MODEL_TRACE_VERSION = "relationship-case-model-trace-v1"
 SUPPORTED_SECTION_NARRATIVE_SPEC_VERSIONS = (
@@ -426,6 +427,22 @@ def archetype_fact_key(title: Any) -> str:
 
 
 def timing_window_fact_key(window: dict[str, Any]) -> str:
+    if "kind" in window:
+        categories = {
+            "softening": "softening", "activation": "conflict-risk",
+            "communication_window": "communication-opening",
+            "communication_pressure": "conflict-risk", "boundary": "boundary-pressure",
+            "emotion": "general-climate", "background": "general-climate",
+        }
+        if window["kind"] not in categories:
+            raise ValueError(f"unsupported timing kind: {window['kind']}")
+        start = window.get("startDate")
+        if not start:
+            return "not-calculated"
+        day = date.fromisoformat(str(start)[:10])
+        third = "early" if day.day <= 10 else "mid" if day.day <= 20 else "late"
+        pair = canonical_value_key(f"{window.get('transitPoint')}-{window.get('natalPoint')}")
+        return f"{day:%Y-%m}-{third}|{categories[window['kind']]}|{pair}|{canonical_value_key(window.get('aspect'))}"
     period = str(window.get("periodLabel") or window.get("windowLabel") or "")
     match = re.search(r"(\d{4})\s*年\s*(\d{1,2})\s*月\s*(上旬|中旬|下旬)", period)
     period_key = "not-calculated"
@@ -750,6 +767,7 @@ def narrative_signal_items(
     source_kind: str,
     evidence_id: str,
     limit: int = 3,
+    evidence_records: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
     output: list[dict[str, Any]] = []
     seen: set[str] = set()
@@ -767,6 +785,24 @@ def narrative_signal_items(
             continue
         seen.add(identity)
         strength = round(number(item.get("strength"), 0.0), 3)
+        selected_evidence_id = evidence_id
+        if evidence_records is not None:
+            selected_evidence_id = "E-aspect-" + canonical_value_key(identity)
+            record = synthetic_evidence(
+                evidence_id=selected_evidence_id,
+                domain="synastry",
+                source="relationship-aspect-record",
+                proposition=identity,
+                payload=item,
+            )
+            record["signalKey"] = canonical_value_key(identity)
+            record["calculationIdentity"] = {
+                "personAPoint": point_a, "personBPoint": point_b,
+                "aspect": aspect_key, "contactType": contact_type,
+                "orb": item.get("orb"), "strength": strength,
+            }
+            if not any(existing.get("id") == selected_evidence_id for existing in evidence_records):
+                evidence_records.append(record)
         output.append(
             {
                 "key": identity,
@@ -782,7 +818,7 @@ def narrative_signal_items(
                 "everydaySignal": str(item.get("everydaySignal") or "").strip(),
                 "meaning": str(item.get("meaning") or "").strip(),
                 "advice": str(item.get("advice") or "").strip(),
-                "evidenceIds": [evidence_id],
+                "evidenceIds": [selected_evidence_id],
             }
         )
         if len(output) >= limit:
@@ -839,8 +875,21 @@ def answer_evidence_signals(
     secondary_dynamic_key: str,
     excluded_signal_keys: set[str] | None = None,
     limit: int = 2,
+    question_key: str = "any-chance",
 ) -> list[dict[str, Any]]:
-    ranked = sorted(signals, key=lambda item: signal_priority_for_dynamic(item, central_dynamic_key))
+    question_sources = {
+        "still-love-me": ("attraction", "growth", "friction"),
+        "any-chance": ("growth", "friction", "attraction"),
+        "when-to-contact": ("friction", "growth", "attraction"),
+        "what-did-i-do-wrong": ("friction", "growth", "attraction"),
+        "stay-or-let-go": ("growth", "friction", "attraction"),
+    }
+    sources = question_sources[question_key]
+    ranked = sorted(signals, key=lambda item: (
+        signal_priority_for_dynamic(item, central_dynamic_key)[0],
+        sources.index(str(item.get("sourceKind"))),
+        signal_priority_for_dynamic(item, central_dynamic_key)[1:],
+    ))
     excluded = excluded_signal_keys or set()
     unclaimed = [item for item in ranked if str(item.get("key") or "") not in excluded]
     candidates = unclaimed or ranked
@@ -1038,16 +1087,19 @@ def build_section_narrative_specs(
         attraction_dynamics,
         source_kind="attraction",
         evidence_id=fit_synastry_evidence_id,
+        evidence_records=fit_evidence,
     )
     friction_signals = narrative_signal_items(
         conflict_dynamics,
         source_kind="friction",
         evidence_id=fit_synastry_evidence_id,
+        evidence_records=fit_evidence,
     )
     growth_signals = narrative_signal_items(
         growth_dynamics,
         source_kind="growth",
         evidence_id=fit_synastry_evidence_id,
+        evidence_records=fit_evidence,
     )
     fit_owned_signal_keys = {
         str(signal.get("key") or "")
@@ -1066,18 +1118,21 @@ def build_section_narrative_specs(
             source_kind="attraction",
             evidence_id=core_synastry_evidence_id,
             limit=8,
+            evidence_records=core_evidence,
         ),
         *narrative_signal_items(
             conflict_dynamics,
             source_kind="friction",
             evidence_id=core_synastry_evidence_id,
             limit=8,
+            evidence_records=core_evidence,
         ),
         *narrative_signal_items(
             growth_dynamics,
             source_kind="growth",
             evidence_id=core_synastry_evidence_id,
             limit=8,
+            evidence_records=core_evidence,
         ),
     ]
     selected_answer_signals = answer_evidence_signals(
@@ -1085,8 +1140,15 @@ def build_section_narrative_specs(
         central_dynamic_key=central_dynamic_key,
         secondary_dynamic_key=secondary_dynamic_key,
         excluded_signal_keys=fit_owned_signal_keys,
+        question_key=question_key,
     )
     central_evidence_signal = selected_answer_signals[0]
+    if contact_key not in {"blocked", "no-contact", "living-or-working-together"}:
+        observable_signs = [{
+            "key": f"change-in-{canonical_value_key(central_dynamic_key)}",
+            "valence": "positive",
+            "evidenceIds": primary.get("evidenceIds") or central_evidence_signal.get("evidenceIds") or [],
+        }]
 
     specs = {
         "chart-positioning": build_spec(
@@ -1102,7 +1164,7 @@ def build_section_narrative_specs(
                 "personBPressureResponse": planet_role_fact_key(
                     person_b.get("conflictResponse"), "mars"
                 ),
-                "precisionMode": "chart-only",
+                "precisionMode": relationship_profiles.get("precisionMode") or "chart-only",
             },
             concept_keys=["individual_relationship_style", "emotional_need", "communication_style", "pressure_response"],
             evidence=chart_evidence,

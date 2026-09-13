@@ -25,9 +25,6 @@ export default function RootLayout({
     <html lang="zh-Hant">
       <body>
         {children}
-        <a className="agpl-source-link" href="/source">
-          AGPL 原始碼
-        </a>
       </body>
     </html>
   );

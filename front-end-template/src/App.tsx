@@ -201,55 +201,42 @@ const VIDEO_REVIEW_CARDS: VideoReviewCardData[] = [
   }
 ];
 
-const VIDEO_TESTIMONIAL_PLACEHOLDERS = [
+const TESTIMONIAL_MEDIA_ORIGIN =
+  "https://valley-of-light-teammate-preview.vercel.app";
+
+const VIDEO_TESTIMONIALS = [
   {
-    name: "Mandy",
-    meta: "復合時機",
-    title: "原來等待不是唯一選擇，這次我知道該怎麼靠近",
-    image:
-      "https://cdn.sceneai.art/Image%20for%20any%20section/20009828-ab1c-4b6a-a1d8-59ba1fcc0415.webp"
+    id: "01",
+    label: "真實用戶分享 01",
+    video: `${TESTIMONIAL_MEDIA_ORIGIN}/videos/testimonials/user-story-01.mp4`,
+    poster: `${TESTIMONIAL_MEDIA_ORIGIN}/videos/testimonials/user-story-01-poster.jpg`
   },
   {
-    name: "Y. Lin",
-    meta: "他的心意",
-    title: "比起一句答案，我更需要看懂我們為什麼卡住",
-    image:
-      "https://cdn.sceneai.art/Image%20for%20any%20section/687a21b2-e30f-4df3-93e0-20f43dab94c7.webp"
+    id: "02",
+    label: "真實用戶分享 02",
+    video: `${TESTIMONIAL_MEDIA_ORIGIN}/videos/testimonials/user-story-02.mp4`,
+    poster: `${TESTIMONIAL_MEDIA_ORIGIN}/videos/testimonials/user-story-02-poster.jpg`
   },
   {
-    name: "Claire",
-    meta: "行動方向",
-    title: "看完之後，我終於沒有急著傳出那封訊息",
-    image:
-      "https://cdn.sceneai.art/Image%20for%20any%20section/7fce3708-e690-4b42-bc46-6117a04d0501.png"
+    id: "03",
+    label: "真實用戶分享 03",
+    video: `${TESTIMONIAL_MEDIA_ORIGIN}/videos/testimonials/user-story-03.mp4`,
+    poster: `${TESTIMONIAL_MEDIA_ORIGIN}/videos/testimonials/user-story-03-poster.jpg`
   },
   {
-    name: "Hana",
-    meta: "關係真相",
-    title: "不是他不愛，而是我們都在用自己的方式防衛",
-    image:
-      "https://cdn.sceneai.art/Image%20for%20any%20section/b0688a16-2d8b-4bfb-8f7f-201788eae921.webp"
-  },
-  {
-    name: "S. Wong",
-    meta: "聯絡時機",
-    title: "有一個比較適合開口的窗口，讓我冷靜很多",
-    image:
-      "https://cdn.sceneai.art/Image%20for%20any%20section/bb56b4f0-50c0-42bf-8aea-d21fa5e55460.webp"
-  },
-  {
-    name: "Jasmine",
-    meta: "未來走向",
-    title: "答案很溫柔，但也把我該面對的現實說清楚",
-    image:
-      "https://cdn.sceneai.art/Image%20for%20any%20section/20009828-ab1c-4b6a-a1d8-59ba1fcc0415.webp"
+    id: "04",
+    label: "真實用戶分享 04",
+    video: `${TESTIMONIAL_MEDIA_ORIGIN}/videos/testimonials/user-story-04.mp4`,
+    poster: `${TESTIMONIAL_MEDIA_ORIGIN}/videos/testimonials/user-story-04-poster.jpg`
   }
-];
+] as const;
 
 const RELATIONSHIP_REVIEW_API_URL =
   typeof window !== "undefined" && window.location.hostname === "localhost"
     ? "http://localhost:3000/api/relationship-reviews"
     : "https://chat.ig-hero.com/api/relationship-reviews";
+const INITIAL_VISIBLE_REVIEW_COUNT = 9;
+const REVIEW_LOAD_MORE_COUNT = 9;
 
 function normalizePublicReview(review: PublicRelationshipReview): VideoReviewCardData {
   const rating = Math.round(Number(review.rating));
@@ -2781,7 +2768,7 @@ function VideoTestimonialCard({
   item,
   isMobile
 }: {
-  item: (typeof VIDEO_TESTIMONIAL_PLACEHOLDERS)[number];
+  item: (typeof VIDEO_TESTIMONIALS)[number];
   isMobile: boolean;
 }) {
   return (
@@ -2790,9 +2777,10 @@ function VideoTestimonialCard({
       className="video-testimonial-card"
       style={{
         flex: "0 0 auto",
-        width: isMobile ? "78vw" : 360,
+        width: isMobile ? "76vw" : 320,
+        maxWidth: isMobile ? 320 : "none",
         position: "relative",
-        borderRadius: isMobile ? 24 : 34,
+        borderRadius: isMobile ? 22 : 28,
         border: "1px solid rgba(255,255,255,0.16)",
         background:
           "linear-gradient(145deg, rgba(255,255,255,0.13), rgba(255,255,255,0.045) 58%, rgba(255,255,255,0.08))",
@@ -2800,7 +2788,7 @@ function VideoTestimonialCard({
           "0 28px 88px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.13)",
         backdropFilter: "blur(18px)",
         WebkitBackdropFilter: "blur(18px)",
-        padding: isMobile ? 14 : 18,
+        padding: isMobile ? 12 : 14,
         overflow: "hidden",
         boxSizing: "border-box",
         scrollSnapAlign: isMobile ? "center" : "start",
@@ -2820,66 +2808,35 @@ function VideoTestimonialCard({
       <div
         className="video-testimonial-thumb"
         style={{
-          aspectRatio: "4 / 3",
+          aspectRatio: "9 / 16",
           position: "relative",
           overflow: "hidden",
-          borderRadius: isMobile ? 18 : 26,
-          marginBottom: isMobile ? 16 : 20,
+          borderRadius: isMobile ? 16 : 20,
+          marginBottom: isMobile ? 14 : 16,
           background: "rgba(255,255,255,0.08)",
           border: "1px solid rgba(255,255,255,0.1)"
         }}
       >
-        <img
-          src={item.image}
-          alt={`${item.name} video testimonial placeholder`}
-          loading="lazy"
+        <video
+          src={item.video}
+          poster={item.poster}
+          aria-label={item.label}
+          controls
+          playsInline
+          preload="none"
           style={{
             width: "100%",
             height: "100%",
             objectFit: "cover",
             display: "block",
-            opacity: 0.76,
-            transition: "transform 700ms ease"
+            background: "#050811"
           }}
         />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(180deg, rgba(4,8,16,0.08) 0%, rgba(4,8,16,0.48) 100%)"
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            left: "50%",
-            top: "50%",
-            transform: "translate(-50%, -50%)",
-            width: isMobile ? 54 : 62,
-            height: isMobile ? 54 : 62,
-            borderRadius: "50%",
-            display: "grid",
-            placeItems: "center",
-            color: "#111827",
-            background:
-              "linear-gradient(145deg, rgba(255,255,255,0.94), rgba(255,255,255,0.64))",
-            border: "1px solid rgba(255,255,255,0.36)",
-            boxShadow: "0 18px 42px rgba(0,0,0,0.28)"
-          }}
-        >
-          <Play
-            size={isMobile ? 20 : 24}
-            strokeWidth={2.4}
-            fill="currentColor"
-            style={{ marginLeft: 3 }}
-          />
-        </div>
       </div>
 
       <p
         style={{
-          margin: "0 0 12px",
+          margin: 0,
           color: "rgba(248,213,107,0.84)",
           fontSize: isMobile ? 10 : 12,
           fontWeight: 900,
@@ -2887,48 +2844,21 @@ function VideoTestimonialCard({
           textTransform: "uppercase"
         }}
       >
-        {item.name} · {item.meta}
+        VIDEO TESTIMONIAL · {item.id}
       </p>
 
       <h4
         style={{
-          margin: 0,
-          minHeight: isMobile ? 84 : 100,
+          margin: isMobile ? "7px 0 2px" : "8px 0 3px",
           color: "#fff",
-          fontSize: isMobile ? "clamp(18px, 5vw, 24px)" : "clamp(22px, 2vw, 32px)",
+          fontSize: isMobile ? 17 : 19,
           fontWeight: 900,
-          lineHeight: 1.12,
-          letterSpacing: 0,
-          display: "-webkit-box",
-          WebkitLineClamp: 3,
-          WebkitBoxOrient: "vertical",
-          overflow: "hidden"
+          lineHeight: 1.35,
+          letterSpacing: 0
         }}
       >
-        {item.title}
+        {item.label}
       </h4>
-
-      <button
-        type="button"
-        className="video-testimonial-link"
-        style={{
-          marginTop: isMobile ? 18 : 22,
-          border: "1px solid rgba(248,213,107,0.18)",
-          borderRadius: 999,
-          background: "rgba(248,213,107,0.1)",
-          color: "rgba(248,213,107,0.92)",
-          padding: isMobile ? "8px 12px" : "9px 14px",
-          fontSize: isMobile ? 10 : 12,
-          fontWeight: 900,
-          letterSpacing: "0.12em",
-          textTransform: "uppercase",
-          cursor: "default",
-          position: "relative",
-          display: "inline-flex"
-        }}
-      >
-        影片見證
-      </button>
     </motion.article>
   );
 }
@@ -2942,7 +2872,7 @@ function VideoTestimonialsSection({ isMobile }: { isMobile: boolean }) {
 
     const firstCard = carousel.querySelector<HTMLElement>("[data-video-testimonial-card]");
     const gap = Number.parseFloat(window.getComputedStyle(carousel).columnGap || "24");
-    const cardWidth = firstCard?.getBoundingClientRect().width ?? (isMobile ? window.innerWidth * 0.78 : 360);
+    const cardWidth = firstCard?.getBoundingClientRect().width ?? (isMobile ? window.innerWidth * 0.76 : 320);
     carousel.scrollBy({
       left: direction * (cardWidth + gap),
       behavior: "smooth"
@@ -2967,9 +2897,6 @@ function VideoTestimonialsSection({ isMobile }: { isMobile: boolean }) {
           .video-testimonial-card:hover {
             border-color: rgba(248,213,107,0.32) !important;
             background-color: rgba(255,255,255,0.12) !important;
-          }
-          .video-testimonial-card:hover img {
-            transform: scale(1.05);
           }
         `}
       </style>
@@ -3074,9 +3001,9 @@ function VideoTestimonialsSection({ isMobile }: { isMobile: boolean }) {
               padding: isMobile ? "2px 6px 8px" : "2px 4px 10px"
             }}
           >
-            {VIDEO_TESTIMONIAL_PLACEHOLDERS.map((item) => (
+            {VIDEO_TESTIMONIALS.map((item) => (
               <VideoTestimonialCard
-                key={`${item.name}-${item.meta}`}
+                key={item.id}
                 item={item}
                 isMobile={isMobile}
               />
@@ -3701,6 +3628,7 @@ function FaqSection({ isMobile }: { isMobile: boolean }) {
 
 function VideoReviewsSection({ isMobile }: { isMobile: boolean }) {
   const [displayReviews, setDisplayReviews] = useState<VideoReviewCardData[]>(VIDEO_REVIEW_CARDS);
+  const [visibleReviewCount, setVisibleReviewCount] = useState(INITIAL_VISIBLE_REVIEW_COUNT);
   const [reviewName, setReviewName] = useState("");
   const [reviewEmail, setReviewEmail] = useState("");
   const [reviewRating, setReviewRating] = useState(5);
@@ -3729,6 +3657,11 @@ function VideoReviewsSection({ isMobile }: { isMobile: boolean }) {
     reviewName.trim().length > 0 &&
     reviewTitle.trim().length > 0 &&
     reviewBody.trim().length > 0;
+  const visibleReviews = useMemo(
+    () => displayReviews.slice(0, visibleReviewCount),
+    [displayReviews, visibleReviewCount]
+  );
+  const remainingReviewCount = Math.max(0, displayReviews.length - visibleReviews.length);
 
   useEffect(() => {
     let isCancelled = false;
@@ -3749,6 +3682,7 @@ function VideoReviewsSection({ isMobile }: { isMobile: boolean }) {
           .filter((review) => review.description.length > 0);
         if (!isCancelled && nextReviews.length > 0) {
           setDisplayReviews(nextReviews);
+          setVisibleReviewCount(INITIAL_VISIBLE_REVIEW_COUNT);
         }
       } catch {
         // Keep the local fallback cards when the review backend is unavailable.
@@ -3938,7 +3872,7 @@ function VideoReviewsSection({ isMobile }: { isMobile: boolean }) {
             width: "100%"
           }}
         >
-          {displayReviews.map((review, index) => (
+          {visibleReviews.map((review, index) => (
             <VideoReviewCard
               key={`${review.name}-${review.title}`}
               review={review}
@@ -3947,6 +3881,45 @@ function VideoReviewsSection({ isMobile }: { isMobile: boolean }) {
             />
           ))}
         </div>
+
+        {remainingReviewCount > 0 ? (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: isMobile ? 24 : 34
+            }}
+          >
+            <motion.button
+              type="button"
+              onClick={() =>
+                setVisibleReviewCount((count) =>
+                  Math.min(displayReviews.length, count + REVIEW_LOAD_MORE_COUNT)
+                )
+              }
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              style={{
+                border: "1px solid rgba(248,213,107,0.32)",
+                borderRadius: 999,
+                background:
+                  "linear-gradient(135deg, rgba(248,213,107,0.18), rgba(255,255,255,0.08))",
+                color: "#f8f2dc",
+                cursor: "pointer",
+                fontFamily:
+                  "'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif",
+                fontSize: isMobile ? 13 : 14,
+                fontWeight: 900,
+                letterSpacing: 0,
+                padding: isMobile ? "12px 18px" : "14px 24px",
+                boxShadow:
+                  "0 18px 45px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.12)"
+              }}
+            >
+              查看更多回饋（還有 {remainingReviewCount} 則）
+            </motion.button>
+          </div>
+        ) : null}
 
         <motion.form
           onSubmit={submitRelationshipReview}

@@ -20,6 +20,10 @@ Only read requests for these apex paths go to the landing origin:
 
 - `/`
 - `/index.html`
+- `/favicon.ico`
+- `/favicon-48x48.png`
+- `/favicon-96x96.png`
+- `/apple-touch-icon.png`
 - `/assets/*`
 - `/brand/*`
 

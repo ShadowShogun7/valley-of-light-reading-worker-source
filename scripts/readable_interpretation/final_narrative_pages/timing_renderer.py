@@ -519,6 +519,64 @@ def single_fact(facts: SectionFactReader, role: str) -> dict[str, Any]:
     return records[0]
 
 
+BLOCKED_TIMING_CONDITION = "那段時間如果他仍未開放聯絡，就不要因為日期到了而再次接近"
+BLOCKED_TIMING_ACTION = "先不主動聯絡，也不透過其他帳號或朋友試探"
+BLOCKED_WINDOW_PREFIX = "若他主動恢復聯絡，"
+BLOCKED_WINDOW_EFFECTS = {
+    "softening": {
+        "conjunction": "你們比較容易放鬆，也會更直接表達感受",
+        "sextile": "你們比較願意回應彼此的關心",
+        "trine": "你們聊天可能較自然，不必一直找話題",
+        "square": "你們可能較好開口，但仍要留意口氣變重",
+        "opposition": "你們可能想靠近，也可能很快又退開",
+        "quincunx": "你們可能願意說話，但對親近的期待仍有差異",
+    },
+    "conflict-risk": {
+        "conjunction": "你們仍可能因一件小事反應很大",
+        "sextile": "你們有摩擦時，停一下通常比較能說清楚",
+        "trine": "你們有摩擦時，較容易回到原本的話題",
+        "square": "你們仍容易因小事互相反駁",
+        "opposition": "你們可能一方想談，另一方卻想退開",
+        "quincunx": "你們仍可能各自處理不同的問題",
+    },
+    "communication-opening": {
+        "conjunction": "你們比較能說到重點，但回話也會更直接",
+        "sextile": "你們比較有機會聽懂對方真正想說什麼",
+        "trine": "你們比較能自然地把一件事說清楚",
+        "square": "你們可能較好開口，但仍容易急著反駁",
+        "opposition": "你們可能願意交談，卻各自在說自己的重點",
+        "quincunx": "你們可能願意說明，但需要時間確認彼此的意思",
+    },
+    "boundary-pressure": {
+        "conjunction": "你們談責任時，態度可能更直接",
+        "sextile": "你們談到各自能做什麼時，仍有商量空間",
+        "trine": "你們比較能平穩地談清楚各自的限制",
+        "square": "你們談責任時，仍可能很快開始防備",
+        "opposition": "你們談到承諾時，仍可能想拉開距離",
+        "quincunx": "你們對責任的期待仍可能不一致",
+    },
+    "general-climate": {
+        "conjunction": "你們的互動可能加快，反應也會更直接",
+        "sextile": "你們遇到變化時，較願意配合彼此",
+        "trine": "你們的相處可能比較自然，但不代表問題已解決",
+        "square": "你們仍容易一著急就互相反駁",
+        "opposition": "你們仍可能在靠近和退開之間反覆",
+        "quincunx": "你們仍需要時間協調不同的步調",
+    },
+}
+
+
+def blocked_window_sentence(value_key: str) -> str:
+    parts = value_key.split("|")
+    if len(parts) != 4 or parts[0] in {"not-calculated", "missing"} or "unknown" in parts:
+        return "目前沒有足夠資料判斷時段，也不能預測他是否會重新開放聯絡"
+    period, category, trigger, aspect = parts
+    # Validate the full value even though contact permission suppresses the
+    # conversational subject in this bounded realization.
+    timing_window_sentence(value_key, 0)
+    return f"{format_period(period)}{BLOCKED_WINDOW_PREFIX}{BLOCKED_WINDOW_EFFECTS[category][aspect]}"
+
+
 def render_timing_reading(facts: SectionFactReader, seed: str) -> dict[str, str]:
     del seed
     question_fact = single_fact(facts, "question")
@@ -626,6 +684,10 @@ def render_timing_reading(facts: SectionFactReader, seed: str) -> dict[str, str]
         precision_index,
         identity="timing-reading:precision",
     )
+    if contact == "blocked":
+        window_sentence = blocked_window_sentence(window_value)
+        band_sentence = BLOCKED_TIMING_CONDITION
+        action_copy = BLOCKED_TIMING_ACTION
     headline = TIMING_HEADLINE_COPY[question][action]
     rendered = {
         "headline": headline,
@@ -825,6 +887,18 @@ def timing_static_sentence_traces() -> dict[str, dict[str, str]]:
 
 @lru_cache(maxsize=4096)
 def timing_sentence_trace(sentence: str) -> dict[str, str] | None:
+    if normalize_copy(sentence) == normalize_copy(BLOCKED_TIMING_CONDITION):
+        return {"kind": "paragraph-composition", "role": "timing-band", "purpose": "situational", "contributorRole": "contact-status", "contributorValueKey": "blocked"}
+    if normalize_copy(sentence) == normalize_copy(BLOCKED_TIMING_ACTION):
+        return {"kind": "paragraph-composition", "role": "recommended-action", "valueKey": "avoid-push", "purpose": "direct", "contributorRole": "contact-status", "contributorValueKey": "blocked"}
+    if sentence == blocked_window_sentence("missing|unknown|unknown|unknown"):
+        return {"kind": "paragraph-composition", "role": "timing-window", "purpose": "situational", "certainty": "unknown", "contributorValueKey": "blocked"}
+    if BLOCKED_WINDOW_PREFIX in sentence:
+        for category in WINDOW_CATEGORY_COPY:
+            for aspect in ASPECT_DOMAIN:
+                if sentence.endswith(BLOCKED_WINDOW_PREFIX + BLOCKED_WINDOW_EFFECTS[category][aspect]):
+                    return {"kind": "paragraph-composition", "role": "timing-window", "purpose": "situational", "contributorRole": "contact-status", "contributorValueKey": "blocked"}
+        return None
     normalized = normalize_copy(sentence)
     static = timing_static_sentence_traces().get(normalized)
     if static is not None:
@@ -907,6 +981,16 @@ def validate_timing_rendered(
     body = split_sentences(rendered["body"])
     if len(body) != 2:
         raise TimingNativeChineseError("timing body must contain window and band")
+    blocked = frames["contact"].value_key == "blocked"
+    expected_blocked_window = blocked_window_sentence(frames["window"].value_key if "window" in frames else "missing|unknown|unknown|unknown")
+    if blocked and body[0] != expected_blocked_window:
+        raise TimingNativeChineseError("timing window lost its contact permission condition")
+    if not blocked and (BLOCKED_WINDOW_PREFIX in body[0] or body[0] == blocked_window_sentence("missing|unknown|unknown|unknown")):
+        raise TimingNativeChineseError("blocked timing window lacks blocked contact evidence")
+    if blocked and (body[1] != BLOCKED_TIMING_CONDITION or rendered["nextMove"] != join_sentences(BLOCKED_TIMING_ACTION)):
+        raise TimingNativeChineseError("blocked timing must preserve the no-contact boundary in every field")
+    if not blocked and (body[1] == BLOCKED_TIMING_CONDITION or normalize_copy(rendered["nextMove"]) == normalize_copy(BLOCKED_TIMING_ACTION)):
+        raise TimingNativeChineseError("blocked timing copy requires blocked contact evidence")
     if "window" in frames:
         assert_frame_trace(body[0], frames["window"], purpose="situational")
     else:

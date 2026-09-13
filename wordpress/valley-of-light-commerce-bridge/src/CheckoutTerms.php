@@ -156,7 +156,7 @@ final class CheckoutTermsPolicy
 
 final class CheckoutTerms
 {
-    private const CURRENT_VERSION = 'commerce-terms-2026-07-26-draft';
+    private const CURRENT_VERSION = 'commerce-terms-2026-07-26';
 
     /**
      * Keep every still-payable order cohort here during a terms rotation.

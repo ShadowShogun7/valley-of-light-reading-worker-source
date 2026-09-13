@@ -3,6 +3,12 @@ const WWW_HOST = "www.valeoflight.com";
 const LANDING_ORIGIN_HOST = "official.valeoflight.com";
 const PROXY_MARKER_HEADER = "x-vale-proxy";
 const PROXY_MARKER_VALUE = "1";
+const LANDING_EXACT_PATHS = [
+  "/apple-touch-icon.png",
+  "/favicon.ico",
+  "/favicon-48x48.png",
+  "/favicon-96x96.png"
+];
 const LANDING_PATH_PREFIXES = ["/assets/", "/brand/"];
 const WORDPRESS_QUERY_KEYS = [
   "add-to-cart",
@@ -69,6 +75,7 @@ export function shouldUseLandingOrigin(request) {
   return (
     url.pathname === "/" ||
     url.pathname === "/index.html" ||
+    LANDING_EXACT_PATHS.includes(url.pathname) ||
     LANDING_PATH_PREFIXES.some((prefix) => url.pathname.startsWith(prefix))
   );
 }

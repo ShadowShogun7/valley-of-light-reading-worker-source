@@ -285,6 +285,8 @@ final class ReadingProduct
             'billing_email_confirmation' =>
                 BillingEmailConfirmation::configurationIsValid(),
             'access_email_bridge' => AccessEmail::configurationIsValid(),
+            'ecpay_payment_reconciliation' =>
+                EcpayPaymentReconciler::runtimeHooksRegistered(),
             'transactional_email_transport_verified' =>
                 AccessEmail::mailTransportIsVerified(),
         ];

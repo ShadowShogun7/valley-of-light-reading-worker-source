@@ -11,6 +11,17 @@ final class ThankYouMessage
     public function register(): void
     {
         add_action('woocommerce_thankyou', [$this, 'render'], 8);
+        add_action('wp_enqueue_scripts', [$this, 'enqueueStyles']);
+    }
+
+    public function enqueueStyles(): void
+    {
+        wp_enqueue_style(
+            'vol-order-received',
+            plugins_url('assets/order-received.css', VOL_COMMERCE_BRIDGE_FILE),
+            [],
+            VOL_COMMERCE_BRIDGE_VERSION
+        );
     }
 
     public function render(int $orderId): void

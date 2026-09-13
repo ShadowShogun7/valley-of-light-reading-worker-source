@@ -111,15 +111,6 @@ def visible_value_projection(role: str, value: str) -> str:
         signal = parse_relationship_signal(value)
     except ValueError:
         return value
-    if role == "evidence-signal":
-        return (
-            f"{signal.kind}:{signal.actor_person}:{signal.actor_planet}>"
-            f"{signal.receiver_person}:{signal.receiver_planet}"
-        )
-    if role == "growth-signal":
-        # Growth copy intentionally owns the pair and acting person. Aspect and
-        # planet order remain evidence details unless a future renderer exposes them.
-        return f"{signal.kind}:{signal.pair_key}:{signal.actor_person}"
     return signal.raw
 
 
@@ -146,6 +137,23 @@ def visible_role_projection(
         for role, presentation in presentations.items()
         if presentation != "hidden-support"
     }
+    if section_id == "action-direction" and not set(role_values.get("action-mode", ())) & {"boundary-only", "shared-space-boundary"}:
+        owned.add("repair-lever")
+        if set(role_values.get("question", ())) & {"stay-or-let-go", "what-did-i-do-wrong"}:
+            # These questions resolve into private reflection, regardless of
+            # which conversational mode would otherwise have been permitted.
+            role_values = dict(role_values)
+            for role in ("action-mode", "action-purpose", "completion-boundary"):
+                role_values[role] = ["private-reflection"]
+    if section_id == "timing-reading" and "blocked" in role_values.get("contact-status", ()):
+        # Contact refusal suppresses timing subjects and band permission. The
+        # conditional period/category/aspect remain visible and must differ.
+        owned.discard("timing-band")
+        role_values = dict(role_values)
+        role_values["timing-window"] = [
+            "|".join([parts[0], parts[1], parts[3]]) if len(parts := value.split("|")) == 4 else value
+            for value in role_values.get("timing-window", ())
+        ]
     return role_projection(
         section_id,
         {role: values for role, values in role_values.items() if role in owned},
