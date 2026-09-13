@@ -21,7 +21,12 @@ from readable_interpretation.final_narrative_composer import (  # noqa: E402
 )
 from readable_interpretation.final_narrative_fact_contract import (  # noqa: E402
     build_final_narrative_fact_contract,
+    canonical_value_key,
     make_fact,
+)
+from readable_interpretation.decision_zh_tw_catalog import action_decision  # noqa: E402
+from readable_interpretation.final_narrative_pages.chart_positioning_zh_tw_catalog import (  # noqa: E402
+    chart_sentence_trace,
 )
 from readable_interpretation.final_narrative_pages.core_answer_renderer import (  # noqa: E402
     core_answer_sentence_trace,
@@ -184,13 +189,21 @@ def synthetic_fact_contract(sections: dict[str, dict[str, Any]]) -> dict[str, An
                 return value.get("key") or "unknown"
             return value or "unknown"
 
+        def evidence_for(source_slot: str) -> list[str]:
+            value = slots.get(source_slot)
+            if isinstance(value, list):
+                value = value[0] if value else None
+            if isinstance(value, dict) and value.get("evidenceIds"):
+                return list(value["evidenceIds"])
+            return [evidence_ids[0]]
+
         facts_by_section[section_id] = [
             make_fact(
                 section_id=section_id,
                 role=role,
                 value_key=value_for(role, source_slot),
                 source_slot=source_slot,
-                evidence_ids=[evidence_ids[0]],
+                evidence_ids=evidence_for(source_slot),
             )
             for role, source_slot in role_slots
         ]
@@ -207,12 +220,12 @@ def section(view_model: dict[str, Any], section_id: str) -> dict[str, str]:
 
 
 def final_fact_value(view_model: dict[str, Any], section_id: str, role: str) -> str:
-    contract = ((view_model.get("finalInterpretation") or {}).get("factContract") or {})
+    contract = ((view_model.get("sectionNarrativeSpecs") or {}).get("finalNarrativeFacts") or {})
     section_contract = ((contract.get("sections") or {}).get(section_id) or {})
     for fact in section_contract.get("facts") or []:
         if isinstance(fact, dict) and fact.get("role") == role:
             return str(fact.get("valueKey") or "")
-    return ""
+    raise AssertionError(f"{view_model.get('id')}: missing {section_id}:{role} fact")
 
 
 def field_values(view_models: Iterable[dict[str, Any]], section_id: str, field: str) -> list[str]:
@@ -322,6 +335,7 @@ def assert_generated_diversity(view_models: list[dict[str, Any]]) -> None:
         != "precise-dates-available"
         and (core_answer_sentence_trace(sentence) or {}).get("role")
         != "uncertainty-level"
+        and (chart_sentence_trace(sentence) or {}).get("role") != "precision-mode"
     ]
     if repeated:
         detail = "; ".join(f"{count}x {sentence[:60]}" for sentence, count in sorted(repeated, key=lambda item: item[1], reverse=True)[:8])
@@ -337,21 +351,20 @@ def assert_generated_diversity(view_models: list[dict[str, Any]]) -> None:
             if term in text:
                 failures.append(f"{view_model.get('id')}: forbidden final term leaked: {term}")
 
-    contact_to_action_meanings: dict[str, dict[str, set[str]]] = defaultdict(lambda: defaultdict(set))
+    boundary_meanings: dict[str, set[str]] = defaultdict(set)
     for view_model in view_models:
-        context = view_model.get("context") or {}
-        contact = str(context.get("contact_status") or "")
+        mode = final_fact_value(view_model, "action-direction", "action-mode")
+        question = final_fact_value(view_model, "action-direction", "question")
         repair_lever = final_fact_value(view_model, "action-direction", "repair-lever")
-        action_meaning = normalize(section(view_model, "action-direction").get("meaning"))
-        if contact and repair_lever and action_meaning:
-            contact_to_action_meanings[contact][repair_lever].add(action_meaning)
-    for contact, dynamic_map in contact_to_action_meanings.items():
-        if len(dynamic_map) >= 3:
-            meaning_count = len({value for values in dynamic_map.values() for value in values})
-            if meaning_count != 1:
-                failures.append(
-                    f"{contact}: hidden repair lever leaked into action-page meaning"
-                )
+        action_meaning = normalize(section(view_model, "action-direction").get("meaning")).rstrip("。")
+        decision = action_decision(mode, repair_lever, question)
+        if decision is None:
+            boundary_meanings[mode].add(action_meaning)
+        elif action_meaning != normalize(decision[0]):
+            failures.append(f"{view_model.get('id')}: action purpose does not match the owned decision")
+    for mode, meanings in boundary_meanings.items():
+        if len(meanings) != 1:
+            failures.append(f"{mode}: chart variation changed the hard boundary")
 
     source_metrics = {
         "actionGuidance.body": len({
@@ -493,9 +506,27 @@ def synthetic_composer_records(limit: int = 875) -> list[dict[str, Any]]:
                             "caseEvidenceIds": ["synthetic-primary", "synthetic-secondary"],
                         }
 
-                    fit_attraction = semantic_signal("emotional_safety", evidence_id="fit-synastry", source_kind="attraction")
-                    fit_friction = semantic_signal(dynamic, evidence_id="fit-synastry", source_kind="friction")
-                    fit_growth = semantic_signal("communication_repair", evidence_id="fit-synastry", source_kind="growth")
+                    def signal_evidence(signal: dict[str, Any]) -> dict[str, Any]:
+                        record = synthetic_evidence(
+                            evidence_id=signal["evidenceIds"][0],
+                            domain="synastry",
+                            source="synthetic-aspect-fixture",
+                            proposition=signal["key"],
+                            payload=signal,
+                        )
+                        record["signalKey"] = canonical_value_key(signal["key"])
+                        record["calculationIdentity"] = {
+                            "personAPoint": signal["personAPoint"],
+                            "personBPoint": signal["personBPoint"],
+                            "aspect": signal["aspectKey"],
+                            "contactType": signal["contactType"],
+                            "strength": signal["strength"],
+                        }
+                        return record
+
+                    fit_attraction = semantic_signal("emotional_safety", evidence_id="fit-attraction", source_kind="attraction")
+                    fit_friction = semantic_signal(dynamic, evidence_id="fit-friction", source_kind="friction")
+                    fit_growth = semantic_signal("communication_repair", evidence_id="fit-growth", source_kind="growth")
                     core_aspect, core_contact_type = aspects[
                         (stage_index + contact_index) % len(aspects)
                     ]
@@ -558,7 +589,10 @@ def synthetic_composer_records(limit: int = 875) -> list[dict[str, Any]]:
                                 ),
                             },
                             concept_keys=["relationship_dynamic"],
-                            evidence=[evidence("fit", "synastry"), evidence("fit", "method")],
+                            evidence=[
+                                signal_evidence(signal)
+                                for signal in (fit_attraction, fit_friction, fit_growth)
+                            ] + [evidence("fit", "method")],
                         ),
                         "core-answer": build_spec(
                             section_id="core-answer",
@@ -583,7 +617,7 @@ def synthetic_composer_records(limit: int = 875) -> list[dict[str, Any]]:
                             },
                             concept_keys=["question_answer"],
                             evidence=[
-                                evidence("core", "synastry"),
+                                signal_evidence(core_signal),
                                 evidence("core", "relationshipContext"),
                                 evidence("core", "answerPolicy"),
                                 evidence("core", "method"),

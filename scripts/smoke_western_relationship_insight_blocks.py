@@ -171,7 +171,15 @@ def assert_relationship_insights(view_model: dict[str, Any], label: str) -> None
     assert_block_common(windows, f"{label}: turningWindows")
     assert_true(windows.get("preciseDatesAvailable") is False, f"{label}: turning windows must block precise dates")
     assert_true(windows.get("precision") == "climate_window_not_exact_date", f"{label}: turning window precision mismatch")
-    rendered_windows = json.dumps(windows, ensure_ascii=False)
+    # Structured dates select the timing facts; they are not reader-facing copy.
+    visible_windows = {
+        **windows,
+        "items": [
+            {key: value for key, value in item.items() if key not in {"startDate", "endDate"}}
+            for item in windows.get("items") or []
+        ],
+    }
+    rendered_windows = json.dumps(visible_windows, ensure_ascii=False)
     assert_true(not EXACT_DATE_PATTERN.search(rendered_windows), f"{label}: turning windows leaked exact date/day")
     for phrase in AWKWARD_VISIBLE_PHRASES:
         assert_true(phrase not in rendered_windows, f"{label}: awkward timing phrase leaked: {phrase}")

@@ -42,7 +42,7 @@ def python_script(name: str, *args: str) -> tuple[str, ...]:
 BACKEND_STEPS: tuple[Step, ...] = (
     Step("kb_validate", "KB source validation", python_script("validate.py")),
     Step("reading_architecture_repair", "Fresh-chart meaning and evidence regressions", python_script("verify_reading_architecture_repair.py")),
-    Step("kb_compile", "Compile KB runtime artifacts", python_script("compile_kb.py", "--skip-validate")),
+    Step("kb_compile", "Compile published-only KB runtime artifacts", python_script("compile_kb.py", "--skip-validate", "--published-only")),
     Step("kb_lint", "KB lint health check", python_script("lint_kb.py")),
     Step("book_coverage_validate", "Book coverage validation", python_script("validate_book_coverage.py")),
     Step("book_digests_validate", "Book digest validation", python_script("validate_book_digests.py")),
@@ -637,7 +637,7 @@ def compare_generated_report(step: Step) -> dict[str, Any]:
                     "returncode": 1,
                     "stdout": (
                         f"{step.report_path.relative_to(ROOT)} is stale. "
-                        f"Run `{command_display(step.command)}` to regenerate it."
+                        f"Run `{command_display((*step.command, '--out', str(step.report_path)))}` to regenerate it."
                     ),
                     "stderr": "",
                 }

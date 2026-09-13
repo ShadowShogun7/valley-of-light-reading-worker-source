@@ -289,8 +289,8 @@
     },
     {
       "path": "apps/web/src/data/generated/phase5-review-cases.json",
-      "sha256": "d76db4307299d4d855c5a716b56c2032776f9583575a4f509527b507f58f7dbc",
-      "size": 657303
+      "sha256": "0ec01ad9d28342dc4a91fc6400a70480df26797000414a2dd969ff90496ce153",
+      "size": 657139
     },
     {
       "path": "apps/web/src/data/generated/phase7-review-cases.json",
@@ -1394,8 +1394,8 @@
     },
     {
       "path": "scripts/smoke_final_narrative_v6_semantic_diversity.py",
-      "sha256": "cb1817fb7578513c65e1e39dfffa37e0c319388be1b9c75e9c46f882afb4bf11",
-      "size": 33618
+      "sha256": "c7b42b9f2877c648038d08aa963c351c8500fc2e9e77970507707020af4803a3",
+      "size": 35490
     },
     {
       "path": "scripts/smoke_phase5_human_feedback_regressions.py",
@@ -1519,8 +1519,8 @@
     },
     {
       "path": "scripts/smoke_western_relationship_insight_blocks.py",
-      "sha256": "08e8605d68c47b291df2bfac8ac72a1c202eb5bbe261e11f156b85743818f010",
-      "size": 11101
+      "sha256": "bd831ef88322332d1fa2b97e5627e563059d106cd8904f910b326fe069add717",
+      "size": 11415
     },
     {
       "path": "scripts/smoke_western_relationship_thesis.py",
@@ -1699,8 +1699,8 @@
     },
     {
       "path": "scripts/verify_paid_v1_reading_stack.py",
-      "sha256": "8380eef2b05bc0c5685d8dd0945f5bb2e507792e8d8482f06e7287e3d6eb5613",
-      "size": 29432
+      "sha256": "201b5b6e63d93c36bcc8aedda750781b20fc334d05bb918095310035b05f7742",
+      "size": 29502
     },
     {
       "path": "scripts/verify_reading_architecture_repair.py",
@@ -2549,6 +2549,6 @@
     }
   ],
   "license": "AGPL-3.0-or-later",
-  "releaseId": "v2026.09.13.1",
-  "sourceUrl": "https://github.com/ShadowShogun7/valley-of-light-reading-worker-source/releases/download/v2026.09.13.1/valley-of-light-agpl-source-v2026.09.13.1.zip"
+  "releaseId": "v2026.09.13.2",
+  "sourceUrl": "https://github.com/ShadowShogun7/valley-of-light-reading-worker-source/releases/download/v2026.09.13.2/valley-of-light-agpl-source-v2026.09.13.2.zip"
 }
