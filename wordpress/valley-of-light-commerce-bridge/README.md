@@ -9,6 +9,9 @@ same route so Kinsta never serves a cached cart mutation. The dynamic request
 then selects the server-owned reading product, forces quantity one, clears any
 stale cart state, and redirects to the native WooCommerce checkout. The route
 never accepts a product id, price, or customer email from the browser.
+If the public landing host differs from WordPress's configured host, the route
+canonicalizes first so Woo's cart-session cookie and checkout remain on the
+same origin.
 
 The production Kinsta configuration also includes `/start-reading/` as a
 single custom autopurge path. That keeps the cached first-hop redirect current;
@@ -24,9 +27,20 @@ silently restamped. The thank-you page then shows a masked-email instruction.
 Verified paid-order access is still created only by the signed application
 webhook.
 
+## ECPay delayed-callback recovery
+
+ECPay's signed callback remains the primary payment-completion path. If that
+callback is delayed, the bridge performs a server-to-server
+`QueryTradeInfo` check on the customer return page and through three bounded
+background retries. It marks the Woo order paid only after ECPay's SDK verifies
+the response signature and the response matches the immutable merchant order
+number, exact total, credit-card payment type, transaction reference, and
+payment date. The bridge revalidates the fixed order, terms evidence, and
+confirmed billing Email before calling Woo's idempotent `payment_complete()`.
+
 ## WooCommerce access emails
 
-Version `0.3.0` uses WooCommerce's built-in customer emails without allowing
+Version `0.4.0` uses WooCommerce's built-in customer emails without allowing
 their normal payment event to race ahead of entitlement creation:
 
 - the reading product's automatic Processing and Completed customer emails are
@@ -146,7 +160,7 @@ app independently checks that Woo and Supabase still agree before it claims a
 delivery. A future correction workflow must update and verify Woo first, renew
 the WordPress confirmation proof through an audited staff action, then update
 Supabase and rotate the access grant. That cross-system workflow is not
-implemented in version `0.3.0`.
+implemented in version `0.4.0`.
 
 ### Compatibility assumptions
 

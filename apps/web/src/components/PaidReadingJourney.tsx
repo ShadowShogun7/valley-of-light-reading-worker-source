@@ -4,6 +4,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { AstrologyResultPage } from "@/components/AstrologyResultPage";
 import { BrandLogo } from "@/components/BrandLogo";
 import {
+  CalculationLoadingGate,
+  relationshipCalculationSteps,
+} from "@/components/CalculationLoadingGate";
+import {
   IntakeFlow,
   type IntakeAnswers,
 } from "@/components/IntakeFlow";
@@ -101,7 +105,7 @@ export function PaidReadingJourney() {
       const serialized = JSON.stringify(answers);
       if (serialized === lastPersistedDraft.current) return;
       if (draftTimer.current) clearTimeout(draftTimer.current);
-      setDraftMessage("正在儲存…");
+      setDraftMessage("");
       draftTimer.current = setTimeout(async () => {
         try {
           const response = await fetch(`${endpoint}/intake`, {
@@ -115,7 +119,7 @@ export function PaidReadingJourney() {
           }
           if (!response.ok) throw new Error("draft save failed");
           lastPersistedDraft.current = serialized;
-          setDraftMessage("已安全儲存");
+          setDraftMessage("");
         } catch {
           setDraftMessage("尚未儲存，請保持此頁開啟後再試");
         }
@@ -204,6 +208,20 @@ export function PaidReadingJourney() {
     );
   }
 
+  if (journeyState === "processing") {
+    return (
+      <CalculationLoadingGate
+        brand={brand}
+        error={null}
+        isResultReady={false}
+        onRetry={() => void loadReading()}
+        onShowResult={() => void loadReading()}
+        processingDescription="正在整理兩人的星盤、合盤相位與關係線索。你可以留在此頁等待，完成後會自動顯示結果；也可以先離開，我們會寄信通知你。"
+        steps={relationshipCalculationSteps}
+      />
+    );
+  }
+
   return (
     <main className="paid-reading-state-shell">
       <section className="paid-reading-state-card" aria-live="polite">
@@ -213,17 +231,6 @@ export function PaidReadingJourney() {
             <div className="paid-reading-spinner" aria-hidden="true" />
             <h1>正在安全開啟你的解讀</h1>
             <p>請稍候，我們正在確認這個付款連結的目前狀態。</p>
-          </>
-        ) : journeyState === "processing" ? (
-          <>
-            <span className="paid-reading-state-kicker">資料已鎖定</span>
-            <h1>你的完整關係解讀正在建立中</h1>
-            <p>
-              你不需要再次填寫資料。完成後，我們會寄信通知你；之後使用同一個連結，就會直接回到完成結果。
-            </p>
-            <button onClick={() => void loadReading()} type="button">
-              重新確認進度
-            </button>
           </>
         ) : (
           <>

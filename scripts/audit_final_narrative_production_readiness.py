@@ -12,6 +12,7 @@ from typing import Any, Iterable
 
 
 from readable_interpretation.final_narrative_composition import SECTION_COMPOSITION_RULES
+from readable_interpretation.decision_zh_tw_catalog import action_decision
 from readable_interpretation.final_narrative_pages.action_direction_renderer import (
     action_sentence_trace,
 )
@@ -39,6 +40,9 @@ from readable_interpretation.final_narrative_pages.relationship_fit_zh_tw_catalo
     signal_forms as fit_signal_forms,
 )
 from readable_interpretation.final_narrative_pages.timing_renderer import (
+    BLOCKED_TIMING_ACTION,
+    BLOCKED_TIMING_CONDITION,
+    blocked_window_sentence,
     timing_sentence_trace,
 )
 from readable_interpretation.final_narrative_semantic_domains import is_unknown_signal
@@ -349,6 +353,26 @@ def native_semantic_trace_error(
     field: str,
     sentence: str,
 ) -> str | None:
+    role_values = (((case.get("finalFactContract") or {}).get("sections") or {}).get(section_id) or {}).get("roleValues") or {}
+    def one(role: str) -> str:
+        values = role_values.get(role) or []
+        if len(values) != 1:
+            raise ValueError(f"expected one {role} fact")
+        return str(values[0])
+
+    # Composed sentences must match all contributors, not just be present in a
+    # catalog. Hard contact boundaries deliberately suppress timing permissions.
+    try:
+        if section_id == "action-direction" and field in {"meaning", "body", "nextMove"}:
+            decision = action_decision(one("action-mode"), one("repair-lever"), one("question"))
+            if decision is not None:
+                expected = dict(zip(("meaning", "nextMove", "body"), decision, strict=True))[field]
+                return None if normalized_sentence(sentence) == normalized_sentence(expected) else "action does not match mode, question and repair target"
+        if section_id == "timing-reading" and one("contact-status") == "blocked" and field in {"body", "nextMove"}:
+            expected = (blocked_window_sentence(one("timing-window")), BLOCKED_TIMING_CONDITION) if field == "body" else (BLOCKED_TIMING_ACTION,)
+            return None if normalized_sentence(sentence) in {normalized_sentence(value) for value in expected} else "blocked timing does not match its window and contact boundary"
+    except ValueError as exc:
+        return str(exc)
     if section_id == "chart-positioning":
         return chart_semantic_trace_error(case, field=field, sentence=sentence)
     if section_id == "relationship-fit":

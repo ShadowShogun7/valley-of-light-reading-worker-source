@@ -6013,6 +6013,7 @@ def western_relationship_profiles(
             precision_warnings.append(f"{quality.get('label') or person_key}缺少可靠時間或城市，Asc/Desc、宮位與 overlay 已封鎖。")
     return {
         "version": "relationship-profiles-v1",
+        "precisionMode": "full" if input_quality.get("overall") == "high" else "partial",
         "principle": "先看兩個人的本命關係操作方式，再看哪些地方比較容易懂彼此、哪些地方需要慢慢對齊，最後才回答用戶問題。",
         "personA": person_a_profile,
         "personB": person_b_profile,
@@ -9145,7 +9146,10 @@ def relationship_case_model_repair_lever(
     secondary_dynamics: list[dict[str, Any]],
     thesis: dict[str, Any],
 ) -> dict[str, Any]:
-    repair = next((item for item in secondary_dynamics if item.get("role") == "repairLever"), {})
+    # A repair target addresses the strongest evidenced problem, not whichever
+    # secondary happened to receive a generic communication role.
+    candidates = [item for item in [primary_dynamic, *secondary_dynamics] if item.get("evidenceIds")]
+    repair = max(candidates, key=lambda item: float(item.get("score") or 0), default={})
     boundary = thesis.get("decisionBoundary") if isinstance(thesis.get("decisionBoundary"), dict) else {}
     tension = thesis.get("dominantTension") if isinstance(thesis.get("dominantTension"), dict) else {}
     source = repair or primary_dynamic
@@ -9159,6 +9163,9 @@ def relationship_case_model_repair_lever(
             or "把下一步縮小到對方能自然接住的位置。"
         ),
         "evidenceIds": unique([str(item) for item in source.get("evidenceIds") or [] if item]),
+        "selectionReason": "highest-supported-dynamic-score",
+        "candidateId": str(source.get("candidateId") or ""),
+        "score": float(source.get("score") or 0),
     }
 
 
@@ -11863,6 +11870,9 @@ def turning_window_item(
     return {
         "title": title,
         "windowLabel": period_label,
+        "kind": kind,
+        "startDate": str(period_range.get("startDate") or trigger.get("target_date") or trigger.get("date") or fallback_date or ""),
+        "endDate": str(period_range.get("endDate") or ""),
         "periodLabel": period_label,
         "categoryLabel": "整體節奏" if str(trigger.get("category_label") or "") == "背景行運" else str(trigger.get("category_label") or title_base_map.get(kind, "")),
         "technical": str(trigger.get("technical_summary") or ""),

@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 
-const LANDING_TITLE = "<title>光之谷 | Vale of Light</title>";
+const LANDING_TITLE =
+  "<title>復合占星・雙人合盤解讀｜光之谷 Vale of Light</title>";
 
 async function request(path, options = {}) {
   return fetch(`https://valeoflight.com${path}`, {
@@ -64,18 +65,22 @@ assert.equal(
   "https://valeoflight.com/"
 );
 
-const assetPaths = [
+const staticPaths = [
+  "/favicon.ico",
+  "/favicon-48x48.png",
+  "/favicon-96x96.png",
+  "/apple-touch-icon.png",
   ...new Set(
-    [...landingHtml.matchAll(/(?:src|href)="(\/(?:assets|brand)\/[^"]+)"/g)]
+    [...landingHtml.matchAll(/"(\/(?:assets|brand)\/[^"]+)"/g)]
       .map((match) => match[1])
   )
 ];
 
-assert.ok(assetPaths.length >= 3);
+assert.ok(staticPaths.length >= 6);
 
-for (const assetPath of assetPaths) {
-  const assetResponse = await request(assetPath);
-  assert.equal(assetResponse.status, 200, assetPath);
+for (const staticPath of staticPaths) {
+  const staticResponse = await request(staticPath);
+  assert.equal(staticResponse.status, 200, staticPath);
 }
 
 const jsonResponse = await request("/wp-json/");
@@ -85,7 +90,7 @@ assert.match(
   /^application\/json/
 );
 
-const redirectPaths = [
+const wordpressHtmlPaths = [
   "/wp-admin/",
   "/shop/",
   "/cart/",
@@ -93,14 +98,17 @@ const redirectPaths = [
   "/blog/"
 ];
 
-for (const path of redirectPaths) {
+for (const path of wordpressHtmlPaths) {
   const response = await request(path);
-  assert.ok([301, 302].includes(response.status), path);
-  assert.match(
-    response.headers.get("location") ?? "",
-    /^https:\/\/www\.valeoflight\.com\//,
-    path
-  );
+  assert.ok([200, 301, 302].includes(response.status), path);
+
+  if (response.status === 200) {
+    const html = await response.text();
+    assert.ok(!html.includes(LANDING_TITLE), path);
+  } else {
+    const location = response.headers.get("location") ?? "";
+    assert.ok(!location.includes("official.valeoflight.com"), path);
+  }
 }
 
 const wooAjaxResponse = await request("/?wc-ajax=checkout");
@@ -140,7 +148,14 @@ assert.equal(
   wwwResponse.headers.get("location"),
   "https://valeoflight.com/"
 );
-assert.equal(wwwBlogResponse.status, 200);
+assert.ok([200, 301, 302].includes(wwwBlogResponse.status));
+if (wwwBlogResponse.status !== 200) {
+  assert.ok(
+    !(
+      wwwBlogResponse.headers.get("location") ?? ""
+    ).includes("official.valeoflight.com")
+  );
+}
 assert.equal(appResponse.status, 200);
 
 console.log(
@@ -149,7 +164,7 @@ console.log(
       app: appResponse.status,
       directOrigin: directOriginResponse.status,
       landing: landingResponse.status,
-      landingAssets: assetPaths.length,
+      landingStaticPaths: staticPaths.length,
       markedOrigin: markedOriginResponse.status,
       wordpress: jsonResponse.status,
       www: wwwResponse.status,

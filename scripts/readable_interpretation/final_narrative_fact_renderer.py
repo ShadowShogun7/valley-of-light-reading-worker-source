@@ -7,6 +7,7 @@ from typing import TypedDict
 
 from .final_narrative_fact_contract import ValidatedFinalNarrativeFactContract
 from .final_narrative_page_grammar import validate_page_grammar
+from .decision_zh_tw_catalog import CORE_CHANGE_CONDITIONS
 from .final_narrative_realization import RealizationForms, RealizationPurpose
 from .final_narrative_semantic_coverage import SectionFactReader
 from .final_narrative_semantic_domains import (
@@ -506,6 +507,18 @@ OBSERVABLE_FORMS = {
     key: RealizationForms(value, OBSERVABLE_SITUATIONAL[key], OBSERVABLE_RELATIONAL[key])
     for key, value in OBSERVABLE_COPY.items()
 }
+
+# The question's change condition must preserve the evidenced mechanism rather
+# than reducing all cases to whether another message arrives.
+
+OBSERVABLE_FORMS.update({
+    f"change-in-{dynamic}": RealizationForms(
+        "真正值得留意的改變是：" + condition,
+        "下一次相處時，可以留意這個改變：" + condition,
+        "能不能繼續走下去，要看：" + condition,
+    )
+    for dynamic, condition in CORE_CHANGE_CONDITIONS.items()
+})
 
 ACTION_MODE_COPY = {
     "boundary-only": ("先尊重已經關上的聯絡界線", "目前不要主動聯絡，也不要改用其他帳號或請朋友代傳"),

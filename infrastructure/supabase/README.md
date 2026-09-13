@@ -1,8 +1,20 @@
 # Supabase production operations
 
-The paid-reading migration creates private data, commerce, delivery, and
+The base paid-reading migration creates private data, commerce, delivery, and
 privacy controls but deliberately does not enable a retention policy or
 schedule a database-owner job.
+
+Production policy `reading-retention-v1-2026-07-31` was approved and activated
+by migration `20260731143000_enable_production_reading_retention.sql` with:
+
+- incomplete readings retained for 30 days after last activity;
+- delivered readings retained for 365 days after delivery or readiness;
+- refunded or revoked readings eligible for deletion immediately;
+- a database-owner retention run at minute 7 of every hour.
+
+Because the database requires every duration to be positive, “immediately” is
+encoded as one second. The hourly scheduler therefore deletes eligible revoked
+content on its next run, normally within one hour.
 
 `reading-retention-cron.sql.example` is the reviewed registration template.
 Use it only after all of these are explicit and approved:

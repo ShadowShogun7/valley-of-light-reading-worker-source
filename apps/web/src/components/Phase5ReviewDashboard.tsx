@@ -1,10 +1,13 @@
 "use client";
 
+import { ReaderChapter } from "@/components/ReaderChapter";
+
 import { Check, ChevronLeft, ChevronRight, Download, RotateCcw, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
 
 const sectionOrder = [
+  "chart-positioning",
   "relationship-fit",
   "core-answer",
   "timing-reading",
@@ -12,6 +15,7 @@ const sectionOrder = [
 ] as const;
 
 const sectionLabels: Record<(typeof sectionOrder)[number], string> = {
+  "chart-positioning": "星盤定位",
   "relationship-fit": "關係型態",
   "core-answer": "核心問題",
   "timing-reading": "時機判讀",
@@ -248,11 +252,7 @@ export function ReadingReviewDashboard({ corpus }: { corpus: ReviewCorpus }) {
 
           <section className="phase5-copy-preview">
             <span>{sectionLabels[activeSection]}</span>
-            <h3>{section.headline}</h3>
-            <strong>{section.meaning}</strong>
-            <p>{section.body}</p>
-            <p>{section.nextMove}</p>
-            <small>{section.caution}</small>
+            <ReaderChapter sectionId={activeSection} section={section} />
           </section>
 
           <section className="phase5-score-grid" aria-label="品質評分">

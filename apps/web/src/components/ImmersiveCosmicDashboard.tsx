@@ -1,8 +1,8 @@
 "use client";
 
 import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
-import { Eye, EyeOff, Orbit, RotateCcw, Sparkles, ZoomIn, ZoomOut } from "lucide-react";
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { ChevronDown, Eye, EyeOff, Orbit, RotateCcw, Sparkles, ZoomIn, ZoomOut } from "lucide-react";
+import { Suspense, useEffect, useId, useMemo, useRef, useState } from "react";
 import { AdditiveBlending, CanvasTexture, CatmullRomCurve3, Color, DoubleSide, LinearFilter, SRGBColorSpace, TextureLoader, Vector3 } from "three";
 import type { Group, Mesh, MeshBasicMaterial, ShaderMaterial } from "three";
 import type {
@@ -390,8 +390,10 @@ export function ImmersiveCosmicDashboard({
 }) {
   const visualModel = useMemo(() => buildVisualModel(data), [data]);
   const scenePlan = useMemo(() => buildChartScenePlan(data, activeStepId, visualModel), [activeStepId, data, visualModel]);
+  const mobilePlanetSelectorId = useId();
   const [mode, setMode] = useState<DashboardMode>("relationship");
   const [selectedId, setSelectedId] = useState(visualModel.defaultSelectedId);
+  const [mobilePlanetSelectorOpen, setMobilePlanetSelectorOpen] = useState(false);
   const [showAspects, setShowAspects] = useState(true);
   const [showZodiac, setShowZodiac] = useState(true);
   const [autoRotate, setAutoRotate] = useState(true);
@@ -400,6 +402,7 @@ export function ImmersiveCosmicDashboard({
   useEffect(() => {
     setMode(scenePlan.defaultMode);
     setSelectedId(scenePlan.selectedPlanetId || visualModel.defaultSelectedId);
+    setMobilePlanetSelectorOpen(false);
     setShowAspects(true);
   }, [scenePlan.defaultMode, scenePlan.selectedPlanetId, visualModel.defaultSelectedId, activeStepId]);
 
@@ -469,7 +472,6 @@ export function ImmersiveCosmicDashboard({
         <div className="immersive-title-lockup">
           <span>光之谷 星盤儀表板</span>
           <h1>{scenePlan.sceneTitle}</h1>
-          <p>{scenePlan.sceneDescription}</p>
         </div>
         <div className="immersive-dashboard-tabs" aria-label="切換星盤視角">
           {(["personA", "personB", "relationship"] as const).map((item) => (
@@ -490,29 +492,11 @@ export function ImmersiveCosmicDashboard({
           <div className="immersive-panel-heading">
             <span>{scenePlan.selectorHeading}</span>
           </div>
-          <div className="immersive-planet-list">
-            {activePlanets.map((planet) => (
-              <button
-                aria-label={`${planet.ownerLabel}的${planet.pointLabel}：${cleanDashboardCopy(planet.placement)}`}
-                aria-pressed={selectedPlanet?.id === planet.id}
-                className="immersive-planet-button"
-                key={planet.id}
-                onClick={() => setSelectedId(planet.id)}
-                type="button"
-              >
-                <span
-                  className="planet-glow-dot"
-                  style={{ backgroundColor: planet.color, backgroundImage: `url(${planet.texture})` }}
-                />
-                <span className="planet-row-copy">
-                  <strong>{planet.pointLabel}</strong>
-                  <small>{planet.ownerLabel}</small>
-                </span>
-                <span className="planet-glyph" aria-hidden="true">{POINT_META[planet.point].glyph}</span>
-                <Eye size={17} aria-hidden="true" />
-              </button>
-            ))}
-          </div>
+          <PlanetSelectorList
+            planets={activePlanets}
+            selectedId={selectedPlanet?.id}
+            onSelect={setSelectedId}
+          />
         </aside>
 
         <div className="immersive-chart-stage">
@@ -569,7 +553,7 @@ export function ImmersiveCosmicDashboard({
         <aside className="immersive-reading-panel" aria-label="目前選定星盤解讀">
           {selectedPlanet ? (
             <>
-              <div className="immersive-reading-head">
+              <div className="immersive-reading-head immersive-reading-head-desktop">
                 <span
                   className="reading-orb"
                   style={{ backgroundColor: selectedPlanet.color, backgroundImage: `url(${selectedPlanet.texture})` }}
@@ -577,6 +561,43 @@ export function ImmersiveCosmicDashboard({
                 <div>
                   <span>{selectedPlanet.ownerLabel}的{selectedPlanet.pointLabel}</span>
                   <h2>{cleanDashboardCopy(selectedPlanet.placement)}</h2>
+                </div>
+              </div>
+              <div className="immersive-mobile-planet-picker">
+                <button
+                  aria-controls={mobilePlanetSelectorId}
+                  aria-expanded={mobilePlanetSelectorOpen}
+                  className="immersive-reading-head immersive-mobile-planet-trigger"
+                  onClick={() => setMobilePlanetSelectorOpen((current) => !current)}
+                  type="button"
+                >
+                  <span
+                    className="reading-orb"
+                    style={{ backgroundColor: selectedPlanet.color, backgroundImage: `url(${selectedPlanet.texture})` }}
+                  />
+                  <span className="immersive-mobile-planet-trigger-copy">
+                    <span>{selectedPlanet.ownerLabel}的{selectedPlanet.pointLabel}</span>
+                    <strong>{cleanDashboardCopy(selectedPlanet.placement)}</strong>
+                  </span>
+                  <ChevronDown className="immersive-mobile-planet-chevron" size={22} aria-hidden="true" />
+                </button>
+                <div
+                  aria-label={scenePlan.selectorHeading}
+                  className="immersive-mobile-planet-selector"
+                  hidden={!mobilePlanetSelectorOpen}
+                  id={mobilePlanetSelectorId}
+                >
+                  <div className="immersive-mobile-planet-selector-heading">
+                    <span>{scenePlan.selectorHeading}</span>
+                  </div>
+                  <PlanetSelectorList
+                    planets={activePlanets}
+                    selectedId={selectedPlanet.id}
+                    onSelect={(planetId) => {
+                      setSelectedId(planetId);
+                      setMobilePlanetSelectorOpen(false);
+                    }}
+                  />
                 </div>
               </div>
               <dl className="immersive-fact-grid">
@@ -597,19 +618,11 @@ export function ImmersiveCosmicDashboard({
                   <dd>{selectedPlanet.modalityLabel ?? "以星座判讀"}</dd>
                 </div>
               </dl>
-              <section className="immersive-reading-copy">
-                <span>這代表什麼</span>
-                <p>{cleanDashboardCopy(selectedPlanet.body || selectedPlanet.meaning)}</p>
-                {selectedPlanet.stuckPattern ? (
-                  <p>{cleanDashboardCopy(selectedPlanet.stuckPattern)}</p>
-                ) : null}
-              </section>
               <section className="immersive-aspect-summary" data-chart-topic={scenePlan.topicKey}>
-                <span>{scenePlan.topicLabel}</span>
-                <strong>{cleanDashboardCopy(scenePlan.topicTitle)}</strong>
-                {scenePlan.topicBody ? <p>{cleanDashboardCopy(scenePlan.topicBody)}</p> : null}
-                {scenePlan.topicDetail ? <p>{cleanDashboardCopy(scenePlan.topicDetail)}</p> : null}
-                <VisualCompanionPlanPanel plan={visualCompanionPlan} />
+                <span>相位資料</span>
+                {relationshipAspects.slice(0, 3).map((aspect) => (
+                  <p key={aspect.id}>{aspect.personAPoint} / {aspect.personBPoint} · {aspect.aspectLabel}{typeof aspect.orb === "number" ? ` · ${aspect.orb.toFixed(1)}°` : ""}</p>
+                ))}
                 <AspectColorLegend aspects={relationshipAspects} />
               </section>
             </>
@@ -619,6 +632,42 @@ export function ImmersiveCosmicDashboard({
         </aside>
       </div>
     </section>
+  );
+}
+
+function PlanetSelectorList({
+  onSelect,
+  planets,
+  selectedId
+}: {
+  onSelect: (planetId: string) => void;
+  planets: VisualPlanet[];
+  selectedId?: string;
+}) {
+  return (
+    <div className="immersive-planet-list">
+      {planets.map((planet) => (
+        <button
+          aria-label={`${planet.ownerLabel}的${planet.pointLabel}：${cleanDashboardCopy(planet.placement)}`}
+          aria-pressed={selectedId === planet.id}
+          className="immersive-planet-button"
+          key={planet.id}
+          onClick={() => onSelect(planet.id)}
+          type="button"
+        >
+          <span
+            className="planet-glow-dot"
+            style={{ backgroundColor: planet.color, backgroundImage: `url(${planet.texture})` }}
+          />
+          <span className="planet-row-copy">
+            <strong>{planet.pointLabel}</strong>
+            <small>{planet.ownerLabel}</small>
+          </span>
+          <span className="planet-glyph" aria-hidden="true">{POINT_META[planet.point].glyph}</span>
+          <Eye size={17} aria-hidden="true" />
+        </button>
+      ))}
+    </div>
   );
 }
 

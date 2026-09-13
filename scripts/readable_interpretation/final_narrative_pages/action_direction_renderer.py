@@ -30,9 +30,10 @@ from ..final_narrative_semantic_domains import (
     QUESTION_KEYS,
     RELATIONSHIP_DYNAMIC_KEYS,
 )
+from ..decision_zh_tw_catalog import action_decision, decision_catalog_errors
 
 
-ACTION_DIRECTION_NATIVE_ZH_TW_CATALOG_VERSION = "action-direction-native-zh-tw-catalog-v5"
+ACTION_DIRECTION_NATIVE_ZH_TW_CATALOG_VERSION = "action-direction-native-zh-tw-catalog-v6"
 
 
 class ActionDirectionNativeChineseError(ValueError):
@@ -604,6 +605,9 @@ def render_action_direction(facts: SectionFactReader, seed: str) -> dict[str, st
         mode_index,
         identity="action-direction:action-mode",
     )
+    decision = action_decision(mode, repair, question)
+    if decision is not None:
+        purpose, next_move, completion = decision
     caution = select_context_variant(
         blocked_stop_variants(stop, selected_blocked),
         caution_index,
@@ -658,7 +662,7 @@ def render_action_direction(facts: SectionFactReader, seed: str) -> dict[str, st
     plan = paragraph_plan(
         section_id=facts.section_id,
         paragraph_kind="one-action-completion-boundary",
-        conclusion_key=f"{question}-{contact}-{mode}-{stop}",
+        conclusion_key=f"{question}-{contact}-{mode}-{repair}-{stop}",
         steps=plan_steps,
         supports=(
             support_from_fact(contact_fact),
@@ -672,6 +676,7 @@ def render_action_direction(facts: SectionFactReader, seed: str) -> dict[str, st
         frames=frames,
         selected_blocked=selected_blocked,
         stop=stop,
+        repair=repair,
     )
     validate_paragraph_output(plan, rendered)
     return rendered
@@ -784,6 +789,18 @@ def action_sentence_traces() -> dict[str, dict[str, str]]:
                         "contributorValueKey": blocked_action,
                     },
                 )
+    for mode in ACTION_MODE_FORMS:
+        for repair in (*RELATIONSHIP_DYNAMIC_KEYS, "unknown"):
+            for question in QUESTION_KEYS:
+                decision = action_decision(mode, repair, question)
+                if decision is None:
+                    continue
+                for role, text in zip(("action-purpose", "action-mode", "completion-boundary"), decision, strict=True):
+                    trace = {
+                        "kind": "paragraph-composition", "role": role,
+                        "purpose": "direct", "contributorRole": "repair-lever",
+                    }
+                    add(text, trace)
     return traces
 
 
@@ -824,6 +841,7 @@ def validate_action_rendered(
     frames: Mapping[str, ReaderMeaningFrame],
     selected_blocked: str,
     stop: str,
+    repair: str,
 ) -> None:
     for frame in frames.values():
         frame.validate()
@@ -858,7 +876,7 @@ def validate_action_rendered(
             "action-direction:caution must state a stopping condition"
         )
     if not re.search(
-        r"停止|不要|不再|只傳|只用|先傳|見面|維持|澄清|修正|道歉|說明|處理|開口|問|停",
+        r"停止|不要|不再|只傳|只用|先傳|見面|維持|澄清|修正|道歉|說明|處理|開口|問|停|寫|記下|完成|提出",
         rendered["nextMove"],
     ):
         raise ActionDirectionNativeChineseError(
@@ -866,9 +884,15 @@ def validate_action_rendered(
         )
 
     assert_frame_trace(rendered["headline"], frames["question"], purpose="direct")
-    assert_frame_trace(rendered["meaning"], frames["purpose"], purpose="direct")
-    assert_frame_trace(rendered["body"], frames["completion"], purpose="direct")
-    assert_frame_trace(rendered["nextMove"], frames["mode"], purpose="direct")
+    decision = action_decision(frames["mode"].value_key, repair, frames["question"].value_key)
+    if decision is None:
+        assert_frame_trace(rendered["meaning"], frames["purpose"], purpose="direct")
+        assert_frame_trace(rendered["body"], frames["completion"], purpose="direct")
+        assert_frame_trace(rendered["nextMove"], frames["mode"], purpose="direct")
+    else:
+        for field, expected in zip(("meaning", "nextMove", "body"), decision, strict=True):
+            if rendered[field] != join_sentences(expected):
+                raise ActionDirectionNativeChineseError(f"action-direction:{field}: decision lost mode/repair ownership")
     caution_trace = assert_frame_trace(
         rendered["caution"],
         frames["stop"],
@@ -893,7 +917,7 @@ def action_catalog_errors() -> list[str]:
         traces = action_sentence_traces()
     except ActionDirectionNativeChineseError as exc:
         return [str(exc)]
-    errors: list[str] = []
+    errors: list[str] = decision_catalog_errors()
     for normalized, trace in traces.items():
         del trace
         issues = audit_native_zh_tw_text(normalized)

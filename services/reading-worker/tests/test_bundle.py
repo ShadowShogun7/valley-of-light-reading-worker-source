@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 from reading_worker.bundle import (
@@ -36,6 +37,9 @@ class BundleTests(unittest.TestCase):
             validated = validate_bundle(kb_dir)
             self.assertEqual(validated["runtime_file_sha256"], recorded["runtime_file_sha256"])
             self.assertTrue((kb_dir / BUNDLE_MANIFEST_NAME).is_file())
+            with patch("reading_worker.bundle.runtime_code_hashes", return_value={"changed.py": "0" * 64}):
+                with self.assertRaisesRegex(BundleValidationError, "code checksum mismatch"):
+                    validate_bundle(kb_dir)
 
             (kb_dir / "kb_claims.json").write_text(
                 json.dumps([{"id": "tampered"}]),

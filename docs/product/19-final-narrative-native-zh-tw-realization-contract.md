@@ -281,6 +281,36 @@ prevent stale or misleading copy:
 
 ### Release invariant
 
+The September 2026 architecture repair extends this invariant to the customer display, not only the
+Python composer:
+
+- Customer and review paragraphs must both use `ReaderChapter`. Missing final fields fail closed.
+  Do not re-mount legacy profile, partner-needs, timing, action, or 3D interpretation panels. Factual
+  placements and visualizations may remain; additional interpretive content needs its own approved
+  page-owned catalog and review coverage first.
+- Hidden does not mean ignored. The evidence-selected repair target must affect the action's purpose,
+  command, and completion where contact policy permits. It must not receive another standalone thesis.
+  Tone repair has a distinct purpose; private-reflection questions suppress conversational suggestions.
+  Blocked contact and shared-space boundaries intentionally override repair-target variation.
+- Specific aspect facts bind to the selected calculation's people, planets, aspect, contact type, orb,
+  strength, and individual claim references. Aggregate evidence cannot authorize a specific aspect.
+  Timing dates and categories come from structured fields, never translated display labels.
+- Calibration and the canonical engine share one visible semantic projection, including hidden
+  contributors that actually change a decision. Aspect differences must not be erased. Intentional
+  boundary/private-reflection equivalence is explicit, not a blanket repetition exception.
+- Keyword counts are diagnostics, not proof of specificity. The automated correspondence gate checks
+  approved sentences against their actual facts and contributors. Human ratings for ease of reading,
+  chart specificity, and page focus remain separate and cannot be auto-approved.
+- A release must rebuild the worker code/KB manifest, canonical record, scenario fixtures, calibration
+  corpus, and review queue from the same source. Customer/review component and CSS changes invalidate
+  review source hashes too. Already delivered readings are immutable unless a separate migration is
+  explicitly approved.
+
+Run `scripts/verify_reading_architecture_repair.py` and
+`apps/web/scripts/smoke-reading-display.mjs` alongside the existing Phase 2-7 and R6 gates. The browser
+test checks all customer chapters, blocked-contact examples, review parity, mobile layout, and the 3D
+canvas. These checks do not replace R7-R8 editorial review and human acceptance.
+
 Every future upgrade must satisfy both sides of the contract:
 
 1. Its supported input changes produce a traceable, specific, approved Chinese interpretation.

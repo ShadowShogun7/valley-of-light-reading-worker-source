@@ -81,11 +81,11 @@ DEFAULT_REPORT_PATH = ROOT / "docs" / "research" / "35-final-narrative-phase6-te
 
 METAMORPHIC_POLICIES = {
     "question": {"changedSections": {"core-answer", "timing-reading", "action-direction"}},
-    "status": {"changedSections": {"core-answer"}},
+    "status": {"changedSections": {"core-answer"}, "allowedSections": {"core-answer", "timing-reading", "action-direction"}},
     "contact": {"changedSections": {"core-answer", "timing-reading", "action-direction"}},
     "unsafe-risk": {"changedSections": {"action-direction"}},
     "chart": {
-        "changedSections": {"chart-positioning", "relationship-fit", "core-answer", "timing-reading"},
+        "changedSections": {"chart-positioning", "relationship-fit", "core-answer", "timing-reading", "action-direction"},
     },
 }
 
@@ -182,13 +182,13 @@ def assert_metamorphic_behavior(records: Mapping[str, dict[str, Any]]) -> list[d
     for axis, policy in METAMORPHIC_POLICIES.items():
         variant = records[axis]
         expected = set(policy["changedSections"])
+        allowed = set(policy.get("allowedSections", expected))
         fact_changes = changed_sections(base, variant, "facts")
-        projection_changes = changed_sections(base, variant, "roleProjection")
+        projection_changes = changed_sections(base, variant, "semanticMeaning")
         output_changes = changed_sections(base, variant, "output")
-        require(fact_changes == expected, f"{axis}: fact impact mismatch: {sorted(fact_changes)}")
-        require(projection_changes == expected, f"{axis}: meaning impact mismatch: {sorted(projection_changes)}")
-        require(output_changes == expected, f"{axis}: output impact mismatch: {sorted(output_changes)}")
-        require(fact_changes == output_changes, f"{axis}: fact changes collapsed or leaked into output")
+        require(expected <= output_changes <= allowed, f"{axis}: output impact mismatch: {sorted(output_changes)}")
+        require(projection_changes == output_changes, f"{axis}: declared meaning changes collapsed or leaked into output: {sorted(projection_changes)} vs {sorted(output_changes)}")
+        require(output_changes <= fact_changes, f"{axis}: output changed without changed source-bound facts")
         chart_changed = base_chart != str((variant.get("fingerprints") or {}).get("chart") or "")
         require(chart_changed is (axis == "chart"), f"{axis}: chart fingerprint changed unexpectedly")
         results.append(

@@ -54,6 +54,32 @@ final class DirectCheckout
             exit;
         }
 
+        $configuredHost = strtolower(
+            (string) wp_parse_url(home_url('/'), PHP_URL_HOST)
+        );
+        $requestHost = strtolower(
+            (string) preg_replace(
+                '/:[0-9]+$/D',
+                '',
+                sanitize_text_field(
+                    wp_unslash((string) ($_SERVER['HTTP_HOST'] ?? ''))
+                )
+            )
+        );
+
+        if ('' !== $configuredHost && $configuredHost !== $requestHost) {
+            wp_safe_redirect(
+                add_query_arg(
+                    self::CACHE_BYPASS_PARAM,
+                    self::CACHE_BYPASS_VALUE,
+                    home_url('/start-reading/')
+                ),
+                302,
+                'Vale of Light Commerce Bridge'
+            );
+            exit;
+        }
+
         if (
             self::CACHE_BYPASS_VALUE
             !== sanitize_key(wp_unslash((string) ($_GET[self::CACHE_BYPASS_PARAM] ?? '')))

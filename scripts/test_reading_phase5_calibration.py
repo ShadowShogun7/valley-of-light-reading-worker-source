@@ -49,6 +49,7 @@ from readable_interpretation.final_narrative_semantic_coverage import (
 from readable_interpretation.final_narrative_story_arc import (
     FINAL_NARRATIVE_ROLE_PRESENTATIONS,
 )
+from readable_interpretation.final_narrative_test_engine import compact_semantic_projection
 from readable_interpretation.section_narrative_spec import (
     SECTION_NARRATIVE_IDS,
     SECTION_NARRATIVE_RENDERER_VERSION,
@@ -144,7 +145,7 @@ TOPIC_FORBIDDEN = {
 }
 MINIMUM_SCORE_AVERAGES = {
     "readability": 4.5,
-    "specificity": 4.5,
+    "semanticCorrespondence": 5.0,
     "relevance": 4.5,
     "emotionalSafety": 5.0,
     "topicOwnership": 5.0,
@@ -184,18 +185,30 @@ def section_semantic_signature(case: dict[str, Any], section_id: str) -> str:
     role_values = fact_section.get("roleValues") if isinstance(fact_section.get("roleValues"), dict) else {}
     if not role_values:
         return ""
-    presentations = FINAL_NARRATIVE_ROLE_PRESENTATIONS.get(section_id) or {}
-    output_owned_values = {
-        role: values
-        for role, values in role_values.items()
-        if presentations.get(role) != "hidden-support"
-    }
     return json.dumps(
-        output_owned_values,
+        compact_semantic_projection(case, section_id),
         ensure_ascii=False,
         sort_keys=True,
         separators=(",", ":"),
     )
+
+
+def semantic_correspondence_errors(case: dict[str, Any], section_id: str) -> list[str]:
+    """Check the meaning binding, not whether prose repeats preferred keywords."""
+    section = (case.get("sections") or {}).get(section_id) or {}
+    fact_section = (((case.get("finalFactContract") or {}).get("sections") or {}).get(section_id) or {})
+    errors = []
+    if not fact_section.get("roleValues") or not fact_section.get("sourceSpecFingerprint"):
+        errors.append("page lacks source-bound facts")
+    for field in VISIBLE_FIELDS:
+        sentences = [sentence.strip() for sentence in SENTENCE_SPLIT.split(str(section.get(field) or "")) if sentence.strip()]
+        if not sentences:
+            errors.append(f"{field}: visible field missing")
+        for sentence in sentences:
+            error = native_semantic_trace_error(case, section_id=section_id, field=field, sentence=sentence)
+            if error:
+                errors.append(f"{field}: {error}")
+    return errors
 
 
 def marker_hits(text: str, markers: tuple[str, ...] | list[str]) -> int:
@@ -336,6 +349,7 @@ def score_pages(cases: list[dict[str, Any]], contract: dict[str, Any]) -> tuple[
             meta_hits = reader_meta_narration_hits(text)
             readability = 5 if maximum_sentence_length(text) <= 150 and not technical_hits else 4 if maximum_sentence_length(text) <= 190 and not technical_hits else 2
             specificity = score_band(marker_hits(text, SPECIFICITY_MARKERS[section_id]), high=3, medium=2)
+            correspondence_errors = semantic_correspondence_errors(case, section_id)
             if section_id == "core-answer":
                 relevance_markers = list(((contract.get("question_expectations") or {}).get(question) or {}).get("required_any") or [])
                 relevance_markers.extend(CORE_RELEVANCE_MARKERS.get(question) or ())
@@ -383,7 +397,7 @@ def score_pages(cases: list[dict[str, Any]], contract: dict[str, Any]) -> tuple[
                 differentiation = 2
             scores = {
                 "readability": readability,
-                "specificity": specificity,
+                "semanticCorrespondence": 1 if correspondence_errors else 5,
                 "relevance": relevance,
                 "emotionalSafety": safety,
                 "topicOwnership": ownership,
@@ -399,6 +413,8 @@ def score_pages(cases: list[dict[str, Any]], contract: dict[str, Any]) -> tuple[
                     "average": round(sum(scores.values()) / len(scores), 2),
                     "technicalHits": technical_hits,
                     "readerMetaHits": meta_hits,
+                    "semanticCorrespondenceErrors": correspondence_errors,
+                    "lexicalSpecificityDiagnostic": specificity,
                     "unsafeHits": unsafe,
                     "topicHits": topic_hits,
                     "maxSentenceLength": maximum_sentence_length(text),
@@ -645,7 +661,7 @@ def render_report(result: dict[str, Any], corpus: dict[str, Any]) -> str:
     score_rows = []
     for section_id in SECTION_NARRATIVE_IDS:
         dimensions = result.get("scoreAverages", {}).get(section_id) or {}
-        score_rows.append([section_id, *[f"{float(dimensions.get(key) or 0):.2f}" for key in ("readability", "specificity", "relevance", "emotionalSafety", "topicOwnership", "differentiation")]])
+        score_rows.append([section_id, *[f"{float(dimensions.get(key) or 0):.2f}" for key in ("readability", "semanticCorrespondence", "relevance", "emotionalSafety", "topicOwnership", "differentiation")]])
     comparison_counts = Counter(str(item.get("type") or "") for item in result.get("comparisonResults") or [] if item.get("passed"))
     lines = [
         "# Phase 5 Structural Calibration Report",
@@ -675,7 +691,7 @@ def render_report(result: dict[str, Any], corpus: dict[str, Any]) -> str:
         "## Automated Page Scores",
         "",
         *markdown_table(
-            ["Section", "Readability", "Specificity", "Relevance", "Safety", "Ownership", "Differentiation"],
+            ["Section", "Readability heuristic", "Fact correspondence", "Relevance", "Safety", "Ownership", "Differentiation"],
             score_rows,
         ),
         "",

@@ -17,6 +17,10 @@ const [
   emailConfirmation,
   accessEmailPolicy,
   accessEmail,
+  directCheckout,
+  ecpayReconciler,
+  thankYouMessage,
+  orderReceivedStyles,
 ] =
   await Promise.all([
     read("valley-of-light-commerce-bridge.php"),
@@ -29,6 +33,10 @@ const [
     read("src/BillingEmailConfirmation.php"),
     read("src/AccessEmailPolicy.php"),
     read("src/AccessEmail.php"),
+    read("src/DirectCheckout.php"),
+    read("src/EcpayPaymentReconciler.php"),
+    read("src/ThankYouMessage.php"),
+    read("assets/order-received.css"),
   ]);
 
 for (const requiredClass of [
@@ -63,8 +71,24 @@ assert.ok(
 );
 assert.match(
   bootstrap,
-  /Version: 0\.3\.0[\s\S]*VOL_COMMERCE_BRIDGE_VERSION', '0\.3\.0'/,
+  /Version: 0\.4\.2[\s\S]*VOL_COMMERCE_BRIDGE_VERSION', '0\.4\.2'/,
   "Plugin header and runtime version must move together.",
+);
+
+assert.match(
+  thankYouMessage,
+  /wp_enqueue_scripts[\s\S]*assets\/order-received\.css/,
+  "The order-received footer correction stylesheet must be enqueued.",
+);
+assert.match(
+  orderReceivedStyles,
+  /body\.woocommerce-order-received[\s\S]*footer\.wp-block-template-part/,
+  "Order-received footer styles must remain scoped to the confirmation page.",
+);
+assert.match(
+  orderReceivedStyles,
+  /@media \(max-width: 700px\)/,
+  "The confirmation footer must retain a mobile layout.",
 );
 
 for (const hook of [
@@ -163,6 +187,36 @@ assert.match(
   /self::isEnabled\(\)[\s\S]*ReadingProduct::configurationIsValid\(\)/,
   "Purchasability must fail closed when the commerce configuration drifts.",
 );
+assert.match(
+  directCheckout,
+  /wp_parse_url\(home_url\('\/'\), PHP_URL_HOST\)[\s\S]*HTTP_HOST[\s\S]*configuredHost !== \$requestHost[\s\S]*home_url\('\/start-reading\/'\)/,
+  "Checkout must reach the canonical WooCommerce host before creating the cart session.",
+);
+assert.match(
+  ecpayReconciler,
+  /EcpayPaymentQueryPolicy::failures[\s\S]*payment_complete/,
+  "A signed ECPay server query must be the only delayed-callback path to payment completion.",
+);
+assert.match(
+  ecpayReconciler,
+  /QueryTradeInfo[\s\S]*PostWithCmvVerifiedEncodedStrResponseService/,
+  "The delayed-callback path must use ECPay's CheckMacValue-verified query service.",
+);
+assert.match(
+  ecpayReconciler,
+  /acceptedOrderInvariantFailures[\s\S]*acceptedOrderEvidenceFailures[\s\S]*BillingEmailConfirmation::evidenceFailures/,
+  "Payment reconciliation must revalidate the immutable order and checkout evidence.",
+);
+for (const reconciliationControl of [
+  "woocommerce_thankyou",
+  "vol_ecpay_reconcile_paid_reading",
+  "MAX_SCHEDULED_ATTEMPTS",
+]) {
+  assert.ok(
+    ecpayReconciler.includes(reconciliationControl),
+    `Payment reconciliation must retain ${reconciliationControl}.`,
+  );
+}
 
 assert.match(
   checkoutGuard,
@@ -196,8 +250,8 @@ assert.match(
 );
 assert.match(
   checkoutTerms,
-  /commerce-terms-2026-07-26-draft/,
-  "Draft legal copy must mint only an explicitly draft consent cohort.",
+  /commerce-terms-2026-07-26/,
+  "Approved legal copy must mint the production consent cohort.",
 );
 assert.match(
   orderMetadata,

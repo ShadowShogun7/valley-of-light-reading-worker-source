@@ -341,7 +341,7 @@ def verify_action_traces() -> int:
         "stop-condition": set(STOP_COPY),
     }
     observed = {
-        role: {trace.get("valueKey") for trace in traces.values() if trace.get("role") == role}
+        role: {trace["valueKey"] for trace in traces.values() if trace.get("role") == role and trace.get("valueKey")}
         for role in expected_roles
     }
     for role, expected in expected_roles.items():
@@ -366,7 +366,7 @@ def verify_page_jobs_and_field_ownership() -> int:
     require("2026 年" in timing["body"], "timing page does not identify the workable window")
     require("完成" in action["body"], "action page lacks a completion boundary")
     require(
-        any(marker in action["nextMove"] for marker in ("只", "先", "不要", "停止")),
+        any(marker in action["nextMove"] for marker in ("只", "先", "不要", "停止", "問一句")),
         "action page lacks one concrete move",
     )
     require(
@@ -423,7 +423,7 @@ def verify_page_jobs_and_field_ownership() -> int:
         require(changed_fields(timing, changed) == expected, f"timing ownership crossed: {overrides}")
 
     action_mutations = (
-        ({"question": ["stay-or-let-go"]}, {"headline"}),
+        ({"question": ["stay-or-let-go"]}, {"headline", "meaning", "body", "nextMove"}),
         ({"contact-status": ["no-contact"]}, set()),
         (
             {
@@ -431,9 +431,9 @@ def verify_page_jobs_and_field_ownership() -> int:
                 "action-mode": ["tone-repair-in-existing-channel"],
                 "completion-boundary": ["tone-repair-in-existing-channel"],
             },
-            {"meaning", "body", "nextMove"},
+            {"meaning"},
         ),
-        ({"repair-lever": ["emotional-safety"]}, set()),
+        ({"repair-lever": ["emotional-safety"]}, {"meaning", "body", "nextMove"}),
         ({"stop-condition": ["anxiety-guard"]}, {"caution"}),
         ({"contact-posture": ["watch-initiation"]}, set()),
         (

@@ -42,6 +42,17 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def runtime_code_hashes() -> dict[str, str]:
+    root = Path(__file__).resolve().parents[3]
+    files = {root / "scripts" / name for name in (
+        "complete_relationship_result_runtime.py", "calc_western_spike.py",
+        "relationship_status_answer_policy.py", "structured_runtime.py", "kb_utils.py",
+    )}
+    for directory in ("scripts/readable_interpretation", "calculation/western", "services/reading-worker/reading_worker"):
+        files.update((root / directory).rglob("*.py"))
+    return {path.relative_to(root).as_posix(): sha256_file(path) for path in sorted(files)}
+
+
 def record_bundle(
     kb_dir: Path,
     *,
@@ -77,6 +88,7 @@ def record_bundle(
         "counts": counts,
         "kb_manifest_sha256": sha256_file(kb_manifest_path),
         "runtime_file_sha256": runtime_files,
+        "runtime_code_sha256": runtime_code_hashes(),
     }
     output_path = kb_dir / BUNDLE_MANIFEST_NAME
     output_path.write_text(
@@ -115,6 +127,8 @@ def validate_bundle(
             )
 
     counts = _validate_kb_files(kb_dir)
+    if bundle.get("runtime_code_sha256") != runtime_code_hashes():
+        raise BundleValidationError("Worker calculation/realization code checksum mismatch; rebuild the bundle")
     if bundle.get("counts") != counts:
         raise BundleValidationError("Worker bundle counts do not match runtime files")
 
@@ -151,6 +165,7 @@ def source_fingerprints(bundle: dict[str, Any]) -> dict[str, Any]:
         "publishedOnly": bundle["published_only"],
         "resultContractVersion": bundle["result_contract_version"],
         "runtimeFileSha256": dict(bundle["runtime_file_sha256"]),
+        "runtimeCodeSha256": dict(bundle["runtime_code_sha256"]),
         "runtimeVersion": bundle["runtime_version"],
     }
 

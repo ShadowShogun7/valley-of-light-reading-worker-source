@@ -14,6 +14,7 @@ from dataclasses import dataclass
 from typing import Any, Iterable
 
 from .schema import FinalNarrativeFact, FinalNarrativeFactContract
+from .final_narrative_semantic_domains import parse_relationship_signal
 from .final_narrative_semantic_coverage import (
     FINAL_NARRATIVE_SEMANTIC_COVERAGE_VERSION,
     FINAL_NARRATIVE_ROLE_DISPOSITIONS,
@@ -26,7 +27,7 @@ from .final_narrative_story_arc import (
 )
 
 
-FINAL_NARRATIVE_FACT_CONTRACT_VERSION = "final-narrative-fact-contract-v4"
+FINAL_NARRATIVE_FACT_CONTRACT_VERSION = "final-narrative-fact-contract-v5"
 FINAL_NARRATIVE_FACT_RENDERER_MODE = "fact-only"
 FINAL_FACT_SECTION_IDS = (
     "chart-positioning",
@@ -272,6 +273,10 @@ def source_spec_fingerprint(spec: dict[str, Any]) -> str:
             "id": str(item.get("id") or ""),
             "domain": str(item.get("domain") or ""),
             "conceptKey": str(item.get("conceptKey") or ""),
+            "signalKey": item.get("signalKey"),
+            "calculationIdentity": item.get("calculationIdentity"),
+            "sourceClaimIds": item.get("sourceClaimIds") or [],
+            "methodClaimIds": item.get("methodClaimIds") or [],
         }
         for item in spec.get("evidence") or []
         if isinstance(item, dict)
@@ -301,6 +306,10 @@ def source_binding_fingerprint(fact: dict[str, Any], spec: dict[str, Any]) -> st
             "qualifiers": [str(item) for item in fact.get("qualifiers") or []],
             "sourceSlot": source_slot,
             "sourceValue": slots.get(source_slot),
+            "evidence": [
+                item for item in spec.get("evidence") or []
+                if item.get("id") in fact.get("evidenceIds", [])
+            ],
         },
         ensure_ascii=False,
         sort_keys=True,
@@ -383,6 +392,26 @@ def validate_fact_section(
             errors.append(f"fact[{index}] has no evidence")
         if not owned_evidence <= evidence_ids:
             errors.append(f"fact[{index}] references unowned evidence: {sorted(owned_evidence - evidence_ids)}")
+        if role in {"attraction-signal", "friction-signal", "growth-signal", "evidence-signal"}:
+            bound_signals = [
+                item.get("signalKey") for item in spec.get("evidence") or []
+                if item.get("id") in owned_evidence and item.get("signalKey")
+            ]
+            if bound_signals and value_key not in bound_signals:
+                errors.append(f"fact[{index}] aspect identity does not entail selected signal")
+            if not is_unknown_value(value_key) and not bound_signals:
+                errors.append(f"fact[{index}] signal lacks exact aspect evidence")
+            for evidence in spec.get("evidence") or []:
+                if evidence.get("id") not in owned_evidence or not evidence.get("signalKey"):
+                    continue
+                identity = evidence.get("calculationIdentity") or {}
+                try:
+                    signal = parse_relationship_signal(value_key)
+                    point_a, point_b = (signal.actor_planet, signal.receiver_planet) if signal.actor_person == "persona" else (signal.receiver_planet, signal.actor_planet)
+                    if (canonical_value_key(identity.get("personAPoint")), canonical_value_key(identity.get("personBPoint")), canonical_value_key(identity.get("aspect")), canonical_value_key(identity.get("contactType"))) != (point_a, point_b, signal.aspect, signal.polarity):
+                        errors.append(f"fact[{index}] calculation identity contradicts selected signal")
+                except ValueError:
+                    errors.append(f"fact[{index}] selected signal is not parseable")
         qualifiers = [str(item) for item in fact.get("qualifiers") or []]
         if any(not FACT_KEY_PATTERN.fullmatch(item) for item in qualifiers):
             errors.append(f"fact[{index}] has a non-ASCII qualifier")
