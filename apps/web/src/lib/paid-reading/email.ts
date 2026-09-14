@@ -13,7 +13,8 @@ import { fetchWooCommerceOrderForDelivery } from "@/lib/paid-reading/woocommerce
 
 export const INTAKE_TEMPLATE_VERSION = "woo-paid-intake-v1";
 export const RESULT_TEMPLATE_VERSION = "woo-result-ready-v1";
-export const RECOVERY_TEMPLATE_VERSION = "woo-access-recovery-v1";
+// Recovery identity is shared with the database queue, independent of email provider.
+export const RECOVERY_TEMPLATE_VERSION = "paid-access-recovery-v1";
 
 type NotificationInput = {
   billingEmail: string;
