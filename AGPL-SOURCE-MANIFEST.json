@@ -334,13 +334,13 @@
     },
     {
       "path": "apps/web/src/lib/paid-reading/email.test.ts",
-      "sha256": "6685429b1ff22a979f6721668dfa76794a475b3d015e2de36e2d1a9d72c238ea",
-      "size": 1913
+      "sha256": "819df790b51bc16eaea3bf0c788e3ebe7e23acde90000a7f146ee6447cb97658",
+      "size": 2938
     },
     {
       "path": "apps/web/src/lib/paid-reading/email.ts",
-      "sha256": "d3631fac03e07599196c20386ad22da56ff6bcb47ef591c76781901040ec4b09",
-      "size": 7667
+      "sha256": "6e2328940a31c1cd2d98b1115700303bee91ad4e8db6042f2c7370da07b21ea5",
+      "size": 7755
     },
     {
       "path": "apps/web/src/lib/paid-reading/env.test.ts",
@@ -381,6 +381,11 @@
       "path": "apps/web/src/lib/paid-reading/reader-chapter.ts",
       "sha256": "9a0b50d797eb133c3d26f04679c7e21a8a4689dc26baa6abd6979280b15941dd",
       "size": 1268
+    },
+    {
+      "path": "apps/web/src/lib/paid-reading/recovery.test.ts",
+      "sha256": "9446bb7dd72052905471646cfa8871a76ef5d18e508f00928e393e92352d5561",
+      "size": 6681
     },
     {
       "path": "apps/web/src/lib/paid-reading/repository.ts",
@@ -2549,6 +2554,6 @@
     }
   ],
   "license": "AGPL-3.0-or-later",
-  "releaseId": "v2026.09.13.2",
-  "sourceUrl": "https://github.com/ShadowShogun7/valley-of-light-reading-worker-source/releases/download/v2026.09.13.2/valley-of-light-agpl-source-v2026.09.13.2.zip"
+  "releaseId": "v2026.09.14.1",
+  "sourceUrl": "https://github.com/ShadowShogun7/valley-of-light-reading-worker-source/releases/download/v2026.09.14.1/valley-of-light-agpl-source-v2026.09.14.1.zip"
 }

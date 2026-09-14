@@ -4,8 +4,33 @@ import path from "node:path";
 import test from "node:test";
 import {
   buildWooEmailProviderRequest,
+  RECOVERY_TEMPLATE_VERSION,
   wooBillingEmailMatchesStored,
 } from "@/lib/paid-reading/email";
+
+test("recovery requests and email claims use the database's provider-neutral identity", async () => {
+  assert.equal(RECOVERY_TEMPLATE_VERSION, "paid-access-recovery-v1");
+  const sql = await readFile(path.resolve(
+    process.cwd(),
+    "../../supabase/migrations/20260726170000_add_paid_reading_delivery.sql"
+  ), "utf8");
+  for (const fragment of [
+    `'^${RECOVERY_TEMPLATE_VERSION}:[0-9a-f-]{36}$'`,
+    `'${RECOVERY_TEMPLATE_VERSION}:' || p_candidate_grant_id::text`,
+    `'${RECOVERY_TEMPLATE_VERSION}:' || v_grant.id::text`,
+    `'${RECOVERY_TEMPLATE_VERSION}:' || p_replacement_grant_id::text`,
+  ]) {
+    assert.ok(sql.includes(fragment), fragment);
+  }
+  for (const file of [
+    "src/app/api/reading-access/recover/route.ts",
+    "src/lib/paid-reading/email.ts",
+  ]) {
+    const source = await readFile(path.resolve(process.cwd(), file), "utf8");
+    assert.match(source, /`\$\{RECOVERY_TEMPLATE_VERSION\}:\$\{/);
+    assert.doesNotMatch(source, /woo-access-recovery-v1/);
+  }
+});
 
 test("Woo email notification contains references but no raw link or personal data", () => {
   const request = buildWooEmailProviderRequest({
